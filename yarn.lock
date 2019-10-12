@@ -13,14 +13,25 @@
     rxjs "6.4.0"
     source-map "0.7.3"
 
-"@angular-devkit/schematics-cli@0.803.6":
-  version "0.803.6"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics-cli/-/schematics-cli-0.803.6.tgz#edf16a8c3b8a733f9e38d2a0b28b9e158b7a679e"
-  integrity sha512-1EeUwp6fU6Cz0XrCkoS/kYvKGAzNafCBJk0VexmPKgaHBdxjsUQNmc0F1Kk33cEf5bd/gkQ43HIovqZOFcsYXA==
+"@angular-devkit/core@8.3.8":
+  version "8.3.8"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-8.3.8.tgz#3177abf49a4486d1287256b65638548440c5cea2"
+  integrity sha512-HwlMRr6qANwhOJS+5rGgQ2lmP4nj2C4cbUc0LlA09Cdbq0RnDquUFVqHF6h81FUKFW1D5qDehWYHNOVq8+gTkQ==
   dependencies:
-    "@angular-devkit/core" "8.3.6"
-    "@angular-devkit/schematics" "8.3.6"
-    "@schematics/schematics" "0.803.6"
+    ajv "6.10.2"
+    fast-json-stable-stringify "2.0.0"
+    magic-string "0.25.3"
+    rxjs "6.4.0"
+    source-map "0.7.3"
+
+"@angular-devkit/schematics-cli@0.803.8":
+  version "0.803.8"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics-cli/-/schematics-cli-0.803.8.tgz#b8f2da1d5d4ad0f20c078a7defc71d7d5ab2149b"
+  integrity sha512-sMiNi1zZnRzyjjqoDzk4wHe13LVpCUKir+xLIZaSeW0F3yFMAPs60zajMA4uwxEB57E74eN81O83oXWOFrL86w==
+  dependencies:
+    "@angular-devkit/core" "8.3.8"
+    "@angular-devkit/schematics" "8.3.8"
+    "@schematics/schematics" "0.803.8"
     inquirer "6.5.1"
     minimist "1.2.0"
     rxjs "6.4.0"
@@ -32,6 +43,14 @@
   integrity sha512-5I4WDIMHw8zuajhXdy2xjtJLglMWE2Bo1Ri4wFR8cmj8nXUQ1fdPMWg3CqiepcNls2c8xXXMBMHZb/FhC32sBw==
   dependencies:
     "@angular-devkit/core" "8.3.6"
+    rxjs "6.4.0"
+
+"@angular-devkit/schematics@8.3.8":
+  version "8.3.8"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-8.3.8.tgz#7e4840509c2ca922b90ca2b33111c1941450aad5"
+  integrity sha512-1KnluRj86QO6fDE++iNbUHq1nNHpz0ZQDs/siy+tDtenO5TxAO/vegHYNKvsIcMMUF9z2kHA0qwUbq5oN8K85g==
+  dependencies:
+    "@angular-devkit/core" "8.3.8"
     rxjs "6.4.0"
 
 "@apollographql/apollo-tools@^0.4.0":
@@ -521,14 +540,14 @@
     mkdirp "^0.5.1"
     rimraf "^2.5.2"
 
-"@nestjs/cli@^6.9.0":
-  version "6.10.1"
-  resolved "https://registry.yarnpkg.com/@nestjs/cli/-/cli-6.10.1.tgz#013767d0f9f1208e391892c3f076d1ddb5f2649e"
-  integrity sha512-KYBjZEx1GmCYl4TPW5dFZBKbkimlImLGsJZmQ2uHyquj5OgKCbbezT5f18/o7DKmcmO24t1vZOils9fUlUiINw==
+"@nestjs/cli@^6.10.2":
+  version "6.10.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/cli/-/cli-6.10.2.tgz#77855d250f95608582f2fc58148d53be1fac4d35"
+  integrity sha512-Ba9L8VTaV5WtSn0JpPoDfqJNNsyA0kXSGFGzD1JU1/jZqeOT8bXI7R2F9G3bpkzilbWtnmINWYkWp7H0WNbo9g==
   dependencies:
-    "@angular-devkit/core" "8.3.6"
-    "@angular-devkit/schematics" "8.3.6"
-    "@angular-devkit/schematics-cli" "0.803.6"
+    "@angular-devkit/core" "8.3.8"
+    "@angular-devkit/schematics" "8.3.8"
+    "@angular-devkit/schematics-cli" "0.803.8"
     "@nestjs/schematics" "^6.6.3"
     "@types/webpack" "4.39.2"
     chalk "2.4.2"
@@ -717,13 +736,13 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@schematics/schematics@0.803.6":
-  version "0.803.6"
-  resolved "https://registry.yarnpkg.com/@schematics/schematics/-/schematics-0.803.6.tgz#628fe91dfe596945cc7f50c14b4d2f6a7dc125dd"
-  integrity sha512-HfUEdfl2VITO0gl0unAEyqbg3EWKdOeHodUTRVRI6yrOPcQeySLkffyviR7cUG4VSHX6slTPSUcRmii+vRgdfQ==
+"@schematics/schematics@0.803.8":
+  version "0.803.8"
+  resolved "https://registry.yarnpkg.com/@schematics/schematics/-/schematics-0.803.8.tgz#12a4ea199eeb966fe1c17650059e7ada7a321474"
+  integrity sha512-bxi4GEFXuRjaB2H2ObJPYGEivknKnYXpGcsbh6mus6AchkmitKddK3CWIj5/KEOWBXWrDN+DC3m+fzkl8ZASSg==
   dependencies:
-    "@angular-devkit/core" "8.3.6"
-    "@angular-devkit/schematics" "8.3.6"
+    "@angular-devkit/core" "8.3.8"
+    "@angular-devkit/schematics" "8.3.8"
 
 "@types/accepts@*", "@types/accepts@^1.3.5":
   version "1.3.5"
@@ -2815,6 +2834,13 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
+cross-env@^6.0.3:
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/cross-env/-/cross-env-6.0.3.tgz#4256b71e49b3a40637a0ce70768a6ef5c72ae941"
+  integrity sha512-+KqxF6LCvfhWvADcDPqo64yVIB31gv/jQulX2NGzKS/g3GEVz6/pt4wjHFtFWsHMddebWD/sDthJemzM4MaAag==
+  dependencies:
+    cross-spawn "^7.0.0"
+
 cross-fetch@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.0.4.tgz#7bef7020207e684a7638ef5f2f698e24d9eb283c"
@@ -2833,6 +2859,15 @@ cross-spawn@^6.0.0, cross-spawn@^6.0.5:
     semver "^5.5.0"
     shebang-command "^1.2.0"
     which "^1.2.9"
+
+cross-spawn@^7.0.0:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-7.0.1.tgz#0ab56286e0f7c24e153d04cc2aa027e43a9a5d14"
+  integrity sha512-u7v4o84SwFpD32Z8IIcPZ6z1/ie24O6RU3RbtL5Y316l3KuHVPx9ItBgWQ6VlfAFnRnTtMUrsQ9MUUTuEZjogg==
+  dependencies:
+    path-key "^3.1.0"
+    shebang-command "^2.0.0"
+    which "^2.0.1"
 
 crypto-browserify@^3.11.0:
   version "3.12.0"
@@ -7349,7 +7384,7 @@ path-key@^2.0.0, path-key@^2.0.1:
   resolved "https://registry.yarnpkg.com/path-key/-/path-key-2.0.1.tgz#411cadb574c5a140d3a4b1910d40d80cc9f40b40"
   integrity sha1-QRyttXTFoUDTpLGRDUDYDMn0C0A=
 
-path-key@^3.0.0:
+path-key@^3.0.0, path-key@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/path-key/-/path-key-3.1.0.tgz#99a10d870a803bdd5ee6f0470e58dfcd2f9a54d3"
   integrity sha512-8cChqz0RP6SHJkMt48FW0A7+qUOn+OsnOsVtzI59tZ8m+5bCSk7hzwET0pulwOM2YMn9J1efb07KB9l9f30SGg==
@@ -8383,10 +8418,22 @@ shebang-command@^1.2.0:
   dependencies:
     shebang-regex "^1.0.0"
 
+shebang-command@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/shebang-command/-/shebang-command-2.0.0.tgz#ccd0af4f8835fbdc265b82461aaf0c36663f34ea"
+  integrity sha512-kHxr2zZpYtdmrN1qDjrrX/Z1rR1kG8Dx+gkpK1G4eXmvXswmcE1hTWBWYUzlraYw1/yZp6YuDY77YtvbN0dmDA==
+  dependencies:
+    shebang-regex "^3.0.0"
+
 shebang-regex@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-1.0.0.tgz#da42f49740c0b42db2ca9728571cb190c98efea3"
   integrity sha1-2kL0l0DAtC2yypcoVxyxkMmO/qM=
+
+shebang-regex@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-3.0.0.tgz#ae16f1644d873ecad843b0307b143362d4c42172"
+  integrity sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
 
 shelljs@0.7.6:
   version "0.7.6"
@@ -9666,6 +9713,13 @@ which@^1.2.14, which@^1.2.9, which@^1.3.0:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/which/-/which-1.3.1.tgz#a45043d54f5805316da8d62f9f50918d3da70b0a"
   integrity sha512-HxJdYWq1MTIQbJ3nw0cqssHoTNU267KlrDuGZ1WYlxDStUtKUhOaJmh112/TZmHxxUfuJqPXSOm7tDyas0OSIQ==
+  dependencies:
+    isexe "^2.0.0"
+
+which@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/which/-/which-2.0.1.tgz#f1cf94d07a8e571b6ff006aeb91d0300c47ef0a4"
+  integrity sha512-N7GBZOTswtB9lkQBZA4+zAXrjEIWAUOB93AvzUiudRzRxhUdLURQ7D/gAIMY1gatT/LTbmbcv8SiYazy3eYB7w==
   dependencies:
     isexe "^2.0.0"
 
