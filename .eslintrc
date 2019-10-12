@@ -21,18 +21,13 @@
     "camelcase": "off",
     "no-underscore-dangle": "off",
     "function-paren-newline": "off",
-    "object-curly-newline": "off",
     "no-console": "off", // TODO:
-    "no-magic-numbers": "off", // FIXME:
     "import/no-unresolved": "off", // FIXME:
     "class-methods-use-this": "off" // FIXME:
   },
-  "jsRules": {
-    "object-literal-sort-keys": false
-  },
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx"],
+      "files": ["*.ts"],
       "rules": {
         "@typescript-eslint/no-unused-vars": [2, { "args": "none" }]
       }
