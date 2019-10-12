@@ -16,8 +16,8 @@ _This library is part of the [BPG (Blog Program Group)](https://github.com/Yance
 [![Gitter](https://badges.gitter.im/yancey-official/community.svg)](https://gitter.im/yancey-official/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/Yancey-Blog/blog-be-next.svg)](http://isitmaintained.com/project/Yancey-Blog/blog-be-next 'Average time to resolve an issue')
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/Yancey-Blog/blog-be-next.svg)](http://isitmaintained.com/project/Yancey-Blog/blog-be-next 'Percentage of issues still open')
-
 [![Node](https://img.shields.io/badge/node-%3E%3D10.16.0-orange.svg)](https://nodejs.org/en/)
+
 [![David-Dm](https://david-dm.org/Yancey-Blog/blog-be-next.svg)](https://david-dm.org/Yancey-Blog/blog-be-next)
 [![David-Dm](https://david-dm.org/Yancey-Blog/blog-be-next/dev-status.svg)](https://david-dm.org/Yancey-Blog/blog-be-next?type=dev)
 [![David-Dm](https://david-dm.org/Yancey-Blog/blog-be-next/peer-status.svg)](https://david-dm.org/Yancey-Blog/blog-be-next?type=peer)
