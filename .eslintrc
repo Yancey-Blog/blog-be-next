@@ -21,11 +21,14 @@
     "camelcase": "off",
     "no-underscore-dangle": "off",
     "function-paren-newline": "off",
-    "private": "off",
+    "object-curly-newline": "off",
     "no-console": "off", // TODO:
+    "no-magic-numbers": "off", // FIXME:
     "import/no-unresolved": "off", // FIXME:
-    "class-methods-use-this": "off", // FIXME:
-    "object-curly-newline": "off" // FIXME:
+    "class-methods-use-this": "off" // FIXME:
+  },
+  "jsRules": {
+    "object-literal-sort-keys": false
   },
   "overrides": [
     {
