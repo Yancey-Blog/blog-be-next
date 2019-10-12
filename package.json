@@ -30,7 +30,7 @@
     "@nestjs/platform-express": "^6.7.2",
     "@nestjs/platform-fastify": "^6.8.3",
     "ali-oss": "^6.1.1",
-    "apollo-server-express": "^2.9.5",
+    "apollo-server-express": "^2.9.6",
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "bunyan": "^1.8.12",
