@@ -1,4 +1,4 @@
-export const MAX_SIZE = 20 * 1024 * 1000
+export const MAX_SIZE = 20 * 1024 * 1024
 
 export const FORMIDABLE = {
   maxFileSize: MAX_SIZE,

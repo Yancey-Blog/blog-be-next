@@ -20,6 +20,8 @@
     "implicit-arrow-linebreak": "off",
     "camelcase": "off",
     "no-underscore-dangle": "off",
+    "function-paren-newline": "off",
+    "private": "off",
     "no-console": "off", // TODO:
     "import/no-unresolved": "off", // FIXME:
     "class-methods-use-this": "off", // FIXME:

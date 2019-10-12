@@ -11,19 +11,19 @@ export class UserService {
 
   private readonly userById: UserById = zipObj<IUser>(this.allIds, this.users)
 
-  getHello(): string {
+  public getHello(): string {
     return 'happy fuck'
   }
 
-  create(user: IUser) {
+  public create(user: IUser) {
     this.users.push(user)
   }
 
-  findAllUsers(): IUser[] {
+  public findAllUsers(): IUser[] {
     return this.users
   }
 
-  findUserById(id: string): IUser | undefined {
+  public findUserById(id: string): IUser | undefined {
     return this.userById[id]
   }
 }

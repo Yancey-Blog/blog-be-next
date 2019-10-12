@@ -1,7 +1,7 @@
 export class CreateUserDto {
-  readonly name: string
+  private readonly name: string
 
-  readonly age: number
+  private readonly age: number
 
-  readonly gender: string
+  private readonly gender: string
 }

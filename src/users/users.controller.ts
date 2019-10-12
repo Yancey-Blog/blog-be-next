@@ -13,25 +13,25 @@ export class UserController {
 
   @Get()
   @HttpCode(200)
-  getAllUsers(): Observable<IUser[]> {
+  public getAllUsers(): Observable<IUser[]> {
     console.log(process.env.DATABASE_DB)
     return of(this.userService.findAllUsers())
   }
 
   @Get(':id')
-  getUserById(@Param() param: IParam): Observable<IUser> {
+  public getUserById(@Param() param: IParam): Observable<IUser> {
     const { id } = param
     return of(this.userService.findUserById(id))
   }
 
   @Post()
-  addUser(@Body() createUserDto: CreateUserDto): Observable<boolean> {
+  public addUser(@Body() createUserDto: CreateUserDto): Observable<boolean> {
     console.log(createUserDto)
     return of(true)
   }
 
   @Get()
-  getHello(): string {
+  public getHello(): string {
     return this.userService.getHello()
   }
 }
