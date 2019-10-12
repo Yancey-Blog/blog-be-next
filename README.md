@@ -25,6 +25,7 @@ _This library is part of the [BPG (Blog Program Group)](https://github.com/Yance
 <a href="https://www.patreon.com/yancey">
   <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" alt="Become a Patron" width="160">
 </a>
+<a href="https://app.fossa.io/projects/git%2Bgithub.com%2FYancey-Blog%2Fblog-be-next?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2FYancey-Blog%2Fblog-be-next.svg?type=shield"/></a>
 
 </div>
 
@@ -71,3 +72,6 @@ Builds the app for production to the `dist` folder.
 ## License
 
 BLOG BE Next is licensed under the terms of the [MIT licensed](https://opensource.org/licenses/MIT).
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FYancey-Blog%2Fblog-be-next.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FYancey-Blog%2Fblog-be-next?ref=badge_large)
