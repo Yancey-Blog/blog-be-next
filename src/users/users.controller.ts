@@ -14,7 +14,7 @@ export class UserController {
   @Get()
   @HttpCode(200)
   public getAllUsers(): Observable<IUser[]> {
-    console.log(process.env.DATABASE_DB)
+    console.log(process.env)
     return of(this.userService.findAllUsers())
   }
 

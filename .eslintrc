@@ -21,6 +21,7 @@
     "camelcase": "off",
     "no-underscore-dangle": "off",
     "function-paren-newline": "off",
+    "object-curly-newline": "off",
     "no-console": "off", // TODO:
     "import/no-unresolved": "off", // FIXME:
     "class-methods-use-this": "off" // FIXME:
