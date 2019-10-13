@@ -1,5 +1,4 @@
-import { zipObj } from 'ramda'
-import { IUser, UserById } from '../users/types'
+import { IUser } from '../users/types'
 
 export const users: IUser[] = [
   {
@@ -29,6 +28,3 @@ export const users: IUser[] = [
     updated_at: '2019-09-29T11:53:11.595Z',
   },
 ]
-
-export const allIds = users.map((user: IUser) => user._id)
-export const userById: UserById = zipObj<IUser>(allIds, users)

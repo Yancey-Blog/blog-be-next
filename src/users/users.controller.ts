@@ -1,4 +1,3 @@
-// 控制器层负责处理传入的请求, 并返回对客户端的响应。
 import { Controller, Get, Post, HttpCode, Param, Body } from '@nestjs/common'
 import { Observable, of } from 'rxjs'
 import { UserService } from './users.service'
@@ -14,24 +13,17 @@ export class UserController {
   @Get()
   @HttpCode(200)
   public getAllUsers(): Observable<IUser[]> {
-    console.log(process.env)
     return of(this.userService.findAllUsers())
   }
 
   @Get(':id')
-  public getUserById(@Param() param: IParam): Observable<IUser> {
+  public getUserById(@Param() param: IParam): Observable<IUser | undefined> {
     const { id } = param
     return of(this.userService.findUserById(id))
   }
 
   @Post()
   public addUser(@Body() createUserDto: CreateUserDto): Observable<boolean> {
-    console.log(createUserDto)
-    return of(true)
-  }
-
-  @Get()
-  public getHello(): string {
-    return this.userService.getHello()
+    return of(this.userService.create(createUserDto))
   }
 }

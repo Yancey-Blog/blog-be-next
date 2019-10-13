@@ -1,19 +1,15 @@
 export interface IHobby {
-  _id: string
-  name: string
+  readonly _id: string
+  readonly name: string
 }
 
 export interface IUser {
-  _id: string
-  name: string
-  age: number
-  gender: string
-  role: 'SUPERUSER' | 'ADMIN' | 'STAFF'
-  hobbies: IHobby[]
-  created_at: string
-  updated_at: string
-}
-
-export interface UserById {
-  [key: string]: IUser
+  readonly _id: string
+  readonly name: string
+  readonly age: number
+  readonly gender: string
+  readonly role: 'SUPERUSER' | 'ADMIN' | 'STAFF'
+  readonly hobbies: IHobby[]
+  readonly created_at: string
+  readonly updated_at: string
 }

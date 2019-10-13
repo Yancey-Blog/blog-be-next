@@ -1,22 +1,14 @@
 import { Injectable } from '@nestjs/common'
-import { zipObj } from 'ramda'
 import { users as dataSource } from '../mocks'
-import { IUser, UserById } from './interfaces/user.interface'
+import { IUser } from './interfaces/user.interface'
+import { CreateUserDto } from './dtos/createUser.dto'
 
 @Injectable()
 export class UserService {
   private readonly users: IUser[] = dataSource
 
-  private readonly allIds: string[] = this.users.map((user: IUser) => user._id)
-
-  private readonly userById: UserById = zipObj<IUser>(this.allIds, this.users)
-
-  public getHello(): string {
-    return 'happy fuck'
-  }
-
-  public create(user: IUser) {
-    this.users.push(user)
+  public create(user: CreateUserDto) {
+    return !!user
   }
 
   public findAllUsers(): IUser[] {
@@ -24,6 +16,6 @@ export class UserService {
   }
 
   public findUserById(id: string): IUser | undefined {
-    return this.userById[id]
+    return this.users.find((user: IUser) => user._id === id)
   }
 }
