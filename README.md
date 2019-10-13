@@ -75,4 +75,4 @@ Builds the app for production to the `dist` folder.
 
 ## License
 
-Blog be next is under the [MIT licensed](https://opensource.org/licenses/MIT). See the [LICENSE](https://github.com/Yancey-Blog/blog-be-next/LICENSE) file for the full license text.
+Blog be next is under the [MIT licensed](https://opensource.org/licenses/MIT). See the [LICENSE](https://github.com/Yancey-Blog/blog-be-next/blob/master/LICENSE) file for the full license text.
