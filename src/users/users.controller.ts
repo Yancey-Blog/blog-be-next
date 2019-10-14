@@ -15,7 +15,6 @@ import { UserService } from './users.service'
 import { CreateUserDto } from './dtos/createUser.dto'
 import { IUserController } from './interfaces/user-controller.interface'
 import { IUser } from './interfaces/user.interface'
-// import { HttpExceptionFilter } from '../filters/http-exception.filter'
 
 @Controller('user')
 export class UserController implements IUserController {
@@ -33,7 +32,7 @@ export class UserController implements IUserController {
     throw new HttpException(
       {
         status: HttpStatus.UNAUTHORIZED,
-        message: '你知道错了吗',
+        message: '知道错了吗',
       },
       401,
     )
