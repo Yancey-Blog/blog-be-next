@@ -1,11 +1,12 @@
 import { Controller, Get, Post, HttpCode, Param, Body } from '@nestjs/common'
 import { Observable, of } from 'rxjs'
 import { UserService } from './users.service'
-import { IUser, IParam } from './types'
 import { CreateUserDto } from './dtos/createUser.dto'
+import { IUserController } from './interfaces/user-controller.interface'
+import { IUser } from './interfaces/user.interface'
 
 @Controller('user')
-export class UserController {
+export class UserController implements IUserController {
   constructor(private readonly userService: UserService) {
     this.userService = userService
   }
@@ -17,8 +18,7 @@ export class UserController {
   }
 
   @Get(':id')
-  public getUserById(@Param() param: IParam): Observable<IUser | undefined> {
-    const { id } = param
+  public getUserById(@Param('id') id: string): Observable<IUser | undefined> {
     return of(this.userService.findUserById(id))
   }
 
