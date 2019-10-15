@@ -37,7 +37,7 @@
     "formidable": "^1.2.1",
     "graphql": "^14.5.8",
     "mongodb": "^3.3.2",
-    "mongoose": "^5.7.4",
+    "mongoose": "^5.7.5",
     "morgan": "^1.9.1",
     "nodejieba": "^2.3.2",
     "ramda": "^0.26.1",
