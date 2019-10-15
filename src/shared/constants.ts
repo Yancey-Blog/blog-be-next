@@ -11,3 +11,10 @@ export const BANDWAGON_URL = 'https://api.64clouds.com/v1/'
 export const RECAPTCHA_URL = 'https://www.google.com/recaptcha/api/siteverify/'
 
 export const OSS_END_POINT = 'https://static.yancey.app/'
+
+export enum Role {
+  SUPERUSER,
+  ADMIN,
+  STAFF,
+  USER,
+}

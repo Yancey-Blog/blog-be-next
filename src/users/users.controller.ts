@@ -15,6 +15,7 @@ import { UserService } from './users.service'
 import { CreateUserDto } from './dtos/createUser.dto'
 import { IUserController } from './interfaces/user-controller.interface'
 import { IUser } from './interfaces/user.interface'
+import { Roles } from '../decorators/roles.decorator'
 
 @Controller('user')
 export class UserController implements IUserController {
@@ -48,6 +49,7 @@ export class UserController implements IUserController {
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
+  @Roles('admin')
   public addUser(@Body() createUserDto: CreateUserDto): Observable<boolean> {
     return of(this.userService.create(createUserDto))
   }
