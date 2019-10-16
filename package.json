@@ -28,6 +28,7 @@
     "@nestjs/jwt": "^6.1.1",
     "@nestjs/mongoose": "^6.1.2",
     "@nestjs/platform-express": "^6.8.3",
+    "@nestjs/typeorm": "^6.2.0",
     "ali-oss": "^6.1.1",
     "apollo-server-express": "^2.9.6",
     "body-parser": "^1.19.0",
@@ -36,7 +37,6 @@
     "csurf": "^1.10.0",
     "dotenv": "^8.2.0",
     "express-rate-limit": "^5.0.0",
-    "formidable": "^1.2.1",
     "graphql": "^14.5.8",
     "helmet": "^3.21.1",
     "mongoose": "^5.7.5",
@@ -48,6 +48,7 @@
     "rimraf": "^3.0.0",
     "rxjs": "^6.5.3",
     "serve-favicon": "^2.5.0",
+    "typeorm": "^0.2.19",
     "uuid": "^3.3.3"
   },
   "devDependencies": {
@@ -55,6 +56,9 @@
     "@nestjs/cli": "^6.10.4",
     "@nestjs/schematics": "^6.7.0",
     "@nestjs/testing": "^6.8.3",
+    "@types/csurf": "^1.9.35",
+    "@types/express-rate-limit": "^3.3.3",
+    "@types/helmet": "^0.0.44",
     "@types/jest": "^24.0.19",
     "@types/mongoose": "^5.5.20",
     "@types/morgan": "^1.7.37",
