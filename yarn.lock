@@ -3442,6 +3442,13 @@ eslint-plugin-import@^2.18.2:
     read-pkg-up "^2.0.0"
     resolve "^1.11.0"
 
+eslint-plugin-nestjs@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-nestjs/-/eslint-plugin-nestjs-1.2.3.tgz#d59deefd0404c5d62889a84a95317dabfa87a587"
+  integrity sha512-CYS2l+oO9sZ8QN1B0/Xgz+2CERfiWCiHDmDslX30yrJrNlBNKFypeCac/7g/NE+LDuox5MH13uvd4qd52Tlt5w==
+  dependencies:
+    tslib "^1.8.1"
+
 eslint-scope@^4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/eslint-scope/-/eslint-scope-4.0.3.tgz#ca03833310f6889a3264781aa82e63eb9cfe7848"
@@ -6499,6 +6506,13 @@ neo-async@^2.5.0, neo-async@^2.6.0, neo-async@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
+
+nest-morgan@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/nest-morgan/-/nest-morgan-1.0.1.tgz#79dc661ef35569b700acd8e2ecdb4d12ec8b26bc"
+  integrity sha512-ZuheiQzBWVSIcBzQs4ER0fSN9ezdWs6R08yO6RpiJ3ZUDMzeVN+OK9KvAf2NUtSU6IWldJbLCjkg4b99IgAq8g==
+  dependencies:
+    morgan "^1.9.1"
 
 netmask@^1.0.6:
   version "1.0.6"

@@ -21,6 +21,7 @@ export class RolesGuard implements CanActivate {
       headers: { authorization },
     } = request
 
+    // TODO: authorization 合法性校验函数
     if (roles && roles.includes('admin') && !authorization) {
       throw new UnauthorizedException()
     }
