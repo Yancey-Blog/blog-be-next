@@ -64,7 +64,7 @@
     "@types/ramda": "^0.26.33",
     "@types/serve-favicon": "^2.2.31",
     "@types/supertest": "^2.0.8",
-    "@typescript-eslint/eslint-plugin": "^2.3.3",
+    "@typescript-eslint/eslint-plugin": "^2.4.0",
     "@typescript-eslint/parser": "^2.3.3",
     "commitizen": "^4.0.3",
     "commitlint-config-cz": "^0.12.1",
