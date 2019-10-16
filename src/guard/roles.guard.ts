@@ -13,7 +13,7 @@ export class RolesGuard implements CanActivate {
     this.reflector = reflector
   }
 
-  canActivate(context: ExecutionContext): Observable<boolean> {
+  public canActivate(context: ExecutionContext): Observable<boolean> {
     const roles = this.reflector.get<string[]>('roles', context.getHandler())
 
     const request = context.switchToHttp().getRequest()
