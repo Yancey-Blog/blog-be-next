@@ -502,10 +502,10 @@
     mkdirp "^0.5.1"
     rimraf "^2.5.2"
 
-"@nestjs/cli@^6.10.2":
-  version "6.10.2"
-  resolved "https://registry.yarnpkg.com/@nestjs/cli/-/cli-6.10.2.tgz#77855d250f95608582f2fc58148d53be1fac4d35"
-  integrity sha512-Ba9L8VTaV5WtSn0JpPoDfqJNNsyA0kXSGFGzD1JU1/jZqeOT8bXI7R2F9G3bpkzilbWtnmINWYkWp7H0WNbo9g==
+"@nestjs/cli@^6.10.4":
+  version "6.10.4"
+  resolved "https://registry.yarnpkg.com/@nestjs/cli/-/cli-6.10.4.tgz#19ddfdc8b7f2cea472824e47e05616de1863d76e"
+  integrity sha512-y/G3DugzL7vY+PDSZRJ41NykkPcI24moAkXrcoaf2s0SWCqJqIQVEtKbPqNB8ChdcAaFJLnZD6CXJjEIitvJ8g==
   dependencies:
     "@angular-devkit/core" "8.3.8"
     "@angular-devkit/schematics" "8.3.8"
