@@ -15,12 +15,12 @@ export class AnnouncementsResolver {
     this.announcementsService = announcementsService
   }
 
-  @Query(() => [AnnouncementsModel])
+  @Query(() => [AnnouncementsModel], { name: 'announcements' })
   public getAnnouncements(): Observable<AnnouncementsModel[]> {
     return this.announcementsService.findAll()
   }
 
-  @Query(() => AnnouncementsModel)
+  @Query(() => AnnouncementsModel, { name: 'announcement' })
   public getAnnouncementById(
     @Args('id') id: string,
   ): Observable<AnnouncementsModel> {
