@@ -2,7 +2,7 @@ import {
   Injectable,
   CanActivate,
   ExecutionContext,
-  UnauthorizedException,
+  // UnauthorizedException,
 } from '@nestjs/common'
 import { Observable, of } from 'rxjs'
 import { Reflector } from '@nestjs/core'
@@ -14,17 +14,18 @@ export class RolesGuard implements CanActivate {
   }
 
   public canActivate(context: ExecutionContext): Observable<boolean> {
-    const roles = this.reflector.get<string[]>('roles', context.getHandler())
+    console.log(context)
 
-    const request = context.switchToHttp().getRequest()
-    const {
-      headers: { authorization },
-    } = request
+    // const roles = this.reflector.get<string[]>('roles', context.getHandler())
 
-    // TODO: authorization 合法性校验函数
-    if (roles && roles.includes('admin') && !authorization) {
-      throw new UnauthorizedException()
-    }
+    // const request = context.switchToHttp().getRequest()
+    // const {
+    //   headers: { authorization },
+    // } = request
+
+    // if (roles && roles.includes('admin') && !authorization) {
+    //   throw new UnauthorizedException()
+    // }
 
     return of(true)
   }

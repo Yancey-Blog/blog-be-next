@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core'
 import { NestExpressApplication } from '@nestjs/platform-express'
 // import { NestFastifyApplication } from '@nestjs/platform-fastify'
-import { configMiddlewares } from './middlewares'
+import { configMiddlewares } from './middlewares/index.middleware'
 import { AppModule } from './app.module'
 
 require('dotenv').config()

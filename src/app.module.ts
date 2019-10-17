@@ -1,19 +1,21 @@
 import { Module, ValidationPipe } from '@nestjs/common'
-import { APP_FILTER, APP_PIPE, APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core'
-import { MorganModule, MorganInterceptor } from 'nest-morgan'
-// import { GraphQLModule } from '@nestjs/graphql'
+import { APP_FILTER, APP_PIPE, APP_GUARD } from '@nestjs/core'
+import { GraphQLModule } from '@nestjs/graphql'
 import { UsersModule } from './users/users.module'
+import { AnnouncementsModule } from './announcements/announcements.module'
 import { HttpExceptionFilter } from './filters/http-exception.filter'
 import { RolesGuard } from './guard/roles.guard'
 
 @Module({
   imports: [
-    // GraphQLModule.forRoot({
-    //   debug: true,
-    //   playground: true,
-    // }),
+    GraphQLModule.forRoot({
+      debug: true,
+      playground: true,
+      installSubscriptionHandlers: true,
+      autoSchemaFile: 'schema.gql',
+    }),
     UsersModule,
-    MorganModule.forRoot(),
+    AnnouncementsModule,
   ],
   providers: [
     {
@@ -27,10 +29,6 @@ import { RolesGuard } from './guard/roles.guard'
     {
       provide: APP_GUARD,
       useClass: RolesGuard,
-    },
-    {
-      provide: APP_INTERCEPTOR,
-      useClass: MorganInterceptor('combined'),
     },
   ],
 })
