@@ -11,6 +11,6 @@ type AnnouncementsModel {
 }
 
 type Query {
-  getAnnouncements: [AnnouncementsModel!]!
-  getAnnouncementById(id: String!): AnnouncementsModel!
+  announcements: [AnnouncementsModel!]!
+  announcement(id: String!): AnnouncementsModel!
 }

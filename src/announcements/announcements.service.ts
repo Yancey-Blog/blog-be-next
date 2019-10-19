@@ -14,11 +14,7 @@ export class AnnouncementsService {
     return of(announcements.find(announcement => announcement._id === id))
   }
 
-  // async create(data: NewRecipeInput): Promise<AnnouncementsModel> {
-  //   return {} as any
-  // }
-
-  // async remove(id: string): Promise<boolean> {
-  //   return true
+  // public remove(id: string): Observable<boolean> {
+  //   return of(true)
   // }
 }

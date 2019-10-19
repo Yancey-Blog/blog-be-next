@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs'
 export class AuthGuard implements CanActivate {
   public canActivate(ctx: ExecutionContext): Observable<boolean> {
     const request = ctx.switchToHttp().getRequest()
-    console.log(request)
+    console.log(request.headers.authorization)
     // const {
     //   headers: { authorization },
     // } = request

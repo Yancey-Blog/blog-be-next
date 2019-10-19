@@ -5,7 +5,6 @@ import {
   HttpCode,
   Param,
   Body,
-  HttpException,
   HttpStatus,
   // UnauthorizedException,
   // UseFilters,
@@ -28,15 +27,15 @@ export class UserController implements IUserController {
   // 它可以减少内存使用量，因为 Nest 可以轻松地在整个应用程序中重复使用同一类的实例。
   // @UseFilters(HttpExceptionFilter)
   public getAllUsers(): Observable<IUser[]> {
-    // return of(this.userService.findAllUsers())
+    return of(this.userService.findAllUsers())
     // throw new HttpException('FORBIDDEN', HttpStatus.FORBIDDEN)
-    throw new HttpException(
-      {
-        status: HttpStatus.UNAUTHORIZED,
-        message: '知道错了吗',
-      },
-      401,
-    )
+    // throw new HttpException(
+    //   {
+    //     status: HttpStatus.UNAUTHORIZED,
+    //     message: '知道错了吗',
+    //   },
+    //   401,
+    // )
 
     // HTTP 常见异常，继承自 HttpException
     // throw new UnauthorizedException()
@@ -49,7 +48,7 @@ export class UserController implements IUserController {
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
-  @Roles('admin')
+  @Roles('staff')
   public addUser(@Body() createUserDto: CreateUserDto): Observable<boolean> {
     return of(this.userService.create(createUserDto))
   }

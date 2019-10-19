@@ -1,10 +1,11 @@
 import { NestFactory } from '@nestjs/core'
 import { NestExpressApplication } from '@nestjs/platform-express'
-// import { NestFastifyApplication } from '@nestjs/platform-fastify'
 import { configMiddlewares } from './middlewares/index.middleware'
 import { AppModule } from './app.module'
 
 require('dotenv').config()
+
+console.log(process.env)
 
 const bootstrap = async () => {
   const app = await NestFactory.create<NestExpressApplication>(AppModule)

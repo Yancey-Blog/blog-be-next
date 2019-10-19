@@ -27,6 +27,7 @@
     "@nestjs/graphql": "^6.5.3",
     "@nestjs/mongoose": "^6.1.2",
     "@nestjs/platform-express": "^6.8.3",
+    "@nestjs/typeorm": "^6.2.0",
     "apollo-server-express": "^2.9.6",
     "body-parser": "^1.19.0",
     "class-transformer": "^0.2.3",
@@ -45,6 +46,7 @@
     "rxjs": "^6.5.3",
     "serve-favicon": "^2.5.0",
     "type-graphql": "^0.17.5",
+    "typeorm": "^0.2.19",
     "uuid": "^3.3.3"
   },
   "devDependencies": {
@@ -62,6 +64,7 @@
     "@types/ramda": "^0.26.33",
     "@types/serve-favicon": "^2.2.31",
     "@types/supertest": "^2.0.8",
+    "@types/uuid": "^3.4.5",
     "@typescript-eslint/eslint-plugin": "^2.4.0",
     "@typescript-eslint/parser": "^2.4.0",
     "commitizen": "^4.0.3",

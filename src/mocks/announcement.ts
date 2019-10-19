@@ -1,6 +1,6 @@
-import { TypeDefs } from '../announcements/models/typeDefs'
+import { AnnouncementsModel } from '../announcements/models/announcements.model'
 
-export const announcements: TypeDefs[] = [
+export const announcements: AnnouncementsModel[] = [
   {
     _id: '70060443-1c58-4522-a515-145ffad66e11',
     announcement: '第一条',
