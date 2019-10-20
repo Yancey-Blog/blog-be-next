@@ -5,4 +5,5 @@ export interface IMotto extends Document {
   readonly motto: string
   readonly created_at: string
   readonly updated_at: string
+  readonly __v: number
 }

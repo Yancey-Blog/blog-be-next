@@ -1,21 +1,16 @@
 import { Module, ValidationPipe } from '@nestjs/common'
 import { APP_FILTER, APP_PIPE, APP_GUARD } from '@nestjs/core'
-import { GraphQLModule } from '@nestjs/graphql'
 import { UsersModule } from './users/users.module'
 import { AnnouncementsModule } from './announcements/announcements.module'
 import { MottosModule } from './mottos/mottos.module'
 import { HttpExceptionFilter } from './filters/http-exception.filter'
 import { RolesGuard } from './guard/roles.guard'
 import { DataBasesModule } from './databases/databases.module'
+import { GraphQLsModule } from './graphql/graphqls.module'
 
 @Module({
   imports: [
-    GraphQLModule.forRoot({
-      debug: true,
-      playground: true,
-      installSubscriptionHandlers: true,
-      autoSchemaFile: 'schema.gql',
-    }),
+    GraphQLsModule,
     DataBasesModule,
     UsersModule,
     AnnouncementsModule,
