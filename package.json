@@ -66,7 +66,7 @@
     "@types/supertest": "^2.0.8",
     "@types/uuid": "^3.4.5",
     "@typescript-eslint/eslint-plugin": "^2.4.0",
-    "@typescript-eslint/parser": "^2.4.0",
+    "@typescript-eslint/parser": "^2.5.0",
     "commitizen": "^4.0.3",
     "commitlint-config-cz": "^0.12.1",
     "cz-customizable": "^6.2.0",
