@@ -18,13 +18,34 @@ export class MottosService {
     return res
   }
 
+  public async findOneById(id: string): Promise<IMotto> {
+    const res = await this.MottoModel.findById(id)
+    return res
+  }
+
   public async create(createMottoDto: CreateMottoDto): Promise<IMotto> {
     const createdMotto = new this.MottoModel(createMottoDto)
     const res = await createdMotto.save()
     return res
   }
 
-  // public remove(id: string): Observable<boolean> {
-  //   return of(true)
-  // }
+  public async update(
+    id: string,
+    createMottoDto: CreateMottoDto,
+  ): Promise<IMotto> {
+    const res = await this.MottoModel.findByIdAndUpdate(id, createMottoDto)
+    return res
+  }
+
+  public async deleteOneById(id: string): Promise<IMotto> {
+    const res = await this.MottoModel.findByIdAndDelete(id)
+    return res
+  }
+
+  public async batchDelete(ids: string[]): Promise<any> {
+    const res = await this.MottoModel.remove({
+      _id: { $in: ids },
+    })
+    return res
+  }
 }
