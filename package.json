@@ -54,7 +54,7 @@
     "@nestjs/cli": "^6.10.5",
     "@nestjs/schematics": "^6.7.0",
     "@nestjs/testing": "^6.8.3",
-    "@types/csurf": "^1.9.35",
+    "@types/csurf": "^1.9.36",
     "@types/express-rate-limit": "^3.3.3",
     "@types/helmet": "^0.0.44",
     "@types/jest": "^24.0.19",
