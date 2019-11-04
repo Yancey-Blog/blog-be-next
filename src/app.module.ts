@@ -1,12 +1,12 @@
 import { Module, ValidationPipe } from '@nestjs/common'
 import { APP_FILTER, APP_PIPE, APP_GUARD } from '@nestjs/core'
-import { UsersModule } from './users/users.module'
-import { AnnouncementsModule } from './announcements/announcements.module'
-import { MottosModule } from './mottos/mottos.module'
+import { UsersModule } from './modules/users/users.module'
+import { AnnouncementsModule } from './modules/announcements/announcements.module'
+import { MottosModule } from './modules/mottos/mottos.module'
 import { HttpExceptionFilter } from './filters/http-exception.filter'
 import { RolesGuard } from './guard/roles.guard'
-import { DataBasesModule } from './databases/databases.module'
-import { GraphQLsModule } from './graphql/graphqls.module'
+import { DataBasesModule } from './modules/databases/databases.module'
+import { GraphQLsModule } from './modules/graphql/graphqls.module'
 
 @Module({
   imports: [

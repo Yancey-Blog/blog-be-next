@@ -1,6 +1,9 @@
-import { IUser } from '../users/interfaces/user.interface'
+import { Injectable } from '@nestjs/common'
+import { IUser } from './interfaces/user.interface'
+import { IUserService } from './interfaces/user-service.interface'
+import { CreateUserDto } from './dtos/createUser.dto'
 
-export const users: IUser[] = [
+export const dataSource: IUser[] = [
   {
     _id: '70060443-1c58-4522-a515-145ffad66e11',
     name: 'Yancey',
@@ -28,3 +31,20 @@ export const users: IUser[] = [
     updated_at: '2019-09-29T11:53:11.595Z',
   },
 ]
+
+@Injectable()
+export class UserService implements IUserService {
+  private readonly users: IUser[] = dataSource
+
+  public create(user: CreateUserDto) {
+    return !!user
+  }
+
+  public findAllUsers(): IUser[] {
+    return this.users
+  }
+
+  public findUserById(id: string): IUser | undefined {
+    return this.users.find((user: IUser) => user._id === id)
+  }
+}
