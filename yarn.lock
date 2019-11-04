@@ -570,10 +570,10 @@
   resolved "https://registry.yarnpkg.com/@nestjs/mongoose/-/mongoose-6.1.2.tgz#fe1c227f5c1fd0f5c9be5c4e37b2897f744bc0b0"
   integrity sha512-BkbkguvaPPGbL/41lK6P22DaQodBC9Yv9rUAmNlQVShChtwss7/cGj68AKC3jEoidrx75wCyDO3P8Tp6pggE4w==
 
-"@nestjs/platform-express@^6.8.3":
-  version "6.8.3"
-  resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-6.8.3.tgz#50b5328eb46a3a2583f42625b5f50b29d5574782"
-  integrity sha512-Zt0JBl6AK1Cl6n88p03J8K8DVVSEQxHvDvq+oQLs9HkeGPmJ5u1xKjsHxdouXjl3RCyizzWdwzGeLZElO3lDlQ==
+"@nestjs/platform-express@^6.9.0":
+  version "6.9.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-6.9.0.tgz#4d517ce7ba12c96daa27bde159fb0d915391f71a"
+  integrity sha512-r44oHpTmUUW488BQh3v9ZxABs+xhlnTAb/SWO4rAI4MLTskJ0qpgJ6IPKCUgphiecl50A5O3x9kWJ3tYDWuy/w==
   dependencies:
     body-parser "1.19.0"
     cors "2.8.5"
