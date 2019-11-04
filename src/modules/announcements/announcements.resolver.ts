@@ -1,4 +1,3 @@
-import { Observable } from 'rxjs'
 // import { Args, Mutation, Query, Resolver, Subscription } from '@nestjs/graphql'
 import { Args, Query, Resolver } from '@nestjs/graphql'
 // import { PubSub } from 'apollo-server-express'
@@ -16,14 +15,14 @@ export class AnnouncementsResolver {
   }
 
   @Query(() => [AnnouncementsModel], { name: 'announcements' })
-  public getAnnouncements(): Observable<AnnouncementsModel[]> {
+  public getAnnouncements(): Promise<AnnouncementsModel[]> {
     return this.announcementsService.findAll()
   }
 
   @Query(() => AnnouncementsModel, { name: 'announcement' })
   public getAnnouncementById(
     @Args('id') id: string,
-  ): Observable<AnnouncementsModel> {
+  ): Promise<AnnouncementsModel> {
     return this.announcementsService.findOneById(id)
   }
 
