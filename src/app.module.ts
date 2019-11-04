@@ -7,6 +7,7 @@ import { RolesGuard } from './guard/roles.guard'
 import { DataBasesModule } from './modules/databases/databases.module'
 import { GraphQLsModule } from './modules/graphql/graphqls.module'
 
+import { UploadersModule } from './modules/uploaders/uploaders.module'
 import { UsersModule } from './modules/users/users.module'
 import { AnnouncementsModule } from './modules/announcements/announcements.module'
 import { MottosModule } from './modules/mottos/mottos.module'
@@ -15,6 +16,7 @@ import { MottosModule } from './modules/mottos/mottos.module'
   imports: [
     GraphQLsModule,
     DataBasesModule,
+    UploadersModule,
     UsersModule,
     AnnouncementsModule,
     MottosModule,

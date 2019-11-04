@@ -14,13 +14,13 @@ export class RolesGuard implements CanActivate {
   }
 
   public canActivate(context: ExecutionContext): Observable<boolean> {
+    // eslint-disable-next-line
     const roles = this.reflector.get<string[]>('roles', context.getHandler())
 
     // const request = context.switchToHttp().getRequest()
     // const {
     //   headers: { authorization },
     // } = request
-    console.log(roles)
 
     // if (roles && roles.includes('admin') && !authorization) {
     //   throw new UnauthorizedException()
