@@ -5,8 +5,8 @@ import { AnnouncementsModule } from './modules/announcements/announcements.modul
 import { MottosModule } from './modules/mottos/mottos.module'
 import { HttpExceptionFilter } from './filters/http-exception.filter'
 import { RolesGuard } from './guard/roles.guard'
-import { DataBasesModule } from './databases/databases.module'
-import { GraphQLsModule } from './graphql/graphqls.module'
+import { DataBasesModule } from './modules/databases/databases.module'
+import { GraphQLsModule } from './modules/graphql/graphqls.module'
 
 @Module({
   imports: [
