@@ -1,5 +1,5 @@
-// import { Args, Mutation, Query, Resolver, Subscription } from '@nestjs/graphql'
-import { Args, Query, Resolver } from '@nestjs/graphql'
+import { Args, Query, Resolver, Mutation } from '@nestjs/graphql'
+import { ID } from 'type-graphql'
 // import { PubSub } from 'apollo-server-express'
 // import { NewRecipeInput } from './dto/new-recipe.input'
 // import { RecipesArgs } from './dtos/recipes.args'
@@ -15,15 +15,23 @@ export class AnnouncementsResolver {
   }
 
   @Query(() => [AnnouncementsModel], { name: 'announcements' })
-  public getAnnouncements(): Promise<AnnouncementsModel[]> {
+  public async getAnnouncements(): Promise<AnnouncementsModel[]> {
     return this.announcementsService.findAll()
   }
 
   @Query(() => AnnouncementsModel, { name: 'announcement' })
-  public getAnnouncementById(
-    @Args('id') id: string,
+  public async getAnnouncementById(
+    @Args({ name: 'id', type: () => ID }) id: string,
   ): Promise<AnnouncementsModel> {
     return this.announcementsService.findOneById(id)
+  }
+
+  @Mutation(() => AnnouncementsModel, { name: 'updateAnnouncement' })
+  public async updateAnnouncementById(
+    @Args({ name: 'id', type: () => ID }) id: string,
+    @Args('announcement') announcement: string,
+  ): Promise<AnnouncementsModel> {
+    return this.announcementsService.update(id, announcement)
   }
 
   // @Mutation(returns => AnnouncementsModel)

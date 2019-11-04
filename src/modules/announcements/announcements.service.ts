@@ -24,6 +24,16 @@ export class AnnouncementsService {
     return res
   }
 
+  public async update(
+    id: string,
+    announcement: string,
+  ): Promise<AnnouncementsModel> {
+    const res = await this.AnnouncementModel.findByIdAndUpdate(id, {
+      announcement,
+    })
+    return res
+  }
+
   // public remove(id: string): Observable<boolean> {
   //   return of(true)
   // }

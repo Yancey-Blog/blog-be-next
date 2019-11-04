@@ -10,7 +10,11 @@ type AnnouncementsModel {
   updated_at: String!
 }
 
+type Mutation {
+  updateAnnouncement(announcement: String!, id: ID!): AnnouncementsModel!
+}
+
 type Query {
   announcements: [AnnouncementsModel!]!
-  announcement(id: String!): AnnouncementsModel!
+  announcement(id: ID!): AnnouncementsModel!
 }
