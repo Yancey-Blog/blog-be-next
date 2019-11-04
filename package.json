@@ -46,7 +46,7 @@
     "rxjs": "^6.5.3",
     "serve-favicon": "^2.5.0",
     "type-graphql": "^0.17.5",
-    "typeorm": "^0.2.19",
+    "typeorm": "^0.2.20",
     "uuid": "^3.3.3"
   },
   "devDependencies": {
