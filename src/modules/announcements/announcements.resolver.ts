@@ -30,7 +30,6 @@ export class AnnouncementsResolver {
   public async createAnnouncement(
     @Args('input') input: AnnouncementInput,
   ): Promise<AnnouncementsModel> {
-    console.log(input)
     return this.announcementsService.create(input)
   }
 

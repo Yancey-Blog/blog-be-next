@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common'
 import { MongooseModule } from '@nestjs/mongoose'
 import { AnnouncementsResolver } from './announcements.resolver'
 import { AnnouncementsService } from './announcements.service'
-import { AnnouncementSchema } from './schemas/announcements.schema'
+import { AnnouncementSchema } from './announcements.schema'
 
 @Module({
   imports: [
