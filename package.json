@@ -65,6 +65,8 @@
     "@types/serve-favicon": "^2.2.31",
     "@types/supertest": "^2.0.8",
     "@types/uuid": "^3.4.5",
+    "@typescript-eslint/eslint-plugin": "^2.6.0",
+    "@typescript-eslint/parser": "^2.6.0",
     "@typescript-eslint/eslint-plugin": "^2.4.0",
     "@typescript-eslint/parser": "^2.6.0",
     "commitizen": "^4.0.3",
