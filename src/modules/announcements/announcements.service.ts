@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common'
 import { Model } from 'mongoose'
 import { InjectModel } from '@nestjs/mongoose'
-// import { NewRecipeInput } from './dtos/new-recipe.input'
-import { AnnouncementsModel } from './models/announcements.model'
+import { AnnouncementsModel } from './dtos/announcements.model'
 import { IAnnouncement } from './interfaces/announcement.interface'
+import { AnnouncementInput } from './dtos/announcement.input'
 
 @Injectable()
 export class AnnouncementsService {
@@ -24,6 +24,11 @@ export class AnnouncementsService {
     return res
   }
 
+  public async create(dto: AnnouncementInput): Promise<AnnouncementsModel> {
+    const res = await this.AnnouncementModel.create(dto)
+    return res
+  }
+
   public async update(
     id: string,
     announcement: string,
@@ -34,7 +39,15 @@ export class AnnouncementsService {
     return res
   }
 
-  // public remove(id: string): Observable<boolean> {
-  //   return of(true)
-  // }
+  public async deleteOneById(id: string): Promise<AnnouncementsModel> {
+    const res = await this.AnnouncementModel.findByIdAndDelete(id)
+    return res
+  }
+
+  public async batchDelete(ids: string[]): Promise<any> {
+    const res = await this.AnnouncementModel.remove({
+      _id: { $in: ids },
+    })
+    return res
+  }
 }

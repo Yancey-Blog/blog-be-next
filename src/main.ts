@@ -5,8 +5,6 @@ import { AppModule } from './app.module'
 
 require('dotenv').config()
 
-console.log(process.env)
-
 const bootstrap = async () => {
   const app = await NestFactory.create<NestExpressApplication>(AppModule)
   configMiddlewares(app)

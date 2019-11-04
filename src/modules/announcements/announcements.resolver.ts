@@ -1,10 +1,10 @@
 import { Args, Query, Resolver, Mutation } from '@nestjs/graphql'
 import { ID } from 'type-graphql'
 // import { PubSub } from 'apollo-server-express'
-// import { NewRecipeInput } from './dto/new-recipe.input'
 // import { RecipesArgs } from './dtos/recipes.args'
 import { AnnouncementsService } from './announcements.service'
-import { AnnouncementsModel } from './models/announcements.model'
+import { AnnouncementsModel } from './dtos/announcements.model'
+import { AnnouncementInput } from './dtos/announcement.input'
 
 // const pubSub = new PubSub();
 
@@ -26,12 +26,34 @@ export class AnnouncementsResolver {
     return this.announcementsService.findOneById(id)
   }
 
+  @Mutation(() => AnnouncementsModel, { name: 'createAnnouncement' })
+  public async createAnnouncement(
+    @Args('input') input: AnnouncementInput,
+  ): Promise<AnnouncementsModel> {
+    console.log(input)
+    return this.announcementsService.create(input)
+  }
+
   @Mutation(() => AnnouncementsModel, { name: 'updateAnnouncement' })
   public async updateAnnouncementById(
     @Args({ name: 'id', type: () => ID }) id: string,
     @Args('announcement') announcement: string,
   ): Promise<AnnouncementsModel> {
     return this.announcementsService.update(id, announcement)
+  }
+
+  @Mutation(() => AnnouncementsModel, { name: 'deleteAnnouncement' })
+  public async deleteAnnouncementById(
+    @Args({ name: 'id', type: () => ID }) id: string,
+  ): Promise<AnnouncementsModel> {
+    return this.announcementsService.deleteOneById(id)
+  }
+
+  @Mutation(() => AnnouncementsModel, { name: 'deleteAnnouncements' })
+  public async deleteAnnouncements(
+    @Args({ name: 'ids', type: () => [ID] }) ids: string[],
+  ): Promise<AnnouncementsModel> {
+    return this.announcementsService.batchDelete(ids)
   }
 
   // @Mutation(returns => AnnouncementsModel)
@@ -41,11 +63,6 @@ export class AnnouncementsResolver {
   //   const recipe = await this.announcementsService.create(newRecipeData);
   //   pubSub.publish('recipeAdded', { recipeAdded: recipe });
   //   return recipe;
-  // }
-
-  // @Mutation(returns => Boolean)
-  // async removeRecipe(@Args('id') id: string) {
-  //   return this.announcementsService.remove(id);
   // }
 
   // @Subscription(returns => AnnouncementsModel)

@@ -3,6 +3,10 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+input AnnouncementInput {
+  announcement: String!
+}
+
 type AnnouncementsModel {
   _id: String!
   announcement: String!
@@ -11,7 +15,10 @@ type AnnouncementsModel {
 }
 
 type Mutation {
+  createAnnouncement(input: AnnouncementInput!): AnnouncementsModel!
   updateAnnouncement(announcement: String!, id: ID!): AnnouncementsModel!
+  deleteAnnouncement(id: ID!): AnnouncementsModel!
+  deleteAnnouncements(ids: [ID!]!): AnnouncementsModel!
 }
 
 type Query {
