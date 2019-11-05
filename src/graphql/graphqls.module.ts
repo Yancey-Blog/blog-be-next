@@ -15,4 +15,4 @@ import GraphQLJSON from 'graphql-type-json'
     }),
   ],
 })
-export class GraphQLsModule {}
+export class GraphqlModule {}
