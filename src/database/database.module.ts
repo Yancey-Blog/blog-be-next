@@ -17,4 +17,4 @@ import { MongooseModule } from '@nestjs/mongoose'
     ),
   ],
 })
-export class DataBasesModule {}
+export class DataBaseModule {}
