@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common'
 import { MongooseModule } from '@nestjs/mongoose'
 import { MottosResolver } from './mottos.resolver'
 import { MottosService } from './mottos.service'
-import { MottoSchema } from './schemas/mottos.schema'
+import { MottoSchema } from './mottos.schema'
 
 @Module({
   imports: [
