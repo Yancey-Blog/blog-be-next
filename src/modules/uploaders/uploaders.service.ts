@@ -1,6 +1,12 @@
 import { Injectable } from '@nestjs/common'
-import OSS from 'ali-oss'
+import OSS, { PutObjectResult } from 'ali-oss'
 import { ALI_OSS_END_POINT, ALI_OSS_REGION } from '../../shared/constants'
+
+interface IAliOssRes extends PutObjectResult {
+  url: string
+  statusCode: number
+  statusMessage: string
+}
 
 const {
   ALI_OSS_ACCESS_KEY_ID,
@@ -21,12 +27,12 @@ const oss = new OSS({
 @Injectable()
 export class UploadersService {
   public async upload(file: any) {
-    const res = await oss.put(file.originalname, file.buffer)
+    const res = (await oss.put(file.originalname, file.buffer)) as IAliOssRes
     return {
       name: res.name,
-      url: (res as any).url,
-      statusCode: (res as any).statusCode,
-      statusMessage: (res as any).statusMessage,
+      url: res.url,
+      statusCode: res.statusCode,
+      statusMessage: res.statusMessage,
     }
   }
 }
