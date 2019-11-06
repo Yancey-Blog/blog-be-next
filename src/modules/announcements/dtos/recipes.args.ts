@@ -5,10 +5,10 @@ import { ArgsType, Field, Int } from 'type-graphql'
 export class RecipesArgs {
   @Field(() => Int)
   @Min(0)
-  skip: number = 0
+  public skip: number = 0
 
   @Field(() => Int)
   @Min(1)
   @Max(50)
-  take: number = 25
+  public take: number = 25
 }

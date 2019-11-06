@@ -5,13 +5,13 @@ import { Field, InputType } from 'type-graphql'
 export class NewRecipeInput {
   @Field()
   @MaxLength(30)
-  title: string
+  public title: string
 
   @Field({ nullable: true })
   @IsOptional()
   @Length(30, 255)
-  description?: string
+  public description?: string
 
   @Field(() => [String])
-  ingredients: string[]
+  public ingredients: string[]
 }

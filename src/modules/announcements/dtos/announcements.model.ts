@@ -3,14 +3,14 @@ import { Field, ObjectType } from 'type-graphql'
 @ObjectType()
 export class AnnouncementsModel {
   @Field({ nullable: false })
-  _id: string
+  public _id: string
 
   @Field({ nullable: false })
-  announcement: string
+  public announcement: string
 
   @Field({ nullable: false })
-  created_at: string
+  public created_at: string
 
   @Field({ nullable: false })
-  updated_at: string
+  public updated_at: string
 }

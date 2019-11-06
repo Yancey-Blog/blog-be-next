@@ -6,5 +6,5 @@ export class AnnouncementInput {
   @Field()
   @IsString()
   @IsNotEmpty()
-  readonly announcement: string
+  public readonly announcement: string
 }
