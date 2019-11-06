@@ -4,8 +4,12 @@ import fs from 'fs'
 export class ConfigService {
   private readonly envConfig: Record<string, string>
 
+  private readonly isEnvProduction: boolean
+
   constructor(filePath: string) {
     this.envConfig = dotenv.parse(fs.readFileSync(filePath))
+
+    this.isEnvProduction = this.get('NODE_ENV') === 'production'
   }
 
   public get(key: string): string {
@@ -13,8 +17,6 @@ export class ConfigService {
   }
 
   public getMongoURI(): string {
-    const isEnvProduction = this.get('NODE_ENV') === 'production'
-
     const host = this.get('DATABASE_HOST')
     const port = this.get('DATABASE_PORT')
     const userName = this.get('DATABASE_USER')
@@ -25,8 +27,16 @@ export class ConfigService {
     const auth = `${userName}:${userPwd}@`
     const connection = `${host}:${port}/${collection}`
 
-    return isEnvProduction
+    return this.isEnvProduction
       ? `${prefix}${auth}${connection}`
       : `${prefix}${connection}`
+  }
+
+  public getAliOSSKeys() {
+    return {
+      accessKeyId: this.get('ALI_OSS_ACCESS_KEY_ID'),
+      accessKeySecret: this.get('ALI_OSS_ACCESS_KEY_SECRET'),
+      bucket: this.get('ALI_OSS_BUCKET'),
+    }
   }
 }

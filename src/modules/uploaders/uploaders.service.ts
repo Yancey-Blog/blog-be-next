@@ -7,22 +7,19 @@ import { IMulterFile } from './interfaces/multer.interface'
 
 @Injectable()
 export class UploadersService {
-  private readonly accessKeyId: string
-
-  private readonly accessKeySecret: string
-
-  private readonly bucket: string
-
   private readonly oss: OSS
 
   constructor(configService: ConfigService) {
-    this.accessKeyId = configService.get('ALI_OSS_ACCESS_KEY_ID')
-    this.accessKeySecret = configService.get('ALI_OSS_ACCESS_KEY_SECRET')
-    this.bucket = configService.get('ALI_OSS_BUCKET')
+    const {
+      accessKeyId,
+      accessKeySecret,
+      bucket,
+    } = configService.getAliOSSKeys()
+
     this.oss = new OSS({
-      accessKeyId: this.accessKeyId,
-      accessKeySecret: this.accessKeySecret,
-      bucket: this.bucket,
+      accessKeyId,
+      accessKeySecret,
+      bucket,
       region: ALI_OSS_REGION,
       secure: true,
       cname: true,
@@ -31,10 +28,11 @@ export class UploadersService {
   }
 
   public async upload(file: IMulterFile) {
-    const { name, url, statusCode, statusMessage } = (await this.oss.put(
-      file.originalname,
-      file.buffer,
-    )) as IAliOSSRes
+    const {
+      name,
+      url,
+      res: { statusCode, statusMessage },
+    } = (await this.oss.put(file.originalname, file.buffer)) as IAliOSSRes
     return {
       name,
       url,
