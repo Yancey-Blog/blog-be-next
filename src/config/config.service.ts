@@ -5,11 +5,10 @@ import { IAliOSSKey } from './interfaces/aliOSSKey.interface'
 export class ConfigService {
   private readonly envConfig: Record<string, string>
 
-  public isEnvProduction: boolean
+  public readonly isEnvProduction: boolean
 
   constructor(filePath: string) {
     this.envConfig = dotenv.parse(fs.readFileSync(filePath))
-
     this.isEnvProduction = this.get('NODE_ENV') === 'production'
   }
 
