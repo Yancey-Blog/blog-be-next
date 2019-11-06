@@ -1,10 +1,11 @@
 import dotenv from 'dotenv'
 import fs from 'fs'
+import { IAliOSSKey } from './interfaces/aliOSSKey.interface'
 
 export class ConfigService {
   private readonly envConfig: Record<string, string>
 
-  private readonly isEnvProduction: boolean
+  public isEnvProduction: boolean
 
   constructor(filePath: string) {
     this.envConfig = dotenv.parse(fs.readFileSync(filePath))
@@ -32,7 +33,7 @@ export class ConfigService {
       : `${prefix}${connection}`
   }
 
-  public getAliOSSKeys() {
+  public getAliOSSKeys(): IAliOSSKey {
     return {
       accessKeyId: this.get('ALI_OSS_ACCESS_KEY_ID'),
       accessKeySecret: this.get('ALI_OSS_ACCESS_KEY_SECRET'),
