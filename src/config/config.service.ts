@@ -1,15 +1,50 @@
 import dotenv from 'dotenv'
+import Joi, { ObjectSchema } from '@hapi/joi'
 import fs from 'fs'
 import { IAliOSSKey } from './interfaces/aliOSSKey.interface'
 
+export type EnvConfig = Record<string, string>
+
 export class ConfigService {
-  private readonly envConfig: Record<string, string>
+  private readonly envConfig: EnvConfig
 
   public readonly isEnvProduction: boolean
 
   constructor(filePath: string) {
-    this.envConfig = dotenv.parse(fs.readFileSync(filePath))
+    const config = dotenv.parse(fs.readFileSync(filePath))
+    this.envConfig = this.validateEnvFile(config)
     this.isEnvProduction = this.get('NODE_ENV') === 'production'
+  }
+
+  private validateEnvFile(envConfig: EnvConfig): EnvConfig {
+    const envVarsSchema: ObjectSchema = Joi.object({
+      NODE_ENV: Joi.string()
+        .valid('development', 'production')
+        .default('development'),
+      APP_PORT: Joi.number().default(3002),
+      DATABASE_HOST: Joi.string(),
+      DATABASE_PORT: Joi.number(),
+      DATABASE_USER: Joi.string(),
+      DATABASE_PWD: Joi.string(),
+      DATABASE_COLLECTION: Joi.string(),
+      DATABASE_SYNCHRONIZE: Joi.boolean(),
+      DATABASE_DROPSCHEMA: Joi.boolean(),
+      BANDWAGON_SECRET_KEY: Joi.string(),
+      BANDWAGON_SERVER_ID: Joi.number(),
+      GOOGLE_RECAPTCHA_SECRET_KEY: Joi.string(),
+      GOOGLE_RECAPTCHA_SITE_KEY: Joi.string(),
+      ALI_OSS_ACCESS_KEY_ID: Joi.string(),
+      ALI_OSS_ACCESS_KEY_SECRET: Joi.string(),
+      ALI_OSS_BUCKET: Joi.string(),
+    })
+
+    const { error, value: validatedEnvConfig } = envVarsSchema.validate(
+      envConfig,
+    )
+    if (error) {
+      throw new Error(`Config validation error: ${error.message}`)
+    }
+    return validatedEnvConfig
   }
 
   public get(key: string): string {
