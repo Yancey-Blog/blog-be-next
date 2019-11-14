@@ -13,10 +13,10 @@
     rxjs "6.4.0"
     source-map "0.7.3"
 
-"@angular-devkit/core@8.3.6":
-  version "8.3.6"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-8.3.6.tgz#6ad4787e3cb8b03234a194dd53e12cf054a4169c"
-  integrity sha512-kf4ViwjxERlyAnnrbenaUzPr0muixCyupzyiJ2RIuenK3ob9t1fnAsaugZt+Gfo54i3NgfBMKu1xNwnTR7HnAw==
+"@angular-devkit/core@8.3.19":
+  version "8.3.19"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-8.3.19.tgz#c3310bfdbd456c6301ed33713c7b58fea7822f5b"
+  integrity sha512-NTNxSpRB6zMlqsuWLHs2F6QuypIb/XUitMkJy2P7Ee3kZfCYvvH9cCkiQqkwEhKw6J01qKeXwOElmxnqmF291w==
   dependencies:
     ajv "6.10.2"
     fast-json-stable-stringify "2.0.0"
@@ -45,12 +45,12 @@
     "@angular-devkit/core" "8.3.18"
     rxjs "6.4.0"
 
-"@angular-devkit/schematics@8.3.6":
-  version "8.3.6"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-8.3.6.tgz#9a21a090208398a70e87d24a66e8d147f14713e0"
-  integrity sha512-5I4WDIMHw8zuajhXdy2xjtJLglMWE2Bo1Ri4wFR8cmj8nXUQ1fdPMWg3CqiepcNls2c8xXXMBMHZb/FhC32sBw==
+"@angular-devkit/schematics@8.3.19":
+  version "8.3.19"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-8.3.19.tgz#a3b78a90486028b86b139eff8b5e9c5f0fab6497"
+  integrity sha512-sHZMRypW5ZMvla8uMOTsAYHwPiBpShz31tJzd7F07gs9hpj3J05FZ3nL+ZVdt25YzdCUPaFPQKyVx2YfjGyJAw==
   dependencies:
-    "@angular-devkit/core" "8.3.6"
+    "@angular-devkit/core" "8.3.19"
     rxjs "6.4.0"
 
 "@apollographql/apollo-tools@^0.4.0":
@@ -618,13 +618,13 @@
     express "4.17.1"
     multer "1.4.2"
 
-"@nestjs/schematics@^6.6.3", "@nestjs/schematics@^6.7.0":
-  version "6.7.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/schematics/-/schematics-6.7.0.tgz#2da95fc5f1abb4a5e130bb276f74ca5321b249d2"
-  integrity sha512-571DvTcYFLS6+Vz3sZ/kptwOe4xMLtwi4BrkJNWBHWagyGKe37U6D6GeGxKLFStd842BUvdqD3Q+fJa7rVumKA==
+"@nestjs/schematics@^6.6.3", "@nestjs/schematics@^6.7.2":
+  version "6.7.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/schematics/-/schematics-6.7.2.tgz#bd3c9a21ee44d2c7044e2035f4fea4d566d0d1bb"
+  integrity sha512-H8IPw89xjm21MFtF2pomtP+rBCB5gyoE8WJdTVK+CbDHi7AAfXQe1j+5RzpbwVdQx/ivoEua2YrCg0y7UCgbrw==
   dependencies:
-    "@angular-devkit/core" "8.3.6"
-    "@angular-devkit/schematics" "8.3.6"
+    "@angular-devkit/core" "8.3.19"
+    "@angular-devkit/schematics" "8.3.19"
     fs-extra "^8.1.0"
     ts-morph "^4.0.0"
     typescript "3.4.5"
