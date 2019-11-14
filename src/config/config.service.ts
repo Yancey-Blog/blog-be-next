@@ -47,7 +47,7 @@ export class ConfigService {
     return validatedEnvConfig
   }
 
-  public get(key: string): string {
+  private get(key: string): string {
     return this.envConfig[key]
   }
 
