@@ -29,7 +29,7 @@
     "@nestjs/core": "^6.9.0",
     "@nestjs/graphql": "^6.5.3",
     "@nestjs/mongoose": "^6.1.2",
-    "@nestjs/platform-express": "^6.9.0",
+    "@nestjs/platform-express": "^6.10.1",
     "@nestjs/typeorm": "^6.2.0",
     "ali-oss": "^6.2.1",
     "apollo-server-express": "^2.9.7",
