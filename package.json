@@ -44,7 +44,7 @@
     "graphql-tools": "^4.0.6",
     "helmet": "^3.21.2",
     "mongodb": "^3.3.4",
-    "mongoose": "^5.7.7",
+    "mongoose": "^5.7.11",
     "morgan": "^1.9.1",
     "ramda": "^0.26.1",
     "reflect-metadata": "^0.1.13",
