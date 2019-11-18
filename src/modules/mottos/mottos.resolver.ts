@@ -3,7 +3,7 @@ import { MottosService } from './mottos.service'
 import { CreateMottoDto } from './dtos/create-motto.dto'
 import { IMotto } from './interfaces/motto.interface'
 
-@Controller('motto')
+@Controller('mottos')
 export class MottosResolver {
   constructor(private readonly mottosService: MottosService) {
     this.mottosService = mottosService
