@@ -73,7 +73,7 @@
     "@types/mongoose": "^5.5.28",
     "@types/morgan": "^1.7.37",
     "@types/node": "^12.12.5",
-    "@types/ramda": "^0.26.33",
+    "@types/ramda": "^0.26.34",
     "@types/serve-favicon": "^2.2.31",
     "@types/supertest": "^2.0.8",
     "@types/uuid": "^3.4.5",
