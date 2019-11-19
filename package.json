@@ -24,7 +24,7 @@
   "dependencies": {
     "@hapi/joi": "^16.1.7",
     "@nestjs/common": "^6.8.3",
-    "@nestjs/core": "^6.9.0",
+    "@nestjs/core": "^6.10.1",
     "@nestjs/common": "^6.10.1",
     "@nestjs/core": "^6.9.0",
     "@nestjs/graphql": "^6.5.3",
