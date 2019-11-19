@@ -74,7 +74,7 @@
     "@types/jest": "^24.0.23",
     "@types/mongoose": "^5.5.32",
     "@types/morgan": "^1.7.37",
-    "@types/node": "^12.12.5",
+    "@types/node": "^12.12.8",
     "@types/ramda": "^0.26.34",
     "@types/serve-favicon": "^2.2.31",
     "@types/supertest": "^2.0.8",
