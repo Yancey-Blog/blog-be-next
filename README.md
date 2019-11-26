@@ -36,6 +36,8 @@ _This library is part of the [BPG (Blog Program Group)](https://github.com/Yance
 
 ---
 
+[TOC]
+
 ## Available Scripts
 
 In the project directory, you can run:
