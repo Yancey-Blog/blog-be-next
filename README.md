@@ -100,11 +100,11 @@ Generates coverage folder when testing.
 
 ### Uses Commitizen
 
-We follow the [Angular Team's Commit Message Guidelines](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit), and your commit will be checked by commitlint, please install `commitizen` globally.
+We follow the [Angular Team's Commit Message Guidelines](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit), your commit will be checked by commitlint, please install `commitizen` globally.
 
 ### Uses Env Files
 
-Copy `env/.env.example` to `env` directory and rename it as 'development.env' and 'production.env',then fill in your real environment variables.
+Copy `env/.env.example` to `env` directory and rename it as 'development.env' and 'production.env', then fill in your real environment variables.
 
 ```ts
 NODE_ENV=<YOUR_NODE_ENV>
