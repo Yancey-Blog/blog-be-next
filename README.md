@@ -36,7 +36,31 @@ _This library is part of the [BPG (Blog Program Group)](https://github.com/Yance
 
 ---
 
-[TOC]
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
+
+- [Available Scripts](#available-scripts)
+  - [`yarn clear`](#yarn-clear)
+  - [`yarn build`](#yarn-build)
+  - [`yarn format`](#yarn-format)
+  - [`yarn start`](#yarn-start)
+  - [`yarn start:debug`](#yarn-startdebug)
+  - [`yarn start:prod`](#yarn-startprod)
+  - [`yarn watch`](#yarn-watch)
+  - [`yarn commit`](#yarn-commit)
+  - [`yarn document`](#yarn-document)
+  - [`yarn lint`](#yarn-lint)
+  - [`yarn test`](#yarn-test)
+  - [`yarn test:watch`](#yarn-testwatch)
+  - [`yarn test:cov`](#yarn-testcov)
+  - [`yarn test:debug`](#yarn-testdebug)
+  - [`yarn test:e2e`](#yarn-teste2e)
+- [Change Logs](#change-logs)
+- [License](#license)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Available Scripts
 
@@ -107,6 +131,8 @@ Tests the app in the debug mode.
 
 Tests the app in the e2e mode.
 
+[⇧ back to top](#table-of-contents)
+
 ## Change Logs
 
 - 2019-10-12 Initital repo.
@@ -118,6 +144,8 @@ Tests the app in the e2e mode.
 - 2019-11-07 Supports .env.
 
 - 2019-11-26 Supports JWT.
+
+[⇧ back to top](#table-of-contents)
 
 ## License
 
