@@ -42,13 +42,13 @@ _This library is part of the [BPG (Blog Program Group)](https://github.com/Yance
 ## Menu
 
 - [Available Scripts](#available-scripts)
-  - [`yarn build`](#yarn-build)
-  - [`yarn start`](#yarn-start)
-  - [`yarn watch`](#yarn-watch)
-  - [`yarn commit`](#yarn-commit)
-  - [`yarn document`](#yarn-document)
-  - [`yarn test`](#yarn-test)
-  - [`yarn test:cov`](#yarn-testcov)
+  - [yarn build](#yarn-build)
+  - [yarn start](#yarn-start)
+  - [yarn watch](#yarn-watch)
+  - [yarn commit](#yarn-commit)
+  - [yarn document](#yarn-document)
+  - [yarn test](#yarn-test)
+  - [yarn test:cov](#yarn-testcov)
 - [Env Files](#env-files)
 - [Change Logs](#change-logs)
 - [License](#license)
@@ -59,16 +59,16 @@ _This library is part of the [BPG (Blog Program Group)](https://github.com/Yance
 
 In the project directory, you can run:
 
-### `yarn build`
+### yarn build
 
 Builds the app for production to the `dist` folder.
 This script will delete the old `dist` folder before build.
 
-### `yarn start`
+### yarn start
 
 Runs the app in the development mode with no hot reload.
 
-### `yarn watch`
+### yarn watch
 
 Runs the app in the development mode.
 Open [http://localhost:3002](http://localhost:3002) to view it in the browser.
@@ -76,19 +76,19 @@ Open [http://localhost:3002](http://localhost:3002) to view it in the browser.
 The page will reload if you make edits.
 You will also see any lint errors in the console.
 
-### `yarn commit`
+### yarn commit
 
 Makes a git comment by [commitizen](https://github.com/commitizen/cz-cli), we follow the [Angular Team's Commit Message Guidelines](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit) with emoji prefix.
 
-### `yarn document`
+### yarn document
 
 Uses [compodoc](https://github.com/compodoc/compodoc) to generate an awesome document for this app.
 
-### `yarn test`
+### yarn test
 
 Uses [jest](https://jestjs.io/) to test your usecases.
 
-### `yarn test:cov`
+### yarn test:cov
 
 Generates coverage folder when testing.
 
