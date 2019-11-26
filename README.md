@@ -1,6 +1,6 @@
 <div align="center">
 
-# blog backend next
+# Blog Backend Next
 
 The **backend next** for Yancey blog with Node.js, Nest, Rxjs, MongoDB, GraphQL, JWT and more...
 
@@ -40,9 +40,30 @@ _This library is part of the [BPG (Blog Program Group)](https://github.com/Yance
 
 In the project directory, you can run:
 
-### `yarn install`
+### `yarn clear`
 
-Installs dependencies.
+Removes the `dist` folder.
+
+### `yarn build`
+
+Builds the app for production to the `dist` folder.
+This script will delete the old `dist` folder before build.
+
+### `yarn format`
+
+Formats the app by [prettier](https://prettier.io/), we will check your codes style before `git commit`.
+
+### `yarn start`
+
+Runs the app in the development mode with no hot reload.
+
+### `yarn start:debug`
+
+Runs the app in the debug mode.
+
+### `yarn start:prod`
+
+Runs the app in the production mode.
 
 ### `yarn watch`
 
@@ -52,28 +73,50 @@ Open [http://localhost:3002](http://localhost:3002) to view it in the browser.
 The page will reload if you make edits.
 You will also see any lint errors in the console.
 
-### `yarn build`
+### `yarn commit`
 
-Builds the app for production to the `dist` folder.
+Makes a git comment by [commitizen](https://github.com/commitizen/cz-cli), we follow the [Angular Team's Commit Message Guidelines](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit) with emoji prefix.
 
-## Technology Stack
+### `yarn document`
 
-- Nest.js
+Uses [compodoc](https://github.com/compodoc/compodoc) to generate an awesome document for this app.
 
-- Rxjs
+### `yarn lint`
 
-- JWT
+Uses [eslint](https://eslint.org/) to find and fix problems in your JavaScript code, we will check your codes before `git commit`.
 
-- MongoDB
+### `yarn test`
 
-- GraphQL
+Uses [jest](https://jestjs.io/) to test your usecases.
 
-- Ali OSS
+### `yarn test:watch`
+
+Tests the app with hot reload.
+
+### `yarn test:cov`
+
+Generates coverage folder when testing.
+
+### `yarn test:debug`
+
+Tests the app in the debug mode.
+
+### `yarn test:e2e`
+
+Tests the app in the e2e mode.
 
 ## Change Logs
 
-- 2019-10-09 Initital repo.
+- 2019-10-12 Initital repo.
+
+- 2019-10-20 Uses MongoDB and write the first RESTful CRUD.
+
+- 2019-11-04 Supports GraphQL.
+
+- 2019-11-07 Supports .env.
+
+- 2019-11-26 Supports JWT.
 
 ## License
 
-Blog be next is under the [MIT licensed](https://opensource.org/licenses/MIT). See the [LICENSE](https://github.com/Yancey-Blog/blog-be-next/blob/master/LICENSE) file for the full license text.
+Blog Backend Next is under the [MIT licensed](https://opensource.org/licenses/MIT). See the [LICENSE](./LICENSE) file for the full license text.

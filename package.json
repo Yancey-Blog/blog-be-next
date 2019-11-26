@@ -6,8 +6,8 @@
   "author": "YanceyOfficial <yanceyofficial@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "prebuild": "rimraf dist",
-    "build": "nest build",
+    "clear": "rimraf dist",
+    "build": "yarn clear && nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:debug": "nest start --debug --watch",
@@ -57,7 +57,6 @@
     "rxjs": "^6.5.3",
     "serve-favicon": "^2.5.0",
     "type-graphql": "^0.17.5",
-    "typeorm": "^0.2.20",
     "uuid": "^3.3.3",
     "yancey-js-util": "^1.1.1"
   },
