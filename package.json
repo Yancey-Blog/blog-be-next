@@ -45,7 +45,7 @@
     "graphql": "^14.5.8",
     "graphql-tools": "^4.0.6",
     "helmet": "^3.21.2",
-    "mongodb": "^3.3.4",
+    "mongodb": "^3.3.5",
     "mongoose": "^5.7.12",
     "morgan": "^1.9.1",
     "passport": "^0.4.0",
