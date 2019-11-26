@@ -63,3 +63,6 @@ typings/
 # production
 /dist
 /build
+
+# document
+/documentation
