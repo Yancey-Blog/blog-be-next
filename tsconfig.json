@@ -9,13 +9,7 @@
     "baseUrl": "./",
     "esModuleInterop": true,
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-
-    // "strict": true, // FIXME:
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true
+    "experimentalDecorators": true
   },
   "exclude": ["node_modules", "dist"]
 }

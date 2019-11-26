@@ -10,15 +10,14 @@ import {
   // UseFilters,
 } from '@nestjs/common'
 import { Observable, of } from 'rxjs'
-import { UserService } from './users.service'
+import { UsersService } from './users.service'
 import { CreateUserDto } from './dtos/createUser.dto'
-import { IUserController } from './interfaces/user-controller.interface'
-import { IUser } from './interfaces/user.interface'
-import { Roles } from '../../decorators/roles.decorator'
+import { User } from './interfaces/user.interface'
+import { Roles } from '../decorators/roles.decorator'
 
-@Controller('user')
-export class UserController implements IUserController {
-  constructor(private readonly userService: UserService) {
+@Controller('auth')
+export class UsersController {
+  constructor(private readonly userService: UsersService) {
     this.userService = userService
   }
 
@@ -26,7 +25,7 @@ export class UserController implements IUserController {
   // 这里最好传递类而非实例
   // 它可以减少内存使用量，因为 Nest 可以轻松地在整个应用程序中重复使用同一类的实例。
   // @UseFilters(HttpExceptionFilter)
-  public getAllUsers(): Observable<IUser[]> {
+  public getAllUsers(): Observable<User[]> {
     return of(this.userService.findAllUsers())
     // throw new HttpException('FORBIDDEN', HttpStatus.FORBIDDEN)
     // throw new HttpException(
@@ -42,7 +41,7 @@ export class UserController implements IUserController {
   }
 
   @Get(':id')
-  public getUserById(@Param('id') id: string): Observable<IUser | undefined> {
+  public getUserById(@Param('id') id: string): Observable<User | undefined> {
     return of(this.userService.findUserById(id))
   }
 

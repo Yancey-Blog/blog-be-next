@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose'
 import { Injectable } from '@nestjs/common'
 import { IMotto } from './interfaces/motto.interface'
 import { CreateMottoDto } from './dtos/create-motto.dto'
-import { IBatchDelete } from '../../database/interfaces/batchDelete.interface'
+import { IBatchDelete } from '../database/interfaces/batchDelete.interface'
 
 @Injectable()
 export class MottosService {

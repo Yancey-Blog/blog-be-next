@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import OSS from 'ali-oss'
-import { ConfigService } from '../../config/config.service'
-import { ALI_OSS_END_POINT, ALI_OSS_REGION } from '../../shared/constants'
+import { ConfigService } from '../config/config.service'
+import { ALI_OSS_END_POINT, ALI_OSS_REGION } from '../shared/constants'
 import { IAliOSSRes } from './interfaces/alioss.interface'
 import { IMulterFile } from './interfaces/multer.interface'
 

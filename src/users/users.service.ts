@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common'
-import { IUser } from './interfaces/user.interface'
-import { IUserService } from './interfaces/user-service.interface'
+import { User } from './interfaces/user.interface'
 import { CreateUserDto } from './dtos/createUser.dto'
 
-export const dataSource: IUser[] = [
+export const mockData: User[] = [
   {
     _id: '70060443-1c58-4522-a515-145ffad66e11',
     name: 'Yancey',
+    password: '123456',
     age: 23,
     gender: 'male',
     role: 'SUPERUSER',
@@ -20,6 +20,7 @@ export const dataSource: IUser[] = [
   {
     _id: '3590134c-bfaf-4935-ad61-37765640f87d',
     name: 'Sayaka',
+    password: '123456',
     age: 26,
     gender: 'female',
     role: 'STAFF',
@@ -33,18 +34,26 @@ export const dataSource: IUser[] = [
 ]
 
 @Injectable()
-export class UserService implements IUserService {
-  private readonly users: IUser[] = dataSource
+export class UsersService {
+  private readonly users: User[]
+
+  constructor() {
+    this.users = mockData
+  }
 
   public create(user: CreateUserDto) {
     return !!user
   }
 
-  public findAllUsers(): IUser[] {
+  public findAllUsers(): User[] {
     return this.users
   }
 
-  public findUserById(id: string): IUser | undefined {
-    return this.users.find((user: IUser) => user._id === id)
+  public findUserById(id: string): User | undefined {
+    return this.users.find((user: User) => user._id === id)
+  }
+
+  public findUserByUserName(username: string): User {
+    return this.users.find((user: User) => user.name === username)
   }
 }

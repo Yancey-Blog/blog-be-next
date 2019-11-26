@@ -1,5 +1,7 @@
 export const MAX_SIZE = 20 * 1024 * 1024
 
+export const EXPIRES_TIME = 7 * 24 * 60 * 60
+
 export const FORMIDABLE = {
   maxFileSize: MAX_SIZE,
   keepExtensions: true,
