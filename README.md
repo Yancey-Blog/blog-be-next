@@ -39,24 +39,17 @@ _This library is part of the [BPG (Blog Program Group)](https://github.com/Yance
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
+## Menu
 
 - [Available Scripts](#available-scripts)
-  - [`yarn clear`](#yarn-clear)
   - [`yarn build`](#yarn-build)
-  - [`yarn format`](#yarn-format)
   - [`yarn start`](#yarn-start)
-  - [`yarn start:debug`](#yarn-startdebug)
-  - [`yarn start:prod`](#yarn-startprod)
   - [`yarn watch`](#yarn-watch)
   - [`yarn commit`](#yarn-commit)
   - [`yarn document`](#yarn-document)
-  - [`yarn lint`](#yarn-lint)
   - [`yarn test`](#yarn-test)
-  - [`yarn test:watch`](#yarn-testwatch)
   - [`yarn test:cov`](#yarn-testcov)
-  - [`yarn test:debug`](#yarn-testdebug)
-  - [`yarn test:e2e`](#yarn-teste2e)
+- [Env Files](#env-files)
 - [Change Logs](#change-logs)
 - [License](#license)
 
@@ -66,30 +59,14 @@ _This library is part of the [BPG (Blog Program Group)](https://github.com/Yance
 
 In the project directory, you can run:
 
-### `yarn clear`
-
-Removes the `dist` folder.
-
 ### `yarn build`
 
 Builds the app for production to the `dist` folder.
 This script will delete the old `dist` folder before build.
 
-### `yarn format`
-
-Formats the app by [prettier](https://prettier.io/), we will check your codes style before `git commit`.
-
 ### `yarn start`
 
 Runs the app in the development mode with no hot reload.
-
-### `yarn start:debug`
-
-Runs the app in the debug mode.
-
-### `yarn start:prod`
-
-Runs the app in the production mode.
 
 ### `yarn watch`
 
@@ -107,45 +84,58 @@ Makes a git comment by [commitizen](https://github.com/commitizen/cz-cli), we fo
 
 Uses [compodoc](https://github.com/compodoc/compodoc) to generate an awesome document for this app.
 
-### `yarn lint`
-
-Uses [eslint](https://eslint.org/) to find and fix problems in your JavaScript code, we will check your codes before `git commit`.
-
 ### `yarn test`
 
 Uses [jest](https://jestjs.io/) to test your usecases.
-
-### `yarn test:watch`
-
-Tests the app with hot reload.
 
 ### `yarn test:cov`
 
 Generates coverage folder when testing.
 
-### `yarn test:debug`
+[⇧ back to top](#Menu)
 
-Tests the app in the debug mode.
+## Env Files
 
-### `yarn test:e2e`
+Copy `env/.env.example` to `env` directory and rename it as 'development.env' and 'production.env',then fill in your real environment variables.
 
-Tests the app in the e2e mode.
+```ts
+NODE_ENV=<YOUR_NODE_ENV>
+APP_PORT=<YOUR_APP_PORT>
 
-[⇧ back to top](#table-of-contents)
+DATABASE_HOST=<YOUR_DATABASE_HOST>
+DATABASE_PORT=<YOUR_DATABASE_PORT>
+DATABASE_USER=<YOUR_DATABASE_USER>
+DATABASE_PWD=<YOUR_DATABASE_PWD>
+DATABASE_COLLECTION=<YOUR_DATABASE_COLLECTION>
+DATABASE_SYNCHRONIZE=true
+DATABASE_DROPSCHEMA=false
+
+BANDWAGON_SECRET_KEY=<YOUR_BANDWAGON_SECRET_KEY>
+BANDWAGON_SERVER_ID=<YOUR_BANDWAGON_SERVER_ID>
+
+GOOGLE_RECAPTCHA_SECRET_KEY=<YOUR_GOOGLE_RECAPTCHA_SECRET_KEY>
+GOOGLE_RECAPTCHA_SITE_KEY=<YOUR_GOOGLE_RECAPTCHA_SITE_KEY>
+
+ALI_OSS_ACCESS_KEY_ID=<YOUR_ALI_OSS_ACCESS_KEY_ID>
+ALI_OSS_ACCESS_KEY_SECRET=<YOUR_ALI_OSS_ACCESS_KEY_SECRET>
+ALI_OSS_BUCKET=<YOUR_ALI_OSS_BUCKET>
+
+JWT_SECRETS=<JWT_SECRETS>
+```
 
 ## Change Logs
 
-- 2019-10-12 Initital repo.
-
-- 2019-10-20 Uses MongoDB and write the first RESTful CRUD.
-
-- 2019-11-04 Supports GraphQL.
+- 2019-11-26 Supports JWT.
 
 - 2019-11-07 Supports .env.
 
-- 2019-11-26 Supports JWT.
+- 2019-11-04 Supports GraphQL.
 
-[⇧ back to top](#table-of-contents)
+- 2019-10-20 Uses MongoDB and write the first RESTful CRUD.
+
+- 2019-10-12 Initital repo.
+
+[⇧ back to top](#Menu)
 
 ## License
 
