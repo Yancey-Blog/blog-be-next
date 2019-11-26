@@ -50,8 +50,8 @@ _This library is part of the [BPG (Blog Program Group)](https://github.com/Yance
   - [yarn test](#yarn-test)
   - [yarn test:cov](#yarn-testcov)
 - [Contributions](#contributions)
-  - [Use Commitizen](#commitizen)
-  - [Env Files](#env-files)
+  - [Uses Commitizen](#uses-commitizen)
+  - [Uses Env Files](#uses-env-files)
 - [Change Logs](#change-logs)
 - [License](#license)
 
@@ -98,11 +98,11 @@ Generates coverage folder when testing.
 
 ## Contributions
 
-### Use Commitizen
+### Uses Commitizen
 
 We follow the [Angular Team's Commit Message Guidelines](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit), and your commit will be checked by commitlint, please install `commitizen` globally.
 
-### Env Files
+### Uses Env Files
 
 Copy `env/.env.example` to `env` directory and rename it as 'development.env' and 'production.env',then fill in your real environment variables.
 
