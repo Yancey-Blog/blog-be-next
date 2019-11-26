@@ -13,7 +13,7 @@
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "watch": "nest start --watch",
-    "commit": "git-cz",
+    "commit": "npx git-cz",
     "document": "npx compodoc -p tsconfig.json -s",
     "lint": "eslint src --ext .ts,.tsx",
     "test": "jest",
