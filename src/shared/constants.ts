@@ -16,9 +16,4 @@ export const ALI_OSS_REGION = 'oss-cn-hongkong'
 
 export const ALI_OSS_END_POINT = 'https://static.yancey.app/'
 
-export enum Role {
-  SUPERUSER,
-  ADMIN,
-  STAFF,
-  USER,
-}
+export const emailRegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/gim

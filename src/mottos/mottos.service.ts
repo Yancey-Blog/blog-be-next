@@ -1,7 +1,7 @@
 import { Model } from 'mongoose'
 import { InjectModel } from '@nestjs/mongoose'
 import { Injectable } from '@nestjs/common'
-import { IMotto } from './interfaces/motto.interface'
+import { Motto } from './interfaces/motto.interface'
 import { CreateMottoDto } from './dtos/create-motto.dto'
 import { IBatchDelete } from '../database/interfaces/batchDelete.interface'
 
@@ -9,22 +9,22 @@ import { IBatchDelete } from '../database/interfaces/batchDelete.interface'
 export class MottosService {
   constructor(
     @InjectModel('Motto')
-    private readonly MottoModel: Model<IMotto>,
+    private readonly MottoModel: Model<Motto>,
   ) {
     this.MottoModel = MottoModel
   }
 
-  public async findAll(): Promise<IMotto[]> {
+  public async findAll(): Promise<Motto[]> {
     const res = await this.MottoModel.find({}).sort({ updated_at: -1 })
     return res
   }
 
-  public async findOneById(id: string): Promise<IMotto> {
+  public async findOneById(id: string): Promise<Motto> {
     const res = await this.MottoModel.findById(id)
     return res
   }
 
-  public async create(createMottoDto: CreateMottoDto): Promise<IMotto> {
+  public async create(createMottoDto: CreateMottoDto): Promise<Motto> {
     const createdMotto = new this.MottoModel(createMottoDto)
     const res = await createdMotto.save()
     return res
@@ -33,12 +33,12 @@ export class MottosService {
   public async update(
     id: string,
     createMottoDto: CreateMottoDto,
-  ): Promise<IMotto> {
+  ): Promise<Motto> {
     const res = await this.MottoModel.findByIdAndUpdate(id, createMottoDto)
     return res
   }
 
-  public async deleteOneById(id: string): Promise<IMotto> {
+  public async deleteOneById(id: string): Promise<Motto> {
     const res = await this.MottoModel.findByIdAndDelete(id)
     return res
   }

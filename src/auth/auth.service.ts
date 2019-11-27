@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common'
+import { Injectable, ConflictException } from '@nestjs/common'
 import { JwtService } from '@nestjs/jwt'
 import { UsersService } from '../users/users.service'
 import { User } from '../users/interfaces/user.interface'
@@ -12,23 +12,28 @@ export class AuthService {
     this.jwtService = jwtService
   }
 
-  public async validateUser(
-    username: string,
-    pass: string,
-  ): Promise<Omit<User, 'password'> | null> {
-    const user = await this.usersService.findUserByUserName(username)
-    if (user && user.password === pass) {
+  public async validateUser(email: string, password?: string): Promise<any> {
+    const user = await this.usersService.findOneByEmail(email)
+    if (user && user.isValidPassword(password, user.password)) {
       // eslint-disable-next-line
-      const { password, ...result } = user
-      return result
+      const { password, ...rest } = user
+      return rest
     }
     return null
   }
 
   public async login(user: User) {
-    const payload = { username: user.name, sub: user._id }
+    const payload = { email: user.email, sub: user._id }
     return {
       token: this.jwtService.sign(payload),
     }
+  }
+
+  public async register(user: any) {
+    const curUser = await this.usersService.findOneByEmail(user.email)
+    if (!curUser) {
+      return this.usersService.create(user)
+    }
+    throw new ConflictException()
   }
 }

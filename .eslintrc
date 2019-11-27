@@ -23,6 +23,8 @@
     "function-paren-newline": "off",
     "object-curly-newline": "off",
     "arrow-parens": "off",
+    "space-before-function-paren": "off",
+    "func-names": "off",
     "import/no-unresolved": "off", // FIXME:
     "class-methods-use-this": "off" // FIXME:
   },

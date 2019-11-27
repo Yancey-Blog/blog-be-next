@@ -1,16 +1,29 @@
-export interface Hobby {
-  readonly _id: string
-  readonly name: string
+import { Document } from 'mongoose'
+
+export enum TwoFactorAuthentications {
+  TOTP,
+  SMS,
 }
 
-export interface User {
-  readonly _id: string
-  readonly name: string
-  readonly password: string
-  readonly age: number
-  readonly gender: string
-  readonly role: 'SUPERUSER' | 'ADMIN' | 'STAFF'
-  readonly hobbies: Hobby[]
-  readonly created_at: string
-  readonly updated_at: string
+export enum Roles {
+  SUPERUSER,
+  ADMIN,
+  USER,
+  NOT_CERTIFIED,
+}
+
+export interface User extends Document {
+  _id: string
+  username: string
+  email: string
+  password: string
+  role: Roles
+  avater_url: string
+  phone_number: string
+  is_two_factor_authentication: boolean
+  two_factor_authentications: TwoFactorAuthentications[]
+  totp_recovery_codes: number[]
+  created_at: string
+  updated_at: string
+  isValidPassword(plainPwd: string, encryptedPwd: string): boolean
 }

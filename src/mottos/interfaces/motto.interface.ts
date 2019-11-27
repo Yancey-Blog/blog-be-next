@@ -1,9 +1,5 @@
 import { Document } from 'mongoose'
 
-export interface IMotto extends Document {
-  readonly _id: string
+export interface Motto extends Document {
   readonly motto: string
-  readonly created_at: string
-  readonly updated_at: string
-  readonly __v: number
 }
