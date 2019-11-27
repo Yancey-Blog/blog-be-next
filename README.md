@@ -94,7 +94,7 @@ This app follows the [Angular Team's Commit Message Guidelines](https://github.c
 
 ### Uses Env Files
 
-Copy `env/.env.example` to `env` directory and rename it as 'development.env' and 'production.env', then fill in your real environment variables.
+Copy `env/.env.example` to `env` folder twice and rename them to 'development.env' and 'production.env', then fill in your real environment variables.
 
 ```ts
 NODE_ENV=<YOUR_NODE_ENV>
