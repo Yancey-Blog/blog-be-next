@@ -25,7 +25,7 @@
   "dependencies": {
     "@hapi/joi": "^16.1.8",
     "@nestjs/common": "^6.10.2",
-    "@nestjs/core": "^6.10.1",
+    "@nestjs/core": "^6.10.2",
     "@nestjs/graphql": "^6.5.3",
     "@nestjs/jwt": "^6.1.1",
     "@nestjs/mongoose": "^6.1.2",
