@@ -12,6 +12,7 @@ import { UploadersModule } from './uploaders/uploaders.module'
 import { UsersModule } from './users/users.module'
 import { AnnouncementsModule } from './announcements/announcements.module'
 import { MottosModule } from './mottos/mottos.module'
+import { SmsModule } from './sms/sms.module'
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { MottosModule } from './mottos/mottos.module'
     UsersModule,
     AnnouncementsModule,
     MottosModule,
+    SmsModule,
   ],
   providers: [
     {

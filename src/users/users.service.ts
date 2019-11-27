@@ -13,6 +13,10 @@ export class UsersService {
     this.UserModel = UserModel
   }
 
+  public getUserCount() {
+    return this.UserModel.estimatedDocumentCount()
+  }
+
   public findOneByEmail(email: string) {
     return this.UserModel.findOne({ email })
   }

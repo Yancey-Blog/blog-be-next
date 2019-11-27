@@ -1,7 +1,7 @@
 import dotenv from 'dotenv'
 import Joi, { ObjectSchema } from '@hapi/joi'
 import fs from 'fs'
-import { IAliOSSKey } from './interfaces/aliOSSKey.interface'
+import { AliOSSKey, AliSMSKey } from './interfaces/aliKeys.interface'
 
 export type EnvConfig = Record<string, string>
 
@@ -36,6 +36,9 @@ export class ConfigService {
       ALI_OSS_ACCESS_KEY_ID: Joi.string(),
       ALI_OSS_ACCESS_KEY_SECRET: Joi.string(),
       ALI_OSS_BUCKET: Joi.string(),
+      ALI_SMS_ACCESS_KEY_ID: Joi.string(),
+      ALI_SMS_ACCESS_KEY_SECRET: Joi.string(),
+      JWT_SECRETS: Joi.string(),
     })
 
     const { error, value: validatedEnvConfig } = envVarsSchema.validate(
@@ -67,11 +70,20 @@ export class ConfigService {
       : `${prefix}${connection}`
   }
 
-  public getAliOSSKeys(): IAliOSSKey {
+  public getAliOSSKeys(): AliOSSKey {
     return {
       accessKeyId: this.get('ALI_OSS_ACCESS_KEY_ID'),
       accessKeySecret: this.get('ALI_OSS_ACCESS_KEY_SECRET'),
       bucket: this.get('ALI_OSS_BUCKET'),
+    }
+  }
+
+  public getAliSMSKeys(): AliSMSKey {
+    return {
+      accessKeyId: this.get('ALI_SMS_ACCESS_KEY_ID'),
+      accessKeySecret: this.get('ALI_SMS_ACCESS_KEY_SECRET'),
+      signName: this.get('ALI_SMS_SIGN_NAME'),
+      templateCode: this.get('ALI_SMS_TEMPLATE_CODE'),
     }
   }
 }

@@ -1,7 +1,7 @@
 import { Injectable, ConflictException } from '@nestjs/common'
 import { JwtService } from '@nestjs/jwt'
 import { UsersService } from '../users/users.service'
-import { User } from '../users/interfaces/user.interface'
+import { User, Roles } from '../users/interfaces/user.interface'
 @Injectable()
 export class AuthService {
   constructor(
@@ -31,9 +31,13 @@ export class AuthService {
 
   public async register(user: any) {
     const curUser = await this.usersService.findOneByEmail(user.email)
-    if (!curUser) {
-      return this.usersService.create(user)
+
+    if (curUser) {
+      throw new ConflictException()
+    } else {
+      const count = await this.usersService.getUserCount()
+      const params = count === 0 ? { ...user, role: Roles.SUPERUSER } : user
+      this.usersService.create(params)
     }
-    throw new ConflictException()
   }
 }
