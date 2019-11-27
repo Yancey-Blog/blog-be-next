@@ -14,7 +14,7 @@
     "start:prod": "node dist/main",
     "watch": "nest start --watch",
     "commit": "npx git-cz",
-    "document": "npx compodoc -p tsconfig.json -s",
+    "document": "npx compodoc -p tsconfig.json -s --language \"ja-JP\"",
     "lint": "eslint src --ext .ts,.tsx",
     "test": "jest",
     "test:watch": "jest --watch",
