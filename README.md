@@ -46,7 +46,6 @@ _This library is part of the [BPG (Blog Program Group)](https://github.com/Yance
   - [yarn start](#yarn-start)
   - [yarn watch](#yarn-watch)
   - [yarn document](#yarn-document)
-  - [yarn test](#yarn-test)
   - [yarn test:cov](#yarn-testcov)
 - [Contributions](#contributions)
   - [Uses Commitizen](#uses-commitizen)
@@ -81,13 +80,9 @@ You will also see any lint errors in the console.
 
 Uses [compodoc](https://github.com/compodoc/compodoc) to generate an awesome document for this app.
 
-### yarn test
-
-Uses [jest](https://jestjs.io/) to test your usecases.
-
 ### yarn test:cov
 
-Generates coverage folder when testing.
+Generates coverage folder after testing.
 
 [⇧ back to top](#Menu)
 
