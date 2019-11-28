@@ -65,7 +65,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@compodoc/compodoc": "^1.1.11",
-    "@nestjs/cli": "^6.12.2",
+    "@nestjs/cli": "^6.12.4",
     "@nestjs/schematics": "^6.7.3",
     "@nestjs/testing": "^6.10.2",
     "@types/ali-oss": "^6.0.4",

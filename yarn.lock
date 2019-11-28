@@ -622,21 +622,21 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@nestjs/cli@^6.12.2":
-  version "6.12.2"
-  resolved "https://registry.yarnpkg.com/@nestjs/cli/-/cli-6.12.2.tgz#59a5b00a0ee8045cf8a7dae751ffd0e236b3608e"
-  integrity sha512-To8+pqBERSFJDm4n0L5reaer4y1mnlt5pDnMTm+E8APal57V+BmLGXtGtgWbGzdKPDPqdnJ4ysoxsYiGkrukzg==
+"@nestjs/cli@^6.12.4":
+  version "6.12.4"
+  resolved "https://registry.yarnpkg.com/@nestjs/cli/-/cli-6.12.4.tgz#1d4c8c1046aa9229fa59f9cae122cd650b40533b"
+  integrity sha512-WX2wXNxnQZofajzo/wsHWld8hXi0xd08RrEsHxUVMm9AdIULakmQYT0vGq934qyE83UxhQQgEwtwNqWjzZeX8A==
   dependencies:
     "@angular-devkit/core" "8.3.19"
     "@angular-devkit/schematics" "8.3.19"
     "@angular-devkit/schematics-cli" "0.803.19"
     "@nestjs/schematics" "^6.6.3"
-    "@types/webpack" "4.39.8"
+    "@types/webpack" "4.41.0"
     chalk "2.4.2"
     cli-table3 "0.5.1"
     commander "4.0.1"
     copyfiles "2.1.1"
-    fork-ts-checker-webpack-plugin "3.1.0"
+    fork-ts-checker-webpack-plugin "3.1.1"
     inquirer "7.0.0"
     node-emoji "1.10.0"
     ora "4.0.3"
@@ -1428,10 +1428,10 @@
     "@types/source-list-map" "*"
     source-map "^0.6.1"
 
-"@types/webpack@4.39.8":
-  version "4.39.8"
-  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.39.8.tgz#8083a4eb850ea02961ef6161465434c9b478851f"
-  integrity sha512-lkJvwNJQUPW2SbVwAZW9s9whJp02nzLf2yTNwMULa4LloED9MYS1aNnGeoBCifpAI1pEBkTpLhuyRmBnLEOZAA==
+"@types/webpack@4.41.0":
+  version "4.41.0"
+  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.41.0.tgz#b813a044d8b0dec7dfcd7622fdbe327bde06eb9a"
+  integrity sha512-tWkdf9nO0zFgAY/EumUKwrDUhraHKDqCPhwfFR/R8l0qnPdgb9le0Gzhvb7uzVpouuDGBgiE//ZdY+5jcZy2TA==
   dependencies:
     "@types/anymatch" "*"
     "@types/node" "*"
@@ -3015,7 +3015,7 @@ chokidar@^2.0.2, chokidar@^2.0.4:
   optionalDependencies:
     fsevents "^1.2.7"
 
-chokidar@^3.1.1:
+chokidar@^3.1.1, chokidar@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.3.0.tgz#12c0714668c55800f659e262d4962a97faf554a6"
   integrity sha512-dGmKLDdT3Gdl7fBUe8XK+gAtGmzy5Fn0XkkWQuYxGIgWVPPse2CxFA5mtrlD0TOHaHjEUqkWNyP1XdHoJES/4A==
@@ -5155,14 +5155,14 @@ forever-agent@~0.6.1:
   resolved "https://registry.yarnpkg.com/forever-agent/-/forever-agent-0.6.1.tgz#fbc71f0c41adeb37f96c577ad1ed42d8fdacca91"
   integrity sha1-+8cfDEGt6zf5bFd60e1C2P2sypE=
 
-fork-ts-checker-webpack-plugin@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/fork-ts-checker-webpack-plugin/-/fork-ts-checker-webpack-plugin-3.1.0.tgz#fb411a4b2c3697e1cd7f83436d4feeacbcc70c7b"
-  integrity sha512-6OkRfjuNMNqb14f01xokcWcKV5Ekknc2FvziNpcTYru+kxIYFA2MtuuBI19MHThZnjSBhoi35Dcq+I0oUkFjmQ==
+fork-ts-checker-webpack-plugin@3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/fork-ts-checker-webpack-plugin/-/fork-ts-checker-webpack-plugin-3.1.1.tgz#a1642c0d3e65f50c2cc1742e9c0a80f441f86b19"
+  integrity sha512-DuVkPNrM12jR41KM2e+N+styka0EgLkTnXmNcXdgOM37vtGeY+oCBK/Jx0hzSeEU6memFCtWb4htrHPMDfwwUQ==
   dependencies:
     babel-code-frame "^6.22.0"
     chalk "^2.4.1"
-    chokidar "^2.0.4"
+    chokidar "^3.3.0"
     micromatch "^3.1.10"
     minimatch "^3.0.4"
     semver "^5.6.0"
