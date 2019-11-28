@@ -37,13 +37,13 @@ export class ConfigService {
       ALI_OSS_ACCESS_KEY_SECRET: Joi.string(),
       ALI_OSS_BUCKET: Joi.string(),
       ALI_SMS_ACCESS_KEY_ID: Joi.string(),
+      ALI_SMS_SIGN_NAME: Joi.string(),
       ALI_SMS_ACCESS_KEY_SECRET: Joi.string(),
+      ALI_SMS_TEMPLATE_CODE: Joi.string(),
       JWT_SECRETS: Joi.string(),
     })
 
-    const { error, value: validatedEnvConfig } = envVarsSchema.validate(
-      envConfig,
-    )
+    const { error, value: validatedEnvConfig } = envVarsSchema.validate(envConfig)
     if (error) {
       throw new Error(`Config validation error: ${error.message}`)
     }
@@ -65,25 +65,23 @@ export class ConfigService {
     const auth = `${userName}:${userPwd}@`
     const connection = `${host}:${port}/${collection}`
 
-    return this.isEnvProduction
-      ? `${prefix}${auth}${connection}`
-      : `${prefix}${connection}`
+    return this.isEnvProduction ? `${prefix}${auth}${connection}` : `${prefix}${connection}`
   }
 
   public getAliOSSKeys(): AliOSSKey {
     return {
-      accessKeyId: this.get('ALI_OSS_ACCESS_KEY_ID'),
-      accessKeySecret: this.get('ALI_OSS_ACCESS_KEY_SECRET'),
-      bucket: this.get('ALI_OSS_BUCKET'),
+      ALI_OSS_ACCESS_KEY_ID: this.get('ALI_OSS_ACCESS_KEY_ID'),
+      ALI_OSS_ACCESS_KEY_SECRET: this.get('ALI_OSS_ACCESS_KEY_SECRET'),
+      ALI_OSS_BUCKET: this.get('ALI_OSS_BUCKET'),
     }
   }
 
   public getAliSMSKeys(): AliSMSKey {
     return {
-      accessKeyId: this.get('ALI_SMS_ACCESS_KEY_ID'),
-      accessKeySecret: this.get('ALI_SMS_ACCESS_KEY_SECRET'),
-      signName: this.get('ALI_SMS_SIGN_NAME'),
-      templateCode: this.get('ALI_SMS_TEMPLATE_CODE'),
+      ALI_SMS_ACCESS_KEY_ID: this.get('ALI_SMS_ACCESS_KEY_ID'),
+      ALI_SMS_ACCESS_KEY_SECRET: this.get('ALI_SMS_ACCESS_KEY_SECRET'),
+      ALI_SMS_SIGN_NAME: this.get('ALI_SMS_SIGN_NAME'),
+      ALI_SMS_TEMPLATE_CODE: this.get('ALI_SMS_TEMPLATE_CODE'),
     }
   }
 }

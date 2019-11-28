@@ -12,7 +12,7 @@ import { UploadersModule } from './uploaders/uploaders.module'
 import { UsersModule } from './users/users.module'
 import { AnnouncementsModule } from './announcements/announcements.module'
 import { MottosModule } from './mottos/mottos.module'
-import { SmsModule } from './sms/sms.module'
+import { SMSModule } from './sms/sms.module'
 
 @Module({
   imports: [
@@ -24,7 +24,7 @@ import { SmsModule } from './sms/sms.module'
     UsersModule,
     AnnouncementsModule,
     MottosModule,
-    SmsModule,
+    SMSModule,
   ],
   providers: [
     {

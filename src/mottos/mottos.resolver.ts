@@ -1,16 +1,7 @@
-import {
-  Body,
-  Param,
-  Get,
-  Post,
-  Put,
-  Delete,
-  Controller,
-  UseGuards,
-} from '@nestjs/common'
+import { Body, Param, Get, Post, Put, Delete, Controller, UseGuards } from '@nestjs/common'
 import { AuthGuard } from '@nestjs/passport'
 import { MottosService } from './mottos.service'
-import { CreateMottoDto } from './dtos/create-motto.dto'
+import { CreateMottoDto } from './dtos/createMotto.dto'
 import { Motto } from './interfaces/motto.interface'
 
 @Controller('mottos')

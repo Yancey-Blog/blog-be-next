@@ -11,19 +11,19 @@ export class UploadersService {
 
   constructor(configService: ConfigService) {
     const {
-      accessKeyId,
-      accessKeySecret,
-      bucket,
+      ALI_OSS_ACCESS_KEY_ID,
+      ALI_OSS_ACCESS_KEY_SECRET,
+      ALI_OSS_BUCKET,
     } = configService.getAliOSSKeys()
 
     this.oss = new OSS({
-      accessKeyId,
-      accessKeySecret,
-      bucket,
+      accessKeyId: ALI_OSS_ACCESS_KEY_ID,
+      accessKeySecret: ALI_OSS_ACCESS_KEY_SECRET,
+      bucket: ALI_OSS_BUCKET,
       region: ALI_OSS_REGION,
+      endpoint: ALI_OSS_END_POINT,
       secure: true,
       cname: true,
-      endpoint: ALI_OSS_END_POINT,
     })
   }
 

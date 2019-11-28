@@ -16,7 +16,7 @@ export const ALI_OSS_REGION = 'oss-cn-hongkong'
 
 export const ALI_OSS_END_POINT = 'https://static.yancey.app/'
 
-export const ALI_SMS_END_POINT = 'https://dysmsapi.aliyuncs.com'
+export const ALI_SMS_END_POINT = 'https://dysmsapi.aliyuncs.com/'
 
 export const ALI_SMS_API_VERSION = '2017-05-25'
 

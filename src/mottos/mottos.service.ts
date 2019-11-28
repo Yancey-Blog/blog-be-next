@@ -2,7 +2,7 @@ import { Model } from 'mongoose'
 import { InjectModel } from '@nestjs/mongoose'
 import { Injectable } from '@nestjs/common'
 import { Motto } from './interfaces/motto.interface'
-import { CreateMottoDto } from './dtos/create-motto.dto'
+import { CreateMottoDto } from './dtos/createMotto.dto'
 import { IBatchDelete } from '../database/interfaces/batchDelete.interface'
 
 @Injectable()
@@ -30,10 +30,7 @@ export class MottosService {
     return res
   }
 
-  public async update(
-    id: string,
-    createMottoDto: CreateMottoDto,
-  ): Promise<Motto> {
+  public async update(id: string, createMottoDto: CreateMottoDto): Promise<Motto> {
     const res = await this.MottoModel.findByIdAndUpdate(id, createMottoDto)
     return res
   }
