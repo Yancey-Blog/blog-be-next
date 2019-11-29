@@ -15,7 +15,7 @@ export class AnnouncementsService {
   }
 
   public async findAll(): Promise<AnnouncementsModel[]> {
-    const res = await this.AnnouncementModel.find({}).sort({ updated_at: -1 })
+    const res = await this.AnnouncementModel.find({}).sort({ updatedAt: -1 })
     return res
   }
 
@@ -42,7 +42,7 @@ export class AnnouncementsService {
   }
 
   // FIXME:
-  public async batchDelete(ids: string[]): Promise<any> {
+  public async batchDelete(ids: string[]) {
     const res = await this.AnnouncementModel.remove({
       _id: { $in: ids },
     })

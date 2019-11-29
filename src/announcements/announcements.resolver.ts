@@ -5,6 +5,7 @@ import { ID } from 'type-graphql'
 import { AnnouncementsService } from './announcements.service'
 import { AnnouncementsModel } from './dtos/announcements.model'
 import { AnnouncementInput } from './dtos/announcement.input'
+import { BatchDelete } from '../database/interfaces/batchDelete.interface'
 
 // const pubSub = new PubSub();
 
@@ -51,7 +52,7 @@ export class AnnouncementsResolver {
   @Mutation(() => AnnouncementsModel, { name: 'deleteAnnouncements' })
   public async deleteAnnouncements(
     @Args({ name: 'ids', type: () => [ID] }) ids: string[],
-  ): Promise<AnnouncementsModel> {
+  ): Promise<BatchDelete> {
     return this.announcementsService.batchDelete(ids)
   }
 

@@ -6,9 +6,9 @@ import { AliOSSKey, AliSMSKey } from './interfaces/aliKeys.interface'
 export type EnvConfig = Record<string, string>
 
 export class ConfigService {
-  private readonly envConfig: EnvConfig
-
   public readonly isEnvProduction: boolean
+
+  private readonly envConfig: EnvConfig
 
   constructor(filePath: string) {
     const config = dotenv.parse(fs.readFileSync(filePath))
@@ -47,7 +47,7 @@ export class ConfigService {
     }
   }
 
-  public getJWTSecretKey() {
+  public getJWTSecretKey(): string {
     return this.get('JWT_SECRET_KEY')
   }
 

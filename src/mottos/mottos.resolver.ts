@@ -13,6 +13,7 @@ import { AuthGuard } from '@nestjs/passport'
 import { MottosService } from './mottos.service'
 import { CreateMottoDto } from './dtos/createMotto.dto'
 import { Motto } from './interfaces/motto.interface'
+import { BatchDelete } from '../database/interfaces/batchDelete.interface'
 
 @Controller('mottos')
 export class MottosResolver {
@@ -53,7 +54,7 @@ export class MottosResolver {
 
   @UseGuards(AuthGuard())
   @Delete()
-  public deleteMottos(@Body('ids') ids: string[]): Promise<any> {
+  public deleteMottos(@Body('ids') ids: string[]): Promise<BatchDelete> {
     return this.mottosService.batchDelete(ids)
   }
 }

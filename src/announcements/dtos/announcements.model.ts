@@ -9,8 +9,8 @@ export class AnnouncementsModel {
   public announcement: string
 
   @Field({ nullable: false })
-  public created_at: string
+  public createdAt: string
 
   @Field({ nullable: false })
-  public updated_at: string
+  public updatedAt: string
 }

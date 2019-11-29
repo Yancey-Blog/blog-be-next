@@ -46,17 +46,6 @@ export class SMSService {
     }
   }
 
-  private async saveSMSVerificationCode(phoneNumber: string, verificationCode: string) {
-    await this.SMSModel.findOneAndUpdate(
-      { phoneNumber },
-      { verificationCode },
-      {
-        new: true,
-        upsert: true,
-      },
-    )
-  }
-
   public async sendSMS(phoneNumber: string) {
     const verificationCode = generateSMSVerificationCode()
 
@@ -83,10 +72,6 @@ export class SMSService {
     }
   }
 
-  private checkTimeIsExpired(date: string) {
-    return !moment(date).isBetween(moment().subtract(20, 'minutes'), moment())
-  }
-
   public async validateSMSVerificationCode(validateSMSDto: ValidateSMSDto) {
     const { phoneNumber, verificationCode: userVerificationCode } = validateSMSDto
 
@@ -106,5 +91,23 @@ export class SMSService {
           success: true,
         }
     }
+  }
+
+  private async saveSMSVerificationCode(
+    phoneNumber: string,
+    verificationCode: string,
+  ): Promise<void> {
+    await this.SMSModel.findOneAndUpdate(
+      { phoneNumber },
+      { verificationCode },
+      {
+        new: true,
+        upsert: true,
+      },
+    )
+  }
+
+  private checkTimeIsExpired(date: string): boolean {
+    return !moment(date).isBetween(moment().subtract(20, 'minutes'), moment())
   }
 }

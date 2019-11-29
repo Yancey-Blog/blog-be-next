@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose, { HookNextFunction } from 'mongoose'
 import { v4 } from 'uuid'
 import bcrypt from 'bcrypt'
 import { Roles, User } from './interfaces/user.interface'
@@ -49,11 +49,11 @@ export const UserSchema = new mongoose.Schema(
   },
 )
 
-UserSchema.pre<User>('save', function(next) {
+UserSchema.pre<User>('save', function(next: HookNextFunction) {
   this.password = bcrypt.hashSync(this.password, 10)
   next()
 })
 
-UserSchema.methods.isValidPassword = function(password: string) {
+UserSchema.methods.isValidPassword = function(password: string): boolean {
   return bcrypt.compareSync(password, this.password)
 }
