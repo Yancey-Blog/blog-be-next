@@ -57,7 +57,9 @@ export class SMSService {
     )
   }
 
-  public sendSMS(phoneNumber: string) {
+  // FIXME:
+  // eslint-disable-next-line
+  public async sendSMS(phoneNumber: string) {
     const verificationCode = generateSMSVerificationCode()
 
     const params = {
@@ -68,28 +70,46 @@ export class SMSService {
       }),
     }
 
-    this.sms
-      .request('SendSMS', params, {
+    try {
+      const res = await this.sms.request('SendSMS', params, {
         method: 'POST',
       })
-      .then(
-        result => {
-          console.log(JSON.stringify(result))
-          this.saveSMSVerificationCode(phoneNumber, verificationCode)
-        },
-        ex => {
-          console.log(ex)
-        },
-      )
+      console.log(JSON.stringify(res))
+      await this.saveSMSVerificationCode(phoneNumber, verificationCode)
+      return {
+        success: true,
+      }
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  private checkTimeIsExpired(date: string) {
+    return !moment(date).isBetween(moment().subtract(20, 'minutes'), moment())
   }
 
   public async validateSMSVerificationCode(validateSMSDto: ValidateSMSDto) {
-    const { phoneNumber, verificationCode } = validateSMSDto
+    const { phoneNumber, verificationCode: userVerificationCode } = validateSMSDto
     const res = await this.SMSModel.findOne({ phoneNumber })
-    const { verificationCode: dbVerificationCode, updatedAt } = res
-    return (
-      moment(updatedAt).isBetween(moment().subtract(20, 'minutes'), moment()) &&
-      dbVerificationCode === verificationCode
-    )
+    const { verificationCode, updatedAt } = res
+
+    switch (true) {
+      case verificationCode !== userVerificationCode:
+        return {
+          isValidate: false,
+          message: 'SMS verification code error',
+        }
+
+      case verificationCode === userVerificationCode && this.checkTimeIsExpired(updatedAt):
+        return {
+          isValidate: false,
+          message: 'SMS verification code has been expired',
+        }
+
+      default:
+        return {
+          isValidate: true,
+        }
+    }
   }
 }

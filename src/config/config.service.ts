@@ -27,8 +27,6 @@ export class ConfigService {
       DATABASE_USER: Joi.string(),
       DATABASE_PWD: Joi.string(),
       DATABASE_COLLECTION: Joi.string(),
-      DATABASE_SYNCHRONIZE: Joi.boolean(),
-      DATABASE_DROPSCHEMA: Joi.boolean(),
       BANDWAGON_SECRET_KEY: Joi.string(),
       BANDWAGON_SERVER_ID: Joi.number(),
       GOOGLE_RECAPTCHA_SECRET_KEY: Joi.string(),
