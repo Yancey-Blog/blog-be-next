@@ -25,7 +25,7 @@
   "dependencies": {
     "@alicloud/pop-core": "^1.7.7",
     "@hapi/joi": "^16.1.8",
-    "@nestjs/common": "^6.10.2",
+    "@nestjs/common": "^6.10.3",
     "@nestjs/core": "^6.10.2",
     "@nestjs/graphql": "^6.5.3",
     "@nestjs/jwt": "^6.1.1",
