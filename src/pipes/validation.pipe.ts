@@ -1,9 +1,6 @@
-import {
-  Injectable,
-  PipeTransform,
-  ArgumentMetadata,
-  BadRequestException,
-} from '@nestjs/common'
+// Nest 自带三个开箱即用的管道，即 ValidationPipe，ParseIntPipe 和 ParseUUIDPipe
+// 为了更好地理解它们是如何工作的，这里手写
+import { Injectable, PipeTransform, ArgumentMetadata, BadRequestException } from '@nestjs/common'
 import { validate } from 'class-validator'
 import { plainToClass } from 'class-transformer'
 

@@ -1,7 +1,7 @@
 import { Injectable, ConflictException } from '@nestjs/common'
 import { JwtService } from '@nestjs/jwt'
-import { UsersService } from '../users/users.service'
-import { User, Roles } from '../users/interfaces/user.interface'
+import { UsersService } from '../../users/users.service'
+import { User, Roles } from '../../users/interfaces/user.interface'
 @Injectable()
 export class AuthService {
   constructor(

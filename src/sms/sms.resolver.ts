@@ -1,4 +1,4 @@
-import { Controller, Post, Body } from '@nestjs/common'
+import { Controller, Post, Body, ValidationPipe } from '@nestjs/common'
 import { SMSService } from './sms.service'
 import { ValidateSMSDto } from './dtos/validateSMS.dto'
 
@@ -14,7 +14,7 @@ export class SMSResolver {
   }
 
   @Post('/validate')
-  public validateSMS(@Body() validateSMSDto: ValidateSMSDto) {
+  public validateSMS(@Body(new ValidationPipe()) validateSMSDto: ValidateSMSDto) {
     return this.smsService.validateSMSVerificationCode(validateSMSDto)
   }
 }

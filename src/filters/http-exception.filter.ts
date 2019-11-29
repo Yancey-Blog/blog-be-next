@@ -1,4 +1,3 @@
-// 自定义错误返回结构
 import {
   ExceptionFilter,
   Catch,

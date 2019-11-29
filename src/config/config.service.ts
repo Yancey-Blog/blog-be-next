@@ -38,7 +38,7 @@ export class ConfigService {
       ALI_SMS_SIGN_NAME: Joi.string(),
       ALI_SMS_ACCESS_KEY_SECRET: Joi.string(),
       ALI_SMS_TEMPLATE_CODE: Joi.string(),
-      JWT_SECRETS: Joi.string(),
+      JWT_SECRET_KEY: Joi.string(),
     })
 
     const { error, value: validatedEnvConfig } = envVarsSchema.validate(envConfig)
@@ -81,5 +81,9 @@ export class ConfigService {
       ALI_SMS_SIGN_NAME: this.get('ALI_SMS_SIGN_NAME'),
       ALI_SMS_TEMPLATE_CODE: this.get('ALI_SMS_TEMPLATE_CODE'),
     }
+  }
+
+  public getJWTSecretKey() {
+    return this.get('JWT_SECRET_KEY')
   }
 }

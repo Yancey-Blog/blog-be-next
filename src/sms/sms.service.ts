@@ -1,6 +1,6 @@
 import { Model } from 'mongoose'
 import { InjectModel } from '@nestjs/mongoose'
-import { Injectable } from '@nestjs/common'
+import { Injectable, BadRequestException } from '@nestjs/common'
 import AliSMS from '@alicloud/pop-core'
 import moment from 'moment'
 import { ConfigService } from '../config/config.service'
@@ -57,8 +57,6 @@ export class SMSService {
     )
   }
 
-  // FIXME:
-  // eslint-disable-next-line
   public async sendSMS(phoneNumber: string) {
     const verificationCode = generateSMSVerificationCode()
 
@@ -71,16 +69,17 @@ export class SMSService {
     }
 
     try {
-      const res = await this.sms.request('SendSMS', params, {
+      await this.sms.request('SendSMS', params, {
         method: 'POST',
       })
-      console.log(JSON.stringify(res))
+
       await this.saveSMSVerificationCode(phoneNumber, verificationCode)
+
       return {
         success: true,
       }
     } catch (e) {
-      console.log(e)
+      throw new BadRequestException(e.data.Message)
     }
   }
 
@@ -90,25 +89,21 @@ export class SMSService {
 
   public async validateSMSVerificationCode(validateSMSDto: ValidateSMSDto) {
     const { phoneNumber, verificationCode: userVerificationCode } = validateSMSDto
+
     const res = await this.SMSModel.findOne({ phoneNumber })
+
     const { verificationCode, updatedAt } = res
 
     switch (true) {
       case verificationCode !== userVerificationCode:
-        return {
-          isValidate: false,
-          message: 'SMS verification code error',
-        }
+        throw new BadRequestException('SMS verification code error')
 
       case verificationCode === userVerificationCode && this.checkTimeIsExpired(updatedAt):
-        return {
-          isValidate: false,
-          message: 'SMS verification code has been expired',
-        }
+        throw new BadRequestException('SMS verification code has been expired')
 
       default:
         return {
-          isValidate: true,
+          success: true,
         }
     }
   }
