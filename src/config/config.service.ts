@@ -16,6 +16,41 @@ export class ConfigService {
     this.isEnvProduction = this.get('NODE_ENV') === 'production'
   }
 
+  public getMongoURI(): string {
+    const host = this.get('DATABASE_HOST')
+    const port = this.get('DATABASE_PORT')
+    const userName = this.get('DATABASE_USER')
+    const userPwd = this.get('DATABASE_PWD')
+    const collection = this.get('DATABASE_COLLECTION')
+
+    const prefix = 'mongodb://'
+    const auth = `${userName}:${userPwd}@`
+    const connection = `${host}:${port}/${collection}`
+
+    return this.isEnvProduction ? `${prefix}${auth}${connection}` : `${prefix}${connection}`
+  }
+
+  public getAliOSSKeys(): AliOSSKey {
+    return {
+      ALI_OSS_ACCESS_KEY_ID: this.get('ALI_OSS_ACCESS_KEY_ID'),
+      ALI_OSS_ACCESS_KEY_SECRET: this.get('ALI_OSS_ACCESS_KEY_SECRET'),
+      ALI_OSS_BUCKET: this.get('ALI_OSS_BUCKET'),
+    }
+  }
+
+  public getAliSMSKeys(): AliSMSKey {
+    return {
+      ALI_SMS_ACCESS_KEY_ID: this.get('ALI_SMS_ACCESS_KEY_ID'),
+      ALI_SMS_ACCESS_KEY_SECRET: this.get('ALI_SMS_ACCESS_KEY_SECRET'),
+      ALI_SMS_SIGN_NAME: this.get('ALI_SMS_SIGN_NAME'),
+      ALI_SMS_TEMPLATE_CODE: this.get('ALI_SMS_TEMPLATE_CODE'),
+    }
+  }
+
+  public getJWTSecretKey() {
+    return this.get('JWT_SECRET_KEY')
+  }
+
   private validateEnvFile(envConfig: EnvConfig): EnvConfig {
     const envVarsSchema: ObjectSchema = Joi.object({
       NODE_ENV: Joi.string()
@@ -50,40 +85,5 @@ export class ConfigService {
 
   private get(key: string): string {
     return this.envConfig[key]
-  }
-
-  public getMongoURI(): string {
-    const host = this.get('DATABASE_HOST')
-    const port = this.get('DATABASE_PORT')
-    const userName = this.get('DATABASE_USER')
-    const userPwd = this.get('DATABASE_PWD')
-    const collection = this.get('DATABASE_COLLECTION')
-
-    const prefix = 'mongodb://'
-    const auth = `${userName}:${userPwd}@`
-    const connection = `${host}:${port}/${collection}`
-
-    return this.isEnvProduction ? `${prefix}${auth}${connection}` : `${prefix}${connection}`
-  }
-
-  public getAliOSSKeys(): AliOSSKey {
-    return {
-      ALI_OSS_ACCESS_KEY_ID: this.get('ALI_OSS_ACCESS_KEY_ID'),
-      ALI_OSS_ACCESS_KEY_SECRET: this.get('ALI_OSS_ACCESS_KEY_SECRET'),
-      ALI_OSS_BUCKET: this.get('ALI_OSS_BUCKET'),
-    }
-  }
-
-  public getAliSMSKeys(): AliSMSKey {
-    return {
-      ALI_SMS_ACCESS_KEY_ID: this.get('ALI_SMS_ACCESS_KEY_ID'),
-      ALI_SMS_ACCESS_KEY_SECRET: this.get('ALI_SMS_ACCESS_KEY_SECRET'),
-      ALI_SMS_SIGN_NAME: this.get('ALI_SMS_SIGN_NAME'),
-      ALI_SMS_TEMPLATE_CODE: this.get('ALI_SMS_TEMPLATE_CODE'),
-    }
-  }
-
-  public getJWTSecretKey() {
-    return this.get('JWT_SECRET_KEY')
   }
 }

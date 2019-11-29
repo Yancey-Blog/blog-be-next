@@ -1,7 +1,9 @@
 import { Controller, Body, Post, UseGuards, ValidationPipe } from '@nestjs/common'
 import { AuthGuard } from '@nestjs/passport'
 import { AuthService } from './auth.service'
-import { CreateUserDto } from '../../users/dtos/createUser.dto'
+import { LoginRes } from './interfaces/login.interface'
+import { CreateUserDto } from '../users/dtos/createUser.dto'
+import { User } from '../users/interfaces/user.interface'
 
 @Controller('auth')
 export class AuthController {
@@ -11,13 +13,12 @@ export class AuthController {
 
   @UseGuards(AuthGuard('local'))
   @Post('/login')
-  public async login(@Body() body) {
-    return this.authService.login(body)
+  public async login(@Body(new ValidationPipe()) user: User): Promise<LoginRes> {
+    return this.authService.login(user)
   }
 
   @Post('/register')
-  // @UsePipes(new ValidationPipe())
-  public register(@Body(new ValidationPipe()) createUserDto: CreateUserDto) {
+  public async register(@Body(new ValidationPipe()) createUserDto: CreateUserDto): Promise<void> {
     return this.authService.register(createUserDto)
   }
 }

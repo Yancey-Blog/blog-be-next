@@ -8,7 +8,7 @@ import {
 // 若要捕获一切异常 @Catch 不传参数即可
 @Catch(HttpException)
 export class HttpExceptionFilter implements ExceptionFilter {
-  public catch(exception: HttpException, host: ArgumentsHost) {
+  public catch(exception: HttpException, host: ArgumentsHost): void {
     const ctx = host.switchToHttp()
     const response = ctx.getResponse()
     const request = ctx.getRequest()

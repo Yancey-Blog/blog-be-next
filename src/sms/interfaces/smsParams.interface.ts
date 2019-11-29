@@ -1,7 +1,7 @@
 export interface SMSParams {
-  RegionId: string
-  SignName: string
-  TemplateCode: string
-  PhoneNumbers: string
-  TemplateParam: string
+  readonly RegionId: string
+  readonly SignName: string
+  readonly TemplateCode: string
+  readonly PhoneNumbers: string
+  readonly TemplateParam: string
 }

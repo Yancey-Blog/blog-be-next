@@ -22,7 +22,7 @@ export const UserSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    avater_url: {
+    avaterUrl: {
       default: '',
       type: String,
       required: false,
@@ -32,30 +32,20 @@ export const UserSchema = new mongoose.Schema(
       type: String,
       required: false,
     },
-    phone_number: {
+    phoneNumber: {
       default: '',
       type: String,
       required: false,
     },
-    is_two_factor_authentication: {
+    isTOTP: {
       default: false,
       type: Boolean,
-      required: true,
-    },
-    two_factor_authentications: {
-      default: [],
-      type: Array,
-      required: true,
-    },
-    totp_recovery_codes: {
-      default: [],
-      type: Array,
       required: true,
     },
   },
   {
     collection: 'user',
-    timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
+    timestamps: true,
   },
 )
 

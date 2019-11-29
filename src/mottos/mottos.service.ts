@@ -25,8 +25,7 @@ export class MottosService {
   }
 
   public async create(createMottoDto: CreateMottoDto): Promise<Motto> {
-    const createdMotto = new this.MottoModel(createMottoDto)
-    const res = await createdMotto.save()
+    const res = await this.MottoModel.create(createMottoDto)
     return res
   }
 

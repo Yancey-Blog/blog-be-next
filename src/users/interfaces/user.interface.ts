@@ -18,12 +18,10 @@ export interface User extends Document {
   email: string
   password: string
   role: Roles
-  avater_url: string
-  phone_number: string
-  is_two_factor_authentication: boolean
-  two_factor_authentications: TwoFactorAuthentications[]
-  totp_recovery_codes: number[]
-  created_at: string
-  updated_at: string
+  avaterUrl: string
+  phoneNumber: string
+  isTOTP: boolean
+  createdAt: string
+  updatedAt: string
   isValidPassword(plainPwd: string, encryptedPwd: string): boolean
 }
