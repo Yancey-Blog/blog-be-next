@@ -1,7 +1,7 @@
-import { Injectable, ConflictException } from '@nestjs/common'
+import { Injectable, ConflictException, UnauthorizedException } from '@nestjs/common'
 import { JwtService } from '@nestjs/jwt'
 import { UsersService } from '../users/users.service'
-import { User, Roles } from '../users/interfaces/user.interface'
+import { Roles } from '../users/interfaces/user.interface'
 import { CreateUserDto } from '../users/dtos/createUser.dto'
 @Injectable()
 export class AuthService {
@@ -13,7 +13,7 @@ export class AuthService {
     this.jwtService = jwtService
   }
 
-  public async validateUser(email: string, password?: string) {
+  private async validateUser(email: string, password?: string) {
     const user = await this.usersService.findOneByEmail(email)
     if (user && user.isValidPassword(password, user.password)) {
       // eslint-disable-next-line
@@ -23,11 +23,17 @@ export class AuthService {
     return null
   }
 
-  public async login(user: User) {
-    const payload = { email: user.email, sub: user._id }
-    return {
-      token: this.jwtService.sign(payload),
+  public async login(createUserDto: CreateUserDto) {
+    const { email, password } = createUserDto
+    const res = await this.validateUser(email, password)
+
+    if (res) {
+      const payload = { email, sub: res._id }
+      return {
+        token: this.jwtService.sign(payload),
+      }
     }
+    throw new UnauthorizedException()
   }
 
   public async register(createUserDto: CreateUserDto) {
