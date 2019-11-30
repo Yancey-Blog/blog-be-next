@@ -13,17 +13,6 @@
     kitx "^1.2.1"
     xml2js "^0.4.17"
 
-"@angular-devkit/core@8.3.19":
-  version "8.3.19"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-8.3.19.tgz#c3310bfdbd456c6301ed33713c7b58fea7822f5b"
-  integrity sha512-NTNxSpRB6zMlqsuWLHs2F6QuypIb/XUitMkJy2P7Ee3kZfCYvvH9cCkiQqkwEhKw6J01qKeXwOElmxnqmF291w==
-  dependencies:
-    ajv "6.10.2"
-    fast-json-stable-stringify "2.0.0"
-    magic-string "0.25.3"
-    rxjs "6.4.0"
-    source-map "0.7.3"
-
 "@angular-devkit/core@8.3.20":
   version "8.3.20"
   resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-8.3.20.tgz#8a9e17e706905efab9875c16690e1d9328c9d5dd"
@@ -47,14 +36,6 @@
     minimist "1.2.0"
     rxjs "6.4.0"
     symbol-observable "1.2.0"
-
-"@angular-devkit/schematics@8.3.19":
-  version "8.3.19"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-8.3.19.tgz#a3b78a90486028b86b139eff8b5e9c5f0fab6497"
-  integrity sha512-sHZMRypW5ZMvla8uMOTsAYHwPiBpShz31tJzd7F07gs9hpj3J05FZ3nL+ZVdt25YzdCUPaFPQKyVx2YfjGyJAw==
-  dependencies:
-    "@angular-devkit/core" "8.3.19"
-    rxjs "6.4.0"
 
 "@angular-devkit/schematics@8.3.20":
   version "8.3.20"
@@ -732,13 +713,13 @@
     express "4.17.1"
     multer "1.4.2"
 
-"@nestjs/schematics@^6.6.3", "@nestjs/schematics@^6.7.3":
-  version "6.7.3"
-  resolved "https://registry.yarnpkg.com/@nestjs/schematics/-/schematics-6.7.3.tgz#8e00c3aa86061def5abc9e37ee6f0d061fd6c3b8"
-  integrity sha512-86MBFWOProHEXcV8eDz6bU5A9FIRKL2C/zd61y9D1iowgo22XhscYh/9275Heqnkyx1cdjQGKMwUWjakO13DZg==
+"@nestjs/schematics@^6.6.3", "@nestjs/schematics@^6.7.4":
+  version "6.7.4"
+  resolved "https://registry.yarnpkg.com/@nestjs/schematics/-/schematics-6.7.4.tgz#55c5812b1215249f32a63c835cdc0b4f4f402b15"
+  integrity sha512-laE7gRVCql0fEwEnBqupv9r/42wn+urzEDf7s3ky60Nkm6XhMbF/9js/UDBKNlpSjVlcxxaGY5fwBTM1wh6X8g==
   dependencies:
-    "@angular-devkit/core" "8.3.19"
-    "@angular-devkit/schematics" "8.3.19"
+    "@angular-devkit/core" "8.3.20"
+    "@angular-devkit/schematics" "8.3.20"
     fs-extra "^8.1.0"
     ts-morph "^4.0.0"
     typescript "3.4.5"

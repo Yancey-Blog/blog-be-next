@@ -66,7 +66,7 @@
     "@commitlint/cli": "^8.2.0",
     "@compodoc/compodoc": "^1.1.11",
     "@nestjs/cli": "^6.12.6",
-    "@nestjs/schematics": "^6.7.3",
+    "@nestjs/schematics": "^6.7.4",
     "@nestjs/testing": "^6.10.3",
     "@types/ali-oss": "^6.0.4",
     "@types/bcrypt": "^3.0.0",
