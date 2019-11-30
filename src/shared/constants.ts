@@ -21,5 +21,3 @@ export const ALI_SMS_END_POINT = 'https://dysmsapi.aliyuncs.com/'
 export const ALI_SMS_API_VERSION = '2017-05-25'
 
 export const ALI_SMS_REGION = 'cn-hangzhou'
-
-export const emailRegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/gim

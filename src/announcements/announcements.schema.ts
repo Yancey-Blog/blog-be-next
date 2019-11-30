@@ -14,6 +14,6 @@ export const AnnouncementSchema = new mongoose.Schema(
   },
   {
     collection: 'announcement',
-    timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
+    timestamps: true,
   },
 )

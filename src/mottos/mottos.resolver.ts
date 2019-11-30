@@ -1,8 +1,19 @@
-import { Body, Param, Get, Post, Put, Delete, Controller, UseGuards } from '@nestjs/common'
+import {
+  Body,
+  Param,
+  Get,
+  Post,
+  Put,
+  Delete,
+  Controller,
+  UseGuards,
+  ValidationPipe,
+} from '@nestjs/common'
 import { AuthGuard } from '@nestjs/passport'
 import { MottosService } from './mottos.service'
 import { CreateMottoDto } from './dtos/createMotto.dto'
 import { Motto } from './interfaces/motto.interface'
+import { BatchDelete } from '../database/interfaces/batchDelete.interface'
 
 @Controller('mottos')
 export class MottosResolver {
@@ -10,7 +21,6 @@ export class MottosResolver {
     this.mottosService = mottosService
   }
 
-  @UseGuards(AuthGuard())
   @Get()
   public getAllMottos(): Promise<Motto[]> {
     return this.mottosService.findAll()
@@ -23,7 +33,7 @@ export class MottosResolver {
 
   @UseGuards(AuthGuard())
   @Post()
-  public createMotto(@Body() createMottoDto: CreateMottoDto): Promise<Motto> {
+  public createMotto(@Body(new ValidationPipe()) createMottoDto: CreateMottoDto): Promise<Motto> {
     return this.mottosService.create(createMottoDto)
   }
 
@@ -31,7 +41,7 @@ export class MottosResolver {
   @Put(':id')
   public updateMotto(
     @Param('id') id: string,
-    @Body() updateMottoDto: CreateMottoDto,
+    @Body(new ValidationPipe()) updateMottoDto: CreateMottoDto,
   ): Promise<Motto> {
     return this.mottosService.update(id, updateMottoDto)
   }
@@ -44,7 +54,7 @@ export class MottosResolver {
 
   @UseGuards(AuthGuard())
   @Delete()
-  public deleteMottos(@Body('ids') ids: string[]): Promise<any> {
+  public deleteMottos(@Body('ids') ids: string[]): Promise<BatchDelete> {
     return this.mottosService.batchDelete(ids)
   }
 }

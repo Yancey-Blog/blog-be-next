@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose'
 import { Injectable } from '@nestjs/common'
 import { Motto } from './interfaces/motto.interface'
 import { CreateMottoDto } from './dtos/createMotto.dto'
-import { IBatchDelete } from '../database/interfaces/batchDelete.interface'
+import { BatchDelete } from '../database/interfaces/batchDelete.interface'
 
 @Injectable()
 export class MottosService {
@@ -15,7 +15,7 @@ export class MottosService {
   }
 
   public async findAll(): Promise<Motto[]> {
-    const res = await this.MottoModel.find({}).sort({ updated_at: -1 })
+    const res = await this.MottoModel.find({}).sort({ updatedAt: -1 })
     return res
   }
 
@@ -25,8 +25,7 @@ export class MottosService {
   }
 
   public async create(createMottoDto: CreateMottoDto): Promise<Motto> {
-    const createdMotto = new this.MottoModel(createMottoDto)
-    const res = await createdMotto.save()
+    const res = await this.MottoModel.create(createMottoDto)
     return res
   }
 
@@ -40,7 +39,7 @@ export class MottosService {
     return res
   }
 
-  public async batchDelete(ids: string[]): Promise<IBatchDelete> {
+  public async batchDelete(ids: string[]): Promise<BatchDelete> {
     const res = await this.MottoModel.remove({
       _id: { $in: ids },
     })

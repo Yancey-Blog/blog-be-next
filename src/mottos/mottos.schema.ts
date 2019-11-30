@@ -14,6 +14,6 @@ export const MottoSchema = new mongoose.Schema(
   },
   {
     collection: 'motto',
-    timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
+    timestamps: true,
   },
 )

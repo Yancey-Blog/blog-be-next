@@ -7,8 +7,8 @@
   announcements {
     _id
     announcement
-    updated_at
-    created_at
+    updatedAt
+    createdAt
   }
 }
 ```

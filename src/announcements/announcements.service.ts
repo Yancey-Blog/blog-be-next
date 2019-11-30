@@ -2,20 +2,20 @@ import { Injectable } from '@nestjs/common'
 import { Model } from 'mongoose'
 import { InjectModel } from '@nestjs/mongoose'
 import { AnnouncementsModel } from './dtos/announcements.model'
-import { IAnnouncement } from './interfaces/announcement.interface'
+import { Announcement } from './interfaces/announcement.interface'
 import { AnnouncementInput } from './dtos/announcement.input'
 
 @Injectable()
 export class AnnouncementsService {
   constructor(
     @InjectModel('Announcement')
-    private readonly AnnouncementModel: Model<IAnnouncement>,
+    private readonly AnnouncementModel: Model<Announcement>,
   ) {
     this.AnnouncementModel = AnnouncementModel
   }
 
   public async findAll(): Promise<AnnouncementsModel[]> {
-    const res = await this.AnnouncementModel.find({}).sort({ updated_at: -1 })
+    const res = await this.AnnouncementModel.find({}).sort({ updatedAt: -1 })
     return res
   }
 
@@ -29,10 +29,7 @@ export class AnnouncementsService {
     return res
   }
 
-  public async update(
-    id: string,
-    announcement: string,
-  ): Promise<AnnouncementsModel> {
+  public async update(id: string, announcement: string): Promise<AnnouncementsModel> {
     const res = await this.AnnouncementModel.findByIdAndUpdate(id, {
       announcement,
     })
@@ -44,7 +41,8 @@ export class AnnouncementsService {
     return res
   }
 
-  public async batchDelete(ids: string[]): Promise<any> {
+  // FIXME:
+  public async batchDelete(ids: string[]) {
     const res = await this.AnnouncementModel.remove({
       _id: { $in: ids },
     })

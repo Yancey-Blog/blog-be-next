@@ -1,6 +1,6 @@
 import { Model } from 'mongoose'
 import { InjectModel } from '@nestjs/mongoose'
-import { Injectable } from '@nestjs/common'
+import { Injectable, BadRequestException } from '@nestjs/common'
 import AliSMS from '@alicloud/pop-core'
 import moment from 'moment'
 import { ConfigService } from '../config/config.service'
@@ -46,18 +46,7 @@ export class SMSService {
     }
   }
 
-  private async saveSMSVerificationCode(phoneNumber: string, verificationCode: string) {
-    await this.SMSModel.findOneAndUpdate(
-      { phoneNumber },
-      { verificationCode },
-      {
-        new: true,
-        upsert: true,
-      },
-    )
-  }
-
-  public sendSMS(phoneNumber: string) {
+  public async sendSMS(phoneNumber: string) {
     const verificationCode = generateSMSVerificationCode()
 
     const params = {
@@ -68,28 +57,57 @@ export class SMSService {
       }),
     }
 
-    this.sms
-      .request('SendSMS', params, {
+    try {
+      await this.sms.request('SendSMS', params, {
         method: 'POST',
       })
-      .then(
-        result => {
-          console.log(JSON.stringify(result))
-          this.saveSMSVerificationCode(phoneNumber, verificationCode)
-        },
-        ex => {
-          console.log(ex)
-        },
-      )
+
+      await this.saveSMSVerificationCode(phoneNumber, verificationCode)
+
+      return {
+        success: true,
+      }
+    } catch (e) {
+      throw new BadRequestException(e.data.Message)
+    }
   }
 
   public async validateSMSVerificationCode(validateSMSDto: ValidateSMSDto) {
-    const { phoneNumber, verificationCode } = validateSMSDto
+    const { phoneNumber, verificationCode: userVerificationCode } = validateSMSDto
+
     const res = await this.SMSModel.findOne({ phoneNumber })
-    const { verificationCode: dbVerificationCode, updatedAt } = res
-    return (
-      moment(updatedAt).isBetween(moment().subtract(20, 'minutes'), moment()) &&
-      dbVerificationCode === verificationCode
+
+    const { verificationCode, updatedAt } = res
+
+    switch (true) {
+      case verificationCode !== userVerificationCode:
+        throw new BadRequestException('SMS verification code error')
+
+      case verificationCode === userVerificationCode && this.checkTimeIsExpired(updatedAt):
+        throw new BadRequestException('SMS verification code has been expired')
+
+      default:
+        return {
+          success: true,
+        }
+    }
+  }
+
+  private async saveSMSVerificationCode(
+    phoneNumber: string,
+    verificationCode: string,
+  ): Promise<void> {
+    await this.SMSModel.findOneAndUpdate(
+      { phoneNumber },
+      { verificationCode },
+      {
+        new: true,
+        upsert: true,
+      },
     )
+  }
+
+  private checkTimeIsExpired(date: string): boolean {
+    return !moment(date).isBetween(moment().subtract(20, 'minutes'), moment())
   }
 }

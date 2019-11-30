@@ -1,8 +1,8 @@
 import { Document } from 'mongoose'
 
-export interface IAnnouncement extends Document {
+export interface Announcement extends Document {
   readonly _id: string
   readonly announcement: string
-  readonly created_at: string
-  readonly updated_at: string
+  readonly createdAt: string
+  readonly updatedAt: string
 }

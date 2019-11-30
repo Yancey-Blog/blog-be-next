@@ -13,15 +13,15 @@ export class UsersService {
     this.UserModel = UserModel
   }
 
-  public getUserCount() {
+  public async getUserCount(): Promise<number> {
     return this.UserModel.estimatedDocumentCount()
   }
 
-  public findOneByEmail(email: string) {
+  public async findOneByEmail(email: string): Promise<User> {
     return this.UserModel.findOne({ email })
   }
 
-  public create(user: CreateUserDto) {
+  public async create(user: CreateUserDto): Promise<User> {
     return this.UserModel.create(user)
   }
 }

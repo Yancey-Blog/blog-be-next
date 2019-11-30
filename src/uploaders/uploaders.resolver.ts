@@ -1,6 +1,7 @@
 import { Post, Controller, UseInterceptors, UploadedFile } from '@nestjs/common'
 import { FileInterceptor } from '@nestjs/platform-express'
 import { UploadersService } from './uploaders.service'
+import { IMulterFile } from './interfaces/multer.interface'
 
 @Controller('uploads')
 export class UploadersResolver {
@@ -10,7 +11,7 @@ export class UploadersResolver {
 
   @Post()
   @UseInterceptors(FileInterceptor('file'))
-  public uploadFile(@UploadedFile() file) {
+  public uploadFile(@UploadedFile() file: IMulterFile) {
     return this.uploadersService.upload(file)
   }
 }
