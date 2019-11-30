@@ -30,7 +30,7 @@
 mutation UpdateAnnouncement {
   updateAnnouncement(
     id: "165527ab-05dd-4933-a663-d156286305b0"
-    announcement: "helloc"
+    announcement: "hello, graphql"
   ) {
     _id
     announcement
@@ -42,7 +42,7 @@ mutation UpdateAnnouncement {
 
 ```graphql
 mutation CreateAnnouncement {
-  createAnnouncement(input: { announcement: "fuck" }) {
+  createAnnouncement(input: { announcement: "a new announcement" }) {
     _id
     announcement
   }
