@@ -19,9 +19,34 @@ type Mutation {
   updateAnnouncement(announcement: String!, id: ID!): AnnouncementsModel!
   deleteAnnouncement(id: ID!): AnnouncementsModel!
   deleteAnnouncements(ids: [ID!]!): AnnouncementsModel!
+  sendSMS(input: SendSMSInput!): SMSRes!
+  validateSMS(input: ValidateSMSInput!): SMSRes!
 }
 
 type Query {
   announcements: [AnnouncementsModel!]!
   announcement(id: ID!): AnnouncementsModel!
+  sms: [SMSModel!]!
+}
+
+input SendSMSInput {
+  phoneNumber: String!
+}
+
+type SMSModel {
+  _id: String!
+  phoneNumber: String!
+  verificationCode: String!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type SMSRes {
+  success: Boolean!
+  message: String
+}
+
+input ValidateSMSInput {
+  phoneNumber: String!
+  verificationCode: String!
 }

@@ -3,10 +3,10 @@ import { MongooseModule } from '@nestjs/mongoose'
 import { SMSService } from './sms.service'
 import { SMSResolver } from './sms.resolver'
 import { SMSSchema } from './sms.schema'
+import { AuthModule } from '../auth/auth.module'
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: 'SMS', schema: SMSSchema }])],
+  imports: [MongooseModule.forFeature([{ name: 'SMS', schema: SMSSchema }]), AuthModule],
   providers: [SMSService, SMSResolver],
-  controllers: [SMSResolver], // TODO: delete me!
 })
 export class SMSModule {}

@@ -1,11 +1,12 @@
 import { Model } from 'mongoose'
 import { InjectModel } from '@nestjs/mongoose'
-import { Injectable, BadRequestException, NotFoundException } from '@nestjs/common'
+import { Injectable } from '@nestjs/common'
 import AliSMS from '@alicloud/pop-core'
 import moment from 'moment'
 import { ConfigService } from '../config/config.service'
 import { SMS, SMSParams } from './interfaces/sms.interface'
-import { ValidateSMSDto } from './dtos/validateSMS.dto'
+import { ValidateSMSInput } from './dtos/validateSMS.input'
+import { SendSMSInput } from './dtos/sendSMS.input'
 import { generateSMSVerificationCode } from '../shared/utils'
 import { ALI_SMS_END_POINT, ALI_SMS_API_VERSION, ALI_SMS_REGION } from '../shared/constants'
 
@@ -45,7 +46,14 @@ export class SMSService {
     }
   }
 
-  public async sendSMS(phoneNumber: string) {
+  public async getAll() {
+    const res = await this.SMSModel.find({})
+    return res
+  }
+
+  public async sendSMS(input: SendSMSInput) {
+    const { phoneNumber } = input
+
     const verificationCode = generateSMSVerificationCode()
 
     const params = {
@@ -67,12 +75,15 @@ export class SMSService {
         success: true,
       }
     } catch (e) {
-      throw new BadRequestException(e.data.Message)
+      return {
+        success: false,
+        message: e.data.Message,
+      }
     }
   }
 
-  public async validateSMSVerificationCode(validateSMSDto: ValidateSMSDto) {
-    const { phoneNumber, verificationCode: inputVerificationCode } = validateSMSDto
+  public async validateSMSVerificationCode(input: ValidateSMSInput) {
+    const { phoneNumber, verificationCode: inputVerificationCode } = input
 
     const res = await this.SMSModel.findOne({ phoneNumber })
 
@@ -81,10 +92,16 @@ export class SMSService {
 
       switch (true) {
         case verificationCode !== inputVerificationCode:
-          throw new BadRequestException('SMS verification code error')
+          return {
+            success: false,
+            message: 'SMS verification code error.',
+          }
 
         case verificationCode === inputVerificationCode && this.checkTimeIsExpired(updatedAt):
-          throw new BadRequestException('SMS verification code has been expired')
+          return {
+            success: false,
+            message: 'SMS verification code has been expired.',
+          }
 
         default:
           return {
@@ -92,7 +109,10 @@ export class SMSService {
           }
       }
     } else {
-      throw new NotFoundException()
+      return {
+        success: false,
+        message: 'No this phone number.',
+      }
     }
   }
 
