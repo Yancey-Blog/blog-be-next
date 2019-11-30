@@ -13,17 +13,6 @@
     kitx "^1.2.1"
     xml2js "^0.4.17"
 
-"@angular-devkit/core@8.3.19":
-  version "8.3.19"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-8.3.19.tgz#c3310bfdbd456c6301ed33713c7b58fea7822f5b"
-  integrity sha512-NTNxSpRB6zMlqsuWLHs2F6QuypIb/XUitMkJy2P7Ee3kZfCYvvH9cCkiQqkwEhKw6J01qKeXwOElmxnqmF291w==
-  dependencies:
-    ajv "6.10.2"
-    fast-json-stable-stringify "2.0.0"
-    magic-string "0.25.3"
-    rxjs "6.4.0"
-    source-map "0.7.3"
-
 "@angular-devkit/core@8.3.20":
   version "8.3.20"
   resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-8.3.20.tgz#8a9e17e706905efab9875c16690e1d9328c9d5dd"
@@ -47,14 +36,6 @@
     minimist "1.2.0"
     rxjs "6.4.0"
     symbol-observable "1.2.0"
-
-"@angular-devkit/schematics@8.3.19":
-  version "8.3.19"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-8.3.19.tgz#a3b78a90486028b86b139eff8b5e9c5f0fab6497"
-  integrity sha512-sHZMRypW5ZMvla8uMOTsAYHwPiBpShz31tJzd7F07gs9hpj3J05FZ3nL+ZVdt25YzdCUPaFPQKyVx2YfjGyJAw==
-  dependencies:
-    "@angular-devkit/core" "8.3.19"
-    rxjs "6.4.0"
 
 "@angular-devkit/schematics@8.3.20":
   version "8.3.20"
@@ -667,10 +648,10 @@
     webpack "4.41.2"
     webpack-node-externals "1.7.2"
 
-"@nestjs/common@^6.10.2":
-  version "6.10.2"
-  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-6.10.2.tgz#629329bb36dde8e9d9820de36df0b16257a1f7e0"
-  integrity sha512-v1FaympATrYiymi1PVmOBJcXUo8iFb+cdb0kMsvHW2Bzf99SMeRQFOAa3pb+xylxGxJMtePY0JaFzmhQaXPI8Q==
+"@nestjs/common@^6.10.3":
+  version "6.10.3"
+  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-6.10.3.tgz#9fda45bc468c756c45d0f4b7cb228b463cbb8a01"
+  integrity sha512-uuuBXfr8lCfrZB2OZcp1zeg+/eWOKAe8qW+v1YTEZcOIu1qirgTcQSMA5VNfLqmLbq4pNrFyI1bJafTkC0arfQ==
   dependencies:
     axios "0.19.0"
     cli-color "2.0.0"
@@ -717,10 +698,10 @@
   resolved "https://registry.yarnpkg.com/@nestjs/mongoose/-/mongoose-6.1.2.tgz#fe1c227f5c1fd0f5c9be5c4e37b2897f744bc0b0"
   integrity sha512-BkbkguvaPPGbL/41lK6P22DaQodBC9Yv9rUAmNlQVShChtwss7/cGj68AKC3jEoidrx75wCyDO3P8Tp6pggE4w==
 
-"@nestjs/passport@^6.1.0":
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/passport/-/passport-6.1.0.tgz#80da326cc976a82530648d8025b04c8e2d41c10e"
-  integrity sha512-V4KdtFFLsdZQ/HlIECpiK6byzGz57Y12TAc+Iatykk8jWuVFE1jq8RJbpTfB0zG0PTfcGm9crQ6Ut2Rwdmis4Q==
+"@nestjs/passport@^6.1.1":
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/@nestjs/passport/-/passport-6.1.1.tgz#991b8736c0ebffabb85a6455f0288055e5b52755"
+  integrity sha512-wMhvi3Ru965nftCLUhFUqWNwyzSxVDmGgTEYVyWbOOmHFjNg5US47jzV2NresuUP2vjgg8J8S6DviKTVuLfkRw==
 
 "@nestjs/platform-express@^6.10.3":
   version "6.10.3"
@@ -732,13 +713,13 @@
     express "4.17.1"
     multer "1.4.2"
 
-"@nestjs/schematics@^6.6.3", "@nestjs/schematics@^6.7.3":
-  version "6.7.3"
-  resolved "https://registry.yarnpkg.com/@nestjs/schematics/-/schematics-6.7.3.tgz#8e00c3aa86061def5abc9e37ee6f0d061fd6c3b8"
-  integrity sha512-86MBFWOProHEXcV8eDz6bU5A9FIRKL2C/zd61y9D1iowgo22XhscYh/9275Heqnkyx1cdjQGKMwUWjakO13DZg==
+"@nestjs/schematics@^6.6.3", "@nestjs/schematics@^6.7.4":
+  version "6.7.4"
+  resolved "https://registry.yarnpkg.com/@nestjs/schematics/-/schematics-6.7.4.tgz#55c5812b1215249f32a63c835cdc0b4f4f402b15"
+  integrity sha512-laE7gRVCql0fEwEnBqupv9r/42wn+urzEDf7s3ky60Nkm6XhMbF/9js/UDBKNlpSjVlcxxaGY5fwBTM1wh6X8g==
   dependencies:
-    "@angular-devkit/core" "8.3.19"
-    "@angular-devkit/schematics" "8.3.19"
+    "@angular-devkit/core" "8.3.20"
+    "@angular-devkit/schematics" "8.3.20"
     fs-extra "^8.1.0"
     ts-morph "^4.0.0"
     typescript "3.4.5"
@@ -749,7 +730,6 @@
   integrity sha512-I3nhnmKbNG510/n3JbCfq3xjYA7ZkJeaoZQtOr6zCwUNq6ZVqSVZ5daxp6WX8n0EAlKT6H93sznKd5TFqzAuLQ==
   dependencies:
     optional "0.1.4"
-
 "@nestjs/typeorm@^6.2.0":
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/@nestjs/typeorm/-/typeorm-6.2.0.tgz#6b8e3d80e3fbd9dc5e0a9d1ebf3028f7adb1ace9"
@@ -7390,10 +7370,10 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
 
-lint-staged@^9.4.3:
-  version "9.4.3"
-  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-9.4.3.tgz#f55ad5f94f6e105294bfd6499b23142961f7b982"
-  integrity sha512-PejnI+rwOAmKAIO+5UuAZU9gxdej/ovSEOAY34yMfC3OS4Ac82vCBPzAWLReR9zCPOMqeVwQRaZ3bUBpAsaL2Q==
+lint-staged@^9.5.0:
+  version "9.5.0"
+  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-9.5.0.tgz#290ec605252af646d9b74d73a0fa118362b05a33"
+  integrity sha512-nawMob9cb/G1J98nb8v3VC/E8rcX1rryUYXVZ69aT9kde6YWX+uvNOEHY5yf2gcWcTJGiD0kqXmCnS3oD75GIA==
   dependencies:
     chalk "^2.4.2"
     commander "^2.20.0"
@@ -8121,18 +8101,7 @@ moment@^2.24.0:
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
   integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
 
-mongodb@3.3.4:
-  version "3.3.4"
-  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-3.3.4.tgz#f52eec4a04005101e63715d4d1f67bf784fa0aef"
-  integrity sha512-6fmHu3FJTpeZxacJcfjUGIP3BSteG0l2cxLkSrf1nnnS1OrlnVGiP9P/wAC4aB6dM6H4vQ2io8YDjkuPkje7AA==
-  dependencies:
-    bson "^1.1.1"
-    require_optional "^1.0.1"
-    safe-buffer "^5.1.2"
-  optionalDependencies:
-    saslprep "^1.0.0"
-
-mongodb@^3.3.5:
+mongodb@3.3.5, mongodb@^3.3.5:
   version "3.3.5"
   resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-3.3.5.tgz#38d531013afede92b0dd282e3b9f3c08c9bdff3b"
   integrity sha512-6NAv5gTFdwRyVfCz+O+KDszvjpyxmZw+VlmqmqKR2GmpkeKrKFRv/ZslgTtZba2dc9JYixIf99T5Gih7TIWv7Q==
@@ -8148,14 +8117,14 @@ mongoose-legacy-pluralize@1.0.2:
   resolved "https://registry.yarnpkg.com/mongoose-legacy-pluralize/-/mongoose-legacy-pluralize-1.0.2.tgz#3ba9f91fa507b5186d399fb40854bff18fb563e4"
   integrity sha512-Yo/7qQU4/EyIS8YDFSeenIvXxZN+ld7YdV9LqFVQJzTLye8unujAWPZ4NWKfFA+RNjh+wvTWKY9Z3E5XM6ZZiQ==
 
-mongoose@^5.7.12:
-  version "5.7.12"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-5.7.12.tgz#ef22a0f741970b6ba504995fdbe0ac9d8289d615"
-  integrity sha512-TqRiJPUeHN1u7Xs/zQmiMHcrzEb1/uKjK3uGzZhyqw25RKQiMV2vSBeBTMt5HXoYlUuDEWXE75FMjpK9X9kD0w==
+mongoose@^5.7.13:
+  version "5.7.13"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-5.7.13.tgz#d8ebbc15cfb19d014cf1fbd4b7af413d75952d46"
+  integrity sha512-MoTCETTIfXU1PqIYc+YAkhSB3uzK5xseh6ysAUnoOowkqS66OjBJtsL/bcgAKi6XfMYkFU6M1abKyuL7k//xeg==
   dependencies:
     bson "~1.1.1"
     kareem "2.3.1"
-    mongodb "3.3.4"
+    mongodb "3.3.5"
     mongoose-legacy-pluralize "1.0.2"
     mpath "0.6.0"
     mquery "3.2.2"
@@ -11445,10 +11414,10 @@ ts-morph@^4.0.0:
     multimatch "^4.0.0"
     typescript "3.0.1 - 3.6.4"
 
-ts-node@^8.5.2:
-  version "8.5.2"
-  resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-8.5.2.tgz#434f6c893bafe501a30b32ac94ee36809ba2adce"
-  integrity sha512-W1DK/a6BGoV/D4x/SXXm6TSQx6q3blECUzd5TN+j56YEMX3yPVMpHsICLedUw3DvGF3aTQ8hfdR9AKMaHjIi+A==
+ts-node@^8.5.4:
+  version "8.5.4"
+  resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-8.5.4.tgz#a152add11fa19c221d0b48962c210cf467262ab2"
+  integrity sha512-izbVCRV68EasEPQ8MSIGBNK9dc/4sYJJKYA+IarMQct1RtEot6Xp0bXuClsbUSnKpg50ho+aOAx8en5c+y4OFw==
   dependencies:
     arg "^4.1.0"
     diff "^4.0.1"
