@@ -6,7 +6,7 @@ import { SMSSchema } from './sms.schema'
 
 @Module({
   imports: [MongooseModule.forFeature([{ name: 'SMS', schema: SMSSchema }])],
-  providers: [SMSService],
-  controllers: [SMSResolver],
+  providers: [SMSService, SMSResolver],
+  controllers: [SMSResolver], // TODO: delete me!
 })
 export class SMSModule {}
