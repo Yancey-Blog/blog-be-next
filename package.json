@@ -67,7 +67,7 @@
     "@compodoc/compodoc": "^1.1.11",
     "@nestjs/cli": "^6.12.6",
     "@nestjs/schematics": "^6.7.3",
-    "@nestjs/testing": "^6.10.2",
+    "@nestjs/testing": "^6.10.3",
     "@types/ali-oss": "^6.0.4",
     "@types/bcrypt": "^3.0.0",
     "@types/compression": "^1.0.1",
