@@ -48,7 +48,7 @@
     "helmet": "^3.21.2",
     "moment": "^2.24.0",
     "mongodb": "^3.3.5",
-    "mongoose": "^5.7.12",
+    "mongoose": "^5.7.13",
     "morgan": "^1.9.1",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
