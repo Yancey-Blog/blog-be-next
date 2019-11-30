@@ -10,8 +10,8 @@ input AnnouncementInput {
 type AnnouncementsModel {
   _id: String!
   announcement: String!
-  created_at: String!
-  updated_at: String!
+  createdAt: String!
+  updatedAt: String!
 }
 
 type Mutation {

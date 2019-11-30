@@ -1,11 +1,11 @@
-import { IsString, IsNotEmpty } from 'class-validator'
+import { IsNumberString, IsNotEmpty, IsMobilePhone } from 'class-validator'
 
 export class ValidateSMSDto {
   @IsNotEmpty()
-  @IsString()
+  @IsMobilePhone('zh-CN')
   public readonly phoneNumber: string
 
   @IsNotEmpty()
-  @IsString()
+  @IsNumberString()
   public readonly verificationCode: string
 }

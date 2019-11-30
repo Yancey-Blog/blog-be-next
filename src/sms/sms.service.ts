@@ -1,11 +1,10 @@
 import { Model } from 'mongoose'
 import { InjectModel } from '@nestjs/mongoose'
-import { Injectable, BadRequestException } from '@nestjs/common'
+import { Injectable, BadRequestException, NotFoundException } from '@nestjs/common'
 import AliSMS from '@alicloud/pop-core'
 import moment from 'moment'
 import { ConfigService } from '../config/config.service'
-import { SMSParams } from './interfaces/smsParams.interface'
-import { SMS } from './interfaces/sms.interface'
+import { SMS, SMSParams } from './interfaces/sms.interface'
 import { ValidateSMSDto } from './dtos/validateSMS.dto'
 import { generateSMSVerificationCode } from '../shared/utils'
 import { ALI_SMS_END_POINT, ALI_SMS_API_VERSION, ALI_SMS_REGION } from '../shared/constants'
@@ -73,30 +72,31 @@ export class SMSService {
   }
 
   public async validateSMSVerificationCode(validateSMSDto: ValidateSMSDto) {
-    const { phoneNumber, verificationCode: userVerificationCode } = validateSMSDto
+    const { phoneNumber, verificationCode: inputVerificationCode } = validateSMSDto
 
     const res = await this.SMSModel.findOne({ phoneNumber })
 
-    const { verificationCode, updatedAt } = res
+    if (res) {
+      const { verificationCode, updatedAt } = res
 
-    switch (true) {
-      case verificationCode !== userVerificationCode:
-        throw new BadRequestException('SMS verification code error')
+      switch (true) {
+        case verificationCode !== inputVerificationCode:
+          throw new BadRequestException('SMS verification code error')
 
-      case verificationCode === userVerificationCode && this.checkTimeIsExpired(updatedAt):
-        throw new BadRequestException('SMS verification code has been expired')
+        case verificationCode === inputVerificationCode && this.checkTimeIsExpired(updatedAt):
+          throw new BadRequestException('SMS verification code has been expired')
 
-      default:
-        return {
-          success: true,
-        }
+        default:
+          return {
+            success: true,
+          }
+      }
+    } else {
+      throw new NotFoundException()
     }
   }
 
-  private async saveSMSVerificationCode(
-    phoneNumber: string,
-    verificationCode: string,
-  ): Promise<void> {
+  private async saveSMSVerificationCode(phoneNumber: string, verificationCode: string) {
     await this.SMSModel.findOneAndUpdate(
       { phoneNumber },
       { verificationCode },
@@ -107,7 +107,7 @@ export class SMSService {
     )
   }
 
-  private checkTimeIsExpired(date: string): boolean {
+  private checkTimeIsExpired(date: string) {
     return !moment(date).isBetween(moment().subtract(20, 'minutes'), moment())
   }
 }
