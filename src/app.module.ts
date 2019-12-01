@@ -1,7 +1,7 @@
-import { Module, ValidationPipe } from '@nestjs/common'
+import { Module } from '@nestjs/common'
 import { APP_FILTER, APP_PIPE, APP_GUARD } from '@nestjs/core'
-
-import { HttpExceptionFilter } from './filters/http-exception.filter'
+import { GraphQLExceptionFilter } from './filters/graqhql-exception.filter'
+import { GraphQLValidationPipe } from './pipes/GraphQLValidation.pipe'
 import { RolesGuard } from './guard/roles.guard'
 
 import { ConfigModule } from './config/config.module'
@@ -29,11 +29,13 @@ import { SMSModule } from './sms/sms.module'
   providers: [
     {
       provide: APP_FILTER,
-      useClass: HttpExceptionFilter,
+      useClass: GraphQLExceptionFilter,
+      // useClass: HttpExceptionFilter 非 GraphQL 用 HttpExceptionFilter
     },
     {
       provide: APP_PIPE,
-      useClass: ValidationPipe,
+      useClass: GraphQLValidationPipe,
+      // useClass: ValidationPipe 非 GraphQL 用 ValidationPipe
     },
     {
       provide: APP_GUARD,

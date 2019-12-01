@@ -1,6 +1,7 @@
 import { Model } from 'mongoose'
 import { InjectModel } from '@nestjs/mongoose'
 import { Injectable } from '@nestjs/common'
+import { UserInputError, ValidationError } from 'apollo-server-express'
 import AliSMS from '@alicloud/pop-core'
 import moment from 'moment'
 import { ConfigService } from '../config/config.service'
@@ -75,10 +76,7 @@ export class SMSService {
         success: true,
       }
     } catch (e) {
-      return {
-        success: false,
-        message: e.data.Message,
-      }
+      throw new UserInputError(e.data.Message)
     }
   }
 
@@ -92,16 +90,10 @@ export class SMSService {
 
       switch (true) {
         case verificationCode !== inputVerificationCode:
-          return {
-            success: false,
-            message: 'SMS verification code error.',
-          }
+          throw new ValidationError('SMS verification code error.')
 
         case verificationCode === inputVerificationCode && this.checkTimeIsExpired(updatedAt):
-          return {
-            success: false,
-            message: 'SMS verification code has been expired.',
-          }
+          throw new ValidationError('SMS verification code has been expired.')
 
         default:
           return {
@@ -109,10 +101,7 @@ export class SMSService {
           }
       }
     } else {
-      return {
-        success: false,
-        message: 'No this phone number.',
-      }
+      throw new ValidationError('No this phone number.')
     }
   }
 

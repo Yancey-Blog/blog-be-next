@@ -19,14 +19,14 @@ type Mutation {
   updateAnnouncement(announcement: String!, id: ID!): AnnouncementsModel!
   deleteAnnouncement(id: ID!): AnnouncementsModel!
   deleteAnnouncements(ids: [ID!]!): AnnouncementsModel!
-  sendSMS(input: SendSMSInput!): SMSRes!
-  validateSMS(input: ValidateSMSInput!): SMSRes!
+  sendSMS(sendSMSInput: SendSMSInput!): SMSRes!
+  validateSMS(validateSMSInput: ValidateSMSInput!): SMSRes!
 }
 
 type Query {
   announcements: [AnnouncementsModel!]!
   announcement(id: ID!): AnnouncementsModel!
-  sms: [SMSModel!]!
+  getAllSMS: [SMSModel!]!
 }
 
 input SendSMSInput {

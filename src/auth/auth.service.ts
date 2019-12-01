@@ -17,7 +17,7 @@ export class AuthService {
     const user = await this.usersService.findOneByEmail(email)
     if (user && user.isValidPassword(password, user.password)) {
       // eslint-disable-next-line
-      const { password, ...rest } = user
+      const { password, ...rest } = user.toObject()
       return rest
     }
     return null
@@ -29,9 +29,7 @@ export class AuthService {
 
     if (res) {
       const payload = { email, sub: res._id }
-      return {
-        token: this.jwtService.sign(payload),
-      }
+      return { ...res, authentication: this.jwtService.sign(payload) }
     }
     throw new UnauthorizedException()
   }
