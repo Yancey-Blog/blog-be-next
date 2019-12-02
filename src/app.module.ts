@@ -13,6 +13,7 @@ import { UsersModule } from './users/users.module'
 import { AnnouncementsModule } from './announcements/announcements.module'
 import { MottosModule } from './mottos/mottos.module'
 import { SMSModule } from './sms/sms.module'
+import { OpenSourcesModule } from './open-sources/open-sources.module'
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { SMSModule } from './sms/sms.module'
     AnnouncementsModule,
     MottosModule,
     SMSModule,
+    OpenSourcesModule,
   ],
   providers: [
     {

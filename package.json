@@ -52,12 +52,12 @@
     "morgan": "^1.9.1",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
-    "passport-local": "^1.0.0",
     "ramda": "^0.26.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.0",
     "rxjs": "^6.5.3",
     "serve-favicon": "^2.5.0",
+    "speakeasy": "^2.0.0",
     "type-graphql": "^0.17.5",
     "uuid": "^3.3.3",
     "yancey-js-util": "^1.1.1"
@@ -116,7 +116,7 @@
       "json",
       "ts"
     ],
-    "rootDir": "src",
+    "rootDir": "./test",
     "testRegex": ".spec.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
