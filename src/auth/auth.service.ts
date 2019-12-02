@@ -29,7 +29,7 @@ export class AuthService {
 
     if (res) {
       const payload = { email, sub: res._id }
-      return { ...res, authentication: this.jwtService.sign(payload) }
+      return { ...res, authorization: this.jwtService.sign(payload) }
     }
     throw new UnauthorizedException()
   }
