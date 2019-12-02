@@ -1,7 +1,7 @@
 import { PipeTransform, Injectable, ArgumentMetadata } from '@nestjs/common'
 import { validate } from 'class-validator'
 import { plainToClass } from 'class-transformer'
-import { ValidationError } from 'apollo-server-express'
+import { UserInputError } from 'apollo-server-express'
 
 @Injectable()
 export class GraphQLValidationPipe<T> implements PipeTransform<T> {
@@ -16,7 +16,7 @@ export class GraphQLValidationPipe<T> implements PipeTransform<T> {
         .map(validationError => Object.values(validationError.constraints))
         .flat()
         .join('; ')
-      throw new ValidationError(message)
+      throw new UserInputError(message)
     }
     return value
   }
