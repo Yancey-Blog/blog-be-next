@@ -122,7 +122,6 @@
     "*.{ts,js,scss,css}": [
       "prettier --write",
       "yarn lint",
-      "yarn test",
       "git add"
     ]
   }
