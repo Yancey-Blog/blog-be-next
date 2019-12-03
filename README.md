@@ -6,6 +6,7 @@ The **backend next** for Yancey blog with Node.js, Nest, Rxjs, MongoDB, GraphQL,
 
 _This library is part of the [BPG (Blog Program Group)](https://github.com/Yancey-Blog)_ ecosystem 📖
 
+[![Build Status](https://travis-ci.com/Yancey-Blog/blog-be-next.svg?branch=master)](https://travis-ci.com/Yancey-Blog/blog-be-next)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/899c1498056d402284353047fcde0632)](https://www.codacy.com/manual/YanceyOfficial/blog-be-next?utm_source=github.com&utm_medium=referral&utm_content=Yancey-Blog/blog-be-next&utm_campaign=Badge_Grade)
 [![codecov](https://codecov.io/gh/Yancey-Blog/blog-be-next/branch/master/graph/badge.svg)](https://codecov.io/gh/Yancey-Blog/blog-be-next)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FYancey-Blog%2Fblog-be-next.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FYancey-Blog%2Fblog-be-next?ref=badge_shield)
@@ -16,9 +17,8 @@ _This library is part of the [BPG (Blog Program Group)](https://github.com/Yance
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Gitter](https://badges.gitter.im/yancey-official/community.svg)](https://gitter.im/yancey-official/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/Yancey-Blog/blog-be-next.svg)](http://isitmaintained.com/project/Yancey-Blog/blog-be-next 'Average time to resolve an issue')
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/Yancey-Blog/blog-be-next.svg)](http://isitmaintained.com/project/Yancey-Blog/blog-be-next 'Percentage of issues still open')
-[![Node](https://img.shields.io/badge/node-%3E%3D10.16.0-orange.svg)](https://nodejs.org/en/)
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/Yancey-Blog/blog-be-next.svg)](http://isitmaintained.com/project/Yancey-Blog/blog-be-next "Average time to resolve an issue")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/Yancey-Blog/blog-be-next.svg)](http://isitmaintained.com/project/Yancey-Blog/blog-be-next "Percentage of issues still open")
 
 [![David-Dm](https://david-dm.org/Yancey-Blog/blog-be-next.svg)](https://david-dm.org/Yancey-Blog/blog-be-next)
 [![David-Dm](https://david-dm.org/Yancey-Blog/blog-be-next/dev-status.svg)](https://david-dm.org/Yancey-Blog/blog-be-next?type=dev)

@@ -1,15 +1,21 @@
 language: node_js
+
 sudo: true
+
 node_js:
   - 10
-branchs:
-  only:
-    - master
+
 cache:
   directories:
     - node_modules
+
+branchs:
+  only:
+    - master
+
 install:
   - yarn install
+
 scripts:
   - yarn test
   - yarn build
