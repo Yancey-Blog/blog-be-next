@@ -1,3 +1,10 @@
+# produtions
 dist/
 build/
+
+# test
 test/
+# src/**/*.e2e-spec.ts
+
+# jest config
+jest.config.js

@@ -8,12 +8,18 @@ export type EnvConfig = Record<string, string>
 export class ConfigService {
   public readonly isEnvProduction: boolean
 
+  public readonly isEnvDevelopment: boolean
+
+  public readonly isEnvTest: boolean
+
   private readonly envConfig: EnvConfig
 
   constructor(filePath: string) {
     const config = dotenv.parse(fs.readFileSync(filePath))
     this.envConfig = this.validateEnvFile(config)
     this.isEnvProduction = this.get('NODE_ENV') === 'production'
+    this.isEnvDevelopment = this.get('NODE_ENV') === 'development'
+    this.isEnvTest = this.get('NODE_ENV') === 'test'
   }
 
   public getMongoURI(): string {
@@ -59,8 +65,8 @@ export class ConfigService {
       APP_PORT: Joi.number().default(3002),
       DATABASE_HOST: Joi.string(),
       DATABASE_PORT: Joi.number(),
-      DATABASE_USER: Joi.string(),
-      DATABASE_PWD: Joi.string(),
+      DATABASE_USER: this.isEnvProduction ? Joi.string() : Joi.string().optional(),
+      DATABASE_PWD: this.isEnvProduction ? Joi.string() : Joi.string().optional(),
       DATABASE_COLLECTION: Joi.string(),
       BANDWAGON_SECRET_KEY: Joi.string(),
       BANDWAGON_SERVER_ID: Joi.number(),

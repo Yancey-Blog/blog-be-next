@@ -1,7 +1,8 @@
 {
   "env": {
     "es6": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "extends": ["airbnb-base", "plugin:nestjs/recommended"],
   "globals": {
@@ -13,7 +14,7 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "nestjs"],
+  "plugins": ["@typescript-eslint", "nestjs", "jest"],
   "rules": {
     "semi": "off",
     "import/prefer-default-export": "off",
@@ -26,6 +27,7 @@
     "space-before-function-paren": "off",
     "func-names": "off",
     "operator-linebreak": "off",
+    "import/no-extraneous-dependencies": "off",
     "import/no-unresolved": "off", // FIXME:
     "class-methods-use-this": "off", // FIXME:
     "no-console": "off" // FIXME:

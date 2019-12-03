@@ -18,15 +18,15 @@ _This library is part of the [BPG (Blog Program Group)](https://github.com/Yance
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Gitter](https://badges.gitter.im/yancey-official/community.svg)](https://gitter.im/yancey-official/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/Yancey-Blog/blog-be-next.svg)](http://isitmaintained.com/project/Yancey-Blog/blog-be-next "Average time to resolve an issue")
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/Yancey-Blog/blog-be-next.svg)](http://isitmaintained.com/project/Yancey-Blog/blog-be-next "Percentage of issues still open")
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/Yancey-Blog/blog-be-next.svg)](http://isitmaintained.com/project/Yancey-Blog/blog-be-next 'Average time to resolve an issue')
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/Yancey-Blog/blog-be-next.svg)](http://isitmaintained.com/project/Yancey-Blog/blog-be-next 'Percentage of issues still open')
 [![devDependencies Status](https://david-dm.org/Yancey-Blog/blog-be-next/dev-status.svg)](https://david-dm.org/Yancey-Blog/blog-be-next?type=dev)
 [![dependencies Status](https://david-dm.org/Yancey-Blog/blog-be-next/status.svg)](https://david-dm.org/Yancey-Blog/blog-be-next)
 
 ⭐️ _Found it cool? Want more updates?_ [**Show your support by giving a ⭐️**](https://github.com/Yancey-Blog/blog-be-next/stargazers)
 
-  <a href="https://www.paypal.me/yanceyleo" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-  <a href="https://twitter.com/YanceyOfficial" target="_blank"><img src="https://img.shields.io/twitter/follow/YanceyOfficial.svg?style=social&label=Follow"></a>
+<a href="https://www.paypal.me/yanceyleo" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
+<a href="https://twitter.com/YanceyOfficial" target="_blank"><img src="https://img.shields.io/twitter/follow/YanceyOfficial.svg?style=social&label=Follow"></a>
 </a>
 
 </div>
@@ -91,7 +91,7 @@ This app follows the [Angular Team's Commit Message Guidelines](https://github.c
 
 ### Uses Env Files
 
-Copy `env/.env.example` to `env` folder twice and rename them to 'development.env'as 'development.env', 'production.env' and 'test.env',, then fill in your real environment variables.
+Copies `env/.env.example` to `env` folder twice and rename them to 'development.env'as 'development.env' and 'production.env', then fill in your real environment variables. `DATABASE_USER` and `DATABASE_PWD` are optional parmaters in development.env file.
 
 ```ts
 NODE_ENV=<YOUR_NODE_ENV>
