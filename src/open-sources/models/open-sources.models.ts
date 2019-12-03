@@ -18,8 +18,8 @@ export class OpenSourceModel {
   public readonly posterUrl: string
 
   @Field()
-  public readonly createdAt: Date
+  public readonly createdAt: string
 
   @Field()
-  public readonly updatedAt: Date
+  public readonly updatedAt: string
 }

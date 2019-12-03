@@ -3,17 +3,6 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
-input AnnouncementInput {
-  announcement: String!
-}
-
-type AnnouncementsModel {
-  _id: String!
-  announcement: String!
-  createdAt: String!
-  updatedAt: String!
-}
-
 input CreateOpenSourceInput {
   title: String!
   description: String!
@@ -21,18 +10,7 @@ input CreateOpenSourceInput {
   posterUrl: String!
 }
 
-"""
-The javascript `Date` as string. Type represents date and time as the ISO Date string.
-"""
-scalar DateTime
-
 type Mutation {
-  createAnnouncement(input: AnnouncementInput!): AnnouncementsModel!
-  updateAnnouncement(announcement: String!, id: ID!): AnnouncementsModel!
-  deleteAnnouncement(id: ID!): AnnouncementsModel!
-  deleteAnnouncements(ids: [ID!]!): AnnouncementsModel!
-  sendSMS(sendSMSInput: SendSMSInput!): SMSRes!
-  validateSMS(validateSMSInput: ValidateSMSInput!): SMSRes!
   createOpenSource(input: CreateOpenSourceInput!): OpenSourceModel!
   updateOpenSourceById(input: UpdateOpenSourceInput!): OpenSourceModel!
   deleteOpenSourceById(id: ID!): OpenSourceModel!
@@ -45,33 +23,13 @@ type OpenSourceModel {
   description: String!
   url: String!
   posterUrl: String!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-}
-
-type Query {
-  announcements: [AnnouncementsModel!]!
-  announcement(id: ID!): AnnouncementsModel!
-  getAllSMS: [SMSModel!]!
-  getOpenSources: [OpenSourceModel!]!
-  getOpenSourceById(id: ID!): OpenSourceModel!
-}
-
-input SendSMSInput {
-  phoneNumber: String!
-}
-
-type SMSModel {
-  _id: String!
-  phoneNumber: String!
-  verificationCode: String!
   createdAt: String!
   updatedAt: String!
 }
 
-type SMSRes {
-  success: Boolean!
-  message: String
+type Query {
+  getOpenSources: [OpenSourceModel!]!
+  getOpenSourceById(id: ID!): OpenSourceModel!
 }
 
 input UpdateOpenSourceInput {
@@ -80,9 +38,4 @@ input UpdateOpenSourceInput {
   url: String!
   posterUrl: String!
   id: String!
-}
-
-input ValidateSMSInput {
-  phoneNumber: String!
-  verificationCode: String!
 }
