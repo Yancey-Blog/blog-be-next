@@ -20,7 +20,8 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "test:codecov": "yarn test && node_modules/codecov/bin/codecov -t 7b33b616-c7c6-465f-a858-91ca93071f98"
   },
   "dependencies": {
     "@alicloud/pop-core": "^1.7.7",
@@ -88,6 +89,7 @@
     "@types/uuid": "^3.4.6",
     "@typescript-eslint/eslint-plugin": "^2.9.0",
     "@typescript-eslint/parser": "^2.9.0",
+    "codecov": "^3.6.1",
     "commitlint-config-cz": "^0.12.1",
     "cz-customizable": "^6.2.0",
     "eslint": "^6.7.1",
@@ -122,6 +124,7 @@
       "^.+\\.(t|j)s$": "ts-jest"
     },
     "coverageDirectory": "./coverage",
+    "collectCoverage": true,
     "testEnvironment": "node"
   },
   "config": {

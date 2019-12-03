@@ -21,11 +21,6 @@ input CreateOpenSourceInput {
   posterUrl: String!
 }
 
-"""
-The javascript `Date` as string. Type represents date and time as the ISO Date string.
-"""
-scalar DateTime
-
 type Mutation {
   createAnnouncement(input: AnnouncementInput!): AnnouncementsModel!
   updateAnnouncement(announcement: String!, id: ID!): AnnouncementsModel!
@@ -45,8 +40,8 @@ type OpenSourceModel {
   description: String!
   url: String!
   posterUrl: String!
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  createdAt: String!
+  updatedAt: String!
 }
 
 type Query {

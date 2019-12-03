@@ -54,7 +54,7 @@ export class ConfigService {
   private validateEnvFile(envConfig: EnvConfig): EnvConfig {
     const envVarsSchema: ObjectSchema = Joi.object({
       NODE_ENV: Joi.string()
-        .valid('development', 'production')
+        .valid('development', 'production', 'test')
         .default('development'),
       APP_PORT: Joi.number().default(3002),
       DATABASE_HOST: Joi.string(),
