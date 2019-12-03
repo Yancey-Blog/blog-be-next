@@ -648,10 +648,10 @@
     webpack "4.41.2"
     webpack-node-externals "1.7.2"
 
-"@nestjs/common@^6.10.4":
-  version "6.10.4"
-  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-6.10.4.tgz#276c63bccc89261ad57ab09beee3a819630c4357"
-  integrity sha512-LdsvYzIubUUncAYw2c/1zn9Gv9Fg9ZFAKblDOSM/q9nNVhgL38P6FBikYXN0p4GP4OIf0YxZaP8wPD5hjXn8Og==
+"@nestjs/common@^6.10.5":
+  version "6.10.5"
+  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-6.10.5.tgz#7038606785016cf60543f2b673967980e5b19426"
+  integrity sha512-TrtvgEPM80X5KFkNEK+7u87zdmTF0laG8gOCuHOi9IPAXOdTUKpuTw7d6+h9by4jHLN8xJr067pIf6AruO3N/w==
   dependencies:
     axios "0.19.0"
     cli-color "2.0.0"
@@ -703,10 +703,10 @@
   resolved "https://registry.yarnpkg.com/@nestjs/passport/-/passport-6.1.1.tgz#991b8736c0ebffabb85a6455f0288055e5b52755"
   integrity sha512-wMhvi3Ru965nftCLUhFUqWNwyzSxVDmGgTEYVyWbOOmHFjNg5US47jzV2NresuUP2vjgg8J8S6DviKTVuLfkRw==
 
-"@nestjs/platform-express@^6.10.3":
-  version "6.10.4"
-  resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-6.10.4.tgz#d2f5251bae92ecbe9056a23bc7d37bb2712efe2c"
-  integrity sha512-s9puru5KWgnAoHwMjB0ynrYzFU++wCKBnsU3RPMUmAlzPXMCEPmSsEHEMIVescpCgUrE/zolhD1uzgCVF+XHLg==
+"@nestjs/platform-express@^6.10.5":
+  version "6.10.5"
+  resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-6.10.5.tgz#5dadfdf6136d4fefb0519072efabf69e42d9f135"
+  integrity sha512-9mVs4Pn6rZdvxaThA5iGuvmFYwYpAoPBiNEAPSoLmSZ/FvLGDDY8boI+pTBbs8JLrAmEfRhEHxqhWhm6nsfkGQ==
   dependencies:
     body-parser "1.19.0"
     cors "2.8.5"
@@ -1825,10 +1825,10 @@ ajv@6.10.2, ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.5.5:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-ali-oss@^6.2.1:
-  version "6.2.1"
-  resolved "https://registry.yarnpkg.com/ali-oss/-/ali-oss-6.2.1.tgz#990af42ed31618c5cce1e403e9509784e20ab91c"
-  integrity sha512-A1qLmK1/eqbjVIe3E2e5H2qrviARanN+ZrRt8TQRkg7flhAZj+5JcE+7KGtk2hG9GadKejMwiKKCU4NCd8Ugvw==
+ali-oss@^6.3.0:
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/ali-oss/-/ali-oss-6.3.0.tgz#ea3db8352b59978cbed2c594cb63ce2d59a9b8b4"
+  integrity sha512-6ijwjcaQ7fYkekKBVWkG/0ZJOipFZBaW0vpr5b2Nuq/Ly4cW1Jog7qat8ioHmS4AlzMm4oYGwpeBvQ0XPWIsSw==
   dependencies:
     address "^1.0.0"
     agentkeepalive "^3.4.1"
@@ -2187,6 +2187,11 @@ argparse@^1.0.7:
   integrity sha512-o5Roy6tNG4SL/FOkCAN6RzjiakZS25RLYFrcMttJqbdd8BWrnA+fGz57iN5Pb06pvBGvl5gQ0B48dJlslXvoTg==
   dependencies:
     sprintf-js "~1.0.2"
+
+argv@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/argv/-/argv-0.0.2.tgz#ecbd16f8949b157183711b1bda334f37840185ab"
+  integrity sha1-7L0W+JSbFXGDcRsb2jNPN4QBhas=
 
 arr-diff@^4.0.0:
   version "4.0.0"
@@ -3227,6 +3232,17 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
+
+codecov@^3.6.1:
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/codecov/-/codecov-3.6.1.tgz#f39fc49413445555f81f8e3ca5730992843b4517"
+  integrity sha512-IUJB6WG47nWK7o50etF8jBadxdMw7DmoQg05yIljstXFBGB6clOZsIj6iD4P82T2YaIU3qq+FFu8K9pxgkCJDQ==
+  dependencies:
+    argv "^0.0.2"
+    ignore-walk "^3.0.1"
+    js-yaml "^3.13.1"
+    teeny-request "^3.11.3"
+    urlgrey "^0.4.4"
 
 collection-visit@^1.0.0:
   version "1.0.0"
@@ -5981,6 +5997,14 @@ https-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
   integrity sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=
+
+https-proxy-agent@^2.2.1:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/https-proxy-agent/-/https-proxy-agent-2.2.4.tgz#4ee7a737abd92678a293d9b34a1af4d0d08c787b"
+  integrity sha512-OmvfoQ53WLjtA9HeYP9RNrWMJzzAz1JGaSFr1nijg0PVR1JaD/xbJq1mdEIIlxGpXp9eSe/O2LgU9DJmTPd0Eg==
+  dependencies:
+    agent-base "^4.3.0"
+    debug "^3.1.0"
 
 https-proxy-agent@^3.0.0:
   version "3.0.1"
@@ -11110,6 +11134,15 @@ tar@^4:
     safe-buffer "^5.1.2"
     yallist "^3.0.3"
 
+teeny-request@^3.11.3:
+  version "3.11.3"
+  resolved "https://registry.yarnpkg.com/teeny-request/-/teeny-request-3.11.3.tgz#335c629f7645e5d6599362df2f3230c4cbc23a55"
+  integrity sha512-CKncqSF7sH6p4rzCgkb/z/Pcos5efl0DmolzvlqRQUNcpRIruOhY9+T1FsIlyEbfWd7MsFpodROOwHYh2BaXzw==
+  dependencies:
+    https-proxy-agent "^2.2.1"
+    node-fetch "^2.2.0"
+    uuid "^3.3.2"
+
 temp-dir@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/temp-dir/-/temp-dir-1.0.0.tgz#0a7c0ea26d3a39afa7e0ebea9c1fc0bc4daa011d"
@@ -11767,6 +11800,11 @@ url@^0.11.0:
   dependencies:
     punycode "1.3.2"
     querystring "0.2.0"
+
+urlgrey@^0.4.4:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/urlgrey/-/urlgrey-0.4.4.tgz#892fe95960805e85519f1cd4389f2cb4cbb7652f"
+  integrity sha1-iS/pWWCAXoVRnxzUOJ8stMu3ZS8=
 
 urllib@^2.33.1:
   version "2.34.1"
