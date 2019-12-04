@@ -41,7 +41,7 @@ export class AnnouncementsService {
   }
 
   public async batchDelete(ids: string[]) {
-    const res = await this.AnnouncementModel.remove({
+    const res = await this.AnnouncementModel.deleteMany({
       _id: { $in: ids },
     })
     return res

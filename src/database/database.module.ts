@@ -7,10 +7,10 @@ import { ConfigService } from '../config/config.service'
     MongooseModule.forRootAsync({
       useFactory: async (configService: ConfigService) => ({
         uri: configService.getMongoURI(),
+        useFindAndModify: false,
         useUnifiedTopology: true,
         useNewUrlParser: true,
         useCreateIndex: true,
-        useFindAndModify: false,
       }),
       inject: [ConfigService],
     }),

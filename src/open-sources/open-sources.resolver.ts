@@ -1,7 +1,8 @@
 import { Args, Query, Resolver, Mutation } from '@nestjs/graphql'
 import { ID } from 'type-graphql'
 import { OpenSourcesService } from './open-sources.service'
-import { OpenSourceModel } from './models/open-sources.models'
+import { OpenSourceModel } from './models/open-sources.model'
+import { BatchDeleteModel } from '../database/models/database.model'
 import { CreateOpenSourceInput } from './dtos/create-open-source.input'
 import { UpdateOpenSourceInput } from './dtos/update-open-source.input'
 
@@ -36,7 +37,7 @@ export class OpenSourcesResolver {
     return this.openSourcesService.deleteOneById(id)
   }
 
-  @Mutation(() => OpenSourceModel)
+  @Mutation(() => BatchDeleteModel)
   public async deleteOpenSources(@Args({ name: 'ids', type: () => [ID] }) ids: string[]) {
     return this.openSourcesService.batchDelete(ids)
   }

@@ -3,6 +3,12 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+type BatchDeleteModel {
+  ok: Float
+  n: Float
+  deletedCount: Float
+}
+
 input CreateOpenSourceInput {
   title: String!
   description: String!
@@ -14,7 +20,7 @@ type Mutation {
   createOpenSource(input: CreateOpenSourceInput!): OpenSourceModel!
   updateOpenSourceById(input: UpdateOpenSourceInput!): OpenSourceModel!
   deleteOpenSourceById(id: ID!): OpenSourceModel!
-  deleteOpenSources(ids: [ID!]!): OpenSourceModel!
+  deleteOpenSources(ids: [ID!]!): BatchDeleteModel!
 }
 
 type OpenSourceModel {

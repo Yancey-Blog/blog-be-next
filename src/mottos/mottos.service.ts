@@ -40,7 +40,7 @@ export class MottosService {
   }
 
   public async batchDelete(ids: string[]): Promise<BatchDelete> {
-    const res = await this.MottoModel.remove({
+    const res = await this.MottoModel.deleteMany({
       _id: { $in: ids },
     })
     return res

@@ -3,9 +3,9 @@ import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
 import { CreateOpenSourceInput } from './dtos/create-open-source.input'
 import { UpdateOpenSourceInput } from './dtos/update-open-source.input'
-import { OpenSourceModel } from './models/open-sources.models'
+import { OpenSourceModel } from './models/open-sources.model'
 import { OpenSource } from './interfaces/open-sources.interface'
-import { BatchDelete } from '../database/interfaces/batchDelete.interface'
+import { BatchDeleteModel } from '../database/models/database.model'
 
 @Injectable()
 export class OpenSourcesService {
@@ -30,17 +30,15 @@ export class OpenSourcesService {
 
   public async update(openSourceInput: UpdateOpenSourceInput): Promise<OpenSourceModel> {
     const { id, ...rest } = openSourceInput
-    return this.openSourceModel.findByIdAndUpdate(id, {
-      rest,
-    })
+    return this.openSourceModel.findByIdAndUpdate(id, rest, { new: true })
   }
 
   public async deleteOneById(id: string): Promise<OpenSourceModel> {
     return this.openSourceModel.findByIdAndDelete(id)
   }
 
-  public async batchDelete(ids: string[]): Promise<BatchDelete> {
-    return this.openSourceModel.remove({
+  public async batchDelete(ids: string[]): Promise<BatchDeleteModel> {
+    return this.openSourceModel.deleteMany({
       _id: { $in: ids },
     })
   }
