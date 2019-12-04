@@ -1,2 +1,2 @@
 extends:
-  - 'cz'
+  - '@commitlint/config-conventional'
