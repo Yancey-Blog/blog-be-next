@@ -1,6 +1,6 @@
 {
   "name": "blog-be-next",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "The backend platform for Yancey blog.",
   "repository": "git@github.com:Yancey-Blog/blog-be-next.git",
   "author": "YanceyOfficial <yanceyofficial@gmail.com>",
@@ -14,7 +14,9 @@
     "start:prod": "node dist/main",
     "watch": "nest start --watch",
     "commit": "npx git-cz",
-    "release": "node_modules/standard-version/bin/cli.js -- --no-verify",
+    "release:major": "node_modules/standard-version/bin/cli.js --no-verify --release-as major",
+    "release:minor": "node_modules/standard-version/bin/cli.js --no-verify --release-as minor",
+    "release:patch": "node_modules/standard-version/bin/cli.js --no-verify --release-as patch",
     "document": "npx compodoc -p tsconfig.json -s --language \"ja-JP\"",
     "lint": "eslint src --ext .ts,.tsx",
     "test": "jest",
