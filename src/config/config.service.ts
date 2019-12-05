@@ -64,7 +64,7 @@ export class ConfigService {
         .default('development'),
       APP_PORT: Joi.number().default(3002),
       DATABASE_HOST: Joi.string(),
-      DATABASE_PORT: Joi.number(),
+      DATABASE_PORT: Joi.number().default(27017),
       DATABASE_USER: this.isEnvProduction ? Joi.string() : Joi.string().optional(),
       DATABASE_PWD: this.isEnvProduction ? Joi.string() : Joi.string().optional(),
       DATABASE_COLLECTION: Joi.string(),

@@ -11,6 +11,9 @@ import { SendSMSInput } from './dtos/sendSMS.input'
 import { ValidateSMSInput } from './dtos/validateSMS.input'
 import { SendSMSRes } from './dtos/sendSMSRes.dto'
 import { ValidateSMSRes } from './dtos/validateSMSRes.dto'
+import { SMSModel } from './models/sms.model'
+import { GraphQLError } from '../graphql/interfaces/errorRes.interface'
+import { jsonStringify } from '../shared/utils'
 
 describe('SMSController (e2e)', () => {
   let app: NestApplication
@@ -42,26 +45,53 @@ describe('SMSController (e2e)', () => {
     await app.close()
   })
 
-  const validPhoneNumber = '15011189639'
-  // const invalidPhoneNumber = '15011189639x'
+  const validPhoneNumber = '15997693333'
+  const invalidPhoneNumber = '13261308888x'
+  const nonexistentPhoneNumber = '13261308888'
 
   let verificationCode = ''
 
-  it('sendSMS', () => {
-    const sendSMSData: SendSMSInput = {
-      phoneNumber: validPhoneNumber,
+  const sendSMSData: SendSMSInput = {
+    phoneNumber: validPhoneNumber,
+  }
+
+  const sendSMSTypeDefs = `
+  mutation SendSMSOpenSource {
+    sendSMS(input: ${jsonStringify(sendSMSData)}) {
+      verificationCode
+    }
+  }`
+
+  it('send SMS with invalid phone number (trigger ValidationPipe exception).', () => {
+    const sendInvalidSMSData: SendSMSInput = {
+      phoneNumber: invalidPhoneNumber,
     }
 
-    const sendSMSJSON = JSON.stringify(sendSMSData).replace(/"([^(")"]+)":/g, '$1:')
-
-    const sendSMSTypeDefs = `
+    const typeDefs = `
     mutation SendSMSOpenSource {
-      sendSMS(input: ${sendSMSJSON}) {
+      sendSMS(input: ${jsonStringify(sendInvalidSMSData)}) {
         verificationCode
       }
     }`
 
     return request(app.getHttpServer())
+      .post('/graphql')
+      .send({
+        operationName: null,
+        query: typeDefs,
+      })
+      .expect(({ body }) => {
+        const testData: GraphQLError = body.errors
+
+        const firstData = testData[0]
+
+        expect(typeof firstData.message).toBe('string')
+      })
+      .expect(200)
+  })
+
+  it('send SMS success.', () =>
+    request(app.getHttpServer())
       .post('/graphql')
       .send({
         operationName: null,
@@ -71,20 +101,33 @@ describe('SMSController (e2e)', () => {
         const testData: SendSMSRes = body.data.sendSMS
         verificationCode = testData.verificationCode
       })
-      .expect(200)
-  })
+      .expect(200))
 
-  it('validateSMS', () => {
+  it('send SMS too often (trigger Ali SMS exception).', () =>
+    request(app.getHttpServer())
+      .post('/graphql')
+      .send({
+        operationName: null,
+        query: sendSMSTypeDefs,
+      })
+      .expect(({ body }) => {
+        const testData: GraphQLError = body.errors
+
+        const firstData = testData[0]
+
+        expect(typeof firstData.message).toBe('string')
+      })
+      .expect(200))
+
+  it('validate SMS success.', () => {
     const validateSMSData: ValidateSMSInput = {
       phoneNumber: validPhoneNumber,
       verificationCode,
     }
 
-    const validateSMSJSON = JSON.stringify(validateSMSData).replace(/"([^(")"]+)":/g, '$1:')
-
-    const validateSMSTypeDefs = `
+    const typeDefs = `
     mutation ValidateSMS {
-      validateSMS(input: ${validateSMSJSON}) {
+      validateSMS(input: ${jsonStringify(validateSMSData)}) {
         success
       }
     }`
@@ -93,12 +136,96 @@ describe('SMSController (e2e)', () => {
       .post('/graphql')
       .send({
         operationName: null,
-        query: validateSMSTypeDefs,
+        query: typeDefs,
       })
       .expect(({ body }) => {
         const testData: ValidateSMSRes = body.data.validateSMS
 
         expect(testData.success).toBeTruthy()
+      })
+      .expect(200)
+  })
+
+  it('validate SMS with an nonexistent phone number (trigger GraphQLError exception).', () => {
+    const validateNonexistentSMSData: ValidateSMSInput = {
+      phoneNumber: nonexistentPhoneNumber,
+      verificationCode,
+    }
+
+    const typeDefs = `
+    mutation ValidateSMS {
+      validateSMS(input: ${jsonStringify(validateNonexistentSMSData)}) {
+        success
+      }
+    }`
+
+    return request(app.getHttpServer())
+      .post('/graphql')
+      .send({
+        operationName: null,
+        query: typeDefs,
+      })
+      .expect(({ body }) => {
+        const testData: GraphQLError = body.errors
+
+        const firstData = testData[0]
+
+        expect(typeof firstData.message).toBe('string')
+      })
+      .expect(200)
+  })
+
+  it('validate SMS with an nonexistent phone number (trigger GraphQLError exception).', () => {
+    const validateNonexistentSMSData: ValidateSMSInput = {
+      phoneNumber: validPhoneNumber,
+      verificationCode: (parseInt(verificationCode, 10) + 1).toString(),
+    }
+
+    const typeDefs = `
+    mutation ValidateSMS {
+      validateSMS(input: ${jsonStringify(validateNonexistentSMSData)}) {
+        success
+      }
+    }`
+
+    return request(app.getHttpServer())
+      .post('/graphql')
+      .send({
+        operationName: null,
+        query: typeDefs,
+      })
+      .expect(({ body }) => {
+        const testData: GraphQLError = body.errors
+
+        const firstData = testData[0]
+
+        expect(typeof firstData.message).toBe('string')
+      })
+      .expect(200)
+  })
+
+  it('getAllSMS', () => {
+    const typeDefs = `
+    query GetAllSMS {
+      getAllSMS {
+        _id
+        phoneNumber
+        verificationCode
+        createdAt
+        updatedAt
+      }
+    }`
+
+    return request(app.getHttpServer())
+      .post('/graphql')
+      .send({
+        operationName: null,
+        query: typeDefs,
+      })
+      .expect(({ body }) => {
+        const testData: SMSModel[] = body.data.getAllSMS
+
+        expect(testData.length).toBeGreaterThan(0)
       })
       .expect(200)
   })

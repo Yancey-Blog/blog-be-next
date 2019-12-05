@@ -59,13 +59,13 @@ describe('OpenSourcesController (e2e)', () => {
     posterUrl: 'https://yaneyleo.com',
   }
 
-  const createDataJSON = JSON.stringify(createdData).replace(/"([^(")"]+)":/g, '$1:')
+  const createDataString = JSON.stringify(createdData).replace(/"([^(")"]+)":/g, '$1:')
 
   // CREATE_ONE
   it('createOpenSource', () => {
     const createOneTypeDefs = `
     mutation CreateOpenSource {
-      createOpenSource(input: ${createDataJSON}) {
+      createOpenSource(input: ${createDataString}) {
         _id
         title
         description
