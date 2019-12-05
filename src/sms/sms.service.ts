@@ -1,11 +1,11 @@
 import { Model } from 'mongoose'
 import { InjectModel } from '@nestjs/mongoose'
 import { Injectable } from '@nestjs/common'
-import { UserInputError, ValidationError } from 'apollo-server-express'
+import { ValidationError, ForbiddenError } from 'apollo-server-express'
 import AliSMS from '@alicloud/pop-core'
 import moment from 'moment'
 import { ConfigService } from '../config/config.service'
-import { SMS, SMSParams } from './interfaces/sms.interface'
+import { SMS, AliSMSParams } from './interfaces/sms.interface'
 import { ValidateSMSInput } from './dtos/validateSMS.input'
 import { SendSMSInput } from './dtos/sendSMS.input'
 import { generateSMSVerificationCode } from '../shared/utils'
@@ -15,7 +15,7 @@ import { ALI_SMS_END_POINT, ALI_SMS_API_VERSION, ALI_SMS_REGION } from '../share
 export class SMSService {
   private readonly sms: AliSMS
 
-  private readonly params: SMSParams
+  private readonly params: AliSMSParams
 
   constructor(
     @InjectModel('SMS')
@@ -73,10 +73,11 @@ export class SMSService {
       await this.saveSMSVerificationCode(phoneNumber, verificationCode)
 
       return {
-        success: true,
+        verificationCode,
       }
     } catch (e) {
-      throw new UserInputError(e.data.Message)
+      // the error is thrown by ali sms.
+      throw new ForbiddenError(e.data.Message)
     }
   }
 

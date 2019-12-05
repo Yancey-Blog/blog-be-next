@@ -3,6 +3,9 @@ import { Test, TestingModule } from '@nestjs/testing'
 import { MongooseModule } from '@nestjs/mongoose'
 import { GraphQLModule } from '@nestjs/graphql'
 import request from 'supertest'
+import { SCHEMA_GQL_FILE_NAME } from '../shared/constants'
+import { ConfigModule } from '../config/config.module'
+import { ConfigService } from '../config/config.service'
 import { OpenSourcesModule } from './open-sources.module'
 import { OpenSourceModel } from './models/open-sources.model'
 import { CreateOpenSourceInput } from './dtos/create-open-source.input'
@@ -14,15 +17,20 @@ describe('OpenSourcesController (e2e)', () => {
   beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [
+        ConfigModule,
         OpenSourcesModule,
-        MongooseModule.forRoot('mongodb://localhost:27017/blog_test', {
-          useFindAndModify: false,
-          useUnifiedTopology: true,
-          useNewUrlParser: true,
-          useCreateIndex: true,
+        MongooseModule.forRootAsync({
+          useFactory: async (configService: ConfigService) => ({
+            uri: configService.getMongoURI(),
+            useFindAndModify: false,
+            useUnifiedTopology: true,
+            useNewUrlParser: true,
+            useCreateIndex: true,
+          }),
+          inject: [ConfigService],
         }),
         GraphQLModule.forRoot({
-          autoSchemaFile: 'schema.gql',
+          autoSchemaFile: SCHEMA_GQL_FILE_NAME,
         }),
       ],
     }).compile()
@@ -51,13 +59,13 @@ describe('OpenSourcesController (e2e)', () => {
     posterUrl: 'https://yaneyleo.com',
   }
 
-  const createDataObject = JSON.stringify(createdData).replace(/"([^(")"]+)":/g, '$1:')
+  const createDataJSON = JSON.stringify(createdData).replace(/"([^(")"]+)":/g, '$1:')
 
   // CREATE_ONE
   it('createOpenSource', () => {
     const createOneTypeDefs = `
     mutation CreateOpenSource {
-      createOpenSource(input: ${createDataObject}) {
+      createOpenSource(input: ${createDataJSON}) {
         _id
         title
         description
