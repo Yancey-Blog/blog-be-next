@@ -13,16 +13,6 @@ export class AuthService {
     this.jwtService = jwtService
   }
 
-  private async validateUser(email: string, password?: string) {
-    const user = await this.usersService.findOneByEmail(email)
-    if (user && user.isValidPassword(password, user.password)) {
-      // eslint-disable-next-line
-      const { password, ...rest } = user.toObject()
-      return rest
-    }
-    return null
-  }
-
   public async login(createUserDto: CreateUserDto) {
     const { email, password } = createUserDto
     const res = await this.validateUser(email, password)
@@ -44,5 +34,15 @@ export class AuthService {
       const params = count === 0 ? { ...createUserDto, role: Roles.SUPERUSER } : createUserDto
       this.usersService.create(params)
     }
+  }
+
+  private async validateUser(email: string, password?: string) {
+    const user = await this.usersService.findOneByEmail(email)
+    if (user && user.isValidPassword(password, user.password)) {
+      // eslint-disable-next-line
+      const { password, ...rest } = user.toObject()
+      return rest
+    }
+    return null
   }
 }

@@ -5,7 +5,7 @@ import { UserInputError } from 'apollo-server-express'
 
 @Injectable()
 export class GraphQLValidationPipe<T> implements PipeTransform<T> {
-  async transform(value: T, { metatype }: ArgumentMetadata) {
+  public async transform(value: T, { metatype }: ArgumentMetadata) {
     if (!metatype || !this.toValidate(metatype)) {
       return value
     }
