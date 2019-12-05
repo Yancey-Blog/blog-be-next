@@ -1,11 +1,11 @@
 import { Model } from 'mongoose'
 import { InjectModel } from '@nestjs/mongoose'
 import { Injectable } from '@nestjs/common'
-import { UserInputError, ValidationError } from 'apollo-server-express'
+import { ValidationError, ForbiddenError } from 'apollo-server-express'
 import AliSMS from '@alicloud/pop-core'
 import moment from 'moment'
 import { ConfigService } from '../config/config.service'
-import { SMS, SMSParams } from './interfaces/sms.interface'
+import { SMS, AliSMSParams } from './interfaces/sms.interface'
 import { ValidateSMSInput } from './dtos/validateSMS.input'
 import { SendSMSInput } from './dtos/sendSMS.input'
 import { generateSMSVerificationCode } from '../shared/utils'
@@ -15,7 +15,9 @@ import { ALI_SMS_END_POINT, ALI_SMS_API_VERSION, ALI_SMS_REGION } from '../share
 export class SMSService {
   private readonly sms: AliSMS
 
-  private readonly params: SMSParams
+  private readonly params: AliSMSParams
+
+  private readonly isEnvTest: boolean
 
   constructor(
     @InjectModel('SMS')
@@ -23,6 +25,8 @@ export class SMSService {
     configService: ConfigService,
   ) {
     this.SMSModel = SMSModel
+
+    this.isEnvTest = configService.isEnvTest
 
     const {
       ALI_SMS_ACCESS_KEY_ID,
@@ -66,17 +70,19 @@ export class SMSService {
     }
 
     try {
-      await this.sms.request('SendSMS', params, {
-        method: 'POST',
-      })
+      if (!this.isEnvTest) {
+        await this.sms.request('SendSMS', params, {
+          method: 'POST',
+        })
+      }
 
       await this.saveSMSVerificationCode(phoneNumber, verificationCode)
 
       return {
-        success: true,
+        verificationCode,
       }
     } catch (e) {
-      throw new UserInputError(e.data.Message)
+      throw new ForbiddenError(e.data.Message)
     }
   }
 

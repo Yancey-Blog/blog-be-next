@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common'
 import { MongooseModule } from '@nestjs/mongoose'
 import { SMSService } from './sms.service'
 import { SMSResolver } from './sms.resolver'
-import { SMSSchema } from './sms.schema'
+import { SMSSchema } from './schemas/sms.schema'
 import { AuthModule } from '../auth/auth.module'
 
 @Module({

@@ -8,11 +8,7 @@ export interface SMS extends Document {
   readonly updatedAt: string
 }
 
-export interface SMSRes {
-  success: boolean
-}
-
-export interface SMSParams {
+export interface AliSMSParams {
   readonly RegionId: string
   readonly SignName: string
   readonly TemplateCode: string
