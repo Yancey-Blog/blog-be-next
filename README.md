@@ -91,7 +91,7 @@ This app follows the [Angular Team's Commit Message Guidelines](https://github.c
 
 ### Uses Env Files
 
-Copies `env/.env.example` to `env` folder three times and rename them to 'production.env', 'development.env' and 'test.env', then fill in your real environment variables. `DATABASE_USER` and `DATABASE_PWD` are optional parmaters in `development.env` and `test.env` file.
+Copies `env/.env.example` to `env` folder and rename them to 'production.env' and 'development.env' then fill in your real environment variables. `DATABASE_USER` and `DATABASE_PWD` are optional parmaters in `development.env` and `test.env` file.
 
 ```ts
 NODE_ENV=<YOUR_NODE_ENV>

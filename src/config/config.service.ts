@@ -69,7 +69,7 @@ export class ConfigService {
       DATABASE_PWD: this.isEnvProduction ? Joi.string() : Joi.string().optional(),
       DATABASE_COLLECTION: Joi.string(),
       BANDWAGON_SECRET_KEY: Joi.string(),
-      BANDWAGON_SERVER_ID: Joi.number(),
+      BANDWAGON_SERVER_ID: Joi.string(),
       GOOGLE_RECAPTCHA_SECRET_KEY: Joi.string(),
       GOOGLE_RECAPTCHA_SITE_KEY: Joi.string(),
       ALI_OSS_ACCESS_KEY_ID: Joi.string(),
