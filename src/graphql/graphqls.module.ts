@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common'
 import { GraphQLModule } from '@nestjs/graphql'
 import { ValidationError } from 'apollo-server-express'
 import { ConfigService } from '../config/config.service'
-
+import { SCHEMA_GQL_FILE_NAME } from '../shared/constants'
 @Module({
   imports: [
     GraphQLModule.forRootAsync({
@@ -11,7 +11,7 @@ import { ConfigService } from '../config/config.service'
         playground: !configService.isEnvProduction,
         installSubscriptionHandlers: true,
         typePaths: ['./**/*.graphql'],
-        autoSchemaFile: 'schema.gql',
+        autoSchemaFile: SCHEMA_GQL_FILE_NAME,
         context: ({ req }) => ({ req }),
         formatError(error: ValidationError) {
           const { message, path } = error
