@@ -17,12 +17,16 @@ export class SMSService {
 
   private readonly params: AliSMSParams
 
+  private readonly isEnvTest: boolean
+
   constructor(
     @InjectModel('SMS')
     private readonly SMSModel: Model<SMS>,
     configService: ConfigService,
   ) {
     this.SMSModel = SMSModel
+
+    this.isEnvTest = configService.isEnvTest
 
     const {
       ALI_SMS_ACCESS_KEY_ID,
@@ -66,9 +70,11 @@ export class SMSService {
     }
 
     try {
-      await this.sms.request('SendSMS', params, {
-        method: 'POST',
-      })
+      if (!this.isEnvTest) {
+        await this.sms.request('SendSMS', params, {
+          method: 'POST',
+        })
+      }
 
       await this.saveSMSVerificationCode(phoneNumber, verificationCode)
 
@@ -76,7 +82,6 @@ export class SMSService {
         verificationCode,
       }
     } catch (e) {
-      // the error is thrown by ali sms.
       throw new ForbiddenError(e.data.Message)
     }
   }

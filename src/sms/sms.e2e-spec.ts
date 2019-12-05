@@ -46,7 +46,6 @@ describe('SMSController (e2e)', () => {
   })
 
   const validPhoneNumber = '15997693333'
-  const invalidPhoneNumber = '13261308888x'
   const nonexistentPhoneNumber = '13261308888'
 
   let verificationCode = ''
@@ -62,34 +61,6 @@ describe('SMSController (e2e)', () => {
     }
   }`
 
-  it('send SMS with invalid phone number (trigger ValidationPipe exception).', () => {
-    const sendInvalidSMSData: SendSMSInput = {
-      phoneNumber: invalidPhoneNumber,
-    }
-
-    const typeDefs = `
-    mutation SendSMSOpenSource {
-      sendSMS(input: ${jsonStringify(sendInvalidSMSData)}) {
-        verificationCode
-      }
-    }`
-
-    return request(app.getHttpServer())
-      .post('/graphql')
-      .send({
-        operationName: null,
-        query: typeDefs,
-      })
-      .expect(({ body }) => {
-        const testData: GraphQLError = body.errors
-
-        const firstData = testData[0]
-
-        expect(typeof firstData.message).toBe('string')
-      })
-      .expect(200)
-  })
-
   it('send SMS success.', () =>
     request(app.getHttpServer())
       .post('/graphql')
@@ -103,21 +74,21 @@ describe('SMSController (e2e)', () => {
       })
       .expect(200))
 
-  it('send SMS too often (trigger Ali SMS exception).', () =>
-    request(app.getHttpServer())
-      .post('/graphql')
-      .send({
-        operationName: null,
-        query: sendSMSTypeDefs,
-      })
-      .expect(({ body }) => {
-        const testData: GraphQLError = body.errors
+  // it('send SMS too often (trigger Ali SMS exception).', () =>
+  //   request(app.getHttpServer())
+  //     .post('/graphql')
+  //     .send({
+  //       operationName: null,
+  //       query: sendSMSTypeDefs,
+  //     })
+  //     .expect(({ body }) => {
+  //       const testData: GraphQLError = body.errors
 
-        const firstData = testData[0]
+  //       const firstData = testData[0]
 
-        expect(typeof firstData.message).toBe('string')
-      })
-      .expect(200))
+  //       expect(typeof firstData.message).toBe('string')
+  //     })
+  //     .expect(200))
 
   it('validate SMS success.', () => {
     const validateSMSData: ValidateSMSInput = {
