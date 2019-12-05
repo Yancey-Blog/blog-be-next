@@ -3,59 +3,13 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
-input AnnouncementInput {
-  announcement: String!
-}
-
-type AnnouncementsModel {
-  _id: String!
-  announcement: String!
-  createdAt: String!
-  updatedAt: String!
-}
-
-type BatchDeleteModel {
-  ok: Float
-  n: Float
-  deletedCount: Float
-}
-
-input CreateOpenSourceInput {
-  title: String!
-  description: String!
-  url: String!
-  posterUrl: String!
-}
-
 type Mutation {
-  createAnnouncement(input: AnnouncementInput!): AnnouncementsModel!
-  updateAnnouncement(announcement: String!, id: ID!): AnnouncementsModel!
-  deleteAnnouncement(id: ID!): AnnouncementsModel!
-  deleteAnnouncements(ids: [ID!]!): AnnouncementsModel!
   sendSMS(input: SendSMSInput!): SendSMSRes!
   validateSMS(input: ValidateSMSInput!): ValidateSMSRes!
-  createOpenSource(input: CreateOpenSourceInput!): OpenSourceModel!
-  updateOpenSourceById(input: UpdateOpenSourceInput!): OpenSourceModel!
-  deleteOpenSourceById(id: ID!): OpenSourceModel!
-  deleteOpenSources(ids: [ID!]!): BatchDeleteModel!
-}
-
-type OpenSourceModel {
-  _id: ID!
-  title: String!
-  description: String!
-  url: String!
-  posterUrl: String!
-  createdAt: String!
-  updatedAt: String!
 }
 
 type Query {
-  announcements: [AnnouncementsModel!]!
-  announcement(id: ID!): AnnouncementsModel!
   getAllSMS: [SMSModel!]!
-  getOpenSources: [OpenSourceModel!]!
-  getOpenSourceById(id: ID!): OpenSourceModel!
 }
 
 input SendSMSInput {
@@ -72,14 +26,6 @@ type SMSModel {
   verificationCode: String!
   createdAt: String!
   updatedAt: String!
-}
-
-input UpdateOpenSourceInput {
-  title: String!
-  description: String!
-  url: String!
-  posterUrl: String!
-  id: String!
 }
 
 input ValidateSMSInput {
