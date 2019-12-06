@@ -4,7 +4,7 @@
 
 The **backend next** for Yancey blog with Node.js, Nest, Rxjs, MongoDB, GraphQL, JWT and more...
 
-_This library is part of the [BPG (Blog Program Group)](https://github.com/Yancey-Blog)_ ecosystem 📖
+_This library is part of the [BPG (Blog Project Group)](https://github.com/Yancey-Blog)_ ecosystem 📖
 
 [![Build Status](https://travis-ci.com/Yancey-Blog/blog-be-next.svg?branch=master)](https://travis-ci.com/Yancey-Blog/blog-be-next)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/899c1498056d402284353047fcde0632)](https://www.codacy.com/manual/YanceyOfficial/blog-be-next?utm_source=github.com&utm_medium=referral&utm_content=Yancey-Blog/blog-be-next&utm_campaign=Badge_Grade)
@@ -123,7 +123,7 @@ JWT_SECRET_KEY=<YOUR_JWT_SECRET_KEY>
 
 [⇧ back to top](#Menu)
 
-## Change Logs
+## Prehistoric Changelog
 
 - 2019-12-03 Integrates e2e test.
 
