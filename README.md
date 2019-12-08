@@ -2,9 +2,9 @@
 
 # Blog Backend Next
 
-The **backend next** for Yancey blog with Node.js, Nest, Rxjs, MongoDB, GraphQL, JWT and more...
+The **blog backend next** for Yancey blog with Node.js, Nest, Rxjs, MongoDB, GraphQL, JWT and more...
 
-_This library is part of the [BPG (Blog Program Group)](https://github.com/Yancey-Blog)_ ecosystem 📖
+_This library is part of the [BPG (Blog Project Group)](https://github.com/Yancey-Blog)_ ecosystem 📖
 
 [![Build Status](https://travis-ci.com/Yancey-Blog/blog-be-next.svg?branch=master)](https://travis-ci.com/Yancey-Blog/blog-be-next)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/899c1498056d402284353047fcde0632)](https://www.codacy.com/manual/YanceyOfficial/blog-be-next?utm_source=github.com&utm_medium=referral&utm_content=Yancey-Blog/blog-be-next&utm_campaign=Badge_Grade)
@@ -40,13 +40,14 @@ _This library is part of the [BPG (Blog Program Group)](https://github.com/Yance
 
 - [Available Scripts](#available-scripts)
   - [yarn build](#yarn-build)
-  - [yarn start](#yarn-start)
   - [yarn watch](#yarn-watch)
   - [yarn document](#yarn-document)
-  - [yarn test:cov](#yarn-testcov)
+  - [yarn test](#yarn-test)
+  - [yarn commit](#yarn-commit)
 - [Contributions](#contributions)
   - [Uses Commitizen](#uses-commitizen)
   - [Uses Env Files](#uses-env-files)
+  - [Writes e2e test](#writes-e2e-test)
 - [Change Logs](#change-logs)
 - [License](#license)
 
@@ -61,10 +62,6 @@ In the project directory, you can run:
 Builds the app for production to the `dist` folder.
 This script will delete the old `dist` folder before build.
 
-### yarn start
-
-Runs the app in the development mode with no hot reload.
-
 ### yarn watch
 
 Runs the app in the development mode.
@@ -77,9 +74,13 @@ You will also see any lint errors in the console.
 
 Uses [compodoc](https://github.com/compodoc/compodoc) to generate an awesome document for this app.
 
-### yarn test:cov
+### yarn test
 
-Generates coverage folder after testing.
+Tests your cases by jest.
+
+### yarn commit
+
+An alias way to `git cz` if you don't want to install `commitizen` globally.
 
 [⇧ back to top](#Menu)
 
@@ -87,11 +88,11 @@ Generates coverage folder after testing.
 
 ### Uses Commitizen
 
-This app follows the [Angular Team's Commit Message Guidelines](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit), your commit will be checked by commitlint, please use `git cz` instead of `git commit`. For this reason, you should install `commitizen` globally.
+This app follows the [Angular Team's Commit Message Guidelines](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit), your commit will be checked by commitlint, please use `git cz` instead of `git commit`. For this reason, you should install `commitizen` globally or use `yarn commit` instead.
 
 ### Uses Env Files
 
-Copies `env/.env.example` to `env` folder and rename them to 'production.env' and 'development.env' then fill in your real environment variables. `DATABASE_USER` and `DATABASE_PWD` are optional parmaters in `development.env` and `test.env` file.
+Copies `env/.env.example` to `env` folder and rename them to 'production.env' and 'development.env'. Then fill in your real environment variables. `DATABASE_USER` and `DATABASE_PWD` are optional parmaters in `development.env` and `test.env` file.
 
 ```ts
 NODE_ENV=<YOUR_NODE_ENV>
@@ -121,9 +122,15 @@ ALI_SMS_TEMPLATE_CODE=<YOUR_ALI_SMS_TEMPLATE_CODE>
 JWT_SECRET_KEY=<YOUR_JWT_SECRET_KEY>
 ```
 
+### Writes e2e test
+
+We use e2e test for every module and test them at CI stage, you must write related test cases before PR.
+
 [⇧ back to top](#Menu)
 
-## Change Logs
+## Prehistoric Changelogs
+
+The following are **prehistoric** changelogs when I learned nestjs, GraqhQL and other infrastructure for the app. Just as a memorial.
 
 - 2019-12-03 Integrates e2e test.
 
