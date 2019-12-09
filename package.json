@@ -39,7 +39,7 @@
     "@nestjs/platform-express": "^6.10.7",
     "@nestjs/typeorm": "^6.2.0",
     "ali-oss": "^6.3.1",
-    "apollo-server-express": "^2.9.12",
+    "apollo-server-express": "^2.9.13",
     "bcrypt": "^3.0.7",
     "body-parser": "^1.19.0",
     "class-transformer": "^0.2.3",
