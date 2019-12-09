@@ -28,7 +28,6 @@
   },
   "dependencies": {
     "@alicloud/pop-core": "^1.7.7",
-    "@commitlint/config-conventional": "^8.2.0",
     "@hapi/joi": "^16.1.8",
     "@nestjs/common": "^6.10.5",
     "@nestjs/core": "^6.10.5",
@@ -69,6 +68,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
     "@compodoc/compodoc": "^1.1.11",
     "@nestjs/cli": "^6.12.9",
     "@nestjs/schematics": "^6.7.5",
