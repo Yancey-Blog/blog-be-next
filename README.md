@@ -130,13 +130,13 @@ We use e2e test for every module and test them at CI stage, you must write relat
 
 ## Prehistoric Changelogs
 
-The following are **prehistoric** changelogs when I built nestjs, GraphQL and other infrastructure for the app. Just as a memorial.
+The following are prehistoric changelogs on building infrastructure for the app. Just as a memorial.
 
 - 2019-12-03 Integrates e2e test.
 
 - 2019-11-26 Integrates JWT.
 
-- 2019-11-07 Supports .env.
+- 2019-11-07 Integrates dotenv.
 
 - 2019-11-04 Integrates GraphQL.
 
