@@ -47,7 +47,7 @@ _This library is part of the [BPG (Blog Project Group)](https://github.com/Yance
 - [Contributions](#contributions)
   - [Uses Commitizen](#uses-commitizen)
   - [Uses Env Files](#uses-env-files)
-  - [Writes e2e test](#writes-e2e-test)
+  - [E2E Test](#e2e-test)
 - [Change Logs](#change-logs)
 - [License](#license)
 
@@ -122,7 +122,7 @@ ALI_SMS_TEMPLATE_CODE=<YOUR_ALI_SMS_TEMPLATE_CODE>
 JWT_SECRET_KEY=<YOUR_JWT_SECRET_KEY>
 ```
 
-### Writes e2e test
+### E2E Test
 
 We use e2e test for every module and test them at CI stage, you must write related test cases before PR.
 
