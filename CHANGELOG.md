@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.1](https://github.com/Yancey-Blog/blog-be-next/compare/v0.3.0...v0.3.1) (2019-12-10)
+
+
+### Features
+
+* **readme.md:** update README.md ([b82eb71](https://github.com/Yancey-Blog/blog-be-next/commit/b82eb712f75a3b033006af025a9e33d1e5794a09))
+* resolve conflict ([a5da31c](https://github.com/Yancey-Blog/blog-be-next/commit/a5da31c948b79ca6ea92c40230ba3bd6b7b9826e))
+* resolve conflicts ([2314f2f](https://github.com/Yancey-Blog/blog-be-next/commit/2314f2f3be5a1e08d0278a892bc9b770c9f5dd62))
+* update package.json ([287cfd1](https://github.com/Yancey-Blog/blog-be-next/commit/287cfd13c601ce4a2e0bb7932ba6dce5b7c3e0b5))
+
 ## [0.3.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.2.0...v0.3.0) (2019-12-05)
 
 
