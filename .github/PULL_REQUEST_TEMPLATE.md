@@ -8,9 +8,9 @@
 
 4. Ensure the test suite passes (yarn test). Tip: yarn test --watch TestName is helpful in development.
 
-5. Run yarn test-prod to test in the production environment. It supports the same options as yarn test.
+5. Run yarn test:cov to generate coverage report. It supports the same options as yarn test.
 
-6. If you need a debugger, run yarn debug-test --watch TestName, open chrome://inspect, and press "Inspect".
+6. If you need a debugger, run yarn test:debug TestName, open chrome://inspect, and press "Inspect".
 
 7. Format your code with prettier (yarn prettier).
 

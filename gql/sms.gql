@@ -1,0 +1,20 @@
+mutation SendSMS {
+  sendSMS(
+    input: {
+      phoneNumber: "150111896x39"
+    }
+  ) {
+    verificationCode
+  }
+}
+
+mutation ValidateSMS {
+  validateSMS(
+    input: {
+      phoneNumber: "15011189639x",
+      verificationCode:"3213"
+    }
+  ) {
+    success
+  }
+}

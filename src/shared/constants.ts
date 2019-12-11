@@ -8,7 +8,11 @@ export const FORMIDABLE = {
   hash: 'md5',
 }
 
-export const BANDWAGON_URL = 'https://api.64clouds.com/v1/'
+export const BANDWAGON_URL = 'https://api.64clouds.com/v1'
+
+export const BANDWAGON_SERVICE_INFO_URL = `${BANDWAGON_URL}/getLiveServiceInfo`
+
+export const BANDWAGON_USAGE_STATS_URL = `${BANDWAGON_URL}/getRawUsageStats`
 
 export const RECAPTCHA_URL = 'https://www.google.com/recaptcha/api/siteverify/'
 
