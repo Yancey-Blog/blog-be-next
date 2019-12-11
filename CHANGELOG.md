@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.3.1...v0.4.0) (2019-12-11)
+
+
+### Features
+
+* finish Bandwagon Module ([dc249d5](https://github.com/Yancey-Blog/blog-be-next/commit/dc249d564b0b2d76205d5cd2507e12c17e771e10))
+* finish the infrastructure of Bandwagon Module ([fa4bef9](https://github.com/Yancey-Blog/blog-be-next/commit/fa4bef931c098afba761f1159f25693670a878dd))
+* update assets ([5005bdb](https://github.com/Yancey-Blog/blog-be-next/commit/5005bdbd2503cef7a47ed68a77e04dca46a27a55))
+* update jest scan config ([39ed1bf](https://github.com/Yancey-Blog/blog-be-next/commit/39ed1bf7eb6ffb1449f3d554f488b2e7b6582006))
+
 ### [0.3.1](https://github.com/Yancey-Blog/blog-be-next/compare/v0.3.0...v0.3.1) (2019-12-10)
 
 
