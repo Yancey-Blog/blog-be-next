@@ -6,14 +6,12 @@ import morgan from 'morgan'
 import helmet from 'helmet'
 // import csurf from 'csurf'
 import rateLimit from 'express-rate-limit'
-import compression from 'compression'
 
 export const configMiddlewares = (app: INestApplication) => {
   app.use(serveFavicon(path.join(process.cwd(), 'public/assets/favicon.ico')))
   app.use(bodyParser.json())
   app.use(bodyParser.urlencoded({ extended: true }))
   app.use(morgan('combined'))
-  app.use(compression())
   app.use(helmet())
   // app.use(csurf())
   app.enableCors({})

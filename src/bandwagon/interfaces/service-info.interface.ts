@@ -1,4 +1,4 @@
-export interface ServerInfo {
+export interface ServiceInfo {
   vm_type: string
   ve_status: string
   ve_mac1: string

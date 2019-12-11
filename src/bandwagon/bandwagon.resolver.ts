@@ -1,20 +1,25 @@
+// import { UseGuards } from '@nestjs/common'
 import { Resolver, Query } from '@nestjs/graphql'
 import { BandwagonService } from './bandwagon.service'
-import { ServerInfoModel } from './models/server-info.model'
+import { ServiceInfoModel } from './models/service-info.model'
+import { UsageStatesModel } from './models/usage-stats.model'
+// import { GqlAuthGuard } from '../guard/gqlAuth.guard'
 
-@Resolver(() => ServerInfoModel)
+@Resolver('Bandwagon')
 export class BandwagonResolver {
   constructor(private readonly bandwagonService: BandwagonService) {
     this.bandwagonService = bandwagonService
   }
 
-  @Query(() => ServerInfoModel)
-  public async getServiceInfo() {
+  @Query(() => ServiceInfoModel)
+  // @UseGuards(GqlAuthGuard)
+  public getBanwagonServiceInfo() {
     return this.bandwagonService.getServiceInfo()
   }
 
-  @Query(() => [ServerInfoModel])
-  public async getUsageStats() {
+  @Query(() => [UsageStatesModel])
+  // @UseGuards(GqlAuthGuard)
+  public getBanwagonUsageStats() {
     return this.bandwagonService.getUsageStats()
   }
 }

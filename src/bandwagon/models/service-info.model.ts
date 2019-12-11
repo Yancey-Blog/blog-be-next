@@ -2,7 +2,7 @@ import { Field, ObjectType } from 'type-graphql'
 import { IsString, IsNumber, IsBoolean, IsNotEmpty, IsArray } from 'class-validator'
 
 @ObjectType()
-export class ServerInfoModel {
+export class ServiceInfoModel {
   @Field()
   @IsString()
   @IsNotEmpty()
@@ -148,15 +148,15 @@ export class ServerInfoModel {
   @IsNotEmpty()
   public readonly data_next_reset: number
 
-  @Field()
+  @Field(() => [String])
   @IsArray()
   public readonly ip_addresses: string[]
 
-  @Field()
+  @Field(() => [String])
   @IsArray()
   public readonly private_ip_addresses: string[]
 
-  @Field()
+  @Field(() => [String])
   @IsArray()
   public readonly ip_nullroutes: string[]
 
@@ -168,7 +168,7 @@ export class ServerInfoModel {
   @IsString()
   public readonly iso2: string | null
 
-  @Field()
+  @Field(() => [String])
   @IsArray()
   public readonly available_isos: string[]
 
@@ -187,7 +187,8 @@ export class ServerInfoModel {
   @IsNotEmpty()
   public readonly rdns_api_available: boolean
 
-  @Field()
+  // FIXME:
+  @Field(() => String)
   public readonly ptr: { [index: string]: string | null }
 
   @Field()

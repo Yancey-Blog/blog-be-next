@@ -1,7 +1,8 @@
 import dotenv from 'dotenv'
 import Joi, { ObjectSchema } from '@hapi/joi'
 import fs from 'fs'
-import { AliOSSKey, AliSMSKey } from './interfaces/aliKeys.interface'
+import { AliOSSKey, AliSMSKey } from './interfaces/ali-keys.interface'
+import { BandwagonKey } from './interfaces/bandwagon-keys.interface'
 
 export type EnvConfig = Record<string, string>
 
@@ -50,6 +51,13 @@ export class ConfigService {
       ALI_SMS_ACCESS_KEY_SECRET: this.get('ALI_SMS_ACCESS_KEY_SECRET'),
       ALI_SMS_SIGN_NAME: this.get('ALI_SMS_SIGN_NAME'),
       ALI_SMS_TEMPLATE_CODE: this.get('ALI_SMS_TEMPLATE_CODE'),
+    }
+  }
+
+  public getBandwagonKeys(): BandwagonKey {
+    return {
+      BANDWAGON_SECRET_KEY: this.get('BANDWAGON_SECRET_KEY'),
+      BANDWAGON_SERVER_ID: this.get('BANDWAGON_SERVER_ID'),
     }
   }
 
