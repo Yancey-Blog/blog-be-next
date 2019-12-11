@@ -1,6 +1,6 @@
 {
   "name": "blog-be-next",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "The backend platform for Yancey blog.",
   "repository": "git@github.com:Yancey-Blog/blog-be-next.git",
   "author": "YanceyOfficial <yanceyofficial@gmail.com>",
@@ -24,7 +24,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "test:codecov": "jest --coverage && node_modules/codecov/bin/codecov -t 7b33b616-c7c6-465f-a858-91ca93071f98"
+    "codecov": "node_modules/codecov/bin/codecov -t 7b33b616-c7c6-465f-a858-91ca93071f98"
   },
   "dependencies": {
     "@alicloud/pop-core": "^1.7.7",
