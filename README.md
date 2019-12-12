@@ -36,19 +36,20 @@ _This library is part of the [BPG (Blog Project Group)](https://github.com/Yance
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-## Menu
-
 - [Available Scripts](#available-scripts)
   - [yarn build](#yarn-build)
   - [yarn watch](#yarn-watch)
   - [yarn document](#yarn-document)
   - [yarn test](#yarn-test)
   - [yarn commit](#yarn-commit)
-- [Contributions](#contributions)
+- [Contributing](#contributing)
+  - [Code of Conduct](#code-of-conduct)
+  - [Contributing Guide](#contributing-guide)
+  - [Good Issues](#good-issues)
   - [Uses Commitizen](#uses-commitizen)
   - [Uses Env Files](#uses-env-files)
   - [E2E Test](#e2e-test)
-- [Change Logs](#change-logs)
+- [Prehistoric Changelogs](#prehistoric-changelogs)
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -84,7 +85,21 @@ An optional way to use `git cz` if you don't want to install `commitizen` global
 
 [⇧ back to top](#Menu)
 
-## Contributions
+## Contributing
+
+The main purpose of this repository is to continue to evolve BPG (Blog Project Group), making it faster and easier to use. Development of Blog BE Next happens in the open on GitHub, and we are grateful to the community for contributing bugfixes and improvements. Read below to learn how you can take part in improving Blog BE Next.
+
+### [Code of Conduct](./CODE_OF_CONDUCT.md)
+
+Facebook has adopted a Code of Conduct that we expect project participants to adhere to. Please read [the full text](./CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
+
+### [Contributing Guide](./CONTRIBUTING.md)
+
+Read our [contributing guide](./CONTRIBUTING.md) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to Blog BE Next.
+
+### Good Issues
+
+Please make sure to read the [Issue Reporting Checklist](./.github/ISSUE_TEMPLATE) before opening an issue. Issues not conforming to the guidelines may be closed immediately.
 
 ### Uses Commitizen
 
@@ -126,11 +141,9 @@ JWT_SECRET_KEY=<YOUR_JWT_SECRET_KEY>
 
 We use e2e test for every module and test them at CI stage, you must write related test cases before PR.
 
-[⇧ back to top](#Menu)
-
 ## Prehistoric Changelogs
 
-The following are prehistoric changelogs on building infrastructure for this app. Just as a memorial.
+The following are prehistoric changelogs on building infrastructure for this app. Just as a memorial. See the detailed changes for each release are documented in the [CHANGELOG](./CHANGELOG.md).
 
 - 2019-12-03 Integrates e2e test.
 
