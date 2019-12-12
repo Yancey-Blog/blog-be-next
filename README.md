@@ -1,8 +1,8 @@
 <div align="center">
 
-# Blog Backend Next
+# Blog BE Next
 
-The **blog backend next** for Yancey blog with Node.js, Nest, Rxjs, MongoDB, GraphQL, JWT and more...
+The backend platform for Yancey Official Blog with Node.js, nestjs, Rxjs, MongoDB, GraphQL, Apollo Server, JWT and more...
 
 _This library is part of the [BPG (Blog Project Group)](https://github.com/Yancey-Blog)_ ecosystem 📖
 
@@ -165,4 +165,4 @@ The following are **prehistoric changelogs** on building infrastructure for this
 
 ## License
 
-Blog Backend Next is under the [MIT licensed](https://opensource.org/licenses/MIT). See the [LICENSE](./LICENSE) file for the full license text.
+Blog BE Next is under the [MIT licensed](https://opensource.org/licenses/MIT). See the [LICENSE](./LICENSE) file for the full license text.
