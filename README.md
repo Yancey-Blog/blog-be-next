@@ -49,7 +49,7 @@ _This library is part of the [BPG (Blog Project Group)](https://github.com/Yance
   - [Uses Commitizen](#uses-commitizen)
   - [Uses Env Files](#uses-env-files)
   - [E2E Test](#e2e-test)
-- [Prehistoric Changelogs](#prehistoric-changelogs)
+- [Changelogs](#changelogs)
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -99,7 +99,7 @@ Read our [contributing guide](./CONTRIBUTING.md) to learn about our development 
 
 ### Good Issues
 
-Please make sure to read the [Issue Reporting Checklist](./.github/ISSUE_TEMPLATE) before opening an issue. Issues not conforming to the guidelines may be closed immediately.
+Please make sure to read the [Issue Reporting Checklist](./.github/ISSUE_TEMPLATE/bug_report.md) before opening an issue. Issues not conforming to the guidelines may be closed immediately.
 
 ### Uses Commitizen
 
@@ -141,9 +141,9 @@ JWT_SECRET_KEY=<YOUR_JWT_SECRET_KEY>
 
 We use e2e test for every module and test them at CI stage, you must write related test cases before PR.
 
-## Prehistoric Changelogs
+## Changelogs
 
-The following are prehistoric changelogs on building infrastructure for this app. Just as a memorial. See the detailed changes for each release are documented in the [CHANGELOG](./CHANGELOG.md).
+The following are **prehistoric** changelogs on building infrastructure for this app. Just as a memorial. See the real detailed changes for each release are documented in the [CHANGELOG](./CHANGELOG.md).
 
 - 2019-12-03 Integrates e2e test.
 
