@@ -33,6 +33,8 @@ _This library is part of the [BPG (Blog Project Group)](https://github.com/Yance
 
 ---
 
+## Menu
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
@@ -143,7 +145,7 @@ We use e2e test for every module and test them at CI stage, you must write relat
 
 ## Changelogs
 
-The following are **prehistoric** changelogs on building infrastructure for this app. Just as a memorial. See the real detailed changes for each release are documented in the [CHANGELOG](./CHANGELOG.md).
+The following are **prehistoric changelogs** on building infrastructure for this app. Just as a memorial. See the real detailed changes for each release are documented in the [CHANGELOG](./CHANGELOG.md).
 
 - 2019-12-03 Integrates e2e test.
 
