@@ -31,8 +31,6 @@ _This library is part of the [BPG (Blog Project Group)](https://github.com/Yance
 
 </div>
 
----
-
 ## Menu
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -93,7 +91,7 @@ The main purpose of this repository is to continue to evolve BPG (Blog Project G
 
 ### [Code of Conduct](./CODE_OF_CONDUCT.md)
 
-Facebook has adopted a Code of Conduct that we expect project participants to adhere to. Please read [the full text](./CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
+[BPG](https://github.com/Yancey-Blog) has adopted a Code of Conduct that we expect project participants to adhere to. Please read [the full text](./CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
 
 ### [Contributing Guide](./CONTRIBUTING.md)
 
