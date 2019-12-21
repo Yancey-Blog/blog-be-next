@@ -1,8 +1,7 @@
-import { NestApplication } from '@nestjs/core'
+import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify'
 import { Test, TestingModule } from '@nestjs/testing'
 import { MongooseModule } from '@nestjs/mongoose'
 import { GraphQLModule } from '@nestjs/graphql'
-import request from 'supertest'
 import { SCHEMA_GQL_FILE_NAME } from '../src/shared/constants'
 import { ConfigModule } from '../src/config/config.module'
 import { ConfigService } from '../src/config/config.service'
@@ -16,7 +15,7 @@ import { GraphQLError } from '../src/graphql/interfaces/errorRes.interface'
 import { jsonStringify } from '../src/shared/utils'
 
 describe('SMSController (e2e)', () => {
-  let app: NestApplication
+  let app: NestFastifyApplication
   beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [
@@ -37,7 +36,7 @@ describe('SMSController (e2e)', () => {
         }),
       ],
     }).compile()
-    app = moduleFixture.createNestApplication()
+    app = moduleFixture.createNestApplication<NestFastifyApplication>(new FastifyAdapter())
     await app.init()
   })
 
@@ -62,17 +61,16 @@ describe('SMSController (e2e)', () => {
   }`
 
   it('send SMS success.', () =>
-    request(app.getHttpServer())
-      .post('/graphql')
-      .send({
-        operationName: null,
-        query: sendSMSTypeDefs,
+    app
+      .inject({
+        method: 'POST',
+        url: '/graphql',
+        payload: { operationName: null, query: sendSMSTypeDefs },
       })
-      .expect(({ body }) => {
-        const testData: SendSMSRes = body.data.sendSMS
+      .then(({ payload }) => {
+        const testData: SendSMSRes = JSON.parse(payload).data.sendSMS
         verificationCode = testData.verificationCode
-      })
-      .expect(200))
+      }))
 
   // it('send SMS too often (trigger Ali SMS exception).', () =>
   //   request(app.getHttpServer())
@@ -103,18 +101,17 @@ describe('SMSController (e2e)', () => {
       }
     }`
 
-    return request(app.getHttpServer())
-      .post('/graphql')
-      .send({
-        operationName: null,
-        query: typeDefs,
+    return app
+      .inject({
+        method: 'POST',
+        url: '/graphql',
+        payload: { operationName: null, query: typeDefs },
       })
-      .expect(({ body }) => {
-        const testData: ValidateSMSRes = body.data.validateSMS
+      .then(({ payload }) => {
+        const testData: ValidateSMSRes = JSON.parse(payload).data.validateSMS
 
         expect(testData.success).toBeTruthy()
       })
-      .expect(200)
   })
 
   it('validate SMS with an nonexistent phone number (trigger GraphQLError exception).', () => {
@@ -130,20 +127,19 @@ describe('SMSController (e2e)', () => {
       }
     }`
 
-    return request(app.getHttpServer())
-      .post('/graphql')
-      .send({
-        operationName: null,
-        query: typeDefs,
+    return app
+      .inject({
+        method: 'POST',
+        url: '/graphql',
+        payload: { operationName: null, query: typeDefs },
       })
-      .expect(({ body }) => {
-        const testData: GraphQLError = body.errors
+      .then(({ payload }) => {
+        const testData: GraphQLError = JSON.parse(payload).errors
 
         const firstData = testData[0]
 
         expect(typeof firstData.message).toBe('string')
       })
-      .expect(200)
   })
 
   it('validate SMS with an nonexistent phone number (trigger GraphQLError exception).', () => {
@@ -159,20 +155,19 @@ describe('SMSController (e2e)', () => {
       }
     }`
 
-    return request(app.getHttpServer())
-      .post('/graphql')
-      .send({
-        operationName: null,
-        query: typeDefs,
+    return app
+      .inject({
+        method: 'POST',
+        url: '/graphql',
+        payload: { operationName: null, query: typeDefs },
       })
-      .expect(({ body }) => {
-        const testData: GraphQLError = body.errors
+      .then(({ payload }) => {
+        const testData: GraphQLError = JSON.parse(payload).errors
 
         const firstData = testData[0]
 
         expect(typeof firstData.message).toBe('string')
       })
-      .expect(200)
   })
 
   it('getAllSMS', () => {
@@ -187,17 +182,16 @@ describe('SMSController (e2e)', () => {
       }
     }`
 
-    return request(app.getHttpServer())
-      .post('/graphql')
-      .send({
-        operationName: null,
-        query: typeDefs,
+    return app
+      .inject({
+        method: 'POST',
+        url: '/graphql',
+        payload: { operationName: null, query: typeDefs },
       })
-      .expect(({ body }) => {
-        const testData: SMSModel[] = body.data.getAllSMS
+      .then(({ payload }) => {
+        const testData: SMSModel[] = JSON.parse(payload).data.getAllSMS
 
         expect(testData.length).toBeGreaterThan(0)
       })
-      .expect(200)
   })
 })
