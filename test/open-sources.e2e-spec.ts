@@ -1,4 +1,4 @@
-import { NestApplication } from '@nestjs/core'
+import { NestFastifyApplication, FastifyAdapter } from '@nestjs/platform-fastify'
 import { Test, TestingModule } from '@nestjs/testing'
 import { MongooseModule } from '@nestjs/mongoose'
 import { GraphQLModule } from '@nestjs/graphql'
@@ -13,7 +13,7 @@ import { UpdateOpenSourceInput } from '../src/open-sources/dtos/update-open-sour
 import { BatchDelete } from '../src/database/interfaces/batchDelete.interface'
 
 describe('OpenSourcesController (e2e)', () => {
-  let app: NestApplication
+  let app: NestFastifyApplication
   beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [
@@ -34,7 +34,7 @@ describe('OpenSourcesController (e2e)', () => {
         }),
       ],
     }).compile()
-    app = moduleFixture.createNestApplication()
+    app = moduleFixture.createNestApplication<NestFastifyApplication>(new FastifyAdapter())
     await app.init()
   })
 
@@ -83,6 +83,7 @@ describe('OpenSourcesController (e2e)', () => {
         query: createOneTypeDefs,
       })
       .expect(({ body }) => {
+        console.log(body)
         const testData: OpenSourceModel = body.data.createOpenSource
 
         id = testData._id

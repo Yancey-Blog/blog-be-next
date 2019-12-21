@@ -1,4 +1,4 @@
-import { NestApplication } from '@nestjs/core'
+import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify'
 import { Test, TestingModule } from '@nestjs/testing'
 import { MongooseModule } from '@nestjs/mongoose'
 import { GraphQLModule } from '@nestjs/graphql'
@@ -16,7 +16,7 @@ import { GraphQLError } from '../src/graphql/interfaces/errorRes.interface'
 import { jsonStringify } from '../src/shared/utils'
 
 describe('SMSController (e2e)', () => {
-  let app: NestApplication
+  let app: NestFastifyApplication
   beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [
@@ -37,7 +37,7 @@ describe('SMSController (e2e)', () => {
         }),
       ],
     }).compile()
-    app = moduleFixture.createNestApplication()
+    app = moduleFixture.createNestApplication<NestFastifyApplication>(new FastifyAdapter())
     await app.init()
   })
 
