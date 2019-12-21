@@ -1,22 +1,28 @@
 import { NestFastifyApplication } from '@nestjs/platform-fastify'
-// import path from 'path'
-// import serveFavicon from 'serve-favicon'
-// import bodyParser from 'body-parser'
-// import morgan from 'morgan'
-// import helmet from 'fastify-helmet'
-// import csurf from 'csurf'
+import path from 'path'
+import favicon from 'fastify-favicon'
+import helmet from 'fastify-helmet'
 import rateLimit from 'fastify-rate-limit'
+import cors from 'fastify-cors'
+import healthcheck from 'fastify-healthcheck'
 
 export const configMiddlewares = (app: NestFastifyApplication) => {
-  // app.register(serveFavicon(path.join(process.cwd(), 'public/assets/favicon/favicon.ico')))
-  // app.register(bodyParser.json())
-  // app.register(bodyParser.urlencoded({ extended: true }))
-  // app.register(morgan('combined'))
-  // app.register(helmet())
-  // app.register(csurf())
-  // app.enableCors({})
+  app.register(favicon, { path: path.join(process.cwd(), 'public') })
+  app.register(helmet)
   app.register(rateLimit, {
-    windowMs: 15 * 60 * 1000,
+    timeWindow: '1 minute',
     max: 100,
+    whitelist: [],
+    addHeaders: {
+      'x-ratelimit-limit': true,
+      'x-ratelimit-remaining': true,
+      'x-ratelimit-reset': true,
+      'retry-after': true,
+    },
   })
+  app.register(cors)
+  app.register(healthcheck)
+
+  // app.use(bodyParser.json())
+  // app.use(bodyParser.urlencoded({ extended: true }))
 }
