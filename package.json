@@ -13,7 +13,7 @@
     "start": "nest start",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
-    "watch": "nest start --watch",
+    "watch": "NODE_ENV=development nest start --watch",
     "commit": "npx git-cz",
     "push": "git push --follow-tags origin master",
     "release:major": "node_modules/standard-version/bin/cli.js --release-as major && yarn push",

@@ -20,7 +20,10 @@ export const configMiddlewares = (app: NestFastifyApplication) => {
       'retry-after': true,
     },
   })
-  app.register(cors)
+  app.register(cors, {
+    origin: [/\.yanceyleo\.com$/, /\.yancey\.app$/, /\.yancey\.pro$/],
+    methods: ['GET', 'PUT', 'POST', 'DELETE'],
+  })
   app.register(healthcheck)
 
   // app.use(bodyParser.json())
