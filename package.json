@@ -77,7 +77,6 @@
     "@types/bcrypt": "^3.0.0",
     "@types/csurf": "^1.9.36",
     "@types/dotenv": "^8.2.0",
-    "@types/express-rate-limit": "^3.3.3",
     "@types/fastify-rate-limit": "^2.0.0",
     "@types/hapi__joi": "^16.0.4",
     "@types/helmet": "^0.0.45",
