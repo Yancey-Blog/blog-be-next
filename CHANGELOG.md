@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.4.2...v0.5.0) (2019-12-21)
+
+
+### Features
+
+* **package.json:** update package.json ([dfc6a17](https://github.com/Yancey-Blog/blog-be-next/commit/dfc6a17063fe69ca52e6c91892632b75c728b11e))
+* add dependenciees ([817018d](https://github.com/Yancey-Blog/blog-be-next/commit/817018d054b28fc54741597e8f24b99b6749bdad))
+* clean dependencies ([6eb0c4a](https://github.com/Yancey-Blog/blog-be-next/commit/6eb0c4ad2267068941fd1cfd2a36087e7735c5af))
+* delete useless dependencies ([899a03e](https://github.com/Yancey-Blog/blog-be-next/commit/899a03ea49247b3369e4868ad67d93ce6426d548))
+* migrate dependencies from express to fastify ([4256fa8](https://github.com/Yancey-Blog/blog-be-next/commit/4256fa8c9eaf4af414de40438a6d0eb42de7db8e))
+* migrate middleware from express to fastify ([38426e0](https://github.com/Yancey-Blog/blog-be-next/commit/38426e096aeeae5174afb9c48ecbf7c8d7891b8a))
+* remove useless dependencies ([8d893ef](https://github.com/Yancey-Blog/blog-be-next/commit/8d893efde75dd8ee69bf3afcb3fb957b295ecfe4))
+* update middleware ([4969997](https://github.com/Yancey-Blog/blog-be-next/commit/4969997ceeb5e0e32b3919ab8469bbed10ba75ac))
+
 ### [0.4.2](https://github.com/Yancey-Blog/blog-be-next/compare/v0.4.1...v0.4.2) (2019-12-21)
 
 
