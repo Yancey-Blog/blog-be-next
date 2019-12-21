@@ -3,61 +3,13 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
-input AnnouncementInput {
-  announcement: String!
-}
-
-type AnnouncementsModel {
-  _id: String!
-  announcement: String!
-  createdAt: String!
-  updatedAt: String!
-}
-
-type BatchDeleteModel {
-  ok: Float
-  n: Float
-  deletedCount: Float
-}
-
-input CreateOpenSourceInput {
-  title: String!
-  description: String!
-  url: String!
-  posterUrl: String!
-}
-
 type Mutation {
-  createAnnouncement(input: AnnouncementInput!): AnnouncementsModel!
-  updateAnnouncement(announcement: String!, id: ID!): AnnouncementsModel!
-  deleteAnnouncement(id: ID!): AnnouncementsModel!
-  deleteAnnouncements(ids: [ID!]!): AnnouncementsModel!
   sendSMS(input: SendSMSInput!): SendSMSRes!
   validateSMS(input: ValidateSMSInput!): ValidateSMSRes!
-  createOpenSource(input: CreateOpenSourceInput!): OpenSourceModel!
-  updateOpenSourceById(input: UpdateOpenSourceInput!): OpenSourceModel!
-  deleteOpenSourceById(id: ID!): OpenSourceModel!
-  deleteOpenSources(ids: [ID!]!): BatchDeleteModel!
-}
-
-type OpenSourceModel {
-  _id: ID!
-  title: String!
-  description: String!
-  url: String!
-  posterUrl: String!
-  createdAt: String!
-  updatedAt: String!
 }
 
 type Query {
-  announcements: [AnnouncementsModel!]!
-  announcement(id: ID!): AnnouncementsModel!
   getAllSMS: [SMSModel!]!
-  getOpenSources: [OpenSourceModel!]!
-  getOpenSourceById(id: ID!): OpenSourceModel!
-  getBanwagonServiceInfo: ServiceInfoModel!
-  getBanwagonUsageStats: [UsageStatesModel!]!
 }
 
 input SendSMSInput {
@@ -68,76 +20,12 @@ type SendSMSRes {
   verificationCode: String!
 }
 
-type ServiceInfoModel {
-  vm_type: String!
-  ve_status: String!
-  ve_mac1: String!
-  ve_used_disk_space_b: String!
-  is_cpu_throttled: String!
-  ssh_port: Float!
-  live_hostname: String!
-  load_average: String!
-  mem_available_kb: Float!
-  swap_total_kb: Float!
-  swap_available_kb: Float!
-  hostname: String!
-  node_ip: String!
-  node_alias: String!
-  node_location: String!
-  node_location_id: String!
-  node_datacenter: String!
-  location_ipv6_ready: Boolean!
-  plan: String!
-  plan_monthly_data: Float!
-  monthly_data_multiplier: Float!
-  plan_disk: Float!
-  plan_ram: Float!
-  plan_swap: Float!
-  plan_max_ipv6s: Float!
-  os: String!
-  email: String!
-  data_counter: Float!
-  data_next_reset: Float!
-  ip_addresses: [String!]!
-  private_ip_addresses: [String!]!
-  ip_nullroutes: [String!]!
-  iso1: String
-  iso2: String
-  available_isos: [String!]!
-  plan_private_network_available: Boolean!
-  location_private_network_available: Boolean!
-  rdns_api_available: Boolean!
-  ptr: String!
-  suspended: Boolean!
-  policy_violation: Boolean!
-  suspension_count: Float
-  max_abuse_points: Float!
-  error: Float!
-  veid: Float!
-}
-
 type SMSModel {
   _id: String!
   phoneNumber: String!
   verificationCode: String!
   createdAt: String!
   updatedAt: String!
-}
-
-input UpdateOpenSourceInput {
-  title: String!
-  description: String!
-  url: String!
-  posterUrl: String!
-  id: String!
-}
-
-type UsageStatesModel {
-  timestamp: String!
-  network_in_bytes: String!
-  network_out_bytes: String!
-  disk_read_bytes: String!
-  cpu_usage: String!
 }
 
 input ValidateSMSInput {
