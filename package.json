@@ -2,6 +2,7 @@
   "name": "blog-be-next",
   "version": "0.4.2",
   "description": "The backend platform for Yancey blog.",
+  "private": true,
   "repository": "git@github.com:Yancey-Blog/blog-be-next.git",
   "author": "YanceyOfficial <yanceyofficial@gmail.com>",
   "license": "MIT",
