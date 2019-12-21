@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.2](https://github.com/Yancey-Blog/blog-be-next/compare/v0.4.1...v0.4.2) (2019-12-21)
+
+
+### Features
+
+* update yarn.lock ([7b79396](https://github.com/Yancey-Blog/blog-be-next/commit/7b793962b0c0ebe952467e3c66b52fa6f3ac3d4f))
+
+
+### Bug Fixes
+
+* delete useless dependencies ([62aad9d](https://github.com/Yancey-Blog/blog-be-next/commit/62aad9dd6d450999bec73ba5b1a4e2a01f4ecdeb))
+
 ### [0.4.1](https://github.com/Yancey-Blog/blog-be-next/compare/v0.4.0...v0.4.1) (2019-12-11)
 
 
