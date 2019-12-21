@@ -31,7 +31,7 @@ export class MottosResolver {
     return this.mottosService.findOneById(id)
   }
 
-  @UseGuards(AuthGuard())
+  // @UseGuards(AuthGuard())
   @Post()
   public createMotto(@Body(new ValidationPipe()) createMottoDto: CreateMottoDto): Promise<Motto> {
     return this.mottosService.create(createMottoDto)

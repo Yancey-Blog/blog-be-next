@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common'
 import { GraphQLModule } from '@nestjs/graphql'
-import { ValidationError } from 'apollo-server-express'
+import { ValidationError } from 'apollo-server-fastify'
 import { ConfigService } from '../config/config.service'
 import { SCHEMA_GQL_FILE_NAME } from '../shared/constants'
 @Module({

@@ -1,7 +1,7 @@
 import { Model } from 'mongoose'
 import { InjectModel } from '@nestjs/mongoose'
 import { Injectable } from '@nestjs/common'
-import { ValidationError, ForbiddenError } from 'apollo-server-express'
+import { ValidationError, ForbiddenError } from 'apollo-server-fastify'
 import AliSMS from '@alicloud/pop-core'
 import moment from 'moment'
 import { ConfigService } from '../config/config.service'
