@@ -1,24 +1,31 @@
-import { INestApplication } from '@nestjs/common'
+import { NestFastifyApplication } from '@nestjs/platform-fastify'
 import path from 'path'
-import serveFavicon from 'serve-favicon'
-import bodyParser from 'body-parser'
-import morgan from 'morgan'
-import helmet from 'helmet'
-// import csurf from 'csurf'
-import rateLimit from 'express-rate-limit'
+import favicon from 'fastify-favicon'
+import helmet from 'fastify-helmet'
+import rateLimit from 'fastify-rate-limit'
+import cors from 'fastify-cors'
+import healthcheck from 'fastify-healthcheck'
 
-export const configMiddlewares = (app: INestApplication) => {
-  app.use(serveFavicon(path.join(process.cwd(), 'public/assets/favicon/favicon.ico')))
-  app.use(bodyParser.json())
-  app.use(bodyParser.urlencoded({ extended: true }))
-  app.use(morgan('combined'))
-  app.use(helmet())
-  // app.use(csurf())
-  app.enableCors({})
-  app.use(
-    rateLimit({
-      windowMs: 15 * 60 * 1000, // 15 minutes
-      max: 100, // limit each IP to 100 requests per windowMs
-    }),
-  )
+export const configMiddlewares = (app: NestFastifyApplication) => {
+  app.register(favicon, { path: path.join(process.cwd(), 'public') })
+  app.register(helmet)
+  app.register(rateLimit, {
+    timeWindow: '1 minute',
+    max: 100,
+    whitelist: [],
+    addHeaders: {
+      'x-ratelimit-limit': true,
+      'x-ratelimit-remaining': true,
+      'x-ratelimit-reset': true,
+      'retry-after': true,
+    },
+  })
+  app.register(cors, {
+    origin: [/\.yanceyleo\.com$/, /\.yancey\.app$/, /\.yancey\.pro$/],
+    methods: ['GET', 'PUT', 'POST', 'DELETE'],
+  })
+  app.register(healthcheck)
+
+  // app.use(bodyParser.json())
+  // app.use(bodyParser.urlencoded({ extended: true }))
 }
