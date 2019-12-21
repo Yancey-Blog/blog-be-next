@@ -52,6 +52,7 @@
     "moment": "^2.24.0",
     "mongodb": "^3.4.0",
     "mongoose": "^5.8.2",
+    "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "ramda": "^0.26.1",
     "reflect-metadata": "^0.1.13",
