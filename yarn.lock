@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@alicloud/pop-core@^1.7.7":
-  version "1.7.7"
-  resolved "https://registry.yarnpkg.com/@alicloud/pop-core/-/pop-core-1.7.7.tgz#4f6cf72257d9decb1ff5712a3cf7b79afdc41e1c"
-  integrity sha512-vrFXJyjc58LjpfjMyGSRxM0rkhEzJRXfwFFy3wzzS4Q8rTfosrnqZAW1G6gRoPUPjGBQxUpMBnHvMLfPRRAcCA==
+"@alicloud/pop-core@^1.7.8":
+  version "1.7.8"
+  resolved "https://registry.yarnpkg.com/@alicloud/pop-core/-/pop-core-1.7.8.tgz#f7d0eea504466039abcbb6e1476de0f02b629168"
+  integrity sha512-ADfsca7of+pNh5R1+sftF4CoC8RQKarHVUYdB5SkT92d8P8yJp934lgfC7OIknQH6v9nLWUdsF093xgwyJcPKA==
   dependencies:
     debug "^3.1.0"
     httpx "^2.1.2"
