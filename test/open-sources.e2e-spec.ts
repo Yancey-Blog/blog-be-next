@@ -2,7 +2,6 @@ import { NestFastifyApplication, FastifyAdapter } from '@nestjs/platform-fastify
 import { Test, TestingModule } from '@nestjs/testing'
 import { MongooseModule } from '@nestjs/mongoose'
 import { GraphQLModule } from '@nestjs/graphql'
-import request from 'supertest'
 import { SCHEMA_GQL_FILE_NAME } from '../src/shared/constants'
 import { ConfigModule } from '../src/config/config.module'
 import { ConfigService } from '../src/config/config.service'
@@ -76,16 +75,14 @@ describe('OpenSourcesController (e2e)', () => {
       }
     }`
 
-    return request(app.getHttpServer())
-      .post('/graphql')
-      .send({
-        operationName: null,
-        query: createOneTypeDefs,
+    return app
+      .inject({
+        method: 'POST',
+        url: '/graphql',
+        payload: { operationName: null, query: createOneTypeDefs },
       })
-      .expect(({ body }) => {
-        console.log(body)
-        const testData: OpenSourceModel = body.data.createOpenSource
-
+      .then(({ payload }) => {
+        const testData: OpenSourceModel = JSON.parse(payload).data.createOpenSource
         id = testData._id
 
         expect(testData.title).toBe(createdData.title)
@@ -93,7 +90,6 @@ describe('OpenSourcesController (e2e)', () => {
         expect(testData.url).toBe(createdData.url)
         expect(testData.posterUrl).toBe(createdData.posterUrl)
       })
-      .expect(200)
   })
 
   // READ_ALL
@@ -111,14 +107,14 @@ describe('OpenSourcesController (e2e)', () => {
       }
     }`
 
-    return request(app.getHttpServer())
-      .post('/graphql')
-      .send({
-        operationName: null,
-        query: getAllTypeDefs,
+    return app
+      .inject({
+        method: 'POST',
+        url: '/graphql',
+        payload: { operationName: null, query: getAllTypeDefs },
       })
-      .expect(({ body }) => {
-        const testData: OpenSourceModel[] = body.data.getOpenSources
+      .then(({ payload }) => {
+        const testData: OpenSourceModel[] = JSON.parse(payload).data.getOpenSources
 
         const firstData = testData[0]
 
@@ -129,7 +125,6 @@ describe('OpenSourcesController (e2e)', () => {
         expect(firstData.url).toBe(createdData.url)
         expect(firstData.posterUrl).toBe(createdData.posterUrl)
       })
-      .expect(200)
   })
 
   // READ_ONE
@@ -147,14 +142,14 @@ describe('OpenSourcesController (e2e)', () => {
       }
     }`
 
-    return request(app.getHttpServer())
-      .post('/graphql')
-      .send({
-        operationName: null,
-        query: getOneByIdTypeDefs,
+    return app
+      .inject({
+        method: 'POST',
+        url: '/graphql',
+        payload: { operationName: null, query: getOneByIdTypeDefs },
       })
-      .expect(({ body }) => {
-        const testData: OpenSourceModel = body.data.getOpenSourceById
+      .then(({ payload }) => {
+        const testData: OpenSourceModel = JSON.parse(payload).data.getOpenSourceById
 
         expect(testData._id).toBe(id)
         expect(testData.title).toBe(createdData.title)
@@ -162,7 +157,6 @@ describe('OpenSourcesController (e2e)', () => {
         expect(testData.url).toBe(createdData.url)
         expect(testData.posterUrl).toBe(createdData.posterUrl)
       })
-      .expect(200)
   })
 
   // UPDATE_ONE
@@ -182,20 +176,20 @@ describe('OpenSourcesController (e2e)', () => {
       }
     }`
 
-    return request(app.getHttpServer())
-      .post('/graphql')
-      .send({
-        operationName: null,
-        query: updateOneByIdTypeDefs,
+    return app
+      .inject({
+        method: 'POST',
+        url: '/graphql',
+        payload: { operationName: null, query: updateOneByIdTypeDefs },
       })
-      .expect(({ body }) => {
-        const testData: OpenSourceModel = body.data.updateOpenSourceById
+      .then(({ payload }) => {
+        const testData: OpenSourceModel = JSON.parse(payload).data.updateOpenSourceById
+
         expect(testData.title).toBe(updatedData.title)
         expect(testData.description).toBe(updatedData.description)
         expect(testData.url).toBe(updatedData.url)
         expect(testData.posterUrl).toBe(updatedData.posterUrl)
       })
-      .expect(200)
   })
 
   // DELETE_ONE
@@ -213,24 +207,23 @@ describe('OpenSourcesController (e2e)', () => {
       }
     }`
 
-    return request(app.getHttpServer())
-      .post('/graphql')
-      .send({
-        operationName: null,
-        query: deleteOneByIdTypeDefs,
+    return app
+      .inject({
+        method: 'POST',
+        url: '/graphql',
+        payload: { operationName: null, query: deleteOneByIdTypeDefs },
       })
-      .expect(({ body }) => {
-        const testData: OpenSourceModel = body.data.deleteOpenSourceById
+      .then(({ payload }) => {
+        const testData: OpenSourceModel = JSON.parse(payload).data.deleteOpenSourceById
 
         expect(testData.title).toBe(updatedData.title)
         expect(testData.description).toBe(updatedData.description)
         expect(testData.url).toBe(updatedData.url)
         expect(testData.posterUrl).toBe(updatedData.posterUrl)
       })
-      .expect(200)
   })
 
-  // // BATCH_DELETE
+  // BATCH_DELETE
   it('deleteOpenSources', () => {
     const batchDeleteTypeDefs = `
     mutation DeleteOpenSources {
@@ -241,18 +234,18 @@ describe('OpenSourcesController (e2e)', () => {
       }
     }`
 
-    return request(app.getHttpServer())
-      .post('/graphql')
-      .send({
-        operationName: null,
-        query: batchDeleteTypeDefs,
+    return app
+      .inject({
+        method: 'POST',
+        url: '/graphql',
+        payload: { operationName: null, query: batchDeleteTypeDefs },
       })
-      .expect(({ body }) => {
-        const testData: BatchDelete = body.data.deleteOpenSources
+      .then(({ payload }) => {
+        const testData: BatchDelete = JSON.parse(payload).data.deleteOpenSources
+
         expect(testData.ok).toBe(1)
         expect(testData.n).toBe(0)
         expect(testData.deletedCount).toBe(0)
       })
-      .expect(200)
   })
 })
