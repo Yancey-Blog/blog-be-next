@@ -7,7 +7,7 @@ export const AnnouncementSchema = new mongoose.Schema(
       type: String,
       default: v4,
     },
-    announcement: {
+    content: {
       type: String,
       required: true,
     },

@@ -2,9 +2,14 @@ import { InputType, Field } from 'type-graphql'
 import { IsString, IsNotEmpty } from 'class-validator'
 
 @InputType()
-export class AnnouncementInput {
+export class UpdateAnnouncementInput {
   @Field()
   @IsString()
   @IsNotEmpty()
-  public readonly announcement: string
+  public readonly id: string
+
+  @Field()
+  @IsString()
+  @IsNotEmpty()
+  public readonly content: string
 }
