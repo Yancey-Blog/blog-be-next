@@ -4,12 +4,12 @@
 # -----------------------------------------------
 
 input AnnouncementInput {
-  announcement: String!
+  content: String!
 }
 
 type AnnouncementsModel {
   _id: String!
-  announcement: String!
+  content: String!
   createdAt: String!
   updatedAt: String!
 }
