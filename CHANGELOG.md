@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.5.0...v0.6.0) (2019-12-25)
+
+
+### Features
+
+* finish .gql archive ([f97fe87](https://github.com/Yancey-Blog/blog-be-next/commit/f97fe87011aeaba8f1f427af65be29a221ade95a))
+* update schema.gql ([67cde42](https://github.com/Yancey-Blog/blog-be-next/commit/67cde42f84d0405ad8b3fa617d2eb9a77d6fd817))
+
 ## [0.5.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.4.2...v0.5.0) (2019-12-21)
 
 

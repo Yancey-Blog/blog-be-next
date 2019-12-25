@@ -6,7 +6,7 @@ export class AnnouncementsModel {
   public _id: string
 
   @Field({ nullable: false })
-  public announcement: string
+  public content: string
 
   @Field({ nullable: false })
   public createdAt: string
