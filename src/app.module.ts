@@ -15,6 +15,7 @@ import { MottosModule } from './mottos/mottos.module'
 import { SMSModule } from './sms/sms.module'
 import { OpenSourcesModule } from './open-sources/open-sources.module'
 import { BandwagonModule } from './bandwagon/bandwagon.module'
+import { LiveToursModule } from './live-tours/live-tours.module'
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { BandwagonModule } from './bandwagon/bandwagon.module'
     SMSModule,
     OpenSourcesModule,
     BandwagonModule,
+    LiveToursModule,
   ],
   providers: [
     {
