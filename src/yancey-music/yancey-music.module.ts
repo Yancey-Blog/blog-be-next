@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common'
-import { YanceyMusicController } from './yancey-music.controller'
+import { YanceyMusicResolver } from './yancey-music.resolver'
 import { YanceyMusicService } from './yancey-music.service'
 
 @Module({
-  controllers: [YanceyMusicController],
+  controllers: [YanceyMusicResolver],
   providers: [YanceyMusicService],
 })
 export class YanceyMusicModule {}
