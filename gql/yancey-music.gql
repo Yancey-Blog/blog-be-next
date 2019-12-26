@@ -1,0 +1,72 @@
+mutation CreateYanceyMusic {
+  createYanceyMusic(
+    input: {
+      title: "test4"
+      releaseDate: "2019-12-26T07:14:07.655Z"
+      soundCloudUrl: "https://t4est3.com"
+      posterUrl: "https://1test4.com"
+    }
+  ) {
+    _id
+    title
+    releaseDate
+    soundCloudUrl
+    posterUrl
+    createdAt
+    updatedAt
+  }
+}
+
+query GetYanceyMusics {
+  getYanceyMusics {
+    _id
+    title
+    releaseDate
+    soundCloudUrl
+    posterUrl
+    createdAt
+    updatedAt
+  }
+}
+
+mutation UpdateYanceyMusicById {
+  updateYanceyMusicById(
+    input: {
+      id: "f4b445d6-d569-4a29-a760-da497675db38"
+      title: "test4"
+      releaseDate: "2019-12-26T07:14:07.655Z"
+      soundCloudUrl: "https://t4est3.com"
+      posterUrl: "https://1test4.com"
+    }
+  ) {
+    _id
+    title
+    releaseDate
+    soundCloudUrl
+    posterUrl
+    createdAt
+    updatedAt
+  }
+}
+
+mutation DeleteYanceyMusicById {
+  deleteYanceyMusicById(id: "f4b445d6-d569-4a29-a760-da497675db38") {
+    _id
+    title
+    releaseDate
+    soundCloudUrl
+    posterUrl
+    createdAt
+    updatedAt
+  }
+}
+
+mutation DeleteYanceyMusics {
+  deleteYanceyMusics(
+    ids: ["60e5c5a2-f69f-41df-bc04-53f9c699e498", "00c602bd-e364-491d-abb1-45cf930ac443"]
+  ) {
+    n
+    ok
+    deletedCount
+  }
+}
