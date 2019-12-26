@@ -1,9 +1,8 @@
 import { Module } from '@nestjs/common'
 import { LiveToursService } from './live-tours.service'
-import { LiveToursController } from './live-tours.resolver'
+import { LiveToursResolver } from './live-tours.resolver'
 
 @Module({
-  providers: [LiveToursService],
-  controllers: [LiveToursController],
+  providers: [LiveToursResolver, LiveToursService],
 })
 export class LiveToursModule {}
