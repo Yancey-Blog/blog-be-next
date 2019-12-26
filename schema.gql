@@ -3,40 +3,17 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
-type AnnouncementsModel {
-  _id: String!
-  content: String!
-  createdAt: String!
-  updatedAt: String!
-}
-
 type BatchDeleteModel {
   ok: Float
   n: Float
   deletedCount: Float
 }
 
-input CreateAnnouncementInput {
-  content: String!
-}
-
 input CreateLiveTourInput {
   title: String!
   posterUrl: String!
-  showTime: DateTime!
+  showTime: String!
 }
-
-input CreateOpenSourceInput {
-  title: String!
-  description: String!
-  url: String!
-  posterUrl: String!
-}
-
-"""
-The javascript `Date` as string. Type represents date and time as the ISO Date string.
-"""
-scalar DateTime
 
 type LiveTourModel {
   _id: ID!
@@ -48,141 +25,20 @@ type LiveTourModel {
 }
 
 type Mutation {
-  createAnnouncement(input: CreateAnnouncementInput!): AnnouncementsModel!
-  updateAnnouncementById(input: UpdateAnnouncementInput!): AnnouncementsModel!
-  deleteAnnouncementById(id: ID!): AnnouncementsModel!
-  deleteAnnouncements(ids: [ID!]!): BatchDeleteModel!
-  sendSMS(input: SendSMSInput!): SendSMSRes!
-  validateSMS(input: ValidateSMSInput!): ValidateSMSRes!
-  createOpenSource(input: CreateOpenSourceInput!): OpenSourceModel!
-  updateOpenSourceById(input: UpdateOpenSourceInput!): OpenSourceModel!
-  deleteOpenSourceById(id: ID!): OpenSourceModel!
-  deleteOpenSources(ids: [ID!]!): BatchDeleteModel!
   createLiveTour(input: CreateLiveTourInput!): LiveTourModel!
   updateLiveTourById(input: UpdateLiveTourInput!): LiveTourModel!
   deleteLiveTourById(id: ID!): LiveTourModel!
   deleteLiveTours(ids: [ID!]!): BatchDeleteModel!
 }
 
-type OpenSourceModel {
-  _id: ID!
-  title: String!
-  description: String!
-  url: String!
-  posterUrl: String!
-  createdAt: String!
-  updatedAt: String!
-}
-
 type Query {
-  getAnnouncements: [AnnouncementsModel!]!
-  getAnnouncementById(id: ID!): AnnouncementsModel!
-  getAllSMS: [SMSModel!]!
-  getOpenSources: [OpenSourceModel!]!
-  getOpenSourceById(id: ID!): OpenSourceModel!
-  getBanwagonServiceInfo: ServiceInfoModel!
-  getBanwagonUsageStats: [UsageStatesModel!]!
   getLiveTours: [LiveTourModel!]!
   getLiveTourById(id: ID!): LiveTourModel!
-}
-
-input SendSMSInput {
-  phoneNumber: String!
-}
-
-type SendSMSRes {
-  verificationCode: String!
-}
-
-type ServiceInfoModel {
-  vm_type: String!
-  ve_status: String!
-  ve_mac1: String!
-  ve_used_disk_space_b: String!
-  is_cpu_throttled: String!
-  ssh_port: Float!
-  live_hostname: String!
-  load_average: String!
-  mem_available_kb: Float!
-  swap_total_kb: Float!
-  swap_available_kb: Float!
-  hostname: String!
-  node_ip: String!
-  node_alias: String!
-  node_location: String!
-  node_location_id: String!
-  node_datacenter: String!
-  location_ipv6_ready: Boolean!
-  plan: String!
-  plan_monthly_data: Float!
-  monthly_data_multiplier: Float!
-  plan_disk: Float!
-  plan_ram: Float!
-  plan_swap: Float!
-  plan_max_ipv6s: Float!
-  os: String!
-  email: String!
-  data_counter: Float!
-  data_next_reset: Float!
-  ip_addresses: [String!]!
-  private_ip_addresses: [String!]!
-  ip_nullroutes: [String!]!
-  iso1: String
-  iso2: String
-  available_isos: [String!]!
-  plan_private_network_available: Boolean!
-  location_private_network_available: Boolean!
-  rdns_api_available: Boolean!
-  ptr: String!
-  suspended: Boolean!
-  policy_violation: Boolean!
-  suspension_count: Float
-  max_abuse_points: Float!
-  error: Float!
-  veid: Float!
-}
-
-type SMSModel {
-  _id: String!
-  phoneNumber: String!
-  verificationCode: String!
-  createdAt: String!
-  updatedAt: String!
-}
-
-input UpdateAnnouncementInput {
-  id: String!
-  content: String!
 }
 
 input UpdateLiveTourInput {
   title: String!
   posterUrl: String!
-  showTime: DateTime!
+  showTime: String!
   id: String!
-}
-
-input UpdateOpenSourceInput {
-  title: String!
-  description: String!
-  url: String!
-  posterUrl: String!
-  id: String!
-}
-
-type UsageStatesModel {
-  timestamp: String!
-  network_in_bytes: String!
-  network_out_bytes: String!
-  disk_read_bytes: String!
-  cpu_usage: String!
-}
-
-input ValidateSMSInput {
-  phoneNumber: String!
-  verificationCode: String!
-}
-
-type ValidateSMSRes {
-  success: Boolean!
 }
