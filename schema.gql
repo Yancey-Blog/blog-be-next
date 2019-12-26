@@ -20,11 +20,31 @@ input CreateAnnouncementInput {
   content: String!
 }
 
+input CreateLiveTourInput {
+  title: String!
+  posterUrl: String!
+  showTime: DateTime!
+}
+
 input CreateOpenSourceInput {
   title: String!
   description: String!
   url: String!
   posterUrl: String!
+}
+
+"""
+The javascript `Date` as string. Type represents date and time as the ISO Date string.
+"""
+scalar DateTime
+
+type LiveTourModel {
+  _id: ID!
+  title: String!
+  posterUrl: String!
+  showTime: String!
+  createdAt: String!
+  updatedAt: String!
 }
 
 type Mutation {
@@ -38,6 +58,10 @@ type Mutation {
   updateOpenSourceById(input: UpdateOpenSourceInput!): OpenSourceModel!
   deleteOpenSourceById(id: ID!): OpenSourceModel!
   deleteOpenSources(ids: [ID!]!): BatchDeleteModel!
+  createLiveTour(input: CreateLiveTourInput!): LiveTourModel!
+  updateLiveTourById(input: UpdateLiveTourInput!): LiveTourModel!
+  deleteLiveTourById(id: ID!): LiveTourModel!
+  deleteLiveTours(ids: [ID!]!): BatchDeleteModel!
 }
 
 type OpenSourceModel {
@@ -58,6 +82,8 @@ type Query {
   getOpenSourceById(id: ID!): OpenSourceModel!
   getBanwagonServiceInfo: ServiceInfoModel!
   getBanwagonUsageStats: [UsageStatesModel!]!
+  getLiveTours: [LiveTourModel!]!
+  getLiveTourById(id: ID!): LiveTourModel!
 }
 
 input SendSMSInput {
@@ -127,6 +153,13 @@ type SMSModel {
 input UpdateAnnouncementInput {
   id: String!
   content: String!
+}
+
+input UpdateLiveTourInput {
+  title: String!
+  posterUrl: String!
+  showTime: DateTime!
+  id: String!
 }
 
 input UpdateOpenSourceInput {
