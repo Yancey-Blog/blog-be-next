@@ -3,36 +3,42 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
-type AnnouncementsModel {
-  _id: String!
-  content: String!
-  createdAt: String!
-  updatedAt: String!
-}
-
 type BatchDeleteModel {
   ok: Float
   n: Float
   deletedCount: Float
 }
 
-input CreateAnnouncementInput {
-  content: String!
+input CreateLiveTourInput {
+  title: String!
+  posterUrl: String!
+  showTime: String!
+}
+
+type LiveTourModel {
+  _id: ID!
+  title: String!
+  posterUrl: String!
+  showTime: String!
+  createdAt: String!
+  updatedAt: String!
 }
 
 type Mutation {
-  createAnnouncement(input: CreateAnnouncementInput!): AnnouncementsModel!
-  updateAnnouncementById(input: UpdateAnnouncementInput!): AnnouncementsModel!
-  deleteAnnouncementById(id: ID!): AnnouncementsModel!
-  deleteAnnouncements(ids: [ID!]!): BatchDeleteModel!
+  createLiveTour(input: CreateLiveTourInput!): LiveTourModel!
+  updateLiveTourById(input: UpdateLiveTourInput!): LiveTourModel!
+  deleteLiveTourById(id: ID!): LiveTourModel!
+  deleteLiveTours(ids: [ID!]!): BatchDeleteModel!
 }
 
 type Query {
-  getAnnouncements: [AnnouncementsModel!]!
-  getAnnouncementById(id: ID!): AnnouncementsModel!
+  getLiveTours: [LiveTourModel!]!
+  getLiveTourById(id: ID!): LiveTourModel!
 }
 
-input UpdateAnnouncementInput {
+input UpdateLiveTourInput {
+  title: String!
+  posterUrl: String!
+  showTime: String!
   id: String!
-  content: String!
 }

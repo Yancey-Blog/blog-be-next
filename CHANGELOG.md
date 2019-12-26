@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.4.2...v0.5.0) (2019-12-26)
+
+
+### Features
+
+* add announcement.gql ([a2b66f5](https://github.com/Yancey-Blog/blog-be-next/commit/a2b66f5ce4a201c5ee018b6674054460ffdb4755))
+* finish e2e test of Announcement module ([2af1fd9](https://github.com/Yancey-Blog/blog-be-next/commit/2af1fd975be2b5aa861f2a165f124f0294899fcd))
+* update announcements modules ([0f5ab25](https://github.com/Yancey-Blog/blog-be-next/commit/0f5ab25ec19fcd202bff326be5e3af49c3f3cc69))
+
 ### [0.4.2](https://github.com/Yancey-Blog/blog-be-next/compare/v0.4.1...v0.4.2) (2019-12-21)
 
 
