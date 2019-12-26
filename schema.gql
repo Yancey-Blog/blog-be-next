@@ -33,6 +33,13 @@ input CreateOpenSourceInput {
   posterUrl: String!
 }
 
+input CreateYanceyMusicInput {
+  title: String!
+  soundCloudUrl: String!
+  posterUrl: String!
+  releaseDate: String!
+}
+
 type LiveTourModel {
   _id: ID!
   title: String!
@@ -57,6 +64,10 @@ type Mutation {
   updateLiveTourById(input: UpdateLiveTourInput!): LiveTourModel!
   deleteLiveTourById(id: ID!): LiveTourModel!
   deleteLiveTours(ids: [ID!]!): BatchDeleteModel!
+  createYanceyMusic(input: CreateYanceyMusicInput!): YanceyMusicModel!
+  updateYanceyMusicById(input: UpdateYanceyMusicInput!): YanceyMusicModel!
+  deleteYanceyMusicById(id: ID!): YanceyMusicModel!
+  deleteYanceyMusic(ids: [ID!]!): BatchDeleteModel!
 }
 
 type OpenSourceModel {
@@ -79,6 +90,8 @@ type Query {
   getBanwagonUsageStats: [UsageStatesModel!]!
   getLiveTours: [LiveTourModel!]!
   getLiveTourById(id: ID!): LiveTourModel!
+  getYanceyMusic: [YanceyMusicModel!]!
+  getYanceyMusicById(id: ID!): YanceyMusicModel!
 }
 
 input SendSMSInput {
@@ -165,6 +178,14 @@ input UpdateOpenSourceInput {
   id: String!
 }
 
+input UpdateYanceyMusicInput {
+  title: String!
+  soundCloudUrl: String!
+  posterUrl: String!
+  releaseDate: String!
+  id: String!
+}
+
 type UsageStatesModel {
   timestamp: String!
   network_in_bytes: String!
@@ -180,4 +201,14 @@ input ValidateSMSInput {
 
 type ValidateSMSRes {
   success: Boolean!
+}
+
+type YanceyMusicModel {
+  _id: ID!
+  title: String!
+  soundCloudUrl: String!
+  posterUrl: String!
+  releaseDate: String!
+  createdAt: String!
+  updatedAt: String!
 }
