@@ -3,9 +3,10 @@ import { ID } from 'type-graphql'
 // import { PubSub } from 'apollo-server-express'
 // import { RecipesArgs } from './dtos/recipes.args'
 import { AnnouncementsService } from './announcements.service'
-import { AnnouncementsModel } from './dtos/announcements.model'
-import { AnnouncementInput } from './dtos/announcement.input'
-import { BatchDelete } from '../database/interfaces/batchDelete.interface'
+import { AnnouncementsModel } from './models/announcements.model'
+import { CreateAnnouncementInput } from './dtos/create-announcement.input'
+import { UpdateAnnouncementInput } from './dtos/update-announcement.input'
+import { BatchDeleteModel } from '../database/models/database.model'
 
 // const pubSub = new PubSub();
 
@@ -15,44 +16,41 @@ export class AnnouncementsResolver {
     this.announcementsService = announcementsService
   }
 
-  @Query(() => [AnnouncementsModel], { name: 'announcements' })
+  @Query(() => [AnnouncementsModel])
   public async getAnnouncements(): Promise<AnnouncementsModel[]> {
     return this.announcementsService.findAll()
   }
 
-  @Query(() => AnnouncementsModel, { name: 'announcement' })
+  @Query(() => AnnouncementsModel)
   public async getAnnouncementById(
     @Args({ name: 'id', type: () => ID }) id: string,
   ): Promise<AnnouncementsModel> {
     return this.announcementsService.findOneById(id)
   }
 
-  @Mutation(() => AnnouncementsModel, { name: 'createAnnouncement' })
+  @Mutation(() => AnnouncementsModel)
   public async createAnnouncement(
-    @Args('input') input: AnnouncementInput,
+    @Args('input') input: CreateAnnouncementInput,
   ): Promise<AnnouncementsModel> {
     return this.announcementsService.create(input)
   }
 
-  @Mutation(() => AnnouncementsModel, { name: 'updateAnnouncement' })
+  @Mutation(() => AnnouncementsModel)
   public async updateAnnouncementById(
-    @Args({ name: 'id', type: () => ID }) id: string,
-    @Args('announcement') announcement: string,
+    @Args('input') input: UpdateAnnouncementInput,
   ): Promise<AnnouncementsModel> {
-    return this.announcementsService.update(id, announcement)
+    return this.announcementsService.update(input)
   }
 
-  @Mutation(() => AnnouncementsModel, { name: 'deleteAnnouncement' })
+  @Mutation(() => AnnouncementsModel)
   public async deleteAnnouncementById(
     @Args({ name: 'id', type: () => ID }) id: string,
   ): Promise<AnnouncementsModel> {
     return this.announcementsService.deleteOneById(id)
   }
 
-  @Mutation(() => AnnouncementsModel, { name: 'deleteAnnouncements' })
-  public async deleteAnnouncements(
-    @Args({ name: 'ids', type: () => [ID] }) ids: string[],
-  ): Promise<BatchDelete> {
+  @Mutation(() => BatchDeleteModel)
+  public async deleteAnnouncements(@Args({ name: 'ids', type: () => [ID] }) ids: string[]) {
     return this.announcementsService.batchDelete(ids)
   }
 

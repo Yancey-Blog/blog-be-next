@@ -2,48 +2,48 @@ import { Injectable } from '@nestjs/common'
 import { Model } from 'mongoose'
 import { InjectModel } from '@nestjs/mongoose'
 import { Announcement } from './interfaces/announcement.interface'
-import { AnnouncementInput } from './dtos/announcement.input'
+import { CreateAnnouncementInput } from './dtos/create-announcement.input'
+import { UpdateAnnouncementInput } from './dtos/update-announcement.input'
 
 @Injectable()
 export class AnnouncementsService {
   constructor(
     @InjectModel('Announcement')
-    private readonly AnnouncementModel: Model<Announcement>,
+    private readonly announcementModel: Model<Announcement>,
   ) {
-    this.AnnouncementModel = AnnouncementModel
+    this.announcementModel = announcementModel
   }
 
   public async findAll() {
-    const res = await this.AnnouncementModel.find({}).sort({ updatedAt: -1 })
-    return res
+    return this.announcementModel.find({}).sort({ updatedAt: -1 })
   }
 
   public async findOneById(id: string) {
-    const res = await this.AnnouncementModel.findById(id)
-    return res
+    return this.announcementModel.findById(id)
   }
 
-  public async create(dto: AnnouncementInput) {
-    const res = await this.AnnouncementModel.create(dto)
-    return res
+  public async create(dto: CreateAnnouncementInput) {
+    return this.announcementModel.create(dto)
   }
 
-  public async update(id: string, announcement: string) {
-    const res = await this.AnnouncementModel.findByIdAndUpdate(id, {
-      announcement,
-    })
-    return res
+  public async update(dto: UpdateAnnouncementInput) {
+    const { id, content } = dto
+    return this.announcementModel.findByIdAndUpdate(
+      id,
+      {
+        content,
+      },
+      { new: true },
+    )
   }
 
   public async deleteOneById(id: string) {
-    const res = await this.AnnouncementModel.findByIdAndDelete(id)
-    return res
+    return this.announcementModel.findByIdAndDelete(id)
   }
 
   public async batchDelete(ids: string[]) {
-    const res = await this.AnnouncementModel.deleteMany({
+    return this.announcementModel.deleteMany({
       _id: { $in: ids },
     })
-    return res
   }
 }
