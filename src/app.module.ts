@@ -16,6 +16,7 @@ import { SMSModule } from './sms/sms.module'
 import { OpenSourcesModule } from './open-sources/open-sources.module'
 import { BandwagonModule } from './bandwagon/bandwagon.module'
 import { LiveToursModule } from './live-tours/live-tours.module'
+import { YanceyMusicModule } from './yancey-music/yancey-music.module'
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { LiveToursModule } from './live-tours/live-tours.module'
     OpenSourcesModule,
     BandwagonModule,
     LiveToursModule,
+    YanceyMusicModule,
   ],
   providers: [
     {
