@@ -9,36 +9,39 @@ type BatchDeleteModel {
   deletedCount: Float
 }
 
-input CreateLiveTourInput {
+input CreateYanceyMusicInput {
   title: String!
+  soundCloudUrl: String!
   posterUrl: String!
-  showTime: String!
-}
-
-type LiveTourModel {
-  _id: ID!
-  title: String!
-  posterUrl: String!
-  showTime: String!
-  createdAt: String!
-  updatedAt: String!
+  releaseDate: String!
 }
 
 type Mutation {
-  createLiveTour(input: CreateLiveTourInput!): LiveTourModel!
-  updateLiveTourById(input: UpdateLiveTourInput!): LiveTourModel!
-  deleteLiveTourById(id: ID!): LiveTourModel!
-  deleteLiveTours(ids: [ID!]!): BatchDeleteModel!
+  createYanceyMusic(input: CreateYanceyMusicInput!): YanceyMusicModel!
+  updateYanceyMusicById(input: UpdateYanceyMusicInput!): YanceyMusicModel!
+  deleteYanceyMusicById(id: ID!): YanceyMusicModel!
+  deleteYanceyMusic(ids: [ID!]!): BatchDeleteModel!
 }
 
 type Query {
-  getLiveTours: [LiveTourModel!]!
-  getLiveTourById(id: ID!): LiveTourModel!
+  getYanceyMusic: [YanceyMusicModel!]!
+  getYanceyMusicById(id: ID!): YanceyMusicModel!
 }
 
-input UpdateLiveTourInput {
+input UpdateYanceyMusicInput {
   title: String!
+  soundCloudUrl: String!
   posterUrl: String!
-  showTime: String!
+  releaseDate: String!
   id: String!
+}
+
+type YanceyMusicModel {
+  _id: ID!
+  title: String!
+  soundCloudUrl: String!
+  posterUrl: String!
+  releaseDate: String!
+  createdAt: String!
+  updatedAt: String!
 }

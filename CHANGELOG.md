@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.5.0...v0.6.0) (2019-12-26)
+
+
+### Features
+
+* add CreateLiveTourInput ([614abc0](https://github.com/Yancey-Blog/blog-be-next/commit/614abc02c0e90bf2fb35427198d5a9e8e040b4bd))
+* add live-tour.gql ([558039b](https://github.com/Yancey-Blog/blog-be-next/commit/558039b1c1beacdf964db5cac9d648471944da39))
+* add live-tours gql model ([f2af557](https://github.com/Yancey-Blog/blog-be-next/commit/f2af5570b068d81f5553cf77ef0a75372756ba9c))
+* add live-tours.interface ([25ce133](https://github.com/Yancey-Blog/blog-be-next/commit/25ce13324c380831fb2263c3b8de75e62c2ba8e1))
+* add LiveToursService ([d4c535a](https://github.com/Yancey-Blog/blog-be-next/commit/d4c535a8433f864c86b3d34e897292a3930c9092))
+* add UpdateLiveTourInput ([394b8ac](https://github.com/Yancey-Blog/blog-be-next/commit/394b8ac1fa8c0de500b980b5cbb44d13277029a4))
+* define mongo schema ([9593c70](https://github.com/Yancey-Blog/blog-be-next/commit/9593c70ddb0309e824d17e8a0392c34a676a0cce))
+* finish e2e test for liveTours module ([ed4ed37](https://github.com/Yancey-Blog/blog-be-next/commit/ed4ed3704f49040f68b975b6f28d8ecaf196cb0e))
+* finish liveTours module ([411e83d](https://github.com/Yancey-Blog/blog-be-next/commit/411e83d25bc60e034e40e384a06b46efb79772fa))
+* finish LiveToursResolver ([7625448](https://github.com/Yancey-Blog/blog-be-next/commit/762544872d98349cf27c84fce93232ba89d448b1))
+* generate liveTours architecture ([d4888ea](https://github.com/Yancey-Blog/blog-be-next/commit/d4888eacb18836d23fd78996803187426c0d201d))
+* update LiveTourModel ([2fdab93](https://github.com/Yancey-Blog/blog-be-next/commit/2fdab93b1e6a7c70648fcb4a2babc890067e15db))
+* update liveTours.module ([b59e272](https://github.com/Yancey-Blog/blog-be-next/commit/b59e272f630f4edd477f5fea876b5d643f29ca47))
+* update mutation input ([dd5916b](https://github.com/Yancey-Blog/blog-be-next/commit/dd5916b958a4b23dab2d9ca384bcea3fc0af8896))
+
 ## [0.5.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.4.2...v0.5.0) (2019-12-26)
 
 
