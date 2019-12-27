@@ -10,7 +10,7 @@ import { YanceyMusicModule } from '../src/yancey-music/yancey-music.module'
 import { YanceyMusicModel } from '../src/yancey-music/models/yancey-music.model'
 import { CreateYanceyMusicInput } from '../src/yancey-music/dtos/create-yancey-music.input'
 import { UpdateYanceyMusicInput } from '../src/yancey-music/dtos/update-yancey-music.input'
-import { BatchDelete } from '../src/database/interfaces/batchDelete.interface'
+import { BatchDeleteModel } from '../src/database/models/batch-delete.model'
 
 describe('YanceyMusicController (e2e)', () => {
   let app: NestApplication
@@ -242,7 +242,7 @@ describe('YanceyMusicController (e2e)', () => {
         query: batchDeleteTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: BatchDelete = body.data.deleteYanceyMusic
+        const testData: BatchDeleteModel = body.data.deleteYanceyMusic
         expect(testData.ok).toBe(1)
         expect(testData.n).toBe(0)
         expect(testData.deletedCount).toBe(0)

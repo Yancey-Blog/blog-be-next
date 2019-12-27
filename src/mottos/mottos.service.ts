@@ -3,7 +3,6 @@ import { InjectModel } from '@nestjs/mongoose'
 import { Injectable } from '@nestjs/common'
 import { Motto } from './interfaces/motto.interface'
 import { CreateMottoDto } from './dtos/createMotto.dto'
-import { BatchDelete } from '../database/interfaces/batchDelete.interface'
 
 @Injectable()
 export class MottosService {
@@ -39,7 +38,7 @@ export class MottosService {
     return res
   }
 
-  public async batchDelete(ids: string[]): Promise<BatchDelete> {
+  public async batchDelete(ids: string[]) {
     const res = await this.MottoModel.deleteMany({
       _id: { $in: ids },
     })

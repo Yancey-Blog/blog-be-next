@@ -10,7 +10,7 @@ import { PlayerModule } from '../src/player/player.module'
 import { PlayerModel } from '../src/player/models/player.model'
 import { CreatePlayerInput } from '../src/player/dtos/create-player.input'
 import { UpdatePlayerInput } from '../src/player/dtos/update-player.input'
-import { BatchDelete } from '../src/database/interfaces/batchDelete.interface'
+import { BatchDeleteModel } from '../src/database/models/batch-delete.model'
 
 describe('PlayerController (e2e)', () => {
   let app: NestApplication
@@ -262,7 +262,7 @@ describe('PlayerController (e2e)', () => {
         query: batchDeleteTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: BatchDelete = body.data.deletePlayer
+        const testData: BatchDeleteModel = body.data.deletePlayer
         expect(testData.ok).toBe(1)
         expect(testData.n).toBe(0)
         expect(testData.deletedCount).toBe(0)

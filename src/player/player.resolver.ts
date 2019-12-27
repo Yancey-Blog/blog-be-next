@@ -2,7 +2,8 @@ import { Args, Query, Resolver, Mutation } from '@nestjs/graphql'
 import { ID } from 'type-graphql'
 import { PlayerService } from './player.service'
 import { PlayerModel } from './models/player.model'
-import { BatchDeleteModel } from '../database/models/database.model'
+import { BatchDeleteModel } from '../database/models/batch-delete.model'
+import { BatchUpdateModel } from '../database/models/batch-update.model'
 import { CreatePlayerInput } from './dtos/create-player.input'
 import { UpdatePlayerInput } from './dtos/update-player.input'
 
@@ -42,7 +43,7 @@ export class PlayerResolver {
     return this.playerService.batchDelete(ids)
   }
 
-  @Mutation(() => null)
+  @Mutation(() => BatchUpdateModel)
   public async switchIsPubilc(@Args({ name: 'ids', type: () => [ID] }) ids: string[]) {
     return this.playerService.switchIsPubilc(ids)
   }

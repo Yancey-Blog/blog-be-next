@@ -5,7 +5,7 @@ import { CreateLiveTourInput } from './dtos/create-live-tour.input'
 import { UpdateLiveTourInput } from './dtos/update-live-tour.input'
 import { LiveTourModel } from './models/live-tours.model'
 import { LiveTour } from './interfaces/live-tours.interface'
-import { BatchDeleteModel } from '../database/models/database.model'
+import { BatchDeleteModel } from '../database/models/batch-delete.model'
 
 @Injectable()
 export class LiveToursService {

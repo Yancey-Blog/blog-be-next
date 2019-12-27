@@ -10,7 +10,7 @@ import { OpenSourcesModule } from '../src/open-sources/open-sources.module'
 import { OpenSourceModel } from '../src/open-sources/models/open-sources.model'
 import { CreateOpenSourceInput } from '../src/open-sources/dtos/create-open-source.input'
 import { UpdateOpenSourceInput } from '../src/open-sources/dtos/update-open-source.input'
-import { BatchDelete } from '../src/database/interfaces/batchDelete.interface'
+import { BatchDeleteModel } from '../src/database/models/batch-delete.model'
 
 describe('OpenSourcesController (e2e)', () => {
   let app: NestApplication
@@ -247,7 +247,7 @@ describe('OpenSourcesController (e2e)', () => {
         query: batchDeleteTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: BatchDelete = body.data.deleteOpenSources
+        const testData: BatchDeleteModel = body.data.deleteOpenSources
         expect(testData.ok).toBe(1)
         expect(testData.n).toBe(0)
         expect(testData.deletedCount).toBe(0)

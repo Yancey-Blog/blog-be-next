@@ -2,7 +2,7 @@ import { Args, Query, Resolver, Mutation } from '@nestjs/graphql'
 import { ID } from 'type-graphql'
 import { YanceyMusicService } from './yancey-music.service'
 import { YanceyMusicModel } from './models/yancey-music.model'
-import { BatchDeleteModel } from '../database/models/database.model'
+import { BatchDeleteModel } from '../database/models/batch-delete.model'
 import { CreateYanceyMusicInput } from './dtos/create-yancey-music.input'
 import { UpdateYanceyMusicInput } from './dtos/update-yancey-music.input'
 

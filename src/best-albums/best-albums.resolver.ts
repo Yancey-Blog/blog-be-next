@@ -2,7 +2,7 @@ import { Args, Query, Resolver, Mutation } from '@nestjs/graphql'
 import { ID } from 'type-graphql'
 import { BestAlbumsService } from './best-albums.service'
 import { BestAlbumModel } from './models/best-albums.model'
-import { BatchDeleteModel } from '../database/models/database.model'
+import { BatchDeleteModel } from '../database/models/batch-delete.model'
 import { CreateBestAlbumInput } from './dtos/create-best-album.input'
 import { UpdateBestAlbumInput } from './dtos/update-best-album.input'
 

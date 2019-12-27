@@ -5,7 +5,7 @@ import { CreatePlayerInput } from './dtos/create-player.input'
 import { UpdatePlayerInput } from './dtos/update-player.input'
 import { PlayerModel } from './models/player.model'
 import { Player } from './interfaces/player.interface'
-import { BatchDeleteModel } from '../database/models/database.model'
+import { BatchDeleteModel } from '../database/models/batch-delete.model'
 
 @Injectable()
 export class PlayerService {

@@ -16,6 +16,12 @@ type BatchDeleteModel {
   deletedCount: Float
 }
 
+type BatchUpdateModel {
+  ok: Float
+  n: Float
+  nModified: Float
+}
+
 type BestAlbumModel {
   _id: ID!
   title: String!
@@ -104,7 +110,7 @@ type Mutation {
   updatePlayerById(input: UpdatePlayerInput!): PlayerModel!
   deletePlayerById(id: ID!): PlayerModel!
   deletePlayer(ids: [ID!]!): BatchDeleteModel!
-  switchIsPubilc(ids: [ID!]!): PlayerModel!
+  switchIsPubilc(ids: [ID!]!): BatchUpdateModel!
 }
 
 type OpenSourceModel {

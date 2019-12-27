@@ -10,7 +10,7 @@ import { LiveToursModule } from '../src/live-tours/live-tours.module'
 import { LiveTourModel } from '../src/live-tours/models/live-tours.model'
 import { CreateLiveTourInput } from '../src/live-tours/dtos/create-live-tour.input'
 import { UpdateLiveTourInput } from '../src/live-tours/dtos/update-live-tour.input'
-import { BatchDelete } from '../src/database/interfaces/batchDelete.interface'
+import { BatchDeleteModel } from '../src/database/models/batch-delete.model'
 
 describe('LiveToursController (e2e)', () => {
   let app: NestApplication
@@ -230,7 +230,7 @@ describe('LiveToursController (e2e)', () => {
         query: batchDeleteTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: BatchDelete = body.data.deleteLiveTours
+        const testData: BatchDeleteModel = body.data.deleteLiveTours
         expect(testData.ok).toBe(1)
         expect(testData.n).toBe(0)
         expect(testData.deletedCount).toBe(0)
