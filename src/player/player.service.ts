@@ -42,4 +42,15 @@ export class PlayerService {
       _id: { $in: ids },
     })
   }
+
+  public async switchIsPubilc(ids: string[]): Promise<any> {
+    return this.playerModel.updateMany(
+      {
+        _id: { $in: ids },
+      },
+      {
+        $set: { isPublic: false },
+      },
+    )
+  }
 }

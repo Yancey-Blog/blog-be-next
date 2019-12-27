@@ -41,4 +41,9 @@ export class PlayerResolver {
   public async deletePlayer(@Args({ name: 'ids', type: () => [ID] }) ids: string[]) {
     return this.playerService.batchDelete(ids)
   }
+
+  @Mutation(() => null)
+  public async switchIsPubilc(@Args({ name: 'ids', type: () => [ID] }) ids: string[]) {
+    return this.playerService.switchIsPubilc(ids)
+  }
 }
