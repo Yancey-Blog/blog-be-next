@@ -1,5 +1,5 @@
 import { InputType, Field } from 'type-graphql'
-import { IsString, IsNotEmpty, IsUrl } from 'class-validator'
+import { IsString, IsNotEmpty, IsUrl, IsBoolean } from 'class-validator'
 
 @InputType()
 export class CreatePlayerInput {
@@ -27,4 +27,9 @@ export class CreatePlayerInput {
   @IsUrl()
   @IsNotEmpty()
   public readonly musicFileUrl: string
+
+  @Field()
+  @IsBoolean()
+  @IsNotEmpty()
+  public readonly isPublic: boolean
 }

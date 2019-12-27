@@ -21,6 +21,9 @@ export class PlayerModel {
   public readonly musicFileUrl: string
 
   @Field()
+  public readonly isPublic: boolean
+
+  @Field()
   public readonly createdAt: string
 
   @Field()
