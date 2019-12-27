@@ -48,6 +48,7 @@ describe('PlayerController (e2e)', () => {
     lrc: '歌词',
     coverUrl: 'https://t4est3.com',
     musicFileUrl: 'https://1test4.com',
+    isPublic: true,
   }
 
   let id = ''
