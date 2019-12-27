@@ -1,4 +1,4 @@
 import { Controller } from '@nestjs/common'
 
 @Controller('best-albums')
-export class BestAlbumsController {}
+export class BestAlbumsResolver {}

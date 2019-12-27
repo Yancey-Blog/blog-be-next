@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common'
-import { BestAlbumsController } from './best-albums.controller'
+import { BestAlbumsResolver } from './best-albums.resolver'
 import { BestAlbumsService } from './best-albums.service'
 
 @Module({
-  controllers: [BestAlbumsController],
+  controllers: [BestAlbumsResolver],
   providers: [BestAlbumsService],
 })
 export class BestAlbumsModule {}
