@@ -9,42 +9,39 @@ type BatchDeleteModel {
   deletedCount: Float
 }
 
-type BestAlbumModel {
+input CreateOpenSourceInput {
+  title: String!
+  description: String!
+  url: String!
+  posterUrl: String!
+}
+
+type Mutation {
+  createOpenSource(input: CreateOpenSourceInput!): OpenSourceModel!
+  updateOpenSourceById(input: UpdateOpenSourceInput!): OpenSourceModel!
+  deleteOpenSourceById(id: ID!): OpenSourceModel!
+  deleteOpenSources(ids: [ID!]!): BatchDeleteModel!
+}
+
+type OpenSourceModel {
   _id: ID!
   title: String!
-  artist: String!
-  coverUrl: String!
-  mvUrl: String!
-  releaseDate: String!
+  description: String!
+  url: String!
+  posterUrl: String!
   createdAt: String!
   updatedAt: String!
 }
 
-input CreateBestAlbumInput {
-  title: String!
-  artist: String!
-  coverUrl: String!
-  mvUrl: String!
-  releaseDate: String!
-}
-
-type Mutation {
-  createBestAlbum(input: CreateBestAlbumInput!): BestAlbumModel!
-  updateBestAlbumById(input: UpdateBestAlbumInput!): BestAlbumModel!
-  deleteBestAlbumById(id: ID!): BestAlbumModel!
-  deleteBestAlbums(ids: [ID!]!): BatchDeleteModel!
-}
-
 type Query {
-  getBestAlbums: [BestAlbumModel!]!
-  getBestAlbumById(id: ID!): BestAlbumModel!
+  getOpenSources: [OpenSourceModel!]!
+  getOpenSourceById(id: ID!): OpenSourceModel!
 }
 
-input UpdateBestAlbumInput {
+input UpdateOpenSourceInput {
   title: String!
-  artist: String!
-  coverUrl: String!
-  mvUrl: String!
-  releaseDate: String!
+  description: String!
+  url: String!
+  posterUrl: String!
   id: String!
 }
