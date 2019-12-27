@@ -17,6 +17,7 @@ import { OpenSourcesModule } from './open-sources/open-sources.module'
 import { BandwagonModule } from './bandwagon/bandwagon.module'
 import { LiveToursModule } from './live-tours/live-tours.module'
 import { YanceyMusicModule } from './yancey-music/yancey-music.module'
+import { BestAlbumsModule } from './best-albums/best-albums.module'
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { YanceyMusicModule } from './yancey-music/yancey-music.module'
     BandwagonModule,
     LiveToursModule,
     YanceyMusicModule,
+    BestAlbumsModule,
   ],
   providers: [
     {
