@@ -9,39 +9,42 @@ type BatchDeleteModel {
   deletedCount: Float
 }
 
-input CreateYanceyMusicInput {
+type BestAlbumModel {
+  _id: ID!
   title: String!
-  soundCloudUrl: String!
-  posterUrl: String!
+  artist: String!
+  coverUrl: String!
+  mvUrl: String!
+  releaseDate: String!
+  createdAt: String!
+  updatedAt: String!
+}
+
+input CreateBestAlbumInput {
+  title: String!
+  artist: String!
+  coverUrl: String!
+  mvUrl: String!
   releaseDate: String!
 }
 
 type Mutation {
-  createYanceyMusic(input: CreateYanceyMusicInput!): YanceyMusicModel!
-  updateYanceyMusicById(input: UpdateYanceyMusicInput!): YanceyMusicModel!
-  deleteYanceyMusicById(id: ID!): YanceyMusicModel!
-  deleteYanceyMusic(ids: [ID!]!): BatchDeleteModel!
+  createBestAlbum(input: CreateBestAlbumInput!): BestAlbumModel!
+  updateBestAlbumById(input: UpdateBestAlbumInput!): BestAlbumModel!
+  deleteBestAlbumById(id: ID!): BestAlbumModel!
+  deleteBestAlbums(ids: [ID!]!): BatchDeleteModel!
 }
 
 type Query {
-  getYanceyMusic: [YanceyMusicModel!]!
-  getYanceyMusicById(id: ID!): YanceyMusicModel!
+  getBestAlbums: [BestAlbumModel!]!
+  getBestAlbumById(id: ID!): BestAlbumModel!
 }
 
-input UpdateYanceyMusicInput {
+input UpdateBestAlbumInput {
   title: String!
-  soundCloudUrl: String!
-  posterUrl: String!
+  artist: String!
+  coverUrl: String!
+  mvUrl: String!
   releaseDate: String!
   id: String!
-}
-
-type YanceyMusicModel {
-  _id: ID!
-  title: String!
-  soundCloudUrl: String!
-  posterUrl: String!
-  releaseDate: String!
-  createdAt: String!
-  updatedAt: String!
 }

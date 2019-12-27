@@ -1,0 +1,78 @@
+mutation CreateBestAlbum {
+  createBestAlbum(
+    input: {
+      title: "α"
+      artist: "山本彩"
+      coverUrl: "https://t4est3.com"
+      mvUrl: "https://1test4.com"
+      releaseDate: "2019-12-26T07:14:07.655Z"
+    }
+  ) {
+    _id
+    title
+    artist
+    coverUrl
+    mvUrl
+    releaseDate
+    createdAt
+    updatedAt
+  }
+}
+
+query GetBestAlbums {
+  getBestAlbums {
+    _id
+    title
+    artist
+    coverUrl
+    mvUrl
+    releaseDate
+    createdAt
+    updatedAt
+  }
+}
+
+mutation UpdateBestAlbumById {
+  updateBestAlbumById(
+    input: {
+      id: "f4b445d6-d569-4a29-a760-da497675db38"
+      title: "追憶の光"
+      artist: "山本彩"
+      coverUrl: "https://t4est3.com"
+      mvUrl: "https://1test4.com"
+      releaseDate: "2019-12-26T07:14:07.655Z"
+    }
+  ) {
+    _id
+    title
+    artist
+    coverUrl
+    mvUrl
+    releaseDate
+    createdAt
+    updatedAt
+  }
+}
+
+mutation DeleteBestAlbumById {
+  deleteBestAlbumById(id: "f4b445d6-d569-4a29-a760-da497675db38") {
+    _id
+    title
+    artist
+    coverUrl
+    mvUrl
+    releaseDate
+    createdAt
+    updatedAt
+  }
+}
+
+mutation DeleteBestAlbums {
+  deleteBestAlbums(
+    ids: ["60e5c5a2-f69f-41df-bc04-53f9c699e498", "00c602bd-e364-491d-abb1-45cf930ac443"]
+  ) {
+    n
+    ok
+    deletedCount
+  }
+}

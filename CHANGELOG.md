@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.6.0...v0.7.0) (2019-12-26)
+
+
+### Features
+
+* add CreateYanceyMusicInput ([6351f38](https://github.com/Yancey-Blog/blog-be-next/commit/6351f384b00f7617c96148e920ae611d89bc113e))
+* add UpdateYanceyMusicInput ([142dff6](https://github.com/Yancey-Blog/blog-be-next/commit/142dff6dda172f40efeeafdcd0bfd699db41bca7))
+* add yancey-music.gql ([0577f72](https://github.com/Yancey-Blog/blog-be-next/commit/0577f7216a7850649d87d10b01d67b5e40624061))
+* add YanceyMusic interface ([665f148](https://github.com/Yancey-Blog/blog-be-next/commit/665f148b6d1e9b76eeab178f6a32816f7d7affb1))
+* add YanceyMusicModel ([8d80ec3](https://github.com/Yancey-Blog/blog-be-next/commit/8d80ec3e4e0abcfa2ab24d4bf5bcb94982a5efff))
+* add YanceyMusicSchema ([256c22a](https://github.com/Yancey-Blog/blog-be-next/commit/256c22a8038da64176348f520a15c96579d7fe8f))
+* finish the e2e test YanceyMusicController ([caf8d3c](https://github.com/Yancey-Blog/blog-be-next/commit/caf8d3ce4545283278f5f1cce500cecb4162969c))
+* generate yanceyMusic architecture ([b50b4e0](https://github.com/Yancey-Blog/blog-be-next/commit/b50b4e0ec63823c3ae1e9d0061b44a970c35bca6))
+* update gql input file names ([ba5af71](https://github.com/Yancey-Blog/blog-be-next/commit/ba5af713efeb392ce2a2362a90dd3275e12d0868))
+* update YanceyMusicModule ([f344d95](https://github.com/Yancey-Blog/blog-be-next/commit/f344d95c2c95819c77d3218235c5a9eb1f35c245))
+* update YanceyMusicResolver ([d71b8d4](https://github.com/Yancey-Blog/blog-be-next/commit/d71b8d498cb02624b6a5dda9bf71283996d10beb))
+* update YanceyMusicService ([2737f8a](https://github.com/Yancey-Blog/blog-be-next/commit/2737f8af1ff183f4e8d3d1648bc8dd26c203ada6))
+
 ## [0.6.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.5.0...v0.6.0) (2019-12-26)
 
 
