@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.8.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.7.0...v0.8.0) (2019-12-27)
+
+
+### Features
+
+* define BestAlbum interface ([cb65b22](https://github.com/Yancey-Blog/blog-be-next/commit/cb65b2293cbad1050658a4b31561b864164227c8))
+* define BestAlbum.gql ([d268fcb](https://github.com/Yancey-Blog/blog-be-next/commit/d268fcb731e305d47b563b8e8e344f8bf1ee9022))
+* define BestAlbumModel ([6c295f6](https://github.com/Yancey-Blog/blog-be-next/commit/6c295f6e8848a730fdc0379b79050a6d074b3e0b))
+* define BestAlbumsResolver ([047397a](https://github.com/Yancey-Blog/blog-be-next/commit/047397a2a0ad7c265a2e654a40a3e58776c09dd1))
+* define BestAlbumsService ([5248fc6](https://github.com/Yancey-Blog/blog-be-next/commit/5248fc60f9a496fff29e1ee89d231a60ee376412))
+* define CreateBestAlbumInput dto ([0473681](https://github.com/Yancey-Blog/blog-be-next/commit/0473681613d117dd267ce184abb9e466c0ed234a))
+* define mongo schema ([a545b7c](https://github.com/Yancey-Blog/blog-be-next/commit/a545b7c870bbc8846f3f4b12881e789299983e9b))
+* define UpdateBestAlbumInput dto ([5567992](https://github.com/Yancey-Blog/blog-be-next/commit/55679926c477d43598d9ef713c3f6f018bf9fc0f))
+* finish BestAlbumsController e2e ([177a7de](https://github.com/Yancey-Blog/blog-be-next/commit/177a7ded427404c38f86631f6f542999ab06162f))
+* generate BestAlbum architecture ([ba1f875](https://github.com/Yancey-Blog/blog-be-next/commit/ba1f87557785a23f7a8f8bfb5f5f9274cbd765a8))
+* rename BestAlbumsResolver ([7dc14b9](https://github.com/Yancey-Blog/blog-be-next/commit/7dc14b9149b2b2277b8c99a93785546d9bc47f11))
+* update BestAlbumsModule ([81194e9](https://github.com/Yancey-Blog/blog-be-next/commit/81194e920514eaf8308fc4052d2030fd6f14d2b6))
+* update dtos file name ([cb8f395](https://github.com/Yancey-Blog/blog-be-next/commit/cb8f3957a4b0aa7d7e6a27dcd97dd27cadee9eea))
+
 ## [0.7.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.6.0...v0.7.0) (2019-12-26)
 
 
