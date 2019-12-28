@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.9.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.8.0...v0.9.0) (2019-12-28)
+
+
+### Features
+
+* define CreatePlayerInput dto ([989d158](https://github.com/Yancey-Blog/blog-be-next/commit/989d158be20302584ffad6097b97c3f92db1adac))
+* define Player interface ([297b1b6](https://github.com/Yancey-Blog/blog-be-next/commit/297b1b631e17b61290c818d679a06c5389f1ae1b))
+* define Player.gql ([964933f](https://github.com/Yancey-Blog/blog-be-next/commit/964933f658cc76bd7bc38e041021fae6e68d9c23))
+* define PlayerModel ([83edf6b](https://github.com/Yancey-Blog/blog-be-next/commit/83edf6b3434635a49d1f5b524115270c8a3b8dd4))
+* define PlayerResolver ([d8cbf10](https://github.com/Yancey-Blog/blog-be-next/commit/d8cbf10b30a107d513282a261fd271abe8a961cd))
+* define PlayerSchema ([fc7c39f](https://github.com/Yancey-Blog/blog-be-next/commit/fc7c39f709d4bbb058d628efbdfb2e48fccfccbe))
+* define PlayerService ([17c4bda](https://github.com/Yancey-Blog/blog-be-next/commit/17c4bdad8efc5d8aa4bf2c54b09b3a31f2f5ae3b))
+* define UpdatePlayerInput ([242cdce](https://github.com/Yancey-Blog/blog-be-next/commit/242cdce4e71df2d2e3833930501e1fee4cc8005c))
+* finish Player module ([be38163](https://github.com/Yancey-Blog/blog-be-next/commit/be38163332f0ebba88c2bd61105c4dc49e6ff1fc))
+* finish PlayerController e2e ([b30570c](https://github.com/Yancey-Blog/blog-be-next/commit/b30570c2c46a094d174bf9fcf526fa1ed76059bf))
+* generate Player architecture ([e2c8984](https://github.com/Yancey-Blog/blog-be-next/commit/e2c89840bc3a20149a5cf235611fa6d6d9370f30))
+* remove BatchDelete interface and use BatchDeleteModel ([6b422e8](https://github.com/Yancey-Blog/blog-be-next/commit/6b422e86c662a278e35abe6a289f09c3d7e3e34f))
+* rename PlayerResolver ([424bece](https://github.com/Yancey-Blog/blog-be-next/commit/424bece09fff3e2618ebddc03d9a1a1d989c5021))
+* try switchIsPubilc ([6e3ac59](https://github.com/Yancey-Blog/blog-be-next/commit/6e3ac59c085f8088f4cd38012972b8acaf07a9a0))
+* update Player ([53a5e10](https://github.com/Yancey-Blog/blog-be-next/commit/53a5e104e1114390a1fa3992b61ff9f1668d228b))
+* update Player e2e ([648d1d3](https://github.com/Yancey-Blog/blog-be-next/commit/648d1d34ab06c107e3aa014f7fc2ef293fcde45a))
+* update player,gql ([e705fb7](https://github.com/Yancey-Blog/blog-be-next/commit/e705fb7396cb520dc63f440e1173b945896a9d18))
+* update PlayerModule ([1ccbd89](https://github.com/Yancey-Blog/blog-be-next/commit/1ccbd89c8d9dd2535e5308d50277bfbfbe6fc5d6))
+
 ## [0.8.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.7.0...v0.8.0) (2019-12-27)
 
 
