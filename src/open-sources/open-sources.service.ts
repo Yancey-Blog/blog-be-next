@@ -5,7 +5,7 @@ import { CreateOpenSourceInput } from './dtos/create-open-source.input'
 import { UpdateOpenSourceInput } from './dtos/update-open-source.input'
 import { OpenSourceModel } from './models/open-sources.model'
 import { OpenSource } from './interfaces/open-sources.interface'
-import { BatchDeleteModel } from '../database/models/database.model'
+import { BatchDeleteModel } from '../database/models/batch-delete.model'
 
 @Injectable()
 export class OpenSourcesService {

@@ -10,7 +10,7 @@ import { AnnouncementsModule } from '../src/announcements/announcements.module'
 import { AnnouncementsModel } from '../src/announcements/models/announcements.model'
 import { CreateAnnouncementInput } from '../src/announcements/dtos/create-announcement.input'
 import { UpdateAnnouncementInput } from '../src/announcements/dtos/update-announcement.input'
-import { BatchDelete } from '../src/database/interfaces/batchDelete.interface'
+import { BatchDeleteModel } from '../src/database/models/batch-delete.model'
 
 describe('AnnouncementsController (e2e)', () => {
   let app: NestApplication
@@ -199,7 +199,7 @@ describe('AnnouncementsController (e2e)', () => {
         query: batchDeleteTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: BatchDelete = body.data.deleteAnnouncements
+        const testData: BatchDeleteModel = body.data.deleteAnnouncements
         expect(testData.ok).toBe(1)
         expect(testData.n).toBe(0)
         expect(testData.deletedCount).toBe(0)

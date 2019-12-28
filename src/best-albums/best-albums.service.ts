@@ -5,7 +5,7 @@ import { CreateBestAlbumInput } from './dtos/create-best-album.input'
 import { UpdateBestAlbumInput } from './dtos/update-best-album.input'
 import { BestAlbumModel } from './models/best-albums.model'
 import { BestAlbum } from './interfaces/best-albums.interface'
-import { BatchDeleteModel } from '../database/models/database.model'
+import { BatchDeleteModel } from '../database/models/batch-delete.model'
 
 @Injectable()
 export class BestAlbumsService {
