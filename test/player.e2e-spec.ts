@@ -6,19 +6,20 @@ import request from 'supertest'
 import { SCHEMA_GQL_FILE_NAME } from '../src/shared/constants'
 import { ConfigModule } from '../src/config/config.module'
 import { ConfigService } from '../src/config/config.service'
-import { YanceyMusicModule } from '../src/yancey-music/yancey-music.module'
-import { YanceyMusicModel } from '../src/yancey-music/models/yancey-music.model'
-import { CreateYanceyMusicInput } from '../src/yancey-music/dtos/create-yancey-music.input'
-import { UpdateYanceyMusicInput } from '../src/yancey-music/dtos/update-yancey-music.input'
+import { PlayerModule } from '../src/player/player.module'
+import { PlayerModel } from '../src/player/models/player.model'
+import { CreatePlayerInput } from '../src/player/dtos/create-player.input'
+import { UpdatePlayerInput } from '../src/player/dtos/update-player.input'
+import { BatchUpdateModel } from '../src/database/models/batch-update.model'
 import { BatchDeleteModel } from '../src/database/models/batch-delete.model'
 
-describe('YanceyMusicController (e2e)', () => {
+describe('PlayerController (e2e)', () => {
   let app: NestApplication
   beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [
         ConfigModule,
-        YanceyMusicModule,
+        PlayerModule,
         MongooseModule.forRootAsync({
           useFactory: async (configService: ConfigService) => ({
             uri: configService.getMongoURI(),
@@ -42,35 +43,40 @@ describe('YanceyMusicController (e2e)', () => {
     await app.close()
   })
 
-  const createdData: CreateYanceyMusicInput = {
-    title: 'test4',
-    releaseDate: '2019-12-26T07:14:07.655Z',
-    soundCloudUrl: 'https://t4est3.com',
-    posterUrl: 'https://1test4.com',
+  const createdData: CreatePlayerInput = {
+    title: 'イチリンソウ',
+    artist: '山本彩',
+    lrc: '歌词',
+    coverUrl: 'https://t4est3.com',
+    musicFileUrl: 'https://1test4.com',
+    isPublic: true,
   }
 
   let id = ''
 
-  const updatedData: UpdateYanceyMusicInput = {
+  const updatedData: UpdatePlayerInput = {
     id,
-    title: 'test5',
-    releaseDate: '2019-12-26T07:14:07.655Z',
-    soundCloudUrl: 'https://yancey.com',
-    posterUrl: 'https://yancey.com',
+    title: '夕焼けの歌',
+    artist: '近藤真彦',
+    lrc: '歌词',
+    coverUrl: 'https://t5est4.com',
+    musicFileUrl: 'https://2test5.com',
+    isPublic: true,
   }
 
   const createDataString = JSON.stringify(createdData).replace(/"([^(")"]+)":/g, '$1:')
 
   // CREATE_ONE
-  it('createYanceyMusic', () => {
+  it('createPlayer', () => {
     const createOneTypeDefs = `
-    mutation CreateYanceyMusic {
-      createYanceyMusic(input: ${createDataString}) {
+    mutation CreatePlayer {
+      createPlayer(input: ${createDataString}) {
         _id
         title
-        releaseDate
-        soundCloudUrl
-        posterUrl
+        artist
+        lrc
+        coverUrl
+        musicFileUrl
         createdAt
         updatedAt
       }
@@ -83,27 +89,30 @@ describe('YanceyMusicController (e2e)', () => {
         query: createOneTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: YanceyMusicModel = body.data.createYanceyMusic
+        const testData: PlayerModel = body.data.createPlayer
 
         id = testData._id
 
         expect(testData.title).toBe(createdData.title)
-        expect(testData.soundCloudUrl).toBe(createdData.soundCloudUrl)
-        expect(testData.posterUrl).toBe(createdData.posterUrl)
+        expect(testData.artist).toBe(createdData.artist)
+        expect(testData.lrc).toBe(createdData.lrc)
+        expect(testData.coverUrl).toBe(createdData.coverUrl)
+        expect(testData.musicFileUrl).toBe(createdData.musicFileUrl)
       })
       .expect(200)
   })
 
   // READ_ALL
-  it('getYanceyMusic', () => {
+  it('getPlayer', () => {
     const getAllTypeDefs = `
-    query GetYanceyMusic {
-      getYanceyMusic {
+    query GetPlayer {
+      getPlayer {
         _id
         title
-        releaseDate
-        soundCloudUrl
-        posterUrl
+        artist
+        lrc
+        coverUrl
+        musicFileUrl
         createdAt
         updatedAt
       }
@@ -116,29 +125,33 @@ describe('YanceyMusicController (e2e)', () => {
         query: getAllTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: YanceyMusicModel[] = body.data.getYanceyMusic
+        const testData: PlayerModel[] = body.data.getPlayer
 
         const firstData = testData[0]
 
         expect(testData.length).toBeGreaterThan(0)
         expect(firstData._id).toBe(id)
         expect(firstData.title).toBe(createdData.title)
-        expect(firstData.soundCloudUrl).toBe(createdData.soundCloudUrl)
-        expect(firstData.posterUrl).toBe(createdData.posterUrl)
+        expect(firstData.title).toBe(createdData.title)
+        expect(firstData.artist).toBe(createdData.artist)
+        expect(firstData.lrc).toBe(createdData.lrc)
+        expect(firstData.coverUrl).toBe(createdData.coverUrl)
+        expect(firstData.musicFileUrl).toBe(createdData.musicFileUrl)
       })
       .expect(200)
   })
 
   // READ_ONE
-  it('getYanceyMusicById', () => {
+  it('getPlayerById', () => {
     const getOneByIdTypeDefs = `
-    query GetYanceyMusicById {
-      getYanceyMusicById(id: "${id}") {
+    query GetPlayerById {
+      getPlayerById(id: "${id}") {
         _id
         title
-        releaseDate
-        soundCloudUrl
-        posterUrl
+        artist
+        lrc
+        coverUrl
+        musicFileUrl
         createdAt
         updatedAt
       }
@@ -151,28 +164,31 @@ describe('YanceyMusicController (e2e)', () => {
         query: getOneByIdTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: YanceyMusicModel = body.data.getYanceyMusicById
+        const testData: PlayerModel = body.data.getPlayerById
 
         expect(testData._id).toBe(id)
         expect(testData.title).toBe(createdData.title)
-        expect(testData.soundCloudUrl).toBe(createdData.soundCloudUrl)
-        expect(testData.posterUrl).toBe(createdData.posterUrl)
+        expect(testData.artist).toBe(createdData.artist)
+        expect(testData.lrc).toBe(createdData.lrc)
+        expect(testData.coverUrl).toBe(createdData.coverUrl)
+        expect(testData.musicFileUrl).toBe(createdData.musicFileUrl)
       })
       .expect(200)
   })
 
   // UPDATE_ONE
-  it('updateYanceyMusicById', () => {
+  it('updatePlayerById', () => {
     const updateDataString = JSON.stringify({ ...updatedData, id }).replace(/"([^(")"]+)":/g, '$1:')
 
     const updateOneByIdTypeDefs = `
-    mutation UpdateYanceyMusicById {
-      updateYanceyMusicById(input: ${updateDataString}) {
+    mutation UpdatePlayerById {
+      updatePlayerById(input: ${updateDataString}) {
         _id
         title
-        releaseDate
-        soundCloudUrl
-        posterUrl
+        artist
+        lrc
+        coverUrl
+        musicFileUrl
         createdAt
         updatedAt
       }
@@ -185,24 +201,55 @@ describe('YanceyMusicController (e2e)', () => {
         query: updateOneByIdTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: YanceyMusicModel = body.data.updateYanceyMusicById
+        const testData: PlayerModel = body.data.updatePlayerById
+
         expect(testData.title).toBe(updatedData.title)
-        expect(testData.soundCloudUrl).toBe(updatedData.soundCloudUrl)
-        expect(testData.posterUrl).toBe(updatedData.posterUrl)
+        expect(testData.artist).toBe(updatedData.artist)
+        expect(testData.lrc).toBe(updatedData.lrc)
+        expect(testData.coverUrl).toBe(updatedData.coverUrl)
+        expect(testData.musicFileUrl).toBe(updatedData.musicFileUrl)
+      })
+      .expect(200)
+  })
+
+  // OFFLINE
+  it('offlinePlayers', () => {
+    const offlinePlayersTypeDefs = `
+    mutation OfflinePlayers {
+      offlinePlayers(ids: ["${id}"]) {
+        n
+        nModified
+        ok
+      }
+    }`
+
+    return request(app.getHttpServer())
+      .post('/graphql')
+      .send({
+        operationName: null,
+        query: offlinePlayersTypeDefs,
+      })
+      .expect(({ body }) => {
+        const testData: BatchUpdateModel = body.data.offlinePlayers
+
+        expect(testData.ok).toBe(1)
+        expect(testData.n).toBe(1)
+        expect(testData.nModified).toBe(1)
       })
       .expect(200)
   })
 
   // DELETE_ONE
-  it('deleteYanceyMusicById', () => {
+  it('deletePlayerById', () => {
     const deleteOneByIdTypeDefs = `
-    mutation DeleteYanceyMusicById {
-      deleteYanceyMusicById(id: "${id}") {
+    mutation DeletePlayerById {
+      deletePlayerById(id: "${id}") {
         _id
         title
-        releaseDate
-        soundCloudUrl
-        posterUrl
+        artist
+        lrc
+        coverUrl
+        musicFileUrl
         createdAt
         updatedAt
       }
@@ -215,20 +262,22 @@ describe('YanceyMusicController (e2e)', () => {
         query: deleteOneByIdTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: YanceyMusicModel = body.data.deleteYanceyMusicById
+        const testData: PlayerModel = body.data.deletePlayerById
 
         expect(testData.title).toBe(updatedData.title)
-        expect(testData.soundCloudUrl).toBe(updatedData.soundCloudUrl)
-        expect(testData.posterUrl).toBe(updatedData.posterUrl)
+        expect(testData.artist).toBe(updatedData.artist)
+        expect(testData.lrc).toBe(updatedData.lrc)
+        expect(testData.coverUrl).toBe(updatedData.coverUrl)
+        expect(testData.musicFileUrl).toBe(updatedData.musicFileUrl)
       })
       .expect(200)
   })
 
   // BATCH_DELETE
-  it('deleteYanceyMusic', () => {
+  it('deletePlayer', () => {
     const batchDeleteTypeDefs = `
-    mutation DeleteYanceyMusic {
-      deleteYanceyMusic(ids: ["${id}"]) {
+    mutation DeletePlayer {
+      deletePlayer(ids: ["${id}"]) {
         ok
         n
         deletedCount
@@ -242,7 +291,7 @@ describe('YanceyMusicController (e2e)', () => {
         query: batchDeleteTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: BatchDeleteModel = body.data.deleteYanceyMusic
+        const testData: BatchDeleteModel = body.data.deletePlayer
         expect(testData.ok).toBe(1)
         expect(testData.n).toBe(0)
         expect(testData.deletedCount).toBe(0)

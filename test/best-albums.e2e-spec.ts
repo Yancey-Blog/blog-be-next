@@ -10,7 +10,7 @@ import { BestAlbumsModule } from '../src/best-albums/best-albums.module'
 import { BestAlbumModel } from '../src/best-albums/models/best-albums.model'
 import { CreateBestAlbumInput } from '../src/best-albums/dtos/create-best-album.input'
 import { UpdateBestAlbumInput } from '../src/best-albums/dtos/update-best-album.input'
-import { BatchDelete } from '../src/database/interfaces/batchDelete.interface'
+import { BatchDeleteModel } from '../src/database/models/batch-delete.model'
 
 describe('BestAlbumsController (e2e)', () => {
   let app: NestApplication
@@ -255,7 +255,7 @@ describe('BestAlbumsController (e2e)', () => {
         query: batchDeleteTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: BatchDelete = body.data.deleteBestAlbums
+        const testData: BatchDeleteModel = body.data.deleteBestAlbums
         expect(testData.ok).toBe(1)
         expect(testData.n).toBe(0)
         expect(testData.deletedCount).toBe(0)

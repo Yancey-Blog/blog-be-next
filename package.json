@@ -15,9 +15,9 @@
     "watch": "NODE_ENV=development nest start --watch",
     "commit": "npx git-cz",
     "push": "git push --follow-tags origin master",
-    "release:major": "node_modules/standard-version/bin/cli.js --release-as major && yarn push",
-    "release:minor": "node_modules/standard-version/bin/cli.js --release-as minor && yarn push",
-    "release:patch": "node_modules/standard-version/bin/cli.js --release-as patch && yarn push",
+    "release:major": "node_modules/.bin/standard-version --release-as major && yarn push",
+    "release:minor": "node_modules/.bin/standard-version --release-as minor && yarn push",
+    "release:patch": "node_modules/.bin/standard-version --release-as patch && yarn push",
     "document": "npx compodoc -p tsconfig.json -s --language \"ja-JP\"",
     "lint": "eslint src --ext .ts,.tsx",
     "test": "jest",
@@ -25,7 +25,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "codecov": "node_modules/codecov/bin/codecov -t 7b33b616-c7c6-465f-a858-91ca93071f98"
+    "codecov": "node_modules/.bin/codecov -t 7b33b616-c7c6-465f-a858-91ca93071f98"
   },
   "dependencies": {
     "@alicloud/pop-core": "^1.7.8",

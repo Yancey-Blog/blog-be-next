@@ -5,7 +5,7 @@ import { CreateYanceyMusicInput } from './dtos/create-yancey-music.input'
 import { UpdateYanceyMusicInput } from './dtos/update-yancey-music.input'
 import { YanceyMusicModel } from './models/yancey-music.model'
 import { YanceyMusic } from './interfaces/yancey-music.interface'
-import { BatchDeleteModel } from '../database/models/database.model'
+import { BatchDeleteModel } from '../database/models/batch-delete.model'
 
 @Injectable()
 export class YanceyMusicService {

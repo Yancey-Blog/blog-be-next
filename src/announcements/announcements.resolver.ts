@@ -6,7 +6,7 @@ import { AnnouncementsService } from './announcements.service'
 import { AnnouncementsModel } from './models/announcements.model'
 import { CreateAnnouncementInput } from './dtos/create-announcement.input'
 import { UpdateAnnouncementInput } from './dtos/update-announcement.input'
-import { BatchDeleteModel } from '../database/models/database.model'
+import { BatchDeleteModel } from '../database/models/batch-delete.model'
 
 // const pubSub = new PubSub();
 

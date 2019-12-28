@@ -9,42 +9,52 @@ type BatchDeleteModel {
   deletedCount: Float
 }
 
-type BestAlbumModel {
+type BatchUpdateModel {
+  ok: Float
+  n: Float
+  nModified: Float
+}
+
+input CreatePlayerInput {
+  title: String!
+  artist: String!
+  lrc: String!
+  coverUrl: String!
+  musicFileUrl: String!
+  isPublic: Boolean!
+}
+
+type Mutation {
+  createPlayer(input: CreatePlayerInput!): PlayerModel!
+  updatePlayerById(input: UpdatePlayerInput!): PlayerModel!
+  deletePlayerById(id: ID!): PlayerModel!
+  deletePlayer(ids: [ID!]!): BatchDeleteModel!
+  offlinePlayers(ids: [ID!]!): BatchUpdateModel!
+}
+
+type PlayerModel {
   _id: ID!
   title: String!
   artist: String!
+  lrc: String!
   coverUrl: String!
-  mvUrl: String!
-  releaseDate: String!
+  musicFileUrl: String!
+  isPublic: Boolean!
   createdAt: String!
   updatedAt: String!
 }
 
-input CreateBestAlbumInput {
-  title: String!
-  artist: String!
-  coverUrl: String!
-  mvUrl: String!
-  releaseDate: String!
-}
-
-type Mutation {
-  createBestAlbum(input: CreateBestAlbumInput!): BestAlbumModel!
-  updateBestAlbumById(input: UpdateBestAlbumInput!): BestAlbumModel!
-  deleteBestAlbumById(id: ID!): BestAlbumModel!
-  deleteBestAlbums(ids: [ID!]!): BatchDeleteModel!
-}
-
 type Query {
-  getBestAlbums: [BestAlbumModel!]!
-  getBestAlbumById(id: ID!): BestAlbumModel!
+  getPlayer: [PlayerModel!]!
+  getPlayerById(id: ID!): PlayerModel!
 }
 
-input UpdateBestAlbumInput {
+input UpdatePlayerInput {
   title: String!
   artist: String!
+  lrc: String!
   coverUrl: String!
-  mvUrl: String!
-  releaseDate: String!
+  musicFileUrl: String!
+  isPublic: Boolean!
   id: String!
 }
