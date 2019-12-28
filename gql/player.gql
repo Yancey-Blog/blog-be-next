@@ -82,12 +82,12 @@ mutation DeletePlayer {
   }
 }
 
-mutation SwitchIsPubilc {
-  switchIsPubilc(
+mutation OfflinePlayers {
+  offlinePlayers(
     ids: ["60e5c5a2-f69f-41df-bc04-53f9c699e498", "00c602bd-e364-491d-abb1-45cf930ac443"]
   ) {
     n
     ok
-    deletedCount
+    nModified
   }
 }

@@ -6,6 +6,7 @@ import { UpdatePlayerInput } from './dtos/update-player.input'
 import { PlayerModel } from './models/player.model'
 import { Player } from './interfaces/player.interface'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'
+import { BatchUpdateModel } from '../database/models/batch-update.model'
 
 @Injectable()
 export class PlayerService {
@@ -43,7 +44,7 @@ export class PlayerService {
     })
   }
 
-  public async switchIsPubilc(ids: string[]): Promise<any> {
+  public async batchUpdate(ids: string[]): Promise<BatchUpdateModel> {
     return this.playerModel.updateMany(
       {
         _id: { $in: ids },

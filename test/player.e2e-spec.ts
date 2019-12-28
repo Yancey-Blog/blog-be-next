@@ -10,6 +10,7 @@ import { PlayerModule } from '../src/player/player.module'
 import { PlayerModel } from '../src/player/models/player.model'
 import { CreatePlayerInput } from '../src/player/dtos/create-player.input'
 import { UpdatePlayerInput } from '../src/player/dtos/update-player.input'
+import { BatchUpdateModel } from '../src/database/models/batch-update.model'
 import { BatchDeleteModel } from '../src/database/models/batch-delete.model'
 
 describe('PlayerController (e2e)', () => {
@@ -60,6 +61,7 @@ describe('PlayerController (e2e)', () => {
     lrc: '歌词',
     coverUrl: 'https://t5est4.com',
     musicFileUrl: 'https://2test5.com',
+    isPublic: true,
   }
 
   const createDataString = JSON.stringify(createdData).replace(/"([^(")"]+)":/g, '$1:')
@@ -206,6 +208,33 @@ describe('PlayerController (e2e)', () => {
         expect(testData.lrc).toBe(updatedData.lrc)
         expect(testData.coverUrl).toBe(updatedData.coverUrl)
         expect(testData.musicFileUrl).toBe(updatedData.musicFileUrl)
+      })
+      .expect(200)
+  })
+
+  // OFFLINE
+  it('offlinePlayers', () => {
+    const offlinePlayersTypeDefs = `
+    mutation OfflinePlayers {
+      offlinePlayers(ids: ["${id}"]) {
+        n
+        nModified
+        ok
+      }
+    }`
+
+    return request(app.getHttpServer())
+      .post('/graphql')
+      .send({
+        operationName: null,
+        query: offlinePlayersTypeDefs,
+      })
+      .expect(({ body }) => {
+        const testData: BatchUpdateModel = body.data.offlinePlayers
+
+        expect(testData.ok).toBe(1)
+        expect(testData.n).toBe(1)
+        expect(testData.nModified).toBe(1)
       })
       .expect(200)
   })

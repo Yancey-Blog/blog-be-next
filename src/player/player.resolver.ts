@@ -44,7 +44,7 @@ export class PlayerResolver {
   }
 
   @Mutation(() => BatchUpdateModel)
-  public async switchIsPubilc(@Args({ name: 'ids', type: () => [ID] }) ids: string[]) {
-    return this.playerService.switchIsPubilc(ids)
+  public async offlinePlayers(@Args({ name: 'ids', type: () => [ID] }) ids: string[]) {
+    return this.playerService.batchUpdate(ids)
   }
 }
