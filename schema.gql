@@ -14,6 +14,7 @@ type BatchDeleteModel {
   ok: Float
   n: Float
   deletedCount: Float
+  ids: [ID!]!
 }
 
 type BatchUpdateModel {
