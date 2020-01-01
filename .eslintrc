@@ -29,16 +29,14 @@
     "operator-linebreak": "off",
     "import/no-extraneous-dependencies": "off",
     "import/extensions": "off", // FIXME:
-    "import/no-unresolved": "off", // FIXME:
     "class-methods-use-this": "off", // FIXME:
-    "no-console": "off" // FIXME:
+    "no-unused-vars": "off" // FIXME:
   },
-  "overrides": [
-    {
-      "files": ["*.ts"],
-      "rules": {
-        "@typescript-eslint/no-unused-vars": [2, { "args": "none" }]
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     }
-  ]
+  }
 }
