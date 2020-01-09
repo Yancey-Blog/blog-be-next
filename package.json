@@ -28,7 +28,7 @@
     "codecov": "node_modules/.bin/codecov -t 7b33b616-c7c6-465f-a858-91ca93071f98"
   },
   "dependencies": {
-    "@alicloud/pop-core": "^1.7.8",
+    "@alicloud/pop-core": "^1.7.9",
     "@hapi/joi": "^16.1.8",
     "@nestjs/common": "^6.10.8",
     "@nestjs/core": "^6.10.14",
