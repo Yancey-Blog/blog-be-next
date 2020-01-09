@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.1](https://github.com/Yancey-Blog/blog-be-next/compare/v0.9.0...v0.9.1) (2020-01-09)
+
+
+### Features
+
+* update BatchDeleteModel ([6553a87](https://github.com/Yancey-Blog/blog-be-next/commit/6553a87b23a2a0c99ff24f34d0f173da8ebe8223))
+* update uploader module ([06058c7](https://github.com/Yancey-Blog/blog-be-next/commit/06058c7548c71fe98fcf94cf8368787229ad4cad))
+
 ## [0.9.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.8.0...v0.9.0) (2019-12-28)
 
 
