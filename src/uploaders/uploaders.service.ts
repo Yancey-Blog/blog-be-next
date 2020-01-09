@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common'
+import { Injectable, BadRequestException } from '@nestjs/common'
 import OSS from 'ali-oss'
 import { ConfigService } from '../config/config.service'
 import { ALI_OSS_END_POINT, ALI_OSS_REGION } from '../shared/constants'
@@ -28,16 +28,14 @@ export class UploadersService {
   }
 
   public async upload(file: IMulterFile) {
-    const {
-      name,
-      url,
-      res: { statusCode, statusMessage },
-    } = (await this.oss.put(file.originalname, file.buffer)) as IAliOSSRes
-    return {
-      name,
-      url,
-      statusCode,
-      statusMessage,
+    try {
+      const { name, url } = (await this.oss.put(file.originalname, file.buffer)) as IAliOSSRes
+      return {
+        name,
+        url,
+      }
+    } catch (err) {
+      return err
     }
   }
 }

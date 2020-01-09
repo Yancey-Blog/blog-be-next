@@ -38,8 +38,13 @@ export class OpenSourcesService {
   }
 
   public async batchDelete(ids: string[]): Promise<BatchDeleteModel> {
-    return this.openSourceModel.deleteMany({
+    const res = await this.openSourceModel.deleteMany({
       _id: { $in: ids },
     })
+
+    return {
+      ...res,
+      ids,
+    }
   }
 }
