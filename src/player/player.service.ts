@@ -50,7 +50,7 @@ export class PlayerService {
   }
 
   public async batchUpdate(ids: string[]): Promise<BatchUpdateModel> {
-    return this.playerModel.updateMany(
+    const res = await this.playerModel.updateMany(
       {
         _id: { $in: ids },
       },
@@ -58,5 +58,10 @@ export class PlayerService {
         $set: { isPublic: false },
       },
     )
+
+    return {
+      ...res,
+      ids,
+    }
   }
 }
