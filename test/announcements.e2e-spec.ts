@@ -7,7 +7,7 @@ import { SCHEMA_GQL_FILE_NAME } from '../src/shared/constants'
 import { ConfigModule } from '../src/config/config.module'
 import { ConfigService } from '../src/config/config.service'
 import { AnnouncementsModule } from '../src/announcements/announcements.module'
-import { AnnouncementsModel } from '../src/announcements/models/announcements.model'
+import { AnnouncementModel } from '../src/announcements/models/announcements.model'
 import { CreateAnnouncementInput } from '../src/announcements/dtos/create-announcement.input'
 import { UpdateAnnouncementInput } from '../src/announcements/dtos/update-announcement.input'
 import { BatchDeleteModel } from '../src/database/models/batch-delete.model'
@@ -72,7 +72,7 @@ describe('AnnouncementsController (e2e)', () => {
         query: createOneTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: AnnouncementsModel = body.data.createAnnouncement
+        const testData: AnnouncementModel = body.data.createAnnouncement
         id = testData._id
         expect(testData.content).toBe(createdData.content)
       })
@@ -96,7 +96,7 @@ describe('AnnouncementsController (e2e)', () => {
         query: getAllTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: AnnouncementsModel[] = body.data.getAnnouncements
+        const testData: AnnouncementModel[] = body.data.getAnnouncements
 
         const firstData = testData[0]
 
@@ -124,7 +124,7 @@ describe('AnnouncementsController (e2e)', () => {
         query: getOneByIdTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: AnnouncementsModel = body.data.getAnnouncementById
+        const testData: AnnouncementModel = body.data.getAnnouncementById
 
         expect(testData._id).toBe(id)
         expect(testData.content).toBe(createdData.content)
@@ -151,7 +151,7 @@ describe('AnnouncementsController (e2e)', () => {
         query: updateOneByIdTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: AnnouncementsModel = body.data.updateAnnouncementById
+        const testData: AnnouncementModel = body.data.updateAnnouncementById
         expect(testData.content).toBe(updatedData.content)
       })
       .expect(200)
@@ -174,7 +174,7 @@ describe('AnnouncementsController (e2e)', () => {
         query: deleteOneByIdTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: AnnouncementsModel = body.data.deleteAnnouncementById
+        const testData: AnnouncementModel = body.data.deleteAnnouncementById
 
         expect(testData.content).toBe(updatedData.content)
       })

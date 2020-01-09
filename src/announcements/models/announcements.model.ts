@@ -1,7 +1,7 @@
 import { Field, ObjectType } from 'type-graphql'
 
 @ObjectType()
-export class AnnouncementsModel {
+export class AnnouncementModel {
   @Field({ nullable: false })
   public _id: string
 

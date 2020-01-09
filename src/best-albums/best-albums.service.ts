@@ -38,8 +38,13 @@ export class BestAlbumsService {
   }
 
   public async batchDelete(ids: string[]): Promise<BatchDeleteModel> {
-    return this.bestAlbumModel.deleteMany({
+    const res = await this.bestAlbumModel.deleteMany({
       _id: { $in: ids },
     })
+
+    return {
+      ...res,
+      ids,
+    }
   }
 }

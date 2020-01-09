@@ -38,8 +38,13 @@ export class YanceyMusicService {
   }
 
   public async batchDelete(ids: string[]): Promise<BatchDeleteModel> {
-    return this.yanceyMusicModel.deleteMany({
+    const res = await this.yanceyMusicModel.deleteMany({
       _id: { $in: ids },
     })
+
+    return {
+      ...res,
+      ids,
+    }
   }
 }

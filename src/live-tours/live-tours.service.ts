@@ -38,8 +38,13 @@ export class LiveToursService {
   }
 
   public async batchDelete(ids: string[]): Promise<BatchDeleteModel> {
-    return this.liveTourModel.deleteMany({
+    const res = await this.liveTourModel.deleteMany({
       _id: { $in: ids },
     })
+
+    return {
+      ...res,
+      ids,
+    }
   }
 }
