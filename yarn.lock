@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@alicloud/pop-core@^1.7.8":
-  version "1.7.8"
-  resolved "https://registry.yarnpkg.com/@alicloud/pop-core/-/pop-core-1.7.8.tgz#f7d0eea504466039abcbb6e1476de0f02b629168"
-  integrity sha512-ADfsca7of+pNh5R1+sftF4CoC8RQKarHVUYdB5SkT92d8P8yJp934lgfC7OIknQH6v9nLWUdsF093xgwyJcPKA==
+"@alicloud/pop-core@^1.7.9":
+  version "1.7.9"
+  resolved "https://registry.yarnpkg.com/@alicloud/pop-core/-/pop-core-1.7.9.tgz#97c0c5bb591894feda87e8a82d45c117bebbde13"
+  integrity sha512-WKeil0O51ee1EbCcYt65vPYo6eWcDn7dfmXlCMb/GbNDq0MvVheQVS/uAeeUipRXt8jGMc58FXeQxXfsFqlRZg==
   dependencies:
     debug "^3.1.0"
     httpx "^2.1.2"
@@ -708,10 +708,10 @@
   resolved "https://registry.yarnpkg.com/@nestjs/passport/-/passport-6.1.1.tgz#991b8736c0ebffabb85a6455f0288055e5b52755"
   integrity sha512-wMhvi3Ru965nftCLUhFUqWNwyzSxVDmGgTEYVyWbOOmHFjNg5US47jzV2NresuUP2vjgg8J8S6DviKTVuLfkRw==
 
-"@nestjs/platform-express@^6.10.11":
-  version "6.10.11"
-  resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-6.10.11.tgz#d21a3620e9164e4c4469e8c7311e04841e53aa23"
-  integrity sha512-J4Y1A3DVWW6WukummhMK6ER03H7S3m12a938tmJjDqGBAuDInFS4a6t0lFe0ivJLfvlTU9xjZ0PU7Z+VhDt6aQ==
+"@nestjs/platform-express@^6.10.14":
+  version "6.10.14"
+  resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-6.10.14.tgz#1ae544c8668545c2707c094d2de7c4ca98c2ea48"
+  integrity sha512-0E31f9FeKhcbhNZaUh4IrkJt06uGR3PnWVBya8yewlsWBtpXORVOE5yJZnw5Q5QZhdUcN79gZeVZn2WOoViE3Q==
   dependencies:
     body-parser "1.19.0"
     cors "2.8.5"
@@ -729,10 +729,10 @@
     ts-morph "^4.0.0"
     typescript "3.4.5"
 
-"@nestjs/testing@^6.10.11":
-  version "6.10.11"
-  resolved "https://registry.yarnpkg.com/@nestjs/testing/-/testing-6.10.11.tgz#ded7efb9a448799e4307cb95c892047c3b4c8485"
-  integrity sha512-M9ZfneIRzTGxg+BZWzxN+GsVWxTXeQCF78zbqOpsxHzDhRmBHWbNCDIbDpESAvj32Ul/olhaMJhqwobCsNcNpg==
+"@nestjs/testing@^6.10.14":
+  version "6.10.14"
+  resolved "https://registry.yarnpkg.com/@nestjs/testing/-/testing-6.10.14.tgz#f78b92821a35fc1f3acd96e734994856bb15a185"
+  integrity sha512-jKzT9eAIJ6xeYXd/Jxtr7lgcixqq6ArNFnzhlM7FeHe/24wFBfWLfTCHe1GJoUo381Y5tPYw3pDr4yELp/Vo9Q==
   dependencies:
     optional "0.1.4"
 
@@ -12620,10 +12620,10 @@ webpack@4.41.2:
     watchpack "^1.6.0"
     webpack-sources "^1.4.1"
 
-webpack@^4.41.3:
-  version "4.41.3"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.41.3.tgz#cb7592c43080337dbc9be9e98fc6478eb3981026"
-  integrity sha512-EcNzP9jGoxpQAXq1VOoTet0ik7/VVU1MovIfcUSAjLowc7GhcQku/sOXALvq5nPpSei2HF6VRhibeJSC3i/Law==
+webpack@^4.41.5:
+  version "4.41.5"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.41.5.tgz#3210f1886bce5310e62bb97204d18c263341b77c"
+  integrity sha512-wp0Co4vpyumnp3KlkmpM5LWuzvZYayDwM2n17EHFr4qxBBbRokC7DJawPJC7TfSFZ9HZ6GsdH40EBj4UV0nmpw==
   dependencies:
     "@webassemblyjs/ast" "1.8.5"
     "@webassemblyjs/helper-module-context" "1.8.5"

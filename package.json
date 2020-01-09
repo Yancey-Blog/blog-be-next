@@ -28,7 +28,7 @@
     "codecov": "node_modules/.bin/codecov -t 7b33b616-c7c6-465f-a858-91ca93071f98"
   },
   "dependencies": {
-    "@alicloud/pop-core": "^1.7.8",
+    "@alicloud/pop-core": "^1.7.9",
     "@hapi/joi": "^16.1.8",
     "@nestjs/common": "^6.10.8",
     "@nestjs/core": "^6.10.14",
@@ -36,7 +36,7 @@
     "@nestjs/jwt": "^6.1.1",
     "@nestjs/mongoose": "^6.1.2",
     "@nestjs/passport": "^6.1.1",
-    "@nestjs/platform-express": "^6.10.11",
+    "@nestjs/platform-express": "^6.10.14",
     "@nestjs/typeorm": "^6.2.0",
     "ali-oss": "^6.3.1",
     "apollo-server-express": "^2.9.13",
@@ -73,7 +73,7 @@
     "@compodoc/compodoc": "^1.1.11",
     "@nestjs/cli": "^6.12.9",
     "@nestjs/schematics": "^6.7.5",
-    "@nestjs/testing": "^6.10.11",
+    "@nestjs/testing": "^6.10.14",
     "@types/ali-oss": "^6.0.4",
     "@types/bcrypt": "^3.0.0",
     "@types/csurf": "^1.9.36",
@@ -113,7 +113,7 @@
     "ts-node": "^8.5.4",
     "tsconfig-paths": "^3.9.0",
     "typescript": "^3.7.3",
-    "webpack": "^4.41.3",
+    "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
     "webpack-node-externals": "^1.7.2"
   },
