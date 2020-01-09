@@ -39,9 +39,14 @@ export class PlayerService {
   }
 
   public async batchDelete(ids: string[]): Promise<BatchDeleteModel> {
-    return this.playerModel.deleteMany({
+    const res = await this.playerModel.deleteMany({
       _id: { $in: ids },
     })
+
+    return {
+      ...res,
+      ids,
+    }
   }
 
   public async batchUpdate(ids: string[]): Promise<BatchUpdateModel> {
