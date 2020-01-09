@@ -3,7 +3,7 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
-type AnnouncementsModel {
+type AnnouncementModel {
   _id: String!
   content: String!
   createdAt: String!
@@ -85,9 +85,9 @@ type LiveTourModel {
 }
 
 type Mutation {
-  createAnnouncement(input: CreateAnnouncementInput!): AnnouncementsModel!
-  updateAnnouncementById(input: UpdateAnnouncementInput!): AnnouncementsModel!
-  deleteAnnouncementById(id: ID!): AnnouncementsModel!
+  createAnnouncement(input: CreateAnnouncementInput!): AnnouncementModel!
+  updateAnnouncementById(input: UpdateAnnouncementInput!): AnnouncementModel!
+  deleteAnnouncementById(id: ID!): AnnouncementModel!
   deleteAnnouncements(ids: [ID!]!): BatchDeleteModel!
   sendSMS(input: SendSMSInput!): SendSMSRes!
   validateSMS(input: ValidateSMSInput!): ValidateSMSRes!
@@ -137,8 +137,8 @@ type PlayerModel {
 }
 
 type Query {
-  getAnnouncements: [AnnouncementsModel!]!
-  getAnnouncementById(id: ID!): AnnouncementsModel!
+  getAnnouncements: [AnnouncementModel!]!
+  getAnnouncementById(id: ID!): AnnouncementModel!
   getAllSMS: [SMSModel!]!
   getOpenSources: [OpenSourceModel!]!
   getOpenSourceById(id: ID!): OpenSourceModel!

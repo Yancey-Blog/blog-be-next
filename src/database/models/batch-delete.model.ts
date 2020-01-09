@@ -11,7 +11,6 @@ export class BatchDeleteModel {
   @Field({ nullable: true })
   public readonly deletedCount?: number
 
-  // FIXME: ids 不是可选参数
   @Field(() => ID)
-  public readonly ids?: string[]
+  public readonly ids: string[]
 }
