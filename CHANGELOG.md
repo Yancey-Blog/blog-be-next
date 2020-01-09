@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.2](https://github.com/Yancey-Blog/blog-be-next/compare/v0.9.1...v0.9.2) (2020-01-09)
+
+
+### Features
+
+* batchDelete return selectIds ([8cdbf9a](https://github.com/Yancey-Blog/blog-be-next/commit/8cdbf9a7a86eb76154c6c80b36e38fbc74bca774))
+* update AnnouncementModel ([f3ee708](https://github.com/Yancey-Blog/blog-be-next/commit/f3ee708d891af72d0421fcb4c0f32e6a6b76d3b7))
+* update batchDelete of best-albums ([7a5026e](https://github.com/Yancey-Blog/blog-be-next/commit/7a5026e3a53bd709122d13a4f9362eeedbe701b0))
+* update batchDelete of live-tours ([7ddb475](https://github.com/Yancey-Blog/blog-be-next/commit/7ddb4759e99a17e0b9c8565e60288a5f337208e5))
+* update batchDelete of player ([839fd3c](https://github.com/Yancey-Blog/blog-be-next/commit/839fd3ce61f5fad276a24891d562972b3098c952))
+* update batchDelete of yancey-music ([140eafe](https://github.com/Yancey-Blog/blog-be-next/commit/140eafeea4f71d03fa8425d53842c331d2602927))
+* update BatchDeleteModel ([5abdda7](https://github.com/Yancey-Blog/blog-be-next/commit/5abdda71bd2057ccbb94c8c8257f8e1a25d943b8))
+* update batchUpdate of player ([8a80a77](https://github.com/Yancey-Blog/blog-be-next/commit/8a80a77025ffc237f64182026e2184ab78e23457))
+
 ### [0.9.1](https://github.com/Yancey-Blog/blog-be-next/compare/v0.9.0...v0.9.1) (2020-01-09)
 
 
