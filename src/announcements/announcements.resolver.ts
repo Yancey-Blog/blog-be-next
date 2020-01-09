@@ -3,49 +3,49 @@ import { ID } from 'type-graphql'
 // import { PubSub } from 'apollo-server-express'
 // import { RecipesArgs } from './dtos/recipes.args'
 import { AnnouncementsService } from './announcements.service'
-import { AnnouncementsModel } from './models/announcements.model'
+import { AnnouncementModel } from './models/announcements.model'
 import { CreateAnnouncementInput } from './dtos/create-announcement.input'
 import { UpdateAnnouncementInput } from './dtos/update-announcement.input'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'
 
 // const pubSub = new PubSub();
 
-@Resolver(() => AnnouncementsModel)
+@Resolver(() => AnnouncementModel)
 export class AnnouncementsResolver {
   constructor(private readonly announcementsService: AnnouncementsService) {
     this.announcementsService = announcementsService
   }
 
-  @Query(() => [AnnouncementsModel])
-  public async getAnnouncements(): Promise<AnnouncementsModel[]> {
+  @Query(() => [AnnouncementModel])
+  public async getAnnouncements(): Promise<AnnouncementModel[]> {
     return this.announcementsService.findAll()
   }
 
-  @Query(() => AnnouncementsModel)
+  @Query(() => AnnouncementModel)
   public async getAnnouncementById(
     @Args({ name: 'id', type: () => ID }) id: string,
-  ): Promise<AnnouncementsModel> {
+  ): Promise<AnnouncementModel> {
     return this.announcementsService.findOneById(id)
   }
 
-  @Mutation(() => AnnouncementsModel)
+  @Mutation(() => AnnouncementModel)
   public async createAnnouncement(
     @Args('input') input: CreateAnnouncementInput,
-  ): Promise<AnnouncementsModel> {
+  ): Promise<AnnouncementModel> {
     return this.announcementsService.create(input)
   }
 
-  @Mutation(() => AnnouncementsModel)
+  @Mutation(() => AnnouncementModel)
   public async updateAnnouncementById(
     @Args('input') input: UpdateAnnouncementInput,
-  ): Promise<AnnouncementsModel> {
+  ): Promise<AnnouncementModel> {
     return this.announcementsService.update(input)
   }
 
-  @Mutation(() => AnnouncementsModel)
+  @Mutation(() => AnnouncementModel)
   public async deleteAnnouncementById(
     @Args({ name: 'id', type: () => ID }) id: string,
-  ): Promise<AnnouncementsModel> {
+  ): Promise<AnnouncementModel> {
     return this.announcementsService.deleteOneById(id)
   }
 
@@ -54,16 +54,16 @@ export class AnnouncementsResolver {
     return this.announcementsService.batchDelete(ids)
   }
 
-  // @Mutation(returns => AnnouncementsModel)
+  // @Mutation(returns => AnnouncementModel)
   // async addRecipe(
   //   @Args('newRecipeData') newRecipeData: NewRecipeInput,
-  // ): Promise<AnnouncementsModel> {
+  // ): Promise<AnnouncementModel> {
   //   const recipe = await this.announcementsService.create(newRecipeData);
   //   pubSub.publish('recipeAdded', { recipeAdded: recipe });
   //   return recipe;
   // }
 
-  // @Subscription(returns => AnnouncementsModel)
+  // @Subscription(returns => AnnouncementModel)
   // recipeAdded() {
   //   return pubSub.asyncIterator('recipeAdded');
   // }
