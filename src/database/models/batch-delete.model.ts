@@ -1,4 +1,4 @@
-import { Field, ObjectType } from 'type-graphql'
+import { Field, ObjectType, ID } from 'type-graphql'
 
 @ObjectType()
 export class BatchDeleteModel {
@@ -10,4 +10,8 @@ export class BatchDeleteModel {
 
   @Field({ nullable: true })
   public readonly deletedCount?: number
+
+  // FIXME: ids 不是可选参数
+  @Field(() => ID)
+  public readonly ids?: string[]
 }
