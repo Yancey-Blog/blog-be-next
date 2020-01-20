@@ -63,7 +63,7 @@
     "rxjs": "^6.5.3",
     "serve-favicon": "^2.5.0",
     "speakeasy": "^2.0.0",
-    "type-graphql": "^0.17.5",
+    "type-graphql": "^0.17.6",
     "uuid": "^3.3.3",
     "yancey-js-util": "^1.1.1"
   },
