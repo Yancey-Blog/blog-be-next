@@ -706,10 +706,10 @@
     "@types/jsonwebtoken" "7.2.8"
     jsonwebtoken "8.4.0"
 
-"@nestjs/mongoose@^6.1.2":
-  version "6.1.2"
-  resolved "https://registry.yarnpkg.com/@nestjs/mongoose/-/mongoose-6.1.2.tgz#fe1c227f5c1fd0f5c9be5c4e37b2897f744bc0b0"
-  integrity sha512-BkbkguvaPPGbL/41lK6P22DaQodBC9Yv9rUAmNlQVShChtwss7/cGj68AKC3jEoidrx75wCyDO3P8Tp6pggE4w==
+"@nestjs/mongoose@^6.2.1":
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/@nestjs/mongoose/-/mongoose-6.2.1.tgz#1e7f7f1870f3b887a8a8aca39accd9be842ee7e8"
+  integrity sha512-niyxy+Z9psPOecvZZv4YUDLjm9tb089hjZX9Ok1R//hLrQHhMU+AxKd7ppBBf9BUX4bsp00MDysCaEG1csE06A==
 
 "@nestjs/passport@^6.1.1":
   version "6.1.1"
