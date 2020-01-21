@@ -29,15 +29,15 @@ export class SMSService {
     this.isEnvTest = configService.isEnvTest
 
     const {
-      ALI_SMS_ACCESS_KEY_ID,
-      ALI_SMS_ACCESS_KEY_SECRET,
+      ALI_ACCESS_KEY_ID,
+      ALI_ACCESS_KEY_SECRET,
       ALI_SMS_SIGN_NAME,
       ALI_SMS_TEMPLATE_CODE,
     } = configService.getAliSMSKeys()
 
     this.sms = new AliSMS({
-      accessKeyId: ALI_SMS_ACCESS_KEY_ID,
-      accessKeySecret: ALI_SMS_ACCESS_KEY_SECRET,
+      accessKeyId: ALI_ACCESS_KEY_ID,
+      accessKeySecret: ALI_ACCESS_KEY_SECRET,
       endpoint: ALI_SMS_END_POINT,
       apiVersion: ALI_SMS_API_VERSION,
     })
