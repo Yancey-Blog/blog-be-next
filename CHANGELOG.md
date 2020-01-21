@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.3](https://github.com/Yancey-Blog/blog-be-next/compare/v0.9.2...v0.9.3) (2020-01-21)
+
+
+### Bug Fixes
+
+* fix env config ([29ceafe](https://github.com/Yancey-Blog/blog-be-next/commit/29ceafe920e3750a8c7e814f1c94867f2bfda50f))
+
 ### [0.9.2](https://github.com/Yancey-Blog/blog-be-next/compare/v0.9.1...v0.9.2) (2020-01-09)
 
 
