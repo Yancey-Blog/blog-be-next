@@ -1,7 +1,7 @@
 import dotenv from 'dotenv'
 import Joi, { ObjectSchema } from '@hapi/joi'
 import fs from 'fs'
-import { AliOSSKey, AliSMSKey } from './interfaces/ali-keys.interface'
+import { AliOSSKey, AliSMSKey, AliKey } from './interfaces/ali-keys.interface'
 import { BandwagonKey } from './interfaces/bandwagon-keys.interface'
 
 export type EnvConfig = Record<string, string>
@@ -37,18 +37,23 @@ export class ConfigService {
     return this.isEnvProduction ? `${prefix}${auth}${connection}` : `${prefix}${connection}`
   }
 
+  public getAliKeys(): AliKey {
+    return {
+      ALI_ACCESS_KEY_ID: this.get('ALI_ACCESS_KEY_ID'),
+      ALI_ACCESS_KEY_SECRET: this.get('ALI_ACCESS_KEY_SECRET'),
+    }
+  }
+
   public getAliOSSKeys(): AliOSSKey {
     return {
-      ALI_OSS_ACCESS_KEY_ID: this.get('ALI_OSS_ACCESS_KEY_ID'),
-      ALI_OSS_ACCESS_KEY_SECRET: this.get('ALI_OSS_ACCESS_KEY_SECRET'),
+      ...this.getAliKeys(),
       ALI_OSS_BUCKET: this.get('ALI_OSS_BUCKET'),
     }
   }
 
   public getAliSMSKeys(): AliSMSKey {
     return {
-      ALI_SMS_ACCESS_KEY_ID: this.get('ALI_SMS_ACCESS_KEY_ID'),
-      ALI_SMS_ACCESS_KEY_SECRET: this.get('ALI_SMS_ACCESS_KEY_SECRET'),
+      ...this.getAliKeys(),
       ALI_SMS_SIGN_NAME: this.get('ALI_SMS_SIGN_NAME'),
       ALI_SMS_TEMPLATE_CODE: this.get('ALI_SMS_TEMPLATE_CODE'),
     }
@@ -80,12 +85,10 @@ export class ConfigService {
       BANDWAGON_SERVER_ID: Joi.string(),
       GOOGLE_RECAPTCHA_SECRET_KEY: Joi.string(),
       GOOGLE_RECAPTCHA_SITE_KEY: Joi.string(),
-      ALI_OSS_ACCESS_KEY_ID: Joi.string(),
-      ALI_OSS_ACCESS_KEY_SECRET: Joi.string(),
+      ALI_ACCESS_KEY_ID: Joi.string(),
+      ALI_ACCESS_KEY_SECRET: Joi.string(),
       ALI_OSS_BUCKET: Joi.string(),
-      ALI_SMS_ACCESS_KEY_ID: Joi.string(),
       ALI_SMS_SIGN_NAME: Joi.string(),
-      ALI_SMS_ACCESS_KEY_SECRET: Joi.string(),
       ALI_SMS_TEMPLATE_CODE: Joi.string(),
       JWT_SECRET_KEY: Joi.string(),
     })
