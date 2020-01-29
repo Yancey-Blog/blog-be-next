@@ -1,8 +1,10 @@
-import { Injectable, ConflictException, UnauthorizedException } from '@nestjs/common'
+import { Injectable } from '@nestjs/common'
+import { ForbiddenError, AuthenticationError } from 'apollo-server-express'
 import { JwtService } from '@nestjs/jwt'
 import { UsersService } from '../users/users.service'
 import { Roles } from '../users/interfaces/user.interface'
 import { LoginInput } from './dtos/login.input'
+import { RegisterInput } from './dtos/register.input'
 
 @Injectable()
 export class AuthService {
@@ -22,14 +24,18 @@ export class AuthService {
       const payload = { email, sub: res._id }
       return { ...res, authorization: this.jwtService.sign(payload) }
     }
-    throw new UnauthorizedException()
+    throw new AuthenticationError('email or password error!')
   }
 
-  public async register(registerInput: LoginInput) {
-    const curUser = await this.usersService.findOneByEmail(registerInput.email)
+  public async register(registerInput: RegisterInput) {
+    const { email, username } = registerInput
 
-    if (curUser) {
-      throw new ConflictException()
+    const curEmail = await this.usersService.findOneByEmail(email)
+
+    const curUser = await this.usersService.findOneByUserName(username)
+
+    if (curUser || curEmail) {
+      throw new ForbiddenError('username is already taken!')
     } else {
       const count = await this.usersService.getUserCount()
       const params = count === 0 ? { ...registerInput, role: Roles.SUPERUSER } : registerInput

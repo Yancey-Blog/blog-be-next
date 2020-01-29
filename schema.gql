@@ -104,7 +104,7 @@ type LoginModel {
 }
 
 type Mutation {
-  register(input: LoginInput!): LoginModel!
+  register(input: RegisterInput!): LoginModel!
   createAnnouncement(input: CreateAnnouncementInput!): AnnouncementModel!
   updateAnnouncementById(input: UpdateAnnouncementInput!): AnnouncementModel!
   deleteAnnouncementById(id: ID!): AnnouncementModel!
@@ -173,6 +173,12 @@ type Query {
   getBestAlbumById(id: ID!): BestAlbumModel!
   getPlayer: [PlayerModel!]!
   getPlayerById(id: ID!): PlayerModel!
+}
+
+input RegisterInput {
+  email: String!
+  username: String!
+  password: String!
 }
 
 input SendSMSInput {
