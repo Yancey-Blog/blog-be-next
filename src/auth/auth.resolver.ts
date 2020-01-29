@@ -13,4 +13,9 @@ export class AuthResolver {
   public async login(@Args('input') input: LoginInput) {
     return this.authService.login(input)
   }
+
+  @Mutation(() => LoginModel)
+  public async register(@Args('input') input: LoginInput) {
+    return this.authService.register(input)
+  }
 }

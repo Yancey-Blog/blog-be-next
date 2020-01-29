@@ -2,7 +2,6 @@ import { Injectable, ConflictException, UnauthorizedException } from '@nestjs/co
 import { JwtService } from '@nestjs/jwt'
 import { UsersService } from '../users/users.service'
 import { Roles } from '../users/interfaces/user.interface'
-import { CreateUserDto } from '../users/dtos/createUser.dto'
 import { LoginInput } from './dtos/login.input'
 
 @Injectable()
@@ -26,14 +25,14 @@ export class AuthService {
     throw new UnauthorizedException()
   }
 
-  public async register(createUserDto: CreateUserDto) {
-    const curUser = await this.usersService.findOneByEmail(createUserDto.email)
+  public async register(registerInput: LoginInput) {
+    const curUser = await this.usersService.findOneByEmail(registerInput.email)
 
     if (curUser) {
       throw new ConflictException()
     } else {
       const count = await this.usersService.getUserCount()
-      const params = count === 0 ? { ...createUserDto, role: Roles.SUPERUSER } : createUserDto
+      const params = count === 0 ? { ...registerInput, role: Roles.SUPERUSER } : registerInput
       this.usersService.create(params)
     }
   }
