@@ -3,6 +3,8 @@ import { JwtService } from '@nestjs/jwt'
 import { UsersService } from '../users/users.service'
 import { Roles } from '../users/interfaces/user.interface'
 import { CreateUserDto } from '../users/dtos/createUser.dto'
+import { LoginInput } from './dtos/login.input'
+
 @Injectable()
 export class AuthService {
   constructor(
@@ -13,8 +15,8 @@ export class AuthService {
     this.jwtService = jwtService
   }
 
-  public async login(createUserDto: CreateUserDto) {
-    const { email, password } = createUserDto
+  public async login(loginInput: LoginInput) {
+    const { email, password } = loginInput
     const res = await this.validateUser(email, password)
 
     if (res) {
