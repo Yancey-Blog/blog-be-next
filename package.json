@@ -82,7 +82,7 @@
     "@types/hapi__joi": "^16.0.8",
     "@types/helmet": "^0.0.45",
     "@types/jest": "^24.0.25",
-    "@types/mongoose": "^5.5.41",
+    "@types/mongoose": "^5.5.43",
     "@types/morgan": "^1.7.37",
     "@types/node": "^13.1.6",
     "@types/passport-jwt": "^3.0.3",
