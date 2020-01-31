@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.10.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.9.3...v0.10.0) (2020-01-31)
+
+
+### Features
+
+* finish register ([d0b8c60](https://github.com/Yancey-Blog/blog-be-next/commit/d0b8c60fc156a3d0a7701617dc7b64362fb7dfa9))
+* login from RESTful to GraghQL ([05671d8](https://github.com/Yancey-Blog/blog-be-next/commit/05671d85e1a8bec7d093ac4284c192e35f8bc208))
+* update register ([9821a8a](https://github.com/Yancey-Blog/blog-be-next/commit/9821a8a38ad0a25936ac91ba87a1add3ab70a4b5))
+* update Roles ([85a746f](https://github.com/Yancey-Blog/blog-be-next/commit/85a746f13c2bf1c215bc6214c7f1eafc412bd544))
+* use guards for module ([a5b3d35](https://github.com/Yancey-Blog/blog-be-next/commit/a5b3d35288081de9751e712e46ea818f3bfa9241))
+
 ### [0.9.3](https://github.com/Yancey-Blog/blog-be-next/compare/v0.9.2...v0.9.3) (2020-01-21)
 
 
