@@ -70,6 +70,10 @@ export class ConfigService {
     return this.get('JWT_SECRET_KEY')
   }
 
+  public getJWTExpiresTime(): number {
+    return this.get('JWT_EXPIRES_TIME')
+  }
+
   private validateEnvFile(envConfig: EnvConfig): EnvConfig {
     const envVarsSchema: ObjectSchema = Joi.object({
       NODE_ENV: Joi.string()
@@ -91,6 +95,7 @@ export class ConfigService {
       ALI_SMS_SIGN_NAME: Joi.string(),
       ALI_SMS_TEMPLATE_CODE: Joi.string(),
       JWT_SECRET_KEY: Joi.string(),
+      JWT_EXPIRES_TIME: Joi.number(),
     })
 
     const { error, value: validatedEnvConfig } = envVarsSchema.validate(envConfig)

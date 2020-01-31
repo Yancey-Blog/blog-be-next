@@ -7,7 +7,6 @@ import { UsersModule } from '../users/users.module'
 import { JwtStrategy } from './jwt.strategy'
 import { ConfigModule } from '../config/config.module'
 import { ConfigService } from '../config/config.service'
-import { EXPIRES_TIME } from '../shared/constants'
 
 const PassPortModule = PassportModule.register({
   defaultStrategy: 'jwt',
@@ -21,7 +20,7 @@ const PassPortModule = PassportModule.register({
     JwtModule.registerAsync({
       useFactory: async (configService: ConfigService) => ({
         secret: configService.getJWTSecretKey(),
-        signOptions: { expiresIn: EXPIRES_TIME },
+        signOptions: { expiresIn: configService.getJWTExpiresTime() },
       }),
       inject: [ConfigService],
     }),
