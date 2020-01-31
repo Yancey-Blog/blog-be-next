@@ -43,10 +43,9 @@ export class AuthService {
   private async validateUser(email: string, password?: string) {
     const user = await this.usersService.findOneByEmail(email)
     if (user && user.isValidPassword(password, user.password)) {
-      // eslint-disable-next-line
-      const { password, ...rest } = user.toObject()
+      const { password: Password, ...rest } = user.toObject()
       return rest
     }
-    throw new AuthenticationError('email or password error!')
+    throw new AuthenticationError('Email and password are not matching!')
   }
 }
