@@ -84,7 +84,27 @@ type LiveTourModel {
   updatedAt: String!
 }
 
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type LoginModel {
+  _id: ID!
+  authorization: String!
+  username: String!
+  email: String!
+  password: String!
+  role: Float!
+  avaterUrl: String!
+  phoneNumber: String!
+  isTOTP: Boolean!
+  createdAt: String!
+  updatedAt: String!
+}
+
 type Mutation {
+  register(input: RegisterInput!): LoginModel!
   createAnnouncement(input: CreateAnnouncementInput!): AnnouncementModel!
   updateAnnouncementById(input: UpdateAnnouncementInput!): AnnouncementModel!
   deleteAnnouncementById(id: ID!): AnnouncementModel!
@@ -137,6 +157,7 @@ type PlayerModel {
 }
 
 type Query {
+  login(input: LoginInput!): LoginModel!
   getAnnouncements: [AnnouncementModel!]!
   getAnnouncementById(id: ID!): AnnouncementModel!
   getAllSMS: [SMSModel!]!
@@ -152,6 +173,12 @@ type Query {
   getBestAlbumById(id: ID!): BestAlbumModel!
   getPlayer: [PlayerModel!]!
   getPlayerById(id: ID!): PlayerModel!
+}
+
+input RegisterInput {
+  email: String!
+  username: String!
+  password: String!
 }
 
 input SendSMSInput {

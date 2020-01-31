@@ -6,10 +6,10 @@ export enum TwoFactorAuthentications {
 }
 
 export enum Roles {
-  SUPERUSER,
-  ADMIN,
-  USER,
-  NOT_CERTIFIED,
+  SUPERUSER = 0b0000000000000,
+  ADMIN = 0b0000000000001,
+  USER = 0b0000000000010,
+  NOT_CERTIFIED = 0b0000000000100,
 }
 
 export interface User extends Document {
