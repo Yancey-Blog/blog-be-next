@@ -20,11 +20,8 @@ export class AuthService {
     const { email, password } = loginInput
     const res = await this.validateUser(email, password)
 
-    if (res) {
-      const payload = { email, sub: res._id }
-      return { ...res, authorization: this.jwtService.sign(payload) }
-    }
-    throw new AuthenticationError('email or password error!')
+    const payload = { email, sub: res._id }
+    return { ...res, authorization: this.jwtService.sign(payload) }
   }
 
   public async register(registerInput: RegisterInput) {
@@ -50,6 +47,6 @@ export class AuthService {
       const { password, ...rest } = user.toObject()
       return rest
     }
-    return null
+    throw new AuthenticationError('email or password error!')
   }
 }

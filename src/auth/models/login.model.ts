@@ -9,7 +9,7 @@ export class LoginModel {
   public readonly authorization: string
 
   @Field()
-  username: string
+  public readonly username: string
 
   @Field()
   public readonly email: string

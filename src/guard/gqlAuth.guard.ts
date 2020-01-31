@@ -5,9 +5,12 @@ import { GqlExecutionContext } from '@nestjs/graphql'
 
 @Injectable()
 export class GqlAuthGuard extends AuthGuard('jwt') implements CanActivate {
-  // FIXME: 在这里做校验？
-  // public canActivate(context: ExecutionContext): boolean | Promise<boolean> {
-  //   throw new AuthenticationError('Authentication Error!')
+  // public async canActivate(context: ExecutionContext): Promise<boolean> {
+  //   try {
+  //     return (await super.canActivate(context)) as boolean
+  //   } catch (e) {
+  //     throw new AuthenticationError('You are not logged-in.')
+  //   }
   // }
 
   public getRequest(context: ExecutionContext) {
