@@ -1,3 +1,4 @@
+import { UseGuards } from '@nestjs/common'
 import { Args, Query, Resolver, Mutation } from '@nestjs/graphql'
 import { ID } from 'type-graphql'
 import { AnnouncementsService } from './announcements.service'
@@ -5,6 +6,7 @@ import { AnnouncementModel } from './models/announcements.model'
 import { CreateAnnouncementInput } from './dtos/create-announcement.input'
 import { UpdateAnnouncementInput } from './dtos/update-announcement.input'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'
+import { GqlAuthGuard } from '../guard/gqlAuth.guard'
 
 @Resolver(() => AnnouncementModel)
 export class AnnouncementsResolver {
@@ -25,6 +27,7 @@ export class AnnouncementsResolver {
   }
 
   @Mutation(() => AnnouncementModel)
+  @UseGuards(GqlAuthGuard)
   public async createAnnouncement(
     @Args('input') input: CreateAnnouncementInput,
   ): Promise<AnnouncementModel> {
@@ -32,6 +35,7 @@ export class AnnouncementsResolver {
   }
 
   @Mutation(() => AnnouncementModel)
+  @UseGuards(GqlAuthGuard)
   public async updateAnnouncementById(
     @Args('input') input: UpdateAnnouncementInput,
   ): Promise<AnnouncementModel> {
@@ -39,6 +43,7 @@ export class AnnouncementsResolver {
   }
 
   @Mutation(() => AnnouncementModel)
+  @UseGuards(GqlAuthGuard)
   public async deleteAnnouncementById(
     @Args({ name: 'id', type: () => ID }) id: string,
   ): Promise<AnnouncementModel> {
@@ -46,6 +51,7 @@ export class AnnouncementsResolver {
   }
 
   @Mutation(() => BatchDeleteModel)
+  @UseGuards(GqlAuthGuard)
   public async deleteAnnouncements(@Args({ name: 'ids', type: () => [ID] }) ids: string[]) {
     return this.announcementsService.batchDelete(ids)
   }
