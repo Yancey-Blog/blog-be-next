@@ -1,14 +1,10 @@
 import { Args, Query, Resolver, Mutation } from '@nestjs/graphql'
 import { ID } from 'type-graphql'
-// import { PubSub } from 'apollo-server-express'
-// import { RecipesArgs } from './dtos/recipes.args'
 import { AnnouncementsService } from './announcements.service'
 import { AnnouncementModel } from './models/announcements.model'
 import { CreateAnnouncementInput } from './dtos/create-announcement.input'
 import { UpdateAnnouncementInput } from './dtos/update-announcement.input'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'
-
-// const pubSub = new PubSub();
 
 @Resolver(() => AnnouncementModel)
 export class AnnouncementsResolver {
@@ -53,18 +49,4 @@ export class AnnouncementsResolver {
   public async deleteAnnouncements(@Args({ name: 'ids', type: () => [ID] }) ids: string[]) {
     return this.announcementsService.batchDelete(ids)
   }
-
-  // @Mutation(returns => AnnouncementModel)
-  // async addRecipe(
-  //   @Args('newRecipeData') newRecipeData: NewRecipeInput,
-  // ): Promise<AnnouncementModel> {
-  //   const recipe = await this.announcementsService.create(newRecipeData);
-  //   pubSub.publish('recipeAdded', { recipeAdded: recipe });
-  //   return recipe;
-  // }
-
-  // @Subscription(returns => AnnouncementModel)
-  // recipeAdded() {
-  //   return pubSub.asyncIterator('recipeAdded');
-  // }
 }
