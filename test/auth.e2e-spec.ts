@@ -8,8 +8,8 @@ import { ConfigModule } from '../src/config/config.module'
 import { ConfigService } from '../src/config/config.service'
 import { AuthModule } from '../src/Auth/Auth.module'
 import { AuthModel } from '../src/auth/models/auth.model'
-import { LoginInput } from 'src/auth/dtos/login.input'
-import { RegisterInput } from 'src/auth/dtos/register.input'
+import { LoginInput } from '../src/auth/dtos/login.input'
+import { RegisterInput } from '../src/auth/dtos/register.input'
 
 describe('AuthController (e2e)', () => {
   let app: NestApplication
