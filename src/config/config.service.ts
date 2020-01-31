@@ -4,7 +4,7 @@ import fs from 'fs'
 import { AliOSSKey, AliSMSKey, AliKey } from './interfaces/ali-keys.interface'
 import { BandwagonKey } from './interfaces/bandwagon-keys.interface'
 
-export type EnvConfig = Record<string, string>
+export type EnvConfig = Record<string, any>
 
 export class ConfigService {
   public readonly isEnvProduction: boolean
@@ -105,7 +105,7 @@ export class ConfigService {
     return validatedEnvConfig
   }
 
-  private get(key: string): string {
+  private get(key: string) {
     return this.envConfig[key]
   }
 }
