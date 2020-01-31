@@ -1,7 +1,7 @@
 import { Field, ID, ObjectType } from 'type-graphql'
 
 @ObjectType()
-export class LoginModel {
+export class AuthModel {
   @Field(() => ID)
   public readonly _id: string
 

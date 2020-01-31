@@ -10,6 +10,20 @@ type AnnouncementModel {
   updatedAt: String!
 }
 
+type AuthModel {
+  _id: ID!
+  authorization: String!
+  username: String!
+  email: String!
+  password: String!
+  role: Float!
+  avaterUrl: String!
+  phoneNumber: String!
+  isTOTP: Boolean!
+  createdAt: String!
+  updatedAt: String!
+}
+
 type BatchDeleteModel {
   ok: Float
   n: Float
@@ -89,22 +103,8 @@ input LoginInput {
   password: String!
 }
 
-type LoginModel {
-  _id: ID!
-  authorization: String!
-  username: String!
-  email: String!
-  password: String!
-  role: Float!
-  avaterUrl: String!
-  phoneNumber: String!
-  isTOTP: Boolean!
-  createdAt: String!
-  updatedAt: String!
-}
-
 type Mutation {
-  register(input: RegisterInput!): LoginModel!
+  register(input: RegisterInput!): AuthModel!
   createAnnouncement(input: CreateAnnouncementInput!): AnnouncementModel!
   updateAnnouncementById(input: UpdateAnnouncementInput!): AnnouncementModel!
   deleteAnnouncementById(id: ID!): AnnouncementModel!
@@ -157,7 +157,7 @@ type PlayerModel {
 }
 
 type Query {
-  login(input: LoginInput!): LoginModel!
+  login(input: LoginInput!): AuthModel!
   getAnnouncements: [AnnouncementModel!]!
   getAnnouncementById(id: ID!): AnnouncementModel!
   getAllSMS: [SMSModel!]!

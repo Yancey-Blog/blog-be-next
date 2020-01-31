@@ -3,14 +3,14 @@ import { Test, TestingModule } from '@nestjs/testing'
 import { MongooseModule } from '@nestjs/mongoose'
 import { GraphQLModule } from '@nestjs/graphql'
 import request from 'supertest'
-import { SCHEMA_GQL_FILE_NAME } from '../src/shared/constants'
-import { ConfigModule } from '../src/config/config.module'
-import { ConfigService } from '../src/config/config.service'
-import { AnnouncementsModule } from '../src/announcements/announcements.module'
-import { AnnouncementModel } from '../src/announcements/models/announcements.model'
-import { CreateAnnouncementInput } from '../src/announcements/dtos/create-announcement.input'
-import { UpdateAnnouncementInput } from '../src/announcements/dtos/update-announcement.input'
-import { BatchDeleteModel } from '../src/database/models/batch-delete.model'
+import { SCHEMA_GQL_FILE_NAME } from 'src/shared/constants'
+import { ConfigModule } from 'src/config/config.module'
+import { ConfigService } from 'src/config/config.service'
+import { AnnouncementsModule } from 'src/announcements/announcements.module'
+import { AnnouncementModel } from 'src/announcements/models/announcements.model'
+import { CreateAnnouncementInput } from 'src/announcements/dtos/create-announcement.input'
+import { UpdateAnnouncementInput } from 'src/announcements/dtos/update-announcement.input'
+import { BatchDeleteModel } from 'src/database/models/batch-delete.model'
 
 describe('AnnouncementsController (e2e)', () => {
   let app: NestApplication
@@ -34,6 +34,7 @@ describe('AnnouncementsController (e2e)', () => {
         }),
       ],
     }).compile()
+
     app = moduleFixture.createNestApplication()
     await app.init()
   })
