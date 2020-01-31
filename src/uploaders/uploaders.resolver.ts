@@ -1,10 +1,4 @@
-import {
-  Post,
-  Controller,
-  UseInterceptors,
-  UploadedFile,
-  BadRequestException,
-} from '@nestjs/common'
+import { Post, Controller, UseInterceptors, UploadedFile } from '@nestjs/common'
 import { FileInterceptor } from '@nestjs/platform-express'
 import { UploadersService } from './uploaders.service'
 import { IMulterFile } from './interfaces/multer.interface'

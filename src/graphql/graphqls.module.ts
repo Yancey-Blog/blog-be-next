@@ -18,7 +18,7 @@ import { SCHEMA_GQL_FILE_NAME } from '../shared/constants'
           return {
             message,
             path,
-            timestamp: new Date().toISOString(),
+            timestamp: new Date(),
           }
         },
       }),
