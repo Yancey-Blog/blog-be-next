@@ -27,7 +27,7 @@ export class AnnouncementsResolver {
   }
 
   @Mutation(() => AnnouncementModel)
-  // @UseGuards(GqlAuthGuard)
+  @UseGuards(GqlAuthGuard)
   public async createAnnouncement(
     @Args('input') input: CreateAnnouncementInput,
   ): Promise<AnnouncementModel> {
@@ -35,7 +35,7 @@ export class AnnouncementsResolver {
   }
 
   @Mutation(() => AnnouncementModel)
-  // @UseGuards(GqlAuthGuard)
+  @UseGuards(GqlAuthGuard)
   public async updateAnnouncementById(
     @Args('input') input: UpdateAnnouncementInput,
   ): Promise<AnnouncementModel> {
@@ -43,7 +43,7 @@ export class AnnouncementsResolver {
   }
 
   @Mutation(() => AnnouncementModel)
-  // @UseGuards(GqlAuthGuard)
+  @UseGuards(GqlAuthGuard)
   public async deleteAnnouncementById(
     @Args({ name: 'id', type: () => ID }) id: string,
   ): Promise<AnnouncementModel> {
@@ -51,7 +51,7 @@ export class AnnouncementsResolver {
   }
 
   @Mutation(() => BatchDeleteModel)
-  // @UseGuards(GqlAuthGuard)
+  @UseGuards(GqlAuthGuard)
   public async deleteAnnouncements(@Args({ name: 'ids', type: () => [ID] }) ids: string[]) {
     return this.announcementsService.batchDelete(ids)
   }

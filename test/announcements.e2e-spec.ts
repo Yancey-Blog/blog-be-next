@@ -72,6 +72,7 @@ describe('AnnouncementsController (e2e)', () => {
         operationName: null,
         query: createOneTypeDefs,
       })
+      .set('Authorization', 'Bearer ' + '')
       .expect(({ body }) => {
         const testData: AnnouncementModel = body.data.createAnnouncement
         id = testData._id

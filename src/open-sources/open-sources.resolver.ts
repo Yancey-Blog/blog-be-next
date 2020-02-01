@@ -25,25 +25,25 @@ export class OpenSourcesResolver {
   }
 
   @Mutation(() => OpenSourceModel)
-  // @UseGuards(GqlAuthGuard)
+  @UseGuards(GqlAuthGuard)
   public async createOpenSource(@Args('input') input: CreateOpenSourceInput) {
     return this.openSourcesService.create(input)
   }
 
   @Mutation(() => OpenSourceModel)
-  // @UseGuards(GqlAuthGuard)
+  @UseGuards(GqlAuthGuard)
   public async updateOpenSourceById(@Args('input') input: UpdateOpenSourceInput) {
     return this.openSourcesService.update(input)
   }
 
   @Mutation(() => OpenSourceModel)
-  // @UseGuards(GqlAuthGuard)
+  @UseGuards(GqlAuthGuard)
   public async deleteOpenSourceById(@Args({ name: 'id', type: () => ID }) id: string) {
     return this.openSourcesService.deleteOneById(id)
   }
 
   @Mutation(() => BatchDeleteModel)
-  // @UseGuards(GqlAuthGuard)
+  @UseGuards(GqlAuthGuard)
   public async deleteOpenSources(@Args({ name: 'ids', type: () => [ID] }) ids: string[]) {
     return this.openSourcesService.batchDelete(ids)
   }
