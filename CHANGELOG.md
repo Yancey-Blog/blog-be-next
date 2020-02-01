@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.11.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.10.0...v0.11.0) (2020-02-01)
+
+
+### Features
+
+* delete useless file ([98a6fbc](https://github.com/Yancey-Blog/blog-be-next/commit/98a6fbc36ca8731318731529e2a7ce9b7c990c55))
+* finish basic login and register ([d3d28cd](https://github.com/Yancey-Blog/blog-be-next/commit/d3d28cd31fcbc5def3c94c95d094b0347e0a6a20))
+* make JWT_EXPIRES_TIME from contanst to env ([d8a6e2c](https://github.com/Yancey-Blog/blog-be-next/commit/d8a6e2c2d97eed056d93222919084ed7ccc4609a))
+* support JWT for Announcement module ([e89e735](https://github.com/Yancey-Blog/blog-be-next/commit/e89e735287a52b8b8126c964213058bd5c433818))
+* update announcement module ([fee7776](https://github.com/Yancey-Blog/blog-be-next/commit/fee7776344287dc7a0bff05d4cf3944a6509b401))
+* update EnvConfig's types ([add742f](https://github.com/Yancey-Blog/blog-be-next/commit/add742fd61e3312472c509528075d4d4c2de23fa))
+* update JWT strategy ([9f17879](https://github.com/Yancey-Blog/blog-be-next/commit/9f178792f34d3c7f3b794c9dfeaea95a67ca4d5d))
+* update register logic ([c14bff5](https://github.com/Yancey-Blog/blog-be-next/commit/c14bff5a7e2476b01535b3886ac8122bb67139b5))
+* write e2e cases for auth module ([69067e6](https://github.com/Yancey-Blog/blog-be-next/commit/69067e6063c3880611f67371e540f96f84141be7))
+
 ## [0.10.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.9.3...v0.10.0) (2020-01-31)
 
 
