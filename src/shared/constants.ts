@@ -1,5 +1,3 @@
-export const EXPIRES_TIME = 3 * 24 * 60 * 60
-
 export const BANDWAGON_URL = 'https://api.64clouds.com/v1'
 
 export const BANDWAGON_SERVICE_INFO_URL = `${BANDWAGON_URL}/getLiveServiceInfo`
