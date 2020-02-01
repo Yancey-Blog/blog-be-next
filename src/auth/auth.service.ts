@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common'
 import { ForbiddenError, AuthenticationError } from 'apollo-server-express'
 import { JwtService } from '@nestjs/jwt'
 import { UsersService } from '../users/users.service'
-import { Roles } from '../users/interfaces/user.interface'
+import { Roles, User } from '../users/interfaces/user.interface'
 import { LoginInput } from './dtos/login.input'
 import { RegisterInput } from './dtos/register.input'
 
@@ -20,8 +20,7 @@ export class AuthService {
     const { email, password } = loginInput
     const res = await this.validateUser(email, password)
 
-    const payload = { email, sub: res._id }
-    return { ...res, authorization: this.jwtService.sign(payload) }
+    return this.generateJWT(email, res)
   }
 
   public async register(registerInput: RegisterInput) {
@@ -32,21 +31,29 @@ export class AuthService {
     const curUser = await this.usersService.findOneByUserName(username)
 
     if (curUser || curEmail) {
-      throw new ForbiddenError('username is already taken!')
+      throw new ForbiddenError('Email is already registered!')
     } else {
       const count = await this.usersService.getUserCount()
       const params = count === 0 ? { ...registerInput, role: Roles.SUPERUSER } : registerInput
-      this.usersService.create(params)
+      const res = await this.usersService.create(params)
+
+      return this.generateJWT(email, res)
     }
   }
 
-  private async validateUser(email: string, password?: string) {
+  private generateJWT(email: string, res: User) {
+    const { password, ...rest } = res.toObject()
+    const payload = { email, sub: res._id }
+    return { authorization: this.jwtService.sign(payload), ...rest }
+  }
+
+  private async validateUser(email: string, password: string) {
     const user = await this.usersService.findOneByEmail(email)
+
     if (user && user.isValidPassword(password, user.password)) {
-      // eslint-disable-next-line
-      const { password, ...rest } = user.toObject()
-      return rest
+      return user
     }
-    throw new AuthenticationError('email or password error!')
+
+    throw new AuthenticationError('Email and password are not matching!')
   }
 }
