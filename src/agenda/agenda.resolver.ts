@@ -15,6 +15,7 @@ export class AgendaResolver {
   }
 
   @Query(() => [AgendaModel])
+  @UseGuards(GqlAuthGuard)
   public async getAgenda(): Promise<AgendaModel[]> {
     return this.agendaService.findAll()
   }
