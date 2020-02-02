@@ -132,7 +132,6 @@ describe('PlayerController (e2e)', () => {
         expect(testData.length).toBeGreaterThan(0)
         expect(firstData._id).toBe(id)
         expect(firstData.title).toBe(createdData.title)
-        expect(firstData.title).toBe(createdData.title)
         expect(firstData.artist).toBe(createdData.artist)
         expect(firstData.lrc).toBe(createdData.lrc)
         expect(firstData.coverUrl).toBe(createdData.coverUrl)
