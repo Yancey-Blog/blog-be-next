@@ -1,5 +1,5 @@
 import { InputType, Field } from 'type-graphql'
-import { IsString, IsNotEmpty, IsDate } from 'class-validator'
+import { IsString, IsNotEmpty, IsDateString } from 'class-validator'
 
 @InputType()
 export class CreateAgendaInput {
@@ -9,19 +9,19 @@ export class CreateAgendaInput {
   public readonly title: string
 
   @Field()
-  @IsDate()
+  @IsDateString()
   @IsNotEmpty()
-  public readonly startDate: Date
+  public readonly startDate: string
 
   @Field()
-  @IsDate()
-  public readonly endDate?: Date
+  @IsDateString()
+  public readonly endDate?: string
 
   @Field()
   @IsString()
   public readonly rRule?: string
 
   @Field()
-  @IsDate()
-  public readonly exDate?: Date
+  @IsDateString()
+  public readonly exDate?: string
 }

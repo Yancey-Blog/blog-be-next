@@ -61,10 +61,10 @@ type BestAlbumModel {
 
 input CreateAgendaInput {
   title: String!
-  startDate: DateTime!
-  endDate: DateTime!
+  startDate: String!
+  endDate: String!
   rRule: String!
-  exDate: DateTime!
+  exDate: String!
 }
 
 input CreateAnnouncementInput {
@@ -276,10 +276,10 @@ type SMSModel {
 input UpdateAgendaInput {
   id: String!
   title: String!
-  startDate: DateTime!
-  endDate: DateTime!
+  startDate: String!
+  endDate: String!
   rRule: String!
-  exDate: DateTime!
+  exDate: String!
 }
 
 input UpdateAnnouncementInput {
