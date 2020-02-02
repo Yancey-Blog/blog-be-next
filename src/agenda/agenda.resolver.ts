@@ -5,7 +5,6 @@ import { AgendaService } from './agenda.service'
 import { AgendaModel } from './models/agenda.model'
 import { CreateAgendaInput } from './dtos/create-agenda.input'
 import { UpdateAgendaInput } from './dtos/update-agenda.input'
-import { BatchDeleteModel } from '../database/models/batch-delete.model'
 import { GqlAuthGuard } from '../guard/gqlAuth.guard'
 
 @Resolver(() => AgendaModel)
