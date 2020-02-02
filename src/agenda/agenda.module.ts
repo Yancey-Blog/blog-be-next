@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common'
 import { AgendaService } from './agenda.service'
-import { AgendaController } from './agenda.controller'
+import { AgendaController } from './agenda.resolver'
 
 @Module({
   providers: [AgendaService],

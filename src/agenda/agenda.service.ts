@@ -6,7 +6,7 @@ import { CreateAgendaInput } from './dtos/create-agenda.input'
 import { UpdateAgendaInput } from './dtos/update-agenda.input'
 
 @Injectable()
-export class AgendasService {
+export class AgendaService {
   constructor(
     @InjectModel('Agenda')
     private readonly agendaModel: Model<Agenda>,
