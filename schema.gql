@@ -3,6 +3,17 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+type AgendaModel {
+  _id: String!
+  title: String!
+  startDate: DateTime!
+  endDate: DateTime
+  rRule: String
+  exDate: DateTime
+  createdAt: String!
+  updatedAt: String!
+}
+
 type AnnouncementModel {
   _id: String!
   content: String!
@@ -48,6 +59,14 @@ type BestAlbumModel {
   updatedAt: String!
 }
 
+input CreateAgendaInput {
+  title: String!
+  startDate: DateTime!
+  endDate: DateTime!
+  rRule: String!
+  exDate: DateTime!
+}
+
 input CreateAnnouncementInput {
   content: String!
 }
@@ -88,6 +107,11 @@ input CreateYanceyMusicInput {
   posterUrl: String!
   releaseDate: String!
 }
+
+"""
+The javascript `Date` as string. Type represents date and time as the ISO Date string.
+"""
+scalar DateTime
 
 type LiveTourModel {
   _id: ID!
@@ -132,6 +156,9 @@ type Mutation {
   deletePlayerById(id: ID!): PlayerModel!
   deletePlayer(ids: [ID!]!): BatchDeleteModel!
   offlinePlayers(ids: [ID!]!): BatchUpdateModel!
+  createAgenda(input: CreateAgendaInput!): AgendaModel!
+  updateAgendaById(input: UpdateAgendaInput!): AgendaModel!
+  deleteAgendaById(id: ID!): AgendaModel!
 }
 
 type OpenSourceModel {
@@ -173,6 +200,7 @@ type Query {
   getBestAlbumById(id: ID!): BestAlbumModel!
   getPlayer: [PlayerModel!]!
   getPlayerById(id: ID!): PlayerModel!
+  getAgenda: [AgendaModel!]!
 }
 
 input RegisterInput {
@@ -243,6 +271,15 @@ type SMSModel {
   verificationCode: String!
   createdAt: String!
   updatedAt: String!
+}
+
+input UpdateAgendaInput {
+  id: String!
+  title: String!
+  startDate: DateTime!
+  endDate: DateTime!
+  rRule: String!
+  exDate: DateTime!
 }
 
 input UpdateAnnouncementInput {

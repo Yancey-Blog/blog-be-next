@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common'
+import { MongooseModule } from '@nestjs/mongoose'
+import { AgendaResolver } from './agenda.resolver'
 import { AgendaService } from './agenda.service'
-import { AgendaController } from './agenda.resolver'
+import { AgendaSchema } from './schemas/agenda.schemas'
 
 @Module({
-  providers: [AgendaService],
-  controllers: [AgendaController],
+  imports: [MongooseModule.forFeature([{ name: 'Agenda', schema: AgendaSchema }])],
+  providers: [AgendaService, AgendaResolver],
 })
 export class AgendaModule {}
