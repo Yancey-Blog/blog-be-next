@@ -30,3 +30,10 @@ mutation UpdateAgendaById {
     startDate
   }
 }
+
+mutation DeleteAgendaById {
+  deleteAgendaById(id: "f4b445d6-d569-4a29-a760-da497675db38") {
+    _id
+    title
+  }
+}
