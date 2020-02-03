@@ -32,7 +32,7 @@
     "@hapi/joi": "^17.1.0",
     "@nestjs/common": "^6.10.14",
     "@nestjs/core": "^6.11.1",
-    "@nestjs/graphql": "^6.5.3",
+    "@nestjs/graphql": "^6.5.4",
     "@nestjs/jwt": "^6.1.1",
     "@nestjs/mongoose": "^6.2.1",
     "@nestjs/passport": "^6.1.1",
