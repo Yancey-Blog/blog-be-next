@@ -13,15 +13,15 @@ export class CreateAgendaInput {
   @IsNotEmpty()
   public readonly startDate: string
 
-  @Field()
+  @Field({ nullable: true })
   @IsDateString()
   public readonly endDate?: string
 
-  @Field()
+  @Field({ nullable: true })
   @IsString()
   public readonly rRule?: string
 
-  @Field()
+  @Field({ nullable: true })
   @IsDateString()
   public readonly exDate?: string
 }

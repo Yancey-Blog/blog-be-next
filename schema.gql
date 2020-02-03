@@ -62,9 +62,9 @@ type BestAlbumModel {
 input CreateAgendaInput {
   title: String!
   startDate: String!
-  endDate: String!
-  rRule: String!
-  exDate: String!
+  endDate: String
+  rRule: String
+  exDate: String
 }
 
 input CreateAnnouncementInput {
@@ -272,9 +272,9 @@ input UpdateAgendaInput {
   id: String!
   title: String!
   startDate: String!
-  endDate: String!
-  rRule: String!
-  exDate: String!
+  endDate: String
+  rRule: String
+  exDate: String
 }
 
 input UpdateAnnouncementInput {
