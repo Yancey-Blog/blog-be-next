@@ -36,7 +36,7 @@
     "@nestjs/jwt": "^6.1.1",
     "@nestjs/mongoose": "^6.2.1",
     "@nestjs/passport": "^6.1.1",
-    "@nestjs/platform-express": "^6.11.4",
+    "@nestjs/platform-express": "^6.11.5",
     "ali-oss": "^6.4.0",
     "apollo-server-express": "^2.9.16",
     "axios": "^0.19.1",
