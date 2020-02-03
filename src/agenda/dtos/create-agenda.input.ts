@@ -14,14 +14,11 @@ export class CreateAgendaInput {
   public readonly startDate: string
 
   @Field({ nullable: true })
-  @IsDateString()
   public readonly endDate?: string
 
   @Field({ nullable: true })
-  @IsString()
   public readonly rRule?: string
 
   @Field({ nullable: true })
-  @IsDateString()
   public readonly exDate?: string
 }
