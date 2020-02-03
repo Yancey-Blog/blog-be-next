@@ -9,20 +9,20 @@ export class AgendaModel {
   public title: string
 
   @Field({ nullable: false })
-  public startDate: string
+  public startDate: Date
 
   @Field({ nullable: true })
-  public endDate?: string
+  public endDate?: Date
 
   @Field({ nullable: true })
   public rRule?: string
 
   @Field({ nullable: true })
-  public exDate?: string
+  public exDate?: Date
 
   @Field({ nullable: false })
-  public createdAt: string
+  public createdAt: Date
 
   @Field({ nullable: false })
-  public updatedAt: string
+  public updatedAt: Date
 }
