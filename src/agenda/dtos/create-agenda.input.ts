@@ -19,7 +19,7 @@ export class CreateAgendaInput {
 
   @Field()
   @IsString()
-  public readonly notes: boolean
+  public readonly notes: string
 
   @Field({ nullable: true })
   public readonly endDate?: string

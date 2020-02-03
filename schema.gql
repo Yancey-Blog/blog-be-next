@@ -65,6 +65,7 @@ input CreateAgendaInput {
   title: String!
   startDate: String!
   allDay: Boolean!
+  notes: String!
   endDate: String
   rRule: String
   exDate: String
