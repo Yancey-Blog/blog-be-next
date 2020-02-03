@@ -25,9 +25,8 @@ export class UpdateAgendaInput {
   @IsBoolean()
   public readonly allDay: boolean
 
-  @Field()
-  @IsString()
-  public readonly notes: string
+  @Field({ nullable: true })
+  public readonly notes?: string
 
   @Field({ nullable: true })
   public readonly rRule?: string

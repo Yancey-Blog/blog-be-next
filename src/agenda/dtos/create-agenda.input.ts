@@ -17,9 +17,8 @@ export class CreateAgendaInput {
   @IsBoolean()
   public readonly allDay: boolean
 
-  @Field()
-  @IsString()
-  public readonly notes: string
+  @Field({ nullable: true })
+  public readonly notes?: string
 
   @Field({ nullable: true })
   public readonly endDate?: string

@@ -25,7 +25,7 @@ export const AgendaSchema = new mongoose.Schema(
     },
     notes: {
       type: String,
-      required: true,
+      required: false,
     },
     rRule: {
       type: String,

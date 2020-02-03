@@ -17,8 +17,8 @@ export class AgendaModel {
   @Field()
   public allDay: boolean
 
-  @Field()
-  public notes: string
+  @Field({ nullable: true })
+  public notes?: string
 
   @Field({ nullable: true })
   public rRule?: string

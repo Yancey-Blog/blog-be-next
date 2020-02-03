@@ -9,7 +9,7 @@ type AgendaModel {
   startDate: DateTime!
   endDate: DateTime
   allDay: Boolean!
-  notes: String!
+  notes: String
   rRule: String
   exDate: DateTime
   createdAt: DateTime!
@@ -65,7 +65,7 @@ input CreateAgendaInput {
   title: String!
   startDate: String!
   allDay: Boolean!
-  notes: String!
+  notes: String
   endDate: String
   rRule: String
   exDate: String
@@ -282,6 +282,8 @@ input UpdateAgendaInput {
   title: String!
   startDate: String!
   endDate: String
+  allDay: Boolean!
+  notes: String
   rRule: String
   exDate: String
 }
