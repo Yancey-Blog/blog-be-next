@@ -24,13 +24,7 @@ export class AgendaService {
 
   public async update(dto: UpdateAgendaInput) {
     const { id, ...rest } = dto
-    return this.agendaModel.findByIdAndUpdate(
-      id,
-      {
-        rest,
-      },
-      { new: true },
-    )
+    return this.agendaModel.findByIdAndUpdate(id, rest, { new: true })
   }
 
   public async deleteOneById(id: string) {
