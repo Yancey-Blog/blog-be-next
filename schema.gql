@@ -279,10 +279,10 @@ type SMSModel {
 
 input UpdateAgendaInput {
   id: String!
-  title: String!
-  startDate: String!
+  title: String
+  startDate: String
   endDate: String
-  allDay: Boolean!
+  allDay: Boolean
   notes: String
   rRule: String
   exDate: String

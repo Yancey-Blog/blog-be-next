@@ -8,22 +8,17 @@ export class UpdateAgendaInput {
   @IsNotEmpty()
   public readonly id: string
 
-  @Field()
-  @IsString()
-  @IsNotEmpty()
-  public readonly title: string
+  @Field({ nullable: true })
+  public readonly title?: string
 
-  @Field()
-  @IsDateString()
-  @IsNotEmpty()
-  public readonly startDate: string
+  @Field({ nullable: true })
+  public readonly startDate?: string
 
   @Field({ nullable: true })
   public readonly endDate?: string
 
-  @Field()
-  @IsBoolean()
-  public readonly allDay: boolean
+  @Field({ nullable: true })
+  public readonly allDay?: boolean
 
   @Field({ nullable: true })
   public readonly notes?: string
