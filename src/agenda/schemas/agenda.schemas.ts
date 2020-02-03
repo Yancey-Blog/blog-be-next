@@ -19,6 +19,14 @@ export const AgendaSchema = new mongoose.Schema(
       type: Date,
       required: false,
     },
+    allDay: {
+      type: Boolean,
+      required: true,
+    },
+    notes: {
+      type: String,
+      required: true,
+    },
     rRule: {
       type: String,
       required: false,
