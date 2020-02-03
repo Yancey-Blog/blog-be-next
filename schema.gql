@@ -64,6 +64,7 @@ type BestAlbumModel {
 input CreateAgendaInput {
   title: String!
   startDate: String!
+  allDay: Boolean!
   endDate: String
   rRule: String
   exDate: String
