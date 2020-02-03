@@ -44,7 +44,7 @@ describe('AgendaController (e2e)', () => {
 
   const createdData: CreateAgendaInput = {
     title: 'metting',
-    startDate: new Date(),
+    startDate: new Date().toJSON(),
   }
 
   let id = ''
@@ -52,7 +52,7 @@ describe('AgendaController (e2e)', () => {
   const updatedData: UpdateAgendaInput = {
     id,
     title: 'exercise',
-    startDate: new Date(),
+    startDate: new Date().toJSON(),
   }
 
   const createDataString = JSON.stringify(createdData).replace(/"([^(")"]+)":/g, '$1:')

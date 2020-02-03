@@ -15,27 +15,25 @@ export class AgendaResolver {
 
   @Query(() => [AgendaModel])
   @UseGuards(GqlAuthGuard)
-  public async getAgenda(): Promise<AgendaModel[]> {
+  public async getAgenda() {
     return this.agendaService.findAll()
   }
 
   @Mutation(() => AgendaModel)
   @UseGuards(GqlAuthGuard)
-  public async createAgenda(@Args('input') input: CreateAgendaInput): Promise<AgendaModel> {
+  public async createAgenda(@Args('input') input: CreateAgendaInput) {
     return this.agendaService.create(input)
   }
 
   @Mutation(() => AgendaModel)
   @UseGuards(GqlAuthGuard)
-  public async updateAgendaById(@Args('input') input: UpdateAgendaInput): Promise<AgendaModel> {
+  public async updateAgendaById(@Args('input') input: UpdateAgendaInput) {
     return this.agendaService.update(input)
   }
 
   @Mutation(() => AgendaModel)
   @UseGuards(GqlAuthGuard)
-  public async deleteAgendaById(
-    @Args({ name: 'id', type: () => ID }) id: string,
-  ): Promise<AgendaModel> {
+  public async deleteAgendaById(@Args({ name: 'id', type: () => ID }) id: string) {
     return this.agendaService.deleteOneById(id)
   }
 }

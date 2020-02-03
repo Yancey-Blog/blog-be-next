@@ -6,10 +6,10 @@
 type AgendaModel {
   _id: String!
   title: String!
-  startDate: DateTime!
-  endDate: DateTime
+  startDate: String!
+  endDate: String
   rRule: String
-  exDate: DateTime
+  exDate: String
   createdAt: String!
   updatedAt: String!
 }
@@ -107,11 +107,6 @@ input CreateYanceyMusicInput {
   posterUrl: String!
   releaseDate: String!
 }
-
-"""
-The javascript `Date` as string. Type represents date and time as the ISO Date string.
-"""
-scalar DateTime
 
 type LiveTourModel {
   _id: ID!
