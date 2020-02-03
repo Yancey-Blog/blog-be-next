@@ -45,6 +45,7 @@ describe('AgendaController (e2e)', () => {
   const createdData: CreateAgendaInput = {
     title: 'metting',
     startDate: new Date().toJSON(),
+    allDay: false,
   }
 
   let id = ''

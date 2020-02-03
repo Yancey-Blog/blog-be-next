@@ -1,5 +1,5 @@
 import { InputType, Field } from 'type-graphql'
-import { IsString, IsNotEmpty, IsDateString, IsUUID, IsBoolean } from 'class-validator'
+import { IsNotEmpty, IsUUID } from 'class-validator'
 
 @InputType()
 export class UpdateAgendaInput {
