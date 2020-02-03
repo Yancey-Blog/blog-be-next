@@ -8,6 +8,8 @@ type AgendaModel {
   title: String!
   startDate: DateTime!
   endDate: DateTime
+  allDay: Boolean!
+  notes: String!
   rRule: String
   exDate: DateTime
   createdAt: DateTime!
