@@ -9,16 +9,16 @@ export class AgendaModel {
   public title: string
 
   @Field({ nullable: false })
-  public startDate: Date
+  public startDate: string
 
   @Field({ nullable: true })
-  public endDate?: Date
+  public endDate?: string
 
   @Field({ nullable: true })
   public rRule?: string
 
   @Field({ nullable: true })
-  public exDate?: Date
+  public exDate?: string
 
   @Field({ nullable: false })
   public createdAt: string
