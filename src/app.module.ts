@@ -19,6 +19,7 @@ import { LiveToursModule } from './live-tours/live-tours.module'
 import { YanceyMusicModule } from './yancey-music/yancey-music.module'
 import { BestAlbumsModule } from './best-albums/best-albums.module'
 import { PlayerModule } from './player/player.module'
+import { AgendaModule } from './agenda/agenda.module'
 
 @Module({
   imports: [
@@ -37,6 +38,7 @@ import { PlayerModule } from './player/player.module'
     YanceyMusicModule,
     BestAlbumsModule,
     PlayerModule,
+    AgendaModule,
   ],
   providers: [
     {
