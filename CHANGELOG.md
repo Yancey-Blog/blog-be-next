@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.12.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.11.0...v0.12.0) (2020-02-04)
+
+
+### Features
+
+* add agenda.gql ([e24756b](https://github.com/Yancey-Blog/blog-be-next/commit/e24756ba1e30f309e4b0678936ac3d0a84d9b2cc))
+* assign default value for notes ([15fdc66](https://github.com/Yancey-Blog/blog-be-next/commit/15fdc66b95b56e93d7c38a88870d4f5e3be73d35))
+* define agenda schema ([fb48dad](https://github.com/Yancey-Blog/blog-be-next/commit/fb48dad9314c5a2bda31c42e6d8808a21e0f9073))
+* define CreateAgendaInput ([3a86869](https://github.com/Yancey-Blog/blog-be-next/commit/3a8686936794d3d3beebef656691c193f8ef8a79))
+* define gql model of agenda ([c22483f](https://github.com/Yancey-Blog/blog-be-next/commit/c22483f9e788deec67e49c2d8eef2edeb36c0e64))
+* define interface of agenda ([b5e7875](https://github.com/Yancey-Blog/blog-be-next/commit/b5e787548d9dfb8b59eb8c2631531bb0f0fdc0fe))
+* define UpdateAgendaInput ([2baf42a](https://github.com/Yancey-Blog/blog-be-next/commit/2baf42a51cc19c4ac17b205b1d30b09f2af5f2e5))
+* genrate agenda model ([c81b70d](https://github.com/Yancey-Blog/blog-be-next/commit/c81b70dcda4247e9e718785c060fd8e734df8e54))
+* maek notes nullable ([7dd9298](https://github.com/Yancey-Blog/blog-be-next/commit/7dd9298110c509bee84b6b1e5214b7fafd466edd))
+* upadte AgendaResolver ([1e3d56d](https://github.com/Yancey-Blog/blog-be-next/commit/1e3d56d77e0356eac4e80ee45078fc992a0d98fc))
+* update Agenda interface ([0984e7e](https://github.com/Yancey-Blog/blog-be-next/commit/0984e7e94ee7dfa617e9b86d97ca298238adf97c))
+* update agenda.gql ([18ef76d](https://github.com/Yancey-Blog/blog-be-next/commit/18ef76d1d50e82766d82a3cc6243d12600482db6))
+* update AgendaModel ([756c711](https://github.com/Yancey-Blog/blog-be-next/commit/756c711e3376897ed698573f3cd8af7c8caa7761))
+* update AgendaModel ([9c1c236](https://github.com/Yancey-Blog/blog-be-next/commit/9c1c236206b1c2a254e3a1b25214d2fc65824573))
+* update AgendaModel ([cf87b0d](https://github.com/Yancey-Blog/blog-be-next/commit/cf87b0dbe14cb1dce5dee1a7dc188635f9838215))
+* update AgendaModule ([36de1bf](https://github.com/Yancey-Blog/blog-be-next/commit/36de1bf27ad4510bcd36c2ba9dd1f51ee9162ed4))
+* update AgendaResolver ([95deb47](https://github.com/Yancey-Blog/blog-be-next/commit/95deb473109fb8e06d0e84330e232b0eef6dc1a1))
+* update AgendaResolver ([cf4e12f](https://github.com/Yancey-Blog/blog-be-next/commit/cf4e12fb298bfd717d38989e2472eeb604d909b7))
+* update AgendaSchema ([cde6494](https://github.com/Yancey-Blog/blog-be-next/commit/cde64942258d4c0335656691b21900f5433b6441))
+* update AgendaService ([44bff0c](https://github.com/Yancey-Blog/blog-be-next/commit/44bff0c36780b5b8fd2c489afc65dd7344f5a65f))
+* update AgendaService ([be37c78](https://github.com/Yancey-Blog/blog-be-next/commit/be37c78c8cdb9a39df0870b25e962439ffcdddac))
+* update CreateAgendaInput ([19263d1](https://github.com/Yancey-Blog/blog-be-next/commit/19263d16285a2fef24dfa5b9800ed00a28a61ec4))
+* update dtos ([449512d](https://github.com/Yancey-Blog/blog-be-next/commit/449512dfaeed1d59755494ba30d6dc6b39414022))
+* update dtos of agenda ([011c7fb](https://github.com/Yancey-Blog/blog-be-next/commit/011c7fb4fd73edc1d4f8b086c30c2875b41bda9e))
+* update dtos of agenda ([225456f](https://github.com/Yancey-Blog/blog-be-next/commit/225456ff78a05720b0748dd1f1c27ca9797d89dc))
+* update schema.gql ([be9540f](https://github.com/Yancey-Blog/blog-be-next/commit/be9540f2e59b5de557c04102dc3500915a8acdd5))
+* update service of agenda ([5aad683](https://github.com/Yancey-Blog/blog-be-next/commit/5aad683d569e95ab1391202faacff2dcd1905dea))
+* update UpdateAgendaInput ([dd2be79](https://github.com/Yancey-Blog/blog-be-next/commit/dd2be79b73c370fff7de5b882759c083a7b5bdee))
+* update UpdateAgendaInput ([1226d99](https://github.com/Yancey-Blog/blog-be-next/commit/1226d99c9f23565a55f059e634d41eb6694e781d))
+* use guard for getAgenda ([f88f48d](https://github.com/Yancey-Blog/blog-be-next/commit/f88f48da2047394b08ca579a566f57dcd048a9b3))
+
 ## [0.11.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.10.0...v0.11.0) (2020-02-01)
 
 
