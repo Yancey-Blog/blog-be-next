@@ -16,6 +16,51 @@ type AgendaModel {
   updatedAt: DateTime!
 }
 
+type AnnouncementModel {
+  _id: String!
+  content: String!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type AuthModel {
+  _id: ID!
+  authorization: String!
+  username: String!
+  email: String!
+  password: String!
+  role: Float!
+  avaterUrl: String!
+  phoneNumber: String!
+  isTOTP: Boolean!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type BatchDeleteModel {
+  ok: Float
+  n: Float
+  deletedCount: Float
+  ids: [ID!]!
+}
+
+type BatchUpdateModel {
+  ok: Float
+  n: Float
+  nModified: Float
+}
+
+type BestAlbumModel {
+  _id: ID!
+  title: String!
+  artist: String!
+  coverUrl: String!
+  mvUrl: String!
+  releaseDate: String!
+  createdAt: String!
+  updatedAt: String!
+}
+
 input CreateAgendaInput {
   title: String!
   startDate: String!
@@ -26,19 +71,210 @@ input CreateAgendaInput {
   exDate: String
 }
 
+input CreateAnnouncementInput {
+  content: String!
+}
+
+input CreateBestAlbumInput {
+  title: String!
+  artist: String!
+  coverUrl: String!
+  mvUrl: String!
+  releaseDate: String!
+}
+
+input CreateLiveTourInput {
+  title: String!
+  posterUrl: String!
+  showTime: String!
+}
+
+input CreateOpenSourceInput {
+  title: String!
+  description: String!
+  url: String!
+  posterUrl: String!
+}
+
+input CreatePlayerInput {
+  title: String!
+  artist: String!
+  lrc: String!
+  coverUrl: String!
+  musicFileUrl: String!
+  isPublic: Boolean!
+}
+
+input CreateYanceyMusicInput {
+  title: String!
+  soundCloudUrl: String!
+  posterUrl: String!
+  releaseDate: String!
+}
+
 """
 The javascript `Date` as string. Type represents date and time as the ISO Date string.
 """
 scalar DateTime
 
+type LiveTourModel {
+  _id: ID!
+  title: String!
+  posterUrl: String!
+  showTime: String!
+  createdAt: String!
+  updatedAt: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
 type Mutation {
+  register(input: RegisterInput!): AuthModel!
+  createAnnouncement(input: CreateAnnouncementInput!): AnnouncementModel!
+  updateAnnouncementById(input: UpdateAnnouncementInput!): AnnouncementModel!
+  deleteAnnouncementById(id: ID!): AnnouncementModel!
+  deleteAnnouncements(ids: [ID!]!): BatchDeleteModel!
+  sendSMS(input: SendSMSInput!): SendSMSRes!
+  validateSMS(input: ValidateSMSInput!): ValidateSMSRes!
+  createOpenSource(input: CreateOpenSourceInput!): OpenSourceModel!
+  updateOpenSourceById(input: UpdateOpenSourceInput!): OpenSourceModel!
+  deleteOpenSourceById(id: ID!): OpenSourceModel!
+  deleteOpenSources(ids: [ID!]!): BatchDeleteModel!
+  createLiveTour(input: CreateLiveTourInput!): LiveTourModel!
+  updateLiveTourById(input: UpdateLiveTourInput!): LiveTourModel!
+  deleteLiveTourById(id: ID!): LiveTourModel!
+  deleteLiveTours(ids: [ID!]!): BatchDeleteModel!
+  createYanceyMusic(input: CreateYanceyMusicInput!): YanceyMusicModel!
+  updateYanceyMusicById(input: UpdateYanceyMusicInput!): YanceyMusicModel!
+  deleteYanceyMusicById(id: ID!): YanceyMusicModel!
+  deleteYanceyMusic(ids: [ID!]!): BatchDeleteModel!
+  createBestAlbum(input: CreateBestAlbumInput!): BestAlbumModel!
+  updateBestAlbumById(input: UpdateBestAlbumInput!): BestAlbumModel!
+  deleteBestAlbumById(id: ID!): BestAlbumModel!
+  deleteBestAlbums(ids: [ID!]!): BatchDeleteModel!
+  createPlayer(input: CreatePlayerInput!): PlayerModel!
+  updatePlayerById(input: UpdatePlayerInput!): PlayerModel!
+  deletePlayerById(id: ID!): PlayerModel!
+  deletePlayer(ids: [ID!]!): BatchDeleteModel!
+  offlinePlayers(ids: [ID!]!): BatchUpdateModel!
   createAgenda(input: CreateAgendaInput!): AgendaModel!
   updateAgendaById(input: UpdateAgendaInput!): AgendaModel!
   deleteAgendaById(id: ID!): AgendaModel!
 }
 
+type OpenSourceModel {
+  _id: ID!
+  title: String!
+  description: String!
+  url: String!
+  posterUrl: String!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type PlayerModel {
+  _id: ID!
+  title: String!
+  artist: String!
+  lrc: String!
+  coverUrl: String!
+  musicFileUrl: String!
+  isPublic: Boolean!
+  createdAt: String!
+  updatedAt: String!
+}
+
 type Query {
+  login(input: LoginInput!): AuthModel!
+  getAnnouncements: [AnnouncementModel!]!
+  getAnnouncementById(id: ID!): AnnouncementModel!
+  getAllSMS: [SMSModel!]!
+  getOpenSources: [OpenSourceModel!]!
+  getOpenSourceById(id: ID!): OpenSourceModel!
+  getBanwagonServiceInfo: ServiceInfoModel!
+  getBanwagonUsageStats: [UsageStatesModel!]!
+  getLiveTours: [LiveTourModel!]!
+  getLiveTourById(id: ID!): LiveTourModel!
+  getYanceyMusic: [YanceyMusicModel!]!
+  getYanceyMusicById(id: ID!): YanceyMusicModel!
+  getBestAlbums: [BestAlbumModel!]!
+  getBestAlbumById(id: ID!): BestAlbumModel!
+  getPlayer: [PlayerModel!]!
+  getPlayerById(id: ID!): PlayerModel!
   getAgenda: [AgendaModel!]!
+}
+
+input RegisterInput {
+  email: String!
+  username: String!
+  password: String!
+}
+
+input SendSMSInput {
+  phoneNumber: String!
+}
+
+type SendSMSRes {
+  verificationCode: String!
+}
+
+type ServiceInfoModel {
+  vm_type: String!
+  ve_status: String!
+  ve_mac1: String!
+  ve_used_disk_space_b: String!
+  is_cpu_throttled: String!
+  ssh_port: Float!
+  live_hostname: String!
+  load_average: String!
+  mem_available_kb: Float!
+  swap_total_kb: Float!
+  swap_available_kb: Float!
+  hostname: String!
+  node_ip: String!
+  node_alias: String!
+  node_location: String!
+  node_location_id: String!
+  node_datacenter: String!
+  location_ipv6_ready: Boolean!
+  plan: String!
+  plan_monthly_data: Float!
+  monthly_data_multiplier: Float!
+  plan_disk: Float!
+  plan_ram: Float!
+  plan_swap: Float!
+  plan_max_ipv6s: Float!
+  os: String!
+  email: String!
+  data_counter: Float!
+  data_next_reset: Float!
+  ip_addresses: [String!]!
+  private_ip_addresses: [String!]!
+  ip_nullroutes: [String!]!
+  iso1: String
+  iso2: String
+  available_isos: [String!]!
+  plan_private_network_available: Boolean!
+  location_private_network_available: Boolean!
+  rdns_api_available: Boolean!
+  ptr: String!
+  suspended: Boolean!
+  policy_violation: Boolean!
+  suspension_count: Float
+  max_abuse_points: Float!
+  error: Float!
+  veid: Float!
+}
+
+type SMSModel {
+  _id: String!
+  phoneNumber: String!
+  verificationCode: String!
+  createdAt: String!
+  updatedAt: String!
 }
 
 input UpdateAgendaInput {
@@ -50,4 +286,78 @@ input UpdateAgendaInput {
   notes: String
   rRule: String
   exDate: String
+}
+
+input UpdateAnnouncementInput {
+  id: String!
+  content: String!
+}
+
+input UpdateBestAlbumInput {
+  title: String!
+  artist: String!
+  coverUrl: String!
+  mvUrl: String!
+  releaseDate: String!
+  id: String!
+}
+
+input UpdateLiveTourInput {
+  title: String!
+  posterUrl: String!
+  showTime: String!
+  id: String!
+}
+
+input UpdateOpenSourceInput {
+  title: String!
+  description: String!
+  url: String!
+  posterUrl: String!
+  id: String!
+}
+
+input UpdatePlayerInput {
+  title: String!
+  artist: String!
+  lrc: String!
+  coverUrl: String!
+  musicFileUrl: String!
+  isPublic: Boolean!
+  id: String!
+}
+
+input UpdateYanceyMusicInput {
+  title: String!
+  soundCloudUrl: String!
+  posterUrl: String!
+  releaseDate: String!
+  id: String!
+}
+
+type UsageStatesModel {
+  timestamp: String!
+  network_in_bytes: String!
+  network_out_bytes: String!
+  disk_read_bytes: String!
+  cpu_usage: String!
+}
+
+input ValidateSMSInput {
+  phoneNumber: String!
+  verificationCode: String!
+}
+
+type ValidateSMSRes {
+  success: Boolean!
+}
+
+type YanceyMusicModel {
+  _id: ID!
+  title: String!
+  soundCloudUrl: String!
+  posterUrl: String!
+  releaseDate: String!
+  createdAt: String!
+  updatedAt: String!
 }
