@@ -79,7 +79,7 @@
     "@types/express-rate-limit": "^3.3.3",
     "@types/hapi__joi": "^16.0.9",
     "@types/helmet": "^0.0.45",
-    "@types/jest": "^25.1.1",
+    "@types/jest": "^25.1.2",
     "@types/mongoose": "^5.7.0",
     "@types/morgan": "^1.7.37",
     "@types/node": "^13.7.0",
