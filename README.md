@@ -73,9 +73,13 @@ Open [http://localhost:3002](http://localhost:3002) to view it in the browser.
 The page will reload if you make edits.
 You will also see any lint errors in the console.
 
-### yarn document
+### yarn document:nest
 
 Uses [compodoc](https://github.com/compodoc/compodoc) to generate an awesome document for this app.
+
+### yarn document:gql
+
+Uses [graphdoc](https://github.com/2fd/graphdoc) to generate an awesome graphql schema document for this app.
 
 ### yarn test
 
