@@ -67,3 +67,6 @@ development.env
 
 # document
 /documentation
+
+# grahql document
+/graphql-doc
