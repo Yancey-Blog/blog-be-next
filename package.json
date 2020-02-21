@@ -18,7 +18,8 @@
     "release:major": "node_modules/.bin/standard-version --release-as major && yarn push",
     "release:minor": "node_modules/.bin/standard-version --release-as minor && yarn push",
     "release:patch": "node_modules/.bin/standard-version --release-as patch && yarn push",
-    "document": "npx compodoc -p tsconfig.json -s --language \"ja-JP\"",
+    "document:nest": "npx compodoc -p tsconfig.json -s --language \"ja-JP\"",
+    "document:gql": "node_modules/.bin/graphdoc -s ./schema.gql -o ./graphql-doc",
     "lint": "eslint src --ext .ts,.tsx",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -67,6 +68,7 @@
     "yancey-js-util": "^1.1.1"
   },
   "devDependencies": {
+    "@2fd/graphdoc": "^2.4.0",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.3.4",
     "@compodoc/compodoc": "^1.1.11",
