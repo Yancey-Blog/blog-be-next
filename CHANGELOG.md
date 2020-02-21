@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.12.1](https://github.com/Yancey-Blog/blog-be-next/compare/v0.12.0...v0.12.1) (2020-02-21)
+
+
+### Features
+
+* delete useless files ([89e1d2f](https://github.com/Yancey-Blog/blog-be-next/commit/89e1d2f0f75e39093b0df53125a2c8472fe678cf))
+* resolve conflict ([b0166c9](https://github.com/Yancey-Blog/blog-be-next/commit/b0166c9eb47574bc31400fdeb6c543b17e4e6699))
+* support graphql-doc ([59c8b02](https://github.com/Yancey-Blog/blog-be-next/commit/59c8b022966c158922269e15efc5fc8dd57221ba))
+
 ## [0.12.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.11.0...v0.12.0) (2020-02-04)
 
 
