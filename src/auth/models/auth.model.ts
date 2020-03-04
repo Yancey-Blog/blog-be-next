@@ -30,8 +30,8 @@ export class AuthModel {
   public readonly isTOTP: boolean
 
   @Field()
-  public readonly createdAt: string
+  public readonly createdAt: Date
 
   @Field()
-  public readonly updatedAt: string
+  public readonly updatedAt: Date
 }
