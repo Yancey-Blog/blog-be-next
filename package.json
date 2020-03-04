@@ -99,7 +99,7 @@
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-jest": "^23.6.0",
+    "eslint-plugin-jest": "^23.8.1",
     "eslint-plugin-nestjs": "^1.2.3",
     "husky": "^4.0.10",
     "jest": "^24.9.0",
