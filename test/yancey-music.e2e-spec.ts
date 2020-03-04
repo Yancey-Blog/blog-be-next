@@ -44,7 +44,7 @@ describe('YanceyMusicController (e2e)', () => {
 
   const createdData: CreateYanceyMusicInput = {
     title: 'test4',
-    releaseDate: '2019-12-26T07:14:07.655Z',
+    releaseDate: new Date(),
     soundCloudUrl: 'https://t4est3.com',
     posterUrl: 'https://1test4.com',
   }
@@ -54,7 +54,7 @@ describe('YanceyMusicController (e2e)', () => {
   const updatedData: UpdateYanceyMusicInput = {
     id,
     title: 'test5',
-    releaseDate: '2019-12-26T07:14:07.655Z',
+    releaseDate: new Date(),
     soundCloudUrl: 'https://yancey.com',
     posterUrl: 'https://yancey.com',
   }

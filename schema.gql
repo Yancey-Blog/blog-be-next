@@ -19,8 +19,8 @@ type AgendaModel {
 type AnnouncementModel {
   _id: String!
   content: String!
-  createdAt: String!
-  updatedAt: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type AuthModel {
@@ -33,8 +33,8 @@ type AuthModel {
   avaterUrl: String!
   phoneNumber: String!
   isTOTP: Boolean!
-  createdAt: String!
-  updatedAt: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type BatchDeleteModel {
@@ -56,9 +56,9 @@ type BestAlbumModel {
   artist: String!
   coverUrl: String!
   mvUrl: String!
-  releaseDate: String!
-  createdAt: String!
-  updatedAt: String!
+  releaseDate: DateTime!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 input CreateAgendaInput {
@@ -80,13 +80,13 @@ input CreateBestAlbumInput {
   artist: String!
   coverUrl: String!
   mvUrl: String!
-  releaseDate: String!
+  releaseDate: DateTime!
 }
 
 input CreateLiveTourInput {
   title: String!
   posterUrl: String!
-  showTime: String!
+  showTime: DateTime!
 }
 
 input CreateOpenSourceInput {
@@ -109,7 +109,7 @@ input CreateYanceyMusicInput {
   title: String!
   soundCloudUrl: String!
   posterUrl: String!
-  releaseDate: String!
+  releaseDate: DateTime!
 }
 
 """
@@ -121,9 +121,9 @@ type LiveTourModel {
   _id: ID!
   title: String!
   posterUrl: String!
-  showTime: String!
-  createdAt: String!
-  updatedAt: String!
+  showTime: DateTime!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 input LoginInput {
@@ -171,8 +171,8 @@ type OpenSourceModel {
   description: String!
   url: String!
   posterUrl: String!
-  createdAt: String!
-  updatedAt: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type PlayerModel {
@@ -183,8 +183,8 @@ type PlayerModel {
   coverUrl: String!
   musicFileUrl: String!
   isPublic: Boolean!
-  createdAt: String!
-  updatedAt: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type Query {
@@ -273,8 +273,8 @@ type SMSModel {
   _id: String!
   phoneNumber: String!
   verificationCode: String!
-  createdAt: String!
-  updatedAt: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 input UpdateAgendaInput {
@@ -298,14 +298,14 @@ input UpdateBestAlbumInput {
   artist: String!
   coverUrl: String!
   mvUrl: String!
-  releaseDate: String!
+  releaseDate: DateTime!
   id: String!
 }
 
 input UpdateLiveTourInput {
   title: String!
   posterUrl: String!
-  showTime: String!
+  showTime: DateTime!
   id: String!
 }
 
@@ -331,7 +331,7 @@ input UpdateYanceyMusicInput {
   title: String!
   soundCloudUrl: String!
   posterUrl: String!
-  releaseDate: String!
+  releaseDate: DateTime!
   id: String!
 }
 
@@ -357,7 +357,7 @@ type YanceyMusicModel {
   title: String!
   soundCloudUrl: String!
   posterUrl: String!
-  releaseDate: String!
-  createdAt: String!
-  updatedAt: String!
+  releaseDate: DateTime!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }

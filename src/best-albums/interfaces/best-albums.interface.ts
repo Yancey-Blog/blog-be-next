@@ -5,7 +5,7 @@ export interface BestAlbum extends Document {
   readonly artist: string
   readonly coverUrl: string
   readonly mvUrl: string
-  readonly releaseDate: string
-  readonly createdAt: string
-  readonly updatedAt: string
+  readonly releaseDate: Date
+  readonly createdAt: Date
+  readonly updatedAt: Date
 }

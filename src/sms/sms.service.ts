@@ -122,7 +122,7 @@ export class SMSService {
     )
   }
 
-  private checkTimeIsExpired(date: string) {
+  private checkTimeIsExpired(date: Date) {
     return !moment(date).isBetween(moment().subtract(20, 'minutes'), moment())
   }
 }

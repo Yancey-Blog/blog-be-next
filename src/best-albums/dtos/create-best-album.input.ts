@@ -1,5 +1,5 @@
 import { InputType, Field } from 'type-graphql'
-import { IsString, IsNotEmpty, IsUrl } from 'class-validator'
+import { IsString, IsNotEmpty, IsUrl, IsDate } from 'class-validator'
 
 @InputType()
 export class CreateBestAlbumInput {
@@ -24,7 +24,7 @@ export class CreateBestAlbumInput {
   public readonly mvUrl: string
 
   @Field()
-  @IsString()
+  @IsDate()
   @IsNotEmpty()
-  public readonly releaseDate: string
+  public readonly releaseDate: Date
 }

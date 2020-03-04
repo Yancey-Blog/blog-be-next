@@ -15,11 +15,11 @@ export class YanceyMusicModel {
   public readonly posterUrl: string
 
   @Field()
-  public readonly releaseDate: string
+  public readonly releaseDate: Date
 
   @Field()
-  public readonly createdAt: string
+  public readonly createdAt: Date
 
   @Field()
-  public readonly updatedAt: string
+  public readonly updatedAt: Date
 }

@@ -44,7 +44,7 @@ describe('LiveToursController (e2e)', () => {
 
   const createdData: CreateLiveTourInput = {
     title: 'blog-be-next',
-    showTime: new Date().toJSON(),
+    showTime: new Date(),
     posterUrl: 'https://yaneyleo.com',
   }
 
@@ -53,7 +53,7 @@ describe('LiveToursController (e2e)', () => {
   const updatedData: UpdateLiveTourInput = {
     id,
     title: 'blog-cms-v2',
-    showTime: new Date().toJSON(),
+    showTime: new Date(),
     posterUrl: 'https://yaneyleo.com',
   }
 

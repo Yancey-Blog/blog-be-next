@@ -47,7 +47,7 @@ describe('BestAlbumsController (e2e)', () => {
     artist: '山本彩',
     coverUrl: 'https://t4est3.com',
     mvUrl: 'https://1test4.com',
-    releaseDate: '2019-12-26T07:14:07.655Z',
+    releaseDate: new Date(),
   }
 
   let id = ''
@@ -58,7 +58,7 @@ describe('BestAlbumsController (e2e)', () => {
     artist: '山本彩',
     coverUrl: 'https://t4est3.com',
     mvUrl: 'https://1test4.com',
-    releaseDate: '2019-12-26T07:14:07.655Z',
+    releaseDate: new Date(),
   }
 
   const createDataString = JSON.stringify(createdData).replace(/"([^(")"]+)":/g, '$1:')
