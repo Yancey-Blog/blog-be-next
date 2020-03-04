@@ -20,7 +20,7 @@ export const YanceyMusicSchema = new mongoose.Schema(
       required: true,
     },
     releaseDate: {
-      type: String,
+      type: Date,
       required: true,
     },
   },

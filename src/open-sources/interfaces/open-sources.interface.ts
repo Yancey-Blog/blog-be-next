@@ -5,6 +5,6 @@ export interface OpenSource extends Document {
   readonly description: string
   readonly url: string
   readonly posterUrl: string
-  readonly createdAt: string
-  readonly updatedAt: string
+  readonly createdAt: Date
+  readonly updatedAt: Date
 }

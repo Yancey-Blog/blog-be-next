@@ -1,5 +1,5 @@
 import { InputType, Field } from 'type-graphql'
-import { IsString, IsNotEmpty } from 'class-validator'
+import { IsString, IsNotEmpty, IsDate } from 'class-validator'
 
 @InputType()
 export class CreateLiveTourInput {
@@ -14,7 +14,7 @@ export class CreateLiveTourInput {
   public readonly posterUrl: string
 
   @Field()
-  @IsString()
+  @IsDate()
   @IsNotEmpty()
-  public readonly showTime: string
+  public readonly showTime: Date
 }
