@@ -64,7 +64,7 @@
     "serve-favicon": "^2.5.0",
     "speakeasy": "^2.0.0",
     "type-graphql": "^0.17.6",
-    "uuid": "^7.0.1",
+    "uuid": "^7.0.2",
     "yancey-js-util": "^1.1.1"
   },
   "devDependencies": {
