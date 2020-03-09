@@ -50,7 +50,7 @@
     "express-rate-limit": "^5.0.0",
     "graphql": "^14.5.8",
     "graphql-tools": "^4.0.6",
-    "helmet": "^3.21.2",
+    "helmet": "^3.21.3",
     "moment": "^2.24.0",
     "mongodb": "^3.5.2",
     "mongoose": "^5.9.2",
