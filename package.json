@@ -84,7 +84,7 @@
     "@types/jest": "^25.1.2",
     "@types/mongoose": "^5.7.0",
     "@types/morgan": "^1.7.37",
-    "@types/node": "^13.7.0",
+    "@types/node": "^13.9.1",
     "@types/passport-jwt": "^3.0.3",
     "@types/passport-local": "^1.0.33",
     "@types/ramda": "^0.26.40",
