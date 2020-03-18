@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.12.3](https://github.com/Yancey-Blog/blog-be-next/compare/v0.12.2...v0.12.3) (2020-03-18)
+
 ### [0.12.2](https://github.com/Yancey-Blog/blog-be-next/compare/v0.12.1...v0.12.2) (2020-03-04)
 
 
