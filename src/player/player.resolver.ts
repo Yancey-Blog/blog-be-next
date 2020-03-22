@@ -14,7 +14,7 @@ export class PlayerResolver {
   }
 
   @Query(() => [PlayerModel])
-  public async getPlayer() {
+  public async getPlayers() {
     return this.playerService.findAll()
   }
 
@@ -39,7 +39,7 @@ export class PlayerResolver {
   }
 
   @Mutation(() => BatchDeleteModel)
-  public async deletePlayer(@Args({ name: 'ids', type: () => [ID] }) ids: string[]) {
+  public async deletePlayers(@Args({ name: 'ids', type: () => [ID] }) ids: string[]) {
     return this.playerService.batchDelete(ids)
   }
 

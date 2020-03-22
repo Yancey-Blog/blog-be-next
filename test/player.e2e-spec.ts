@@ -103,10 +103,10 @@ describe('PlayerController (e2e)', () => {
   })
 
   // READ_ALL
-  it('getPlayer', () => {
+  it('getPlayers', () => {
     const getAllTypeDefs = `
-    query GetPlayer {
-      getPlayer {
+    query GetPlayers {
+      getPlayers {
         _id
         title
         artist
@@ -125,7 +125,7 @@ describe('PlayerController (e2e)', () => {
         query: getAllTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: PlayerModel[] = body.data.getPlayer
+        const testData: PlayerModel[] = body.data.getPlayers
 
         const firstData = testData[0]
 
@@ -273,10 +273,10 @@ describe('PlayerController (e2e)', () => {
   })
 
   // BATCH_DELETE
-  it('deletePlayer', () => {
+  it('deletePlayers', () => {
     const batchDeleteTypeDefs = `
-    mutation DeletePlayer {
-      deletePlayer(ids: ["${id}"]) {
+    mutation DeletePlayers {
+      deletePlayers(ids: ["${id}"]) {
         ok
         n
         deletedCount
@@ -290,7 +290,7 @@ describe('PlayerController (e2e)', () => {
         query: batchDeleteTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: BatchDeleteModel = body.data.deletePlayer
+        const testData: BatchDeleteModel = body.data.deletePlayers
         expect(testData.ok).toBe(1)
         expect(testData.n).toBe(0)
         expect(testData.deletedCount).toBe(0)

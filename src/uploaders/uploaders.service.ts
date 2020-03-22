@@ -1,4 +1,4 @@
-import { Injectable, BadRequestException } from '@nestjs/common'
+import { Injectable } from '@nestjs/common'
 import OSS from 'ali-oss'
 import { ConfigService } from '../config/config.service'
 import { ALI_OSS_END_POINT, ALI_OSS_REGION } from '../shared/constants'
@@ -24,6 +24,7 @@ export class UploadersService {
       endpoint: ALI_OSS_END_POINT,
       secure: true,
       cname: true,
+      timeout: '100s',
     })
   }
 
