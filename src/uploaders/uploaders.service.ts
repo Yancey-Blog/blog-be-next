@@ -24,6 +24,7 @@ export class UploadersService {
       endpoint: ALI_OSS_END_POINT,
       secure: true,
       cname: true,
+      timeout: '100s',
     })
   }
 
