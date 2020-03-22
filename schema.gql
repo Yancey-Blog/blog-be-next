@@ -318,13 +318,13 @@ input UpdateOpenSourceInput {
 }
 
 input UpdatePlayerInput {
-  title: String!
-  artist: String!
-  lrc: String!
-  coverUrl: String!
-  musicFileUrl: String!
-  isPublic: Boolean!
   id: String!
+  title: String
+  artist: String
+  lrc: String
+  coverUrl: String
+  musicFileUrl: String
+  isPublic: Boolean
 }
 
 input UpdateYanceyMusicInput {
