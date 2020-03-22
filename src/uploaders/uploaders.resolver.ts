@@ -10,7 +10,7 @@ export class UploadersResolver {
   }
 
   @Post()
-  @UseInterceptors(FileInterceptor('file'))
+  @UseInterceptors(FileInterceptor('file', { limits: { fieldSize: 10 * 1024 * 1024 } }))
   public uploadFile(@UploadedFile() file: IMulterFile) {
     return this.uploadersService.upload(file)
   }
