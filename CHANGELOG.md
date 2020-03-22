@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.13.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.12.2...v0.13.0) (2020-03-22)
+
+
+### Features
+
+* add alioss timeout ([41f420f](https://github.com/Yancey-Blog/blog-be-next/commit/41f420f7ac0c61582f0c036b420733cad606220d))
+* update ALI_OSS_END_POINT ([6e483fb](https://github.com/Yancey-Blog/blog-be-next/commit/6e483fb7b59b889df24505cf2029de4dbaf65379))
+* update resolver of player ([16de792](https://github.com/Yancey-Blog/blog-be-next/commit/16de79269da19db48177983a4e96836bb86eb65c))
+* update UpdatePlayerInput ([e68d5de](https://github.com/Yancey-Blog/blog-be-next/commit/e68d5de61718a52ae57a36c96b8e1cbe78f446b0))
+* update uploader ([01dfdfe](https://github.com/Yancey-Blog/blog-be-next/commit/01dfdfe8d5c44356c8c67959a55feb3caaef4df6))
+
 ### [0.12.3](https://github.com/Yancey-Blog/blog-be-next/compare/v0.12.2...v0.12.3) (2020-03-18)
 
 ### [0.12.2](https://github.com/Yancey-Blog/blog-be-next/compare/v0.12.1...v0.12.2) (2020-03-04)
