@@ -12,7 +12,6 @@
     "start": "nest start",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
-    "deploy": "pm2 dist/main",
     "watch": "NODE_ENV=development nest start --watch",
     "commit": "npx git-cz",
     "push": "git push --follow-tags origin master",
