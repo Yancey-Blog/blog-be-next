@@ -22,4 +22,4 @@ COPY . .
 
 COPY --from=builder /usr/src/app/dist ./dist
 
-CMD ["pm2-runtime", "dist/main"]
+CMD ["pm2-runtime", "dist/main.js"]
