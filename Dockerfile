@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN npm install --only=development -d --registry=https://registry.npm.taobao.org
+RUN npm install -d --registry=https://registry.npm.taobao.org
 
 COPY . .
 
