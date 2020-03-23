@@ -34,7 +34,7 @@
     "@nestjs/common": "^6.11.11",
     "@nestjs/core": "^6.11.1",
     "@nestjs/graphql": "^6.5.4",
-    "@nestjs/jwt": "^6.1.2",
+    "@nestjs/jwt": "^7.0.0",
     "@nestjs/mongoose": "^6.2.1",
     "@nestjs/passport": "^6.2.0",
     "@nestjs/platform-express": "^7.0.0",
