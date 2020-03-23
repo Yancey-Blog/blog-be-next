@@ -3,12 +3,14 @@ FROM node:12-alpine
 LABEL maintainer="Yancey Leo <yanceyofficial@gmail.com>" \
     version="0.1" 
 
-COPY . /home/blog
-
-RUN cd /home/blog && npm install --production -d --registry=https://registry.npm.taobao.org
-
 WORKDIR /home/blog
 
-EXPOSE 3002
+COPY package.json yarn.lock ./
 
-CMD ["yarn", "start"]
+RUN npm install --production -d --registry=https://registry.npm.taobao.org
+
+COPY . /home/blog
+
+RUN npm build
+
+CMD ["npm", "deploy"]
