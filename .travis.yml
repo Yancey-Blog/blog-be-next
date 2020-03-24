@@ -17,11 +17,11 @@ cache:
     - node_modules
 
 install:
-  - npm install
+  - yarn install
 
 script:
-  - npm run test
-  - npm run build
+  - yarn test
+  - yarn build
 
 after_success:
-  - npm run codecov
+  - yarn codecov

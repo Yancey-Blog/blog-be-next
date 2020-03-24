@@ -8,19 +8,19 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN npm ci -d --registry=https://registry.npm.taobao.org
+RUN yarn ci -d --registry=https://registry.yarn.taobao.org
 
 COPY . .
 
-RUN npm run build
+RUN yarn build
 
-FROM keymetrics/pm2:latest-alpine
+FROM node:12-alpine
 
 WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN npm ci --only=production -d --registry=https://registry.npm.taobao.org
+RUN yarn ci --only=production -d --registry=https://registry.yarn.taobao.org
 
 COPY . .
 

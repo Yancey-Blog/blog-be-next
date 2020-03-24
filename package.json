@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "clear": "rimraf dist",
-    "build": "npm run clear && nest build",
+    "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:debug": "nest start --debug --watch",
@@ -15,9 +15,9 @@
     "watch": "NODE_ENV=development nest start --watch",
     "commit": "npx git-cz",
     "push": "git push --follow-tags origin master",
-    "release:major": "standard-version --release-as major && npm run push",
-    "release:minor": "standard-version --release-as minor && npm run push",
-    "release:patch": "standard-version --release-as patch && npm run push",
+    "release:major": "standard-version --release-as major && yarn push",
+    "release:minor": "standard-version --release-as minor && yarn push",
+    "release:patch": "standard-version --release-as patch && yarn push",
     "document": "npx compodoc -p tsconfig.json -s --language \"ja-JP\"",
     "lint": "eslint src --ext .ts,.tsx",
     "test": "jest",
@@ -30,8 +30,8 @@
   "dependencies": {
     "@alicloud/pop-core": "^1.7.9",
     "@hapi/joi": "^17.1.0",
-    "@nestjs/common": "^6.11.11",
-    "@nestjs/core": "^6.11.1",
+    "@nestjs/common": "^7.0.0",
+    "@nestjs/core": "^7.0.0",
     "@nestjs/graphql": "^6.5.4",
     "@nestjs/jwt": "^6.1.2",
     "@nestjs/mongoose": "^6.2.1",
@@ -44,7 +44,6 @@
     "body-parser": "^1.19.0",
     "class-transformer": "^0.2.3",
     "class-validator": "^0.11.0",
-    "csurf": "^1.11.0",
     "dotenv": "^8.2.0",
     "express-rate-limit": "^5.0.0",
     "graphql": "^14.5.8",
@@ -58,7 +57,6 @@
     "passport-jwt": "^4.0.0",
     "ramda": "^0.27.0",
     "reflect-metadata": "^0.1.13",
-    "rimraf": "^3.0.2",
     "rxjs": "^6.5.4",
     "serve-favicon": "^2.5.0",
     "speakeasy": "^2.0.0",
@@ -69,9 +67,9 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.3.4",
-    "@nestjs/cli": "^6.14.2",
-    "@nestjs/schematics": "^6.9.4",
-    "@nestjs/testing": "^6.11.7",
+    "@nestjs/cli": "^7.0.0",
+    "@nestjs/schematics": "^7.0.0",
+    "@nestjs/testing": "^7.0.0",
     "@types/ali-oss": "^6.0.4",
     "@types/bcrypt": "^3.0.0",
     "@types/csurf": "^1.9.36",
@@ -88,8 +86,8 @@
     "@types/serve-favicon": "^2.5.0",
     "@types/supertest": "^2.0.8",
     "@types/uuid": "^3.4.6",
-    "@typescript-eslint/eslint-plugin": "^2.22.0",
-    "@typescript-eslint/parser": "^2.22.0",
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
     "codecov": "^3.6.5",
     "cz-conventional-changelog": "^3.0.2",
     "eslint": "^6.8.0",
@@ -99,10 +97,10 @@
     "eslint-plugin-jest": "^23.8.2",
     "eslint-plugin-nestjs": "^1.2.3",
     "husky": "^4.0.10",
-    "jest": "^25.1.0",
+    "jest": "^25.1.4",
     "lint-staged": "^10.0.7",
-    "mockjs": "^1.1.0",
     "prettier": "^1.19.1",
+    "rimraf": "^3.0.2",
     "standard-version": "^7.0.1",
     "supertest": "^4.0.2",
     "ts-jest": "^25.2.1",
@@ -114,6 +112,7 @@
     "webpack-cli": "^3.3.10",
     "webpack-node-externals": "^1.7.2"
   },
+  
   "config": {
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
@@ -122,7 +121,7 @@
   "lint-staged": {
     "*.{ts,js,scss,css}": [
       "prettier --write",
-      "npm run lint",
+      "yarn lint",
       "git add"
     ]
   }
