@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN npm install -d --registry=https://registry.npm.taobao.org
+RUN npm install
 
 COPY . .
 
@@ -20,7 +20,7 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN npm install --only=production -d --registry=https://registry.npm.taobao.org
+RUN npm install --only=production
 
 COPY . .
 
