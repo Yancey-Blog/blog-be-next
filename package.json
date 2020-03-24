@@ -12,6 +12,7 @@
     "start": "nest start",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
+    "deploy": "node_modules/.bin/pm2-runtime dist/main.js",
     "watch": "NODE_ENV=development nest start --watch",
     "commit": "npx git-cz",
     "push": "git push --follow-tags origin master",
@@ -55,6 +56,7 @@
     "morgan": "^1.9.1",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "pm2": "^4.2.3",
     "ramda": "^0.27.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.4",
@@ -112,7 +114,6 @@
     "webpack-cli": "^3.3.10",
     "webpack-node-externals": "^1.7.2"
   },
-  
   "config": {
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"

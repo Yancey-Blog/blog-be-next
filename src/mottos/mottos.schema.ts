@@ -1,11 +1,11 @@
 import mongoose from 'mongoose'
-import uuidV4 from 'uuid/v4'
+import { v4 } from 'uuid'
 
 export const MottoSchema = new mongoose.Schema(
   {
     _id: {
       type: String,
-      default: uuidV4,
+      default: v4,
     },
     motto: {
       type: String,

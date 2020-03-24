@@ -14,11 +14,12 @@ COPY . .
 
 RUN npm run build
 
+
 FROM node:12-alpine
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+COPY --from=builder /usr/src/app/package*.json ./
 
 RUN npm ci --only=production -d --registry=https://registry.npm.taobao.org
 
@@ -26,7 +27,7 @@ COPY . .
 
 COPY --from=builder /usr/src/app/dist ./dist
 
-CMD ["pm2-runtime", "dist/main.js"]
+CMD ["yarn", "deploy"]
 
 # Builds
 #
