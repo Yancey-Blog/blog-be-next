@@ -27,3 +27,11 @@ COPY . .
 COPY --from=builder /usr/src/app/dist ./dist
 
 CMD ["pm2-runtime", "dist/main.js"]
+
+# Builds
+#
+# docker build -t blog-be-next .
+
+# Runs
+#
+# docker run blog-be-next
