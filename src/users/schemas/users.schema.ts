@@ -1,5 +1,5 @@
 import mongoose, { HookNextFunction } from 'mongoose'
-import { v4 } from 'uuid'
+import uuidV4 from 'uuid/v4'
 import bcrypt from 'bcrypt'
 import { Roles, User } from '../interfaces/user.interface'
 
@@ -7,7 +7,7 @@ export const UserSchema = new mongoose.Schema(
   {
     _id: {
       type: String,
-      default: v4,
+      default: uuidV4,
     },
     email: {
       type: String,

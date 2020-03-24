@@ -1,11 +1,11 @@
 import mongoose from 'mongoose'
-import { v4 } from 'uuid'
+import uuidV4 from 'uuid/v4'
 
 export const SMSSchema = new mongoose.Schema(
   {
     _id: {
       type: String,
-      default: v4,
+      default: uuidV4,
     },
     phoneNumber: {
       type: String,
