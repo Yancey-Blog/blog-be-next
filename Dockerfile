@@ -34,4 +34,8 @@ CMD ["pm2-runtime", "dist/main.js"]
 
 # Runs
 #
-# docker run blog-be-next
+# docker run -d -p 3002:3002 --name blog-be-next blog-be-next:latest
+
+# MongoDB
+#
+# docker run -d -p 27017-27019:27017-27019 --name mongodb mongo:latest
