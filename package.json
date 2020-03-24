@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "clear": "rimraf dist",
-    "build": "yarn clear && nest build",
+    "build": "npm run clear && nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:debug": "nest start --debug --watch",
@@ -15,9 +15,9 @@
     "watch": "NODE_ENV=development nest start --watch",
     "commit": "npx git-cz",
     "push": "git push --follow-tags origin master",
-    "release:major": "standard-version --release-as major && yarn push",
-    "release:minor": "standard-version --release-as minor && yarn push",
-    "release:patch": "standard-version --release-as patch && yarn push",
+    "release:major": "standard-version --release-as major && npm run push",
+    "release:minor": "standard-version --release-as minor && npm run push",
+    "release:patch": "standard-version --release-as patch && npm run push",
     "document:nest": "npx compodoc -p tsconfig.json -s --language \"ja-JP\"",
     "document:gql": "node_modules/.bin/graphdoc -s ./schema.gql -o ./graphql-doc",
     "lint": "eslint src --ext .ts,.tsx",
@@ -125,7 +125,7 @@
   "lint-staged": {
     "*.{ts,js,scss,css}": [
       "prettier --write",
-      "yarn lint",
+      "npm run lint",
       "git add"
     ]
   }
