@@ -8,11 +8,11 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN yarn ci -d --registry=https://registry.yarn.taobao.org
+RUN npm install -d --registry=https://registry.npm.taobao.org
 
 COPY . .
 
-RUN yarn build
+RUN npm run build
 
 FROM node:12-alpine
 
@@ -20,7 +20,7 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN yarn ci --only=production -d --registry=https://registry.yarn.taobao.org
+RUN npm ci --only=production -d --registry=https://registry.npm.taobao.org
 
 COPY . .
 
