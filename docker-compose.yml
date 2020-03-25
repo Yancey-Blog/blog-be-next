@@ -3,13 +3,18 @@ version: '3'
 services:
   be:
     build: .
+    restart: always
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
     ports:
-      - '127.0.0.1:3002:3002'
+      - '3002:3002'
+    env_file:
+      - env/production.env
+    networks:
+      - docker-nest-typegoose-net
     depends_on:
-      - db
+      - mongo
 
   # cms:
   #   build: .
@@ -27,15 +32,20 @@ services:
   # caddy:
   #   image: 'caddy'
 
-  db:
+  mongo:
     image: 'mongo:latest'
-    ports:
-      - '127.0.0.1:27016:27017'
+    expose:
+      - 27017
+    # ports:
+    #   - '27016:27017'
+    networks:
+      - docker-nest-typegoose-net
     volumes:
       # - '/data/mongo:/data/db'
       - '/tmp/mongo:/data/db'
 
-
-
+networks:
+  docker-nest-typegoose-net:
+    driver: bridge
 # Run
 # docker-compose up -d

@@ -27,8 +27,6 @@ COPY . .
 
 COPY --from=builder /usr/src/app/dist ./dist
 
-COPY --from=builder /usr/src/app/env ./env
-
 CMD ["yarn", "deploy"]
 
 # Builds
