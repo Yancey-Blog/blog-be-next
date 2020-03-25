@@ -7,7 +7,7 @@ services:
       - .:/usr/src/app
       - /usr/src/app/node_modules
     ports:
-      - '3002:3002'
+      - '127.0.0.1:3002:3002'
     depends_on:
       - db
 
@@ -33,6 +33,13 @@ services:
       # - MONGO_INITDB_ROOT_USERNAME=root
       # - MONGO_INITDB_ROOT_PASSWORD=123456
       - MONGO_INITDB_DATABASE=fuckyourmother
-    ports: '27017:27017'
+    ports:
+      - '127.0.0.1:27016:27017'
     volumes:
-      - '/data/mongo:/data/db'
+      # - '/data/mongo:/data/db'
+      - '/tmp/mongo:/data/db'
+
+
+
+# Run
+# docker-compose up -d
