@@ -21,7 +21,7 @@ WORKDIR /usr/src/app
 
 COPY --from=builder /usr/src/app/package*.json ./
 
-RUN npm ci --only=production -d --registry=https://registry.npm.taobao.org
+RUN npm ci --only=production -d --registry=https://registry.npm.taobao.org && npm cache clean
 
 COPY . .
 
