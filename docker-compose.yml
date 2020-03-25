@@ -1,11 +1,15 @@
-version: '12'
+version: '3'
 
 services:
   be:
-    container_name: 'blog-be-next'
     build: .
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
     ports:
-      - '127.0.0.1:3002:3002'
+      - '3002:3002'
+    depends_on:
+      - db
 
   # cms:
   #   build: .
@@ -23,9 +27,12 @@ services:
   # caddy:
   #   image: 'caddy'
 
-  mongo:
-    container_name: 'mongodb'
+  db:
     image: 'mongo:latest'
-    ports: '127.0.0.1:27017:27017'
+    environment:
+      # - MONGO_INITDB_ROOT_USERNAME=root
+      # - MONGO_INITDB_ROOT_PASSWORD=123456
+      - MONGO_INITDB_DATABASE=fuckyourmother
+    ports: '27017:27017'
     volumes:
-      - '/data'
+      - '/data/mongo:/data/db'
