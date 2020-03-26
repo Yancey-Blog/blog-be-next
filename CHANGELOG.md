@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.15.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.14.0...v0.15.0) (2020-03-26)
+
+
+### Features
+
+* delete docs ([3a2bf8f](https://github.com/Yancey-Blog/blog-be-next/commit/3a2bf8fdfd259dd2d4af02ecb890a80c884366ed))
+
 ## [0.14.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.13.0...v0.14.0) (2020-03-26)
 
 
