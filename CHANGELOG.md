@@ -2,6 +2,57 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.14.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.13.0...v0.14.0) (2020-03-26)
+
+
+### Features
+
+* add .dockerignore ([68bd4c5](https://github.com/Yancey-Blog/blog-be-next/commit/68bd4c52afc8dbff0c542566e1afde5064d252bb))
+* add docker-compose ([3637f8d](https://github.com/Yancey-Blog/blog-be-next/commit/3637f8dfcfc5af6282c17bde707585a18db53c6d))
+* add Dockerfile ([bf6ea14](https://github.com/Yancey-Blog/blog-be-next/commit/bf6ea14c0ee9e21aceb80b4eff1a29f1c69fff79))
+* add Label ([d3d8595](https://github.com/Yancey-Blog/blog-be-next/commit/d3d8595219ce01103b39a4de93571d0fb2377b41))
+* add npm cache clean ([dacf29b](https://github.com/Yancey-Blog/blog-be-next/commit/dacf29ba6430c97b132f1f89b90568c0a00efb33))
+* delete useless dependencies ([c79e4c8](https://github.com/Yancey-Blog/blog-be-next/commit/c79e4c889b8625bfd8403e36296c091703e5d0ec))
+* delete useless dependencies ([53fe08f](https://github.com/Yancey-Blog/blog-be-next/commit/53fe08f8051ceaa5efee5f82e4f2fe7805c048be))
+* docker-compose ([574b505](https://github.com/Yancey-Blog/blog-be-next/commit/574b5055b346524db76da4af6c6885ceeec5c01a))
+* finish Docker ([4af37da](https://github.com/Yancey-Blog/blog-be-next/commit/4af37daac4fbb733ca3f239cc7285564bfde1702))
+* follow the advise of eslint ([12a573c](https://github.com/Yancey-Blog/blog-be-next/commit/12a573c7965403e6303fe8cdbd99b066e9a2bdb0))
+* link to db ([5e1a920](https://github.com/Yancey-Blog/blog-be-next/commit/5e1a920a2be57b4683bf3b50a93977d5c38ca648))
+* simplify the path of favicon.ico ([0ef0693](https://github.com/Yancey-Blog/blog-be-next/commit/0ef0693ba7e921f8cc838eaa2b2250021aeeba25))
+* update .dockerignore ([23d9e95](https://github.com/Yancey-Blog/blog-be-next/commit/23d9e95702fab693ff89686643a5c6c82702de69))
+* update .dockerignore ([c879fe8](https://github.com/Yancey-Blog/blog-be-next/commit/c879fe8a8740a2caa0b533dade147a02dd483b10))
+* update .gitignore ([04a0c43](https://github.com/Yancey-Blog/blog-be-next/commit/04a0c439d0cf131727975e65235cbad051574d78))
+* update .gitignore ([28f245a](https://github.com/Yancey-Blog/blog-be-next/commit/28f245a0eeb15dfed6470f54207a6a5107c4cf34))
+* update .travis.yml ([6c69d75](https://github.com/Yancey-Blog/blog-be-next/commit/6c69d75515edd6383b34aa08b8b291a45dcd3a54))
+* update ConfigModule ([d6bd8e9](https://github.com/Yancey-Blog/blog-be-next/commit/d6bd8e920c5f07e90982f07497ba9d71203bcdf6))
+* update docker file ([a455657](https://github.com/Yancey-Blog/blog-be-next/commit/a455657d003dcc26fae66a117065aa434eb344af))
+* update docker-compose ([6bfe329](https://github.com/Yancey-Blog/blog-be-next/commit/6bfe329fb5d6ee964583ed7351dae9981a21515b))
+* update docker-compose ([e8b432d](https://github.com/Yancey-Blog/blog-be-next/commit/e8b432d7f4bd66a38a0814ebac020ff86b985b94))
+* update Dockerfile ([e8ca82f](https://github.com/Yancey-Blog/blog-be-next/commit/e8ca82f0a4b9aabc32b949456a5404f1f64529c8))
+* update Dockerfile ([7ea0db9](https://github.com/Yancey-Blog/blog-be-next/commit/7ea0db9aca1d16b1fc9b1fb9889a5b02b6a64284))
+* update Dockerfile ([fb3b178](https://github.com/Yancey-Blog/blog-be-next/commit/fb3b1786d4e2bf128079bc8859685e29d683a984))
+* update Dockerfile ([1d5c16a](https://github.com/Yancey-Blog/blog-be-next/commit/1d5c16a7ba1938238a3da8efd7bcafb5522dc23f))
+* update Dockerfile ([e356afd](https://github.com/Yancey-Blog/blog-be-next/commit/e356afd571c49b174d8f5cc988eff21db6334b91))
+* update Dockerfile ([9ecbc58](https://github.com/Yancey-Blog/blog-be-next/commit/9ecbc58e5ae07d9cc48fdfcd785e6ca40d76d6d5))
+* update Dockerfile ([0ca4810](https://github.com/Yancey-Blog/blog-be-next/commit/0ca48101c2626b6b26a630fd5f9638bf1a25863b))
+* update Dockerfile ([1c0a63b](https://github.com/Yancey-Blog/blog-be-next/commit/1c0a63b581b0d820d42e59b43a405b89f3ed1894))
+* update Dockerfile ([6fa142c](https://github.com/Yancey-Blog/blog-be-next/commit/6fa142cef8b2fcc1d0b51974f6a782df84607ba7))
+* update Dockerfile ([c37ad05](https://github.com/Yancey-Blog/blog-be-next/commit/c37ad058a3dc567c6798fb200010767de2b1aaf8))
+* update Dockerfile ([061fc5f](https://github.com/Yancey-Blog/blog-be-next/commit/061fc5f9104ab4e26841a454461d457c49a7ef83))
+* update Dockerfile ([9de5c11](https://github.com/Yancey-Blog/blog-be-next/commit/9de5c114605b709297f89ab3813375a4b42addd0))
+* update getMongoURI ([dccc707](https://github.com/Yancey-Blog/blog-be-next/commit/dccc707f42fb490de6feaa0a54d82aa477d82879))
+* update getMongoURI ([c82b845](https://github.com/Yancey-Blog/blog-be-next/commit/c82b845a07839359ff5fd362d1b45f9f2c9abdfc))
+* update GraphQLModule ([3593d3f](https://github.com/Yancey-Blog/blog-be-next/commit/3593d3fcf7793aa3c2001f9f149050bee9404a2a))
+* update import of uuid/v4 ([2116b3c](https://github.com/Yancey-Blog/blog-be-next/commit/2116b3cac74789cfaa9cdd527f8511d6f3a11f95))
+* update jest ([31a971c](https://github.com/Yancey-Blog/blog-be-next/commit/31a971c1741d360fbb5af63a15803be69316b6ef))
+* update npm ci ([93096a8](https://github.com/Yancey-Blog/blog-be-next/commit/93096a8f2bb9a9bd4d14639b768f07c2f8f9b2da))
+* update package.json ([c22baf2](https://github.com/Yancey-Blog/blog-be-next/commit/c22baf2f755740d74579c86277dda280b7d8660a))
+* update package.json ([2504f61](https://github.com/Yancey-Blog/blog-be-next/commit/2504f61a91a842a3103d6c2bb7fedcd4498462e5))
+* update package.json ([44f3659](https://github.com/Yancey-Blog/blog-be-next/commit/44f36595f2ae0ee9b4200284a49f016ce0f96044))
+* update uuidv4 ([126d026](https://github.com/Yancey-Blog/blog-be-next/commit/126d026dcd92a9fe647a1e003089d9f3dc6e5c9a))
+* use uuid ([d64daa3](https://github.com/Yancey-Blog/blog-be-next/commit/d64daa30d66b6d025730510d8206853b73e2855c))
+* use yarn ([48603f7](https://github.com/Yancey-Blog/blog-be-next/commit/48603f74a0ed9188c3e7217751ae70b418c7128d))
+
 ## [0.13.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.12.2...v0.13.0) (2020-03-22)
 
 
