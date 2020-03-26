@@ -1,6 +1,5 @@
 import { UseGuards } from '@nestjs/common'
-import { Args, Query, Resolver, Mutation } from '@nestjs/graphql'
-import { ID } from 'type-graphql'
+import { Args, Query, Resolver, Mutation, ID } from '@nestjs/graphql'
 import { AnnouncementsService } from './announcements.service'
 import { AnnouncementModel } from './models/announcements.model'
 import { CreateAnnouncementInput } from './dtos/create-announcement.input'

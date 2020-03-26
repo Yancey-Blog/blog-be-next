@@ -54,19 +54,16 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variables file
+# Dotenv environment variables file
 production.env
 development.env
 
-# next.js build output
+# Next.js build output
 .next
 
-# production
+# Production
 /dist
 /build
 
-# document
+# Document
 /documentation
-
-# grahql document
-/graphql-doc

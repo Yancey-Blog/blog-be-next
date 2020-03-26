@@ -8,7 +8,7 @@ import helmet from 'helmet'
 import rateLimit from 'express-rate-limit'
 
 export const configMiddlewares = (app: INestApplication) => {
-  app.use(serveFavicon(path.join(process.cwd(), 'public/assets/favicon/favicon.ico')))
+  app.use(serveFavicon(path.join(process.cwd(), 'public/favicon.ico')))
   app.use(bodyParser.json())
   app.use(bodyParser.urlencoded({ extended: true }))
   app.use(morgan('combined'))

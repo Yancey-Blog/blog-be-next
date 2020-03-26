@@ -1,4 +1,4 @@
-import { InputType, Field } from 'type-graphql'
+import { InputType, Field } from '@nestjs/graphql'
 import { IsUUID, IsNotEmpty, IsString, IsUrl, IsBoolean } from 'class-validator'
 import { CreatePlayerInput } from './create-player.input'
 

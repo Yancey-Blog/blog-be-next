@@ -1,6 +1,5 @@
 import { UseGuards } from '@nestjs/common'
-import { Args, Query, Resolver, Mutation } from '@nestjs/graphql'
-import { ID } from 'type-graphql'
+import { Args, Query, Resolver, Mutation, ID } from '@nestjs/graphql'
 import { OpenSourcesService } from './open-sources.service'
 import { OpenSourceModel } from './models/open-sources.model'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'

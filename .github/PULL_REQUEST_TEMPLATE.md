@@ -2,7 +2,7 @@
 
 1. Fork the repository and create your branch from master.
 
-2. Run yarn in the repository root.
+2. Run yarn install in the repository root.
 
 3. If you've fixed a bug or added code that should be tested, add tests!
 
@@ -14,6 +14,6 @@
 
 7. Format your code with prettier (yarn prettier).
 
-8. Make sure your code lints (yarn lint). Tip: yarn linc to only check changed files.
+8. Make sure your code lints (yarn lint). Tip: yarn lint to only check changed files.
 
 9. If you haven't already, complete the CLA.
