@@ -36,7 +36,7 @@
     "@nestjs/graphql": "^6.5.4",
     "@nestjs/jwt": "^7.0.0",
     "@nestjs/mongoose": "^6.2.1",
-    "@nestjs/passport": "^6.2.0",
+    "@nestjs/passport": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
     "ali-oss": "^6.4.0",
     "apollo-server-express": "^2.11.0",
