@@ -9,8 +9,8 @@ services:
       - /usr/src/app/node_modules
     ports:
       - '3002:3002'
-    # env_file:
-    #   - env/production.env
+    env_file:
+      - env/production.env
     networks:
       - blog-network
     depends_on:

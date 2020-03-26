@@ -34,11 +34,7 @@ export class ConfigService {
     const auth = `${userName}:${userPwd}@`
     const connection = `${host}:${port}/${collection}`
 
-    // TODO:
-    // return this.isEnvProduction ? `${prefix}${auth}${connection}` : `${prefix}${connection}`
-    // return `${prefix}${connection}`
-
-    return `mongodb+srv://${userName}:${userPwd}@${host}/${collection}?retryWrites=true&w=majority`
+    return this.isEnvProduction ? `${prefix}${auth}${connection}` : `${prefix}${connection}`
   }
 
   public getAliKeys(): AliKey {
