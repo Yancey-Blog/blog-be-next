@@ -100,7 +100,7 @@
     "husky": "^4.0.10",
     "jest": "^25.2.0",
     "lint-staged": "^10.0.7",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.2",
     "rimraf": "^3.0.2",
     "standard-version": "^7.0.1",
     "supertest": "^4.0.2",
