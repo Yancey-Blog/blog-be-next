@@ -34,7 +34,9 @@ export class ConfigService {
     const auth = `${userName}:${userPwd}@`
     const connection = `${host}:${port}/${collection}`
 
-    return this.isEnvProduction ? `${prefix}${auth}${connection}` : `${prefix}${connection}`
+    // TODO:
+    // return this.isEnvProduction ? `${prefix}${auth}${connection}` : `${prefix}${connection}`
+    return `${prefix}${connection}`
   }
 
   public getAliKeys(): AliKey {
