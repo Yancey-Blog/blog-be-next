@@ -80,7 +80,7 @@
     "@types/helmet": "^0.0.45",
     "@types/mongoose": "^5.7.6",
     "@types/morgan": "^1.7.37",
-    "@types/node": "^13.9.1",
+    "@types/node": "^13.9.4",
     "@types/passport-jwt": "^3.0.3",
     "@types/passport-local": "^1.0.33",
     "@types/ramda": "^0.26.44",
