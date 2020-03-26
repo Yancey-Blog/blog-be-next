@@ -1,5 +1,4 @@
-import { Args, Query, Resolver, Mutation } from '@nestjs/graphql'
-import { ID } from 'type-graphql'
+import { Args, Query, Resolver, Mutation, ID } from '@nestjs/graphql'
 import { BestAlbumsService } from './best-albums.service'
 import { BestAlbumModel } from './models/best-albums.model'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'

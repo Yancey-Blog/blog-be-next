@@ -1,6 +1,5 @@
 import { UseGuards } from '@nestjs/common'
-import { Args, Query, Resolver, Mutation } from '@nestjs/graphql'
-import { ID } from 'type-graphql'
+import { Args, Query, Resolver, Mutation, ID } from '@nestjs/graphql'
 import { AgendaService } from './agenda.service'
 import { AgendaModel } from './models/agenda.model'
 import { CreateAgendaInput } from './dtos/create-agenda.input'
