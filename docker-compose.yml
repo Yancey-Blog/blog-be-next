@@ -1,16 +1,6 @@
 version: '3'
 
 services:
-  db:
-    image: mongo
-    ports:
-      - '27016:27017'
-    networks:
-      - blog-network
-    volumes:
-      # - "/data/mongo:/data/db"
-      - '/tmp/mongo:/data/db'
-
   api:
     restart: always
     build: .
@@ -24,9 +14,17 @@ services:
     networks:
       - blog-network
     depends_on:
-      - db
+      - mongo
 
-
+  mongo:
+    image: mongo
+    ports:
+      - '27016:27017'
+    networks:
+      - blog-network
+    volumes:
+      # - "/data/mongo:/data/db"
+      - '/tmp/mongo:/data/db'
 
 networks:
   blog-network:
