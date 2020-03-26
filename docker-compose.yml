@@ -12,40 +12,22 @@ services:
     env_file:
       - env/production.env
     networks:
-      - docker-nest-typegoose-net
+      - blog-network
     depends_on:
       - mongo
 
-  # cms:
-  #   build: .
-
-  # desktop:
-  #   build: .
-  #   ports:
-  #     - '3000:3000'
-
-  # mobile:
-  #   build: .
-  #   ports:
-  #     - '3000:3000'
-
-  # caddy:
-  #   image: 'caddy'
-
   mongo:
     image: 'mongo:latest'
-    expose:
-      - 27017
-    # ports:
-    #   - '27016:27017'
+    ports:
+      - '27016:27017'
     networks:
-      - docker-nest-typegoose-net
+      - blog-network
     volumes:
       # - '/data/mongo:/data/db'
       - '/tmp/mongo:/data/db'
 
 networks:
-  docker-nest-typegoose-net:
+  blog-network:
     driver: bridge
 # Run
 # docker-compose up -d
