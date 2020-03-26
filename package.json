@@ -86,7 +86,7 @@
     "@types/ramda": "^0.26.44",
     "@types/serve-favicon": "^2.5.0",
     "@types/supertest": "^2.0.8",
-    "@types/uuid": "^3.4.6",
+    "@types/uuid": "^7.0.2",
     "@typescript-eslint/eslint-plugin": "^2.23.0",
     "@typescript-eslint/parser": "^2.23.0",
     "codecov": "^3.6.5",
