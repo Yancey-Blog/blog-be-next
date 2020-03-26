@@ -19,7 +19,7 @@ services:
   mongo:
     image: mongo
     ports:
-      #- '27017:27017'
+      # - '27017:27017'
       - '27016:27017'
     networks:
       - blog-network
