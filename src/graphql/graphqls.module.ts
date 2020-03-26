@@ -8,8 +8,7 @@ import { SCHEMA_GQL_FILE_NAME } from '../shared/constants'
     GraphQLModule.forRootAsync({
       useFactory: async (configService: ConfigService) => ({
         debug: !configService.isEnvProduction,
-        // playground: !configService.isEnvProduction,
-        playground: true,
+        playground: !configService.isEnvProduction,
         installSubscriptionHandlers: true,
         typePaths: ['./**/*.graphql'],
         autoSchemaFile: SCHEMA_GQL_FILE_NAME,
