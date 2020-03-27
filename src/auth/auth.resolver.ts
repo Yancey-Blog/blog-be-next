@@ -1,4 +1,4 @@
-import { Args, Query, Resolver, Mutation } from '@nestjs/graphql'
+import { Args, Query, Resolver, Mutation, ID } from '@nestjs/graphql'
 import { AuthService } from './auth.service'
 import { AuthModel } from './models/auth.model'
 import { TOTPModel } from './models/totp.model'
@@ -22,7 +22,7 @@ export class AuthResolver {
   }
 
   @Mutation(() => TOTPModel)
-  public async totp() {
-    return this.authService.totp()
+  public async createTOTP(@Args({ name: 'userId', type: () => ID }) userId: string) {
+    return this.authService.createTOTP(userId)
   }
 }

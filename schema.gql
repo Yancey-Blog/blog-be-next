@@ -133,7 +133,7 @@ input LoginInput {
 
 type Mutation {
   register(input: RegisterInput!): AuthModel!
-  totp: TOTPModel!
+  createTOTP(userId: ID!): TOTPModel!
   createAnnouncement(input: CreateAnnouncementInput!): AnnouncementModel!
   updateAnnouncementById(input: UpdateAnnouncementInput!): AnnouncementModel!
   deleteAnnouncementById(id: ID!): AnnouncementModel!

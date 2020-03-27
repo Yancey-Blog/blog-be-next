@@ -58,8 +58,13 @@ export class AuthService {
     }
   }
 
-  public async totp() {
+  public async createTOTP(userId: string) {
     const { base32, otpauth_url } = speakeasy.generateSecret()
+
+    await this.usersService.updateUser({
+      id: userId,
+      twoFactorSecret: base32,
+    })
 
     return generateQRCode(otpauth_url)
   }
