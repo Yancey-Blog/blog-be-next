@@ -42,6 +42,10 @@ export const UserSchema = new mongoose.Schema(
       type: Boolean,
       required: true,
     },
+    twoFactorSecret: {
+      type: String,
+      required: false,
+    },
   },
   {
     collection: 'user',
@@ -49,11 +53,11 @@ export const UserSchema = new mongoose.Schema(
   },
 )
 
-UserSchema.pre<User>('save', function(next: HookNextFunction) {
+UserSchema.pre<User>('save', function (next: HookNextFunction) {
   this.password = bcrypt.hashSync(this.password, 10)
   next()
 })
 
-UserSchema.methods.isValidPassword = function(password: string): boolean {
+UserSchema.methods.isValidPassword = function (password: string): boolean {
   return bcrypt.compareSync(password, this.password)
 }

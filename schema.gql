@@ -132,6 +132,7 @@ input LoginInput {
 
 type Mutation {
   register(input: RegisterInput!): AuthModel!
+  totp: AuthModel!
   createAnnouncement(input: CreateAnnouncementInput!): AnnouncementModel!
   updateAnnouncementById(input: UpdateAnnouncementInput!): AnnouncementModel!
   deleteAnnouncementById(id: ID!): AnnouncementModel!

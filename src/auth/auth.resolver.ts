@@ -19,4 +19,9 @@ export class AuthResolver {
   public async register(@Args('input') input: RegisterInput) {
     return this.authService.register(input)
   }
+
+  @Mutation(() => AuthModel)
+  public async totp() {
+    return this.authService.totp()
+  }
 }

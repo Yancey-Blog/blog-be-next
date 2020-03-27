@@ -21,6 +21,7 @@ export interface User extends Document {
   avaterUrl: string
   phoneNumber: string
   isTOTP: boolean
+  twoFactorSecret: string
   createdAt: Date
   updatedAt: Date
   isValidPassword(plainPwd: string, encryptedPwd: string): boolean
