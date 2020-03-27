@@ -26,11 +26,12 @@ export class UsersService {
     return this.UserModel.findOne({ username })
   }
 
-  public async create(user: CreateUserInput): Promise<User> {
-    return this.UserModel.create(user)
+  public async create(createUserInput: CreateUserInput): Promise<User> {
+    return this.UserModel.create(createUserInput)
   }
 
-  public async updateUser(user: CreateUserInput): Promise<User> {
-    return this.UserModel.create(user)
+  public async updateUser(updateUserInput: UpdateUserInput): Promise<User> {
+    const { id, ...rest } = updateUserInput
+    return this.UserModel.findByIdAndUpdate(id, rest, { new: true })
   }
 }
