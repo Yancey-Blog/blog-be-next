@@ -133,7 +133,7 @@ input LoginInput {
 
 type Mutation {
   register(input: RegisterInput!): AuthModel!
-  totp: AuthModel!
+  totp: TOTPModel!
   createAnnouncement(input: CreateAnnouncementInput!): AnnouncementModel!
   updateAnnouncementById(input: UpdateAnnouncementInput!): AnnouncementModel!
   deleteAnnouncementById(id: ID!): AnnouncementModel!
@@ -276,6 +276,10 @@ type SMSModel {
   verificationCode: String!
   createdAt: DateTime!
   updatedAt: DateTime!
+}
+
+type TOTPModel {
+  qrcode: String!
 }
 
 input UpdateAgendaInput {

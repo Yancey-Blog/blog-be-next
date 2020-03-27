@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common'
 import { ForbiddenError, AuthenticationError } from 'apollo-server-express'
 import { JwtService } from '@nestjs/jwt'
 import speakeasy from 'speakeasy'
-import QRCode from 'qrcode'
+import { generateQRCode } from '../shared/utils'
 import { UsersService } from '../users/users.service'
 import { Roles, User } from '../users/interfaces/user.interface'
 import { LoginInput } from './dtos/login.input'
@@ -60,6 +60,6 @@ export class AuthService {
   public async totp() {
     const { base32, otpauth_url } = speakeasy.generateSecret()
 
-    QRCode.toDataURL(otpauth_url, (err, data_url) => ({ qrcode: data_url }))
+    return generateQRCode(otpauth_url)
   }
 }
