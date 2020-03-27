@@ -32,7 +32,7 @@ export class AuthService {
       return user
     }
 
-    throw new AuthenticationError('Email and password are not matching!')
+    throw new AuthenticationError('Your username and password do not match. Please try again!')
   }
 
   public async login(loginInput: LoginInput) {
@@ -81,6 +81,11 @@ export class AuthService {
       token,
     })
 
-    return verified
+    if (verified) {
+      const res = await this.usersService.updateUser({ id: userId, isTOTP: true })
+      return this.generateJWT(res.email, res)
+    }
+
+    throw new AuthenticationError('Two factor authentication failed!')
   }
 }

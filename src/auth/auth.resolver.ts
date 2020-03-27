@@ -27,7 +27,7 @@ export class AuthResolver {
     return this.authService.createTOTP(userId)
   }
 
-  @Mutation(() => TOTPModel)
+  @Mutation(() => UserModel)
   public async validateTOTP(@Args('input') input: ValidateTOTPInput) {
     return this.authService.validateTOTP(input)
   }

@@ -9,7 +9,7 @@ export class UpdateUserInput {
   public readonly id: string
 
   @Field({ nullable: true })
-  public readonly isTOTP?: string
+  public readonly isTOTP?: boolean
 
   @Field({ nullable: true })
   public readonly twoFactorSecret?: string
