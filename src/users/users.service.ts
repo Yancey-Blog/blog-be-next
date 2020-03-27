@@ -18,6 +18,10 @@ export class UsersService {
     return this.UserModel.estimatedDocumentCount()
   }
 
+  public async findOneById(id: string): Promise<User> {
+    return this.UserModel.findById(id)
+  }
+
   public async findOneByEmail(email: string): Promise<User> {
     return this.UserModel.findOne({ email })
   }

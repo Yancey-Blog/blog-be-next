@@ -134,6 +134,7 @@ input LoginInput {
 type Mutation {
   register(input: RegisterInput!): AuthModel!
   createTOTP(userId: ID!): TOTPModel!
+  validateTOTP(input: ValidateTOTPInput!): TOTPModel!
   createAnnouncement(input: CreateAnnouncementInput!): AnnouncementModel!
   updateAnnouncementById(input: UpdateAnnouncementInput!): AnnouncementModel!
   deleteAnnouncementById(id: ID!): AnnouncementModel!
@@ -355,6 +356,11 @@ input ValidateSMSInput {
 
 type ValidateSMSRes {
   success: Boolean!
+}
+
+input ValidateTOTPInput {
+  userId: String!
+  token: String!
 }
 
 type YanceyMusicModel {

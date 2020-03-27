@@ -7,6 +7,7 @@ import { UsersService } from '../users/users.service'
 import { Roles, User } from '../users/interfaces/user.interface'
 import { LoginInput } from './dtos/login.input'
 import { RegisterInput } from './dtos/register.input'
+import { ValidateTOTPInput } from './dtos/validate-totp.input'
 
 @Injectable()
 export class AuthService {
@@ -67,5 +68,19 @@ export class AuthService {
     })
 
     return generateQRCode(otpauth_url)
+  }
+
+  public async validateTOTP(input: ValidateTOTPInput) {
+    const { userId, token } = input
+
+    const { twoFactorSecret } = await this.usersService.findOneById(userId)
+
+    const verified = speakeasy.totp.verify({
+      secret: twoFactorSecret,
+      encoding: 'base32',
+      token,
+    })
+
+    return verified
   }
 }

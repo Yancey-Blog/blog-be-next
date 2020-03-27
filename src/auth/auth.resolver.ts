@@ -4,6 +4,7 @@ import { AuthModel } from './models/auth.model'
 import { TOTPModel } from './models/totp.model'
 import { LoginInput } from './dtos/login.input'
 import { RegisterInput } from './dtos/register.input'
+import { ValidateTOTPInput } from './dtos/validate-totp.input'
 
 @Resolver(() => AuthModel)
 export class AuthResolver {
@@ -24,5 +25,10 @@ export class AuthResolver {
   @Mutation(() => TOTPModel)
   public async createTOTP(@Args({ name: 'userId', type: () => ID }) userId: string) {
     return this.authService.createTOTP(userId)
+  }
+
+  @Mutation(() => TOTPModel)
+  public async validateTOTP(@Args('input') input: ValidateTOTPInput) {
+    return this.authService.validateTOTP(input)
   }
 }
