@@ -60,7 +60,7 @@ export class AuthService {
   }
 
   public async createTOTP(userId: string) {
-    const { base32, otpauth_url } = speakeasy.generateSecret()
+    const { base32, otpauth_url } = speakeasy.generateSecret({ name: 'Yancey Blog CMS' })
 
     await this.usersService.updateUser({
       id: userId,
