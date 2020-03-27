@@ -49,6 +49,7 @@ export class AuthService {
     if (curUser || curEmail) {
       throw new ForbiddenError('Email is already registered!')
     } else {
+      // TODO: 通过脚本初始化 root 用户
       const count = await this.usersService.getUserCount()
       const params = count === 0 ? { ...registerInput, role: Roles.SUPERUSER } : registerInput
       const res = await this.usersService.create(params)

@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
 import { User } from './interfaces/user.interface'
-import { CreateUserDto } from './dtos/createUser.dto'
-import { ChangePasswordInput } from './dtos/change-password.input'
+import { CreateUserInput } from './dtos/create-user.input'
+import { UpdateUserInput } from './dtos/update-user.input'
 
 @Injectable()
 export class UsersService {
@@ -26,19 +26,11 @@ export class UsersService {
     return this.UserModel.findOne({ username })
   }
 
-  public async create(user: CreateUserDto): Promise<User> {
+  public async create(user: CreateUserInput): Promise<User> {
     return this.UserModel.create(user)
   }
 
-  // TODO:
-  public async changePassword(params: ChangePasswordInput): Promise<User> {
-    const { id, oldPassword, newPassword } = params
-    return this.UserModel.findByIdAndUpdate(id, { password: newPassword })
-  }
-
-  // TODO:
-  public async supportTOTP(params: ChangePasswordInput): Promise<User> {
-    const { id } = params
-    return this.UserModel.findByIdAndUpdate(id, { isTOTP: true })
+  public async updateUser(user: CreateUserInput): Promise<User> {
+    return this.UserModel.create(user)
   }
 }
