@@ -32,6 +32,7 @@ type AuthModel {
   avaterUrl: String!
   phoneNumber: String!
   isTOTP: Boolean!
+  twoFactorSecret: String!
   createdAt: DateTime!
   updatedAt: DateTime!
 }

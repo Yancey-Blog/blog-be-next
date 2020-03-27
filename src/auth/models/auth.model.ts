@@ -30,6 +30,9 @@ export class AuthModel {
   public readonly isTOTP: boolean
 
   @Field()
+  public readonly twoFactorSecret: string
+
+  @Field()
   public readonly createdAt: Date
 
   @Field()

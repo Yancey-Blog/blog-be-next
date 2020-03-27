@@ -60,14 +60,6 @@ export class AuthService {
   public async totp() {
     const { base32, otpauth_url } = speakeasy.generateSecret()
 
-    QRCode.toDataURL(otpauth_url, (err, data_url) => {
-      console.log(data_url)
-    })
-    const token = speakeasy.totp({
-      secret: base32,
-      encoding: 'base32',
-    })
-
-    return token
+    QRCode.toDataURL(otpauth_url, (err, data_url) => ({ qrcode: data_url }))
   }
 }
