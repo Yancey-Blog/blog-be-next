@@ -55,6 +55,7 @@
     "mongoose": "^5.9.2",
     "morgan": "^1.9.1",
     "passport": "^0.4.1",
+    "passport-2fa-totp": "^0.0.1",
     "passport-jwt": "^4.0.0",
     "pm2": "^4.2.3",
     "reflect-metadata": "^0.1.13",
