@@ -1,23 +1,23 @@
 import { Args, Query, Resolver, Mutation, ID } from '@nestjs/graphql'
 import { AuthService } from './auth.service'
-import { AuthModel } from './models/auth.model'
+import { UserModel } from '../users/models/User.model'
 import { TOTPModel } from './models/totp.model'
 import { LoginInput } from './dtos/login.input'
 import { RegisterInput } from './dtos/register.input'
 import { ValidateTOTPInput } from './dtos/validate-totp.input'
 
-@Resolver(() => AuthModel)
+@Resolver(() => UserModel)
 export class AuthResolver {
   constructor(private readonly authService: AuthService) {
     this.authService = authService
   }
 
-  @Query(() => AuthModel)
+  @Query(() => UserModel)
   public async login(@Args('input') input: LoginInput) {
     return this.authService.login(input)
   }
 
-  @Mutation(() => AuthModel)
+  @Mutation(() => UserModel)
   public async register(@Args('input') input: RegisterInput) {
     return this.authService.register(input)
   }

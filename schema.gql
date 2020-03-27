@@ -22,21 +22,6 @@ type AnnouncementModel {
   updatedAt: DateTime!
 }
 
-type AuthModel {
-  _id: ID!
-  authorization: String!
-  username: String!
-  email: String!
-  password: String!
-  role: Float!
-  avaterUrl: String!
-  phoneNumber: String!
-  isTOTP: Boolean!
-  twoFactorSecret: String!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-}
-
 type BatchDeleteModel {
   ok: Float
   n: Float
@@ -132,7 +117,7 @@ input LoginInput {
 }
 
 type Mutation {
-  register(input: RegisterInput!): AuthModel!
+  register(input: RegisterInput!): UserModel!
   createTOTP(userId: ID!): TOTPModel!
   validateTOTP(input: ValidateTOTPInput!): TOTPModel!
   createAnnouncement(input: CreateAnnouncementInput!): AnnouncementModel!
@@ -190,7 +175,7 @@ type PlayerModel {
 }
 
 type Query {
-  login(input: LoginInput!): AuthModel!
+  login(input: LoginInput!): UserModel!
   getAnnouncements: [AnnouncementModel!]!
   getAnnouncementById(id: ID!): AnnouncementModel!
   getAllSMS: [SMSModel!]!
@@ -347,6 +332,21 @@ type UsageStatesModel {
   network_out_bytes: String!
   disk_read_bytes: String!
   cpu_usage: String!
+}
+
+type UserModel {
+  _id: ID!
+  authorization: String!
+  username: String!
+  email: String!
+  password: String!
+  role: Float!
+  avaterUrl: String!
+  phoneNumber: String!
+  isTOTP: Boolean!
+  twoFactorSecret: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 input ValidateSMSInput {
