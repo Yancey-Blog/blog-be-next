@@ -32,7 +32,7 @@ export class UserModel {
   @Field()
   public readonly twoFactorSecret: string
 
-  @Field()
+  @Field(() => String)
   public readonly recoveryCodes: string[]
 
   @Field()

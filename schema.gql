@@ -120,7 +120,7 @@ type Mutation {
   register(input: RegisterInput!): UserModel!
   createTOTP(userId: ID!): TOTPModel!
   validateTOTP(input: ValidateTOTPInput!): UserModel!
-  createRecoveryCodes(input: ValidateTOTPInput!): UserModel!
+  createRecoveryCodes(userId: ID!): RecoveryCodeModel!
   validateRecoveryCode(input: ValidateTOTPInput!): UserModel!
   createAnnouncement(input: CreateAnnouncementInput!): AnnouncementModel!
   updateAnnouncementById(input: UpdateAnnouncementInput!): AnnouncementModel!
@@ -194,6 +194,10 @@ type Query {
   getPlayers: [PlayerModel!]!
   getPlayerById(id: ID!): PlayerModel!
   getAgenda: [AgendaModel!]!
+}
+
+type RecoveryCodeModel {
+  recoveryCodes: String!
 }
 
 input RegisterInput {
@@ -347,6 +351,7 @@ type UserModel {
   phoneNumber: String!
   isTOTP: Boolean!
   twoFactorSecret: String!
+  recoveryCodes: String!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
