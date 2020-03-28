@@ -89,7 +89,7 @@ export class AuthService {
       return this.generateJWT(res.email, res)
     }
 
-    throw new AuthenticationError('Two factor authentication failed!')
+    throw new ForbiddenError('Two factor authentication failed!')
   }
 
   public async createRecoveryCodes(userId: string) {
@@ -114,6 +114,6 @@ export class AuthService {
       return this.generateJWT(res.email, res)
     }
 
-    throw new AuthenticationError('Two factor authentication failed!')
+    throw new ForbiddenError('Two factor authentication failed!')
   }
 }
