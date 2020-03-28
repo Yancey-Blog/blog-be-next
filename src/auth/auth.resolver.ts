@@ -2,6 +2,7 @@ import { Args, Query, Resolver, Mutation, ID } from '@nestjs/graphql'
 import { AuthService } from './auth.service'
 import { UserModel } from '../users/models/User.model'
 import { TOTPModel } from './models/totp.model'
+import { RecoveryCodeModel } from './models/recovery-code.model'
 import { LoginInput } from './dtos/login.input'
 import { RegisterInput } from './dtos/register.input'
 import { ValidateTOTPInput } from './dtos/validate-totp.input'
@@ -32,7 +33,7 @@ export class AuthResolver {
     return this.authService.validateTOTP(input)
   }
 
-  @Mutation(() => UserModel)
+  @Mutation(() => RecoveryCodeModel)
   public async createRecoveryCodes(@Args({ name: 'userId', type: () => ID }) userId: string) {
     return this.authService.createRecoveryCodes(userId)
   }
