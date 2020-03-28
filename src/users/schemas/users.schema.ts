@@ -46,6 +46,10 @@ export const UserSchema = new mongoose.Schema(
       type: String,
       required: false,
     },
+    recoveryCodes: {
+      type: String,
+      required: false,
+    },
   },
   {
     collection: 'user',

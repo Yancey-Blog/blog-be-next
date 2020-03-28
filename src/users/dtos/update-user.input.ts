@@ -15,6 +15,9 @@ export class UpdateUserInput {
   public readonly twoFactorSecret?: string
 
   @Field({ nullable: true })
+  public readonly recoveryCodes?: string[]
+
+  @Field({ nullable: true })
   public readonly oldPassword?: string
 
   @Field({ nullable: true })

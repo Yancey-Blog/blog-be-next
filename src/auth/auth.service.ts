@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common'
 import { ForbiddenError, AuthenticationError } from 'apollo-server-express'
 import { JwtService } from '@nestjs/jwt'
 import speakeasy from 'speakeasy'
-import { generateQRCode } from '../shared/utils'
+import { generateQRCode, generateRecoveryCodes } from '../shared/utils'
 import { UsersService } from '../users/users.service'
 import { Roles, User } from '../users/interfaces/user.interface'
 import { LoginInput } from './dtos/login.input'
@@ -20,7 +20,7 @@ export class AuthService {
   }
 
   private generateJWT(email: string, res: User) {
-    const { password, twoFactorSecret, ...rest } = res.toObject() as User
+    const { password, twoFactorSecret, recoveryCodes, ...rest } = res.toObject() as User
     const payload = { email, sub: res._id }
     return { authorization: this.jwtService.sign(payload), ...rest }
   }
@@ -83,6 +83,29 @@ export class AuthService {
 
     if (verified) {
       const res = await this.usersService.updateUser({ id: userId, isTOTP: true })
+      return this.generateJWT(res.email, res)
+    }
+
+    throw new AuthenticationError('Two factor authentication failed!')
+  }
+
+  public async createRecoveryCodes(userId: string) {
+    const codes = generateRecoveryCodes()
+    const res = await this.usersService.updateUser({ id: userId, recoveryCodes: codes })
+
+    return res
+  }
+
+  public async validateRecoveryCode(input: ValidateTOTPInput) {
+    const { userId, token } = input
+    const { recoveryCodes } = await this.usersService.findOneById(userId)
+    const index = recoveryCodes.indexOf(token)
+
+    if (index !== -1) {
+      const res = await this.usersService.updateUser({
+        id: userId,
+        recoveryCodes: recoveryCodes.splice(index, 1),
+      })
       return this.generateJWT(res.email, res)
     }
 

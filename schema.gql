@@ -120,6 +120,8 @@ type Mutation {
   register(input: RegisterInput!): UserModel!
   createTOTP(userId: ID!): TOTPModel!
   validateTOTP(input: ValidateTOTPInput!): UserModel!
+  createRecoveryCodes(input: ValidateTOTPInput!): UserModel!
+  validateRecoveryCode(input: ValidateTOTPInput!): UserModel!
   createAnnouncement(input: CreateAnnouncementInput!): AnnouncementModel!
   updateAnnouncementById(input: UpdateAnnouncementInput!): AnnouncementModel!
   deleteAnnouncementById(id: ID!): AnnouncementModel!

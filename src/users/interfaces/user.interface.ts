@@ -22,6 +22,7 @@ export interface User extends Document {
   phoneNumber: string
   isTOTP: boolean
   twoFactorSecret: string
+  recoveryCodes: string[]
   createdAt: Date
   updatedAt: Date
   isValidPassword(plainPwd: string, encryptedPwd: string): boolean

@@ -33,6 +33,9 @@ export class UserModel {
   public readonly twoFactorSecret: string
 
   @Field()
+  public readonly recoveryCodes: string[]
+
+  @Field()
   public readonly createdAt: Date
 
   @Field()

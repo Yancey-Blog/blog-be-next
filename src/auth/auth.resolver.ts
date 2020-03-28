@@ -31,4 +31,14 @@ export class AuthResolver {
   public async validateTOTP(@Args('input') input: ValidateTOTPInput) {
     return this.authService.validateTOTP(input)
   }
+
+  @Mutation(() => UserModel)
+  public async createRecoveryCodes(@Args({ name: 'userId', type: () => ID }) userId: string) {
+    return this.authService.createRecoveryCodes(userId)
+  }
+
+  @Mutation(() => UserModel)
+  public async validateRecoveryCode(@Args('input') input: ValidateTOTPInput) {
+    return this.authService.validateRecoveryCode(input)
+  }
 }
