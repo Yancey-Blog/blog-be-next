@@ -73,16 +73,19 @@ export class AuthService {
   public async validateTOTP(input: ValidateTOTPInput) {
     const { userId, token } = input
 
-    const { twoFactorSecret } = await this.usersService.findOneById(userId)
+    const res = await this.usersService.findOneById(userId)
 
     const verified = speakeasy.totp.verify({
-      secret: twoFactorSecret,
+      secret: res.twoFactorSecret,
       encoding: 'base32',
       token,
     })
 
     if (verified) {
-      const res = await this.usersService.updateUser({ id: userId, isTOTP: true })
+      if (!res.isTOTP) {
+        await this.usersService.updateUser({ id: userId, isTOTP: true })
+      }
+
       return this.generateJWT(res.email, res)
     }
 
