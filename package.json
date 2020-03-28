@@ -47,6 +47,7 @@
     "class-validator": "^0.11.0",
     "dotenv": "^8.2.0",
     "express-rate-limit": "^5.0.0",
+    "fs-extra": "^9.0.0",
     "graphql": "^14.6.0",
     "graphql-tools": "^4.0.7",
     "helmet": "^3.21.3",
@@ -63,7 +64,7 @@
     "serve-favicon": "^2.5.0",
     "speakeasy": "^2.0.0",
     "uuid": "^7.0.2",
-    "yancey-js-util": "^1.1.1"
+    "yancey-js-util": "^2.0.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
@@ -75,6 +76,7 @@
     "@types/bcrypt": "^3.0.0",
     "@types/csurf": "^1.9.36",
     "@types/express-rate-limit": "^5.0.0",
+    "@types/fs-extra": "^8.1.0",
     "@types/hapi__joi": "^16.0.12",
     "@types/helmet": "^0.0.45",
     "@types/jest": "^25.1.4",

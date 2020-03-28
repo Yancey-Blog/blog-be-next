@@ -1,5 +1,6 @@
 import {
   Body,
+  Res,
   Param,
   Get,
   Post,
@@ -9,10 +10,14 @@ import {
   UseGuards,
   ValidationPipe,
 } from '@nestjs/common'
+import { Response } from 'express'
 import { AuthGuard } from '@nestjs/passport'
+import path from 'path'
+import fs from 'fs-extra'
 import { MottosService } from './mottos.service'
 import { CreateMottoDto } from './dtos/createMotto.dto'
 import { Motto } from './interfaces/motto.interface'
+import { RECOVERY_CODES_PATH } from '../shared/constants'
 
 @Controller('mottos')
 export class MottosResolver {
@@ -55,5 +60,14 @@ export class MottosResolver {
   @Delete()
   public deleteMottos(@Body('ids') ids: string[]) {
     return this.mottosService.batchDelete(ids)
+  }
+
+  @Get('generateFile/:id')
+  public downloadFile(@Res() res: Response) {
+    this.mottosService.generateFile()
+
+    const filePath = path.join(process.cwd(), RECOVERY_CODES_PATH)
+    res.download(filePath)
+    fs.remove(filePath)
   }
 }
