@@ -197,7 +197,7 @@ type Query {
 }
 
 type RecoveryCodeModel {
-  recoveryCodes: String!
+  recoveryCodes: [String!]!
 }
 
 input RegisterInput {
@@ -351,7 +351,7 @@ type UserModel {
   phoneNumber: String!
   isTOTP: Boolean!
   twoFactorSecret: String!
-  recoveryCodes: String!
+  recoveryCodes: [String!]!
   createdAt: DateTime!
   updatedAt: DateTime!
 }

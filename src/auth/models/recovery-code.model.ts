@@ -3,7 +3,7 @@ import { IsArray } from 'class-validator'
 
 @ObjectType()
 export class RecoveryCodeModel {
-  @Field(() => String)
+  @Field(() => [String])
   @IsArray()
   public readonly recoveryCodes: string[]
 }

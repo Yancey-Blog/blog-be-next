@@ -102,9 +102,11 @@ export class AuthService {
     const index = recoveryCodes.indexOf(token)
 
     if (index !== -1) {
+      recoveryCodes.splice(index, 1)
+      const restRecoveryCodes = recoveryCodes
       const res = await this.usersService.updateUser({
         id: userId,
-        recoveryCodes: recoveryCodes.splice(index, 1),
+        recoveryCodes: restRecoveryCodes,
       })
       return this.generateJWT(res.email, res)
     }

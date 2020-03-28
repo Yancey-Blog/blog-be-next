@@ -1,3 +1,4 @@
+import { UseGuards } from '@nestjs/common'
 import { Args, Query, Resolver, Mutation, ID } from '@nestjs/graphql'
 import { AuthService } from './auth.service'
 import { UserModel } from '../users/models/User.model'
@@ -6,6 +7,7 @@ import { RecoveryCodeModel } from './models/recovery-code.model'
 import { LoginInput } from './dtos/login.input'
 import { RegisterInput } from './dtos/register.input'
 import { ValidateTOTPInput } from './dtos/validate-totp.input'
+import { GqlAuthGuard } from '../guard/gqlAuth.guard'
 
 @Resolver(() => UserModel)
 export class AuthResolver {
@@ -24,21 +26,25 @@ export class AuthResolver {
   }
 
   @Mutation(() => TOTPModel)
+  @UseGuards(GqlAuthGuard)
   public async createTOTP(@Args({ name: 'userId', type: () => ID }) userId: string) {
     return this.authService.createTOTP(userId)
   }
 
   @Mutation(() => UserModel)
+  @UseGuards(GqlAuthGuard)
   public async validateTOTP(@Args('input') input: ValidateTOTPInput) {
     return this.authService.validateTOTP(input)
   }
 
   @Mutation(() => RecoveryCodeModel)
+  @UseGuards(GqlAuthGuard)
   public async createRecoveryCodes(@Args({ name: 'userId', type: () => ID }) userId: string) {
     return this.authService.createRecoveryCodes(userId)
   }
 
   @Mutation(() => UserModel)
+  @UseGuards(GqlAuthGuard)
   public async validateRecoveryCode(@Args('input') input: ValidateTOTPInput) {
     return this.authService.validateRecoveryCode(input)
   }
