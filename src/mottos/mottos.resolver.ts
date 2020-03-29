@@ -1,6 +1,5 @@
 import {
   Body,
-  Res,
   Param,
   Get,
   Post,
@@ -10,10 +9,7 @@ import {
   UseGuards,
   ValidationPipe,
 } from '@nestjs/common'
-import { Response } from 'express'
 import { AuthGuard } from '@nestjs/passport'
-import path from 'path'
-import fs from 'fs-extra'
 import { MottosService } from './mottos.service'
 import { CreateMottoDto } from './dtos/createMotto.dto'
 import { Motto } from './interfaces/motto.interface'
