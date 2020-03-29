@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core'
 import { NestExpressApplication } from '@nestjs/platform-express'
-import { configMiddlewares } from './middlewares/index.middleware'
+import { configMiddlewares } from './shared/middlewares/index.middleware'
 import { AppModule } from './app.module'
 
 const bootstrap = async () => {
