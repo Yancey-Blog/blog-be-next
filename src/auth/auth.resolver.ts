@@ -1,4 +1,5 @@
 import { UseGuards } from '@nestjs/common'
+import { Request } from 'express'
 import { Args, Query, Resolver, Mutation, ID } from '@nestjs/graphql'
 import { AuthService } from './auth.service'
 import { UserModel } from '../users/models/User.model'
@@ -7,7 +8,8 @@ import { RecoveryCodeModel } from './models/recovery-code.model'
 import { LoginInput } from './dtos/login.input'
 import { RegisterInput } from './dtos/register.input'
 import { ValidateTOTPInput } from './dtos/validate-totp.input'
-import { GqlAuthGuard } from '../guard/gqlAuth.guard'
+import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
+import { ReqDecorator } from '../shared/decorators'
 
 @Resolver(() => UserModel)
 export class AuthResolver {
@@ -27,7 +29,11 @@ export class AuthResolver {
 
   @Mutation(() => TOTPModel)
   @UseGuards(GqlAuthGuard)
-  public async createTOTP(@Args({ name: 'userId', type: () => ID }) userId: string) {
+  public async createTOTP(
+    @Args({ name: 'userId', type: () => ID }) userId: string,
+    @ReqDecorator() req: Request,
+  ) {
+    console.log(req)
     return this.authService.createTOTP(userId)
   }
 

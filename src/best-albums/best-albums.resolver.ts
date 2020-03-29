@@ -5,7 +5,7 @@ import { BestAlbumModel } from './models/best-albums.model'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'
 import { CreateBestAlbumInput } from './dtos/create-best-album.input'
 import { UpdateBestAlbumInput } from './dtos/update-best-album.input'
-import { GqlAuthGuard } from '../guard/gqlAuth.guard'
+import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
 
 @Resolver(() => BestAlbumModel)
 export class BestAlbumsResolver {

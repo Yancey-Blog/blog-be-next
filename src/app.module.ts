@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common'
 import { APP_FILTER, APP_PIPE, APP_GUARD } from '@nestjs/core'
 import { GraphQLExceptionFilter } from './shared/filters/graqhql-exception.filter'
 import { GraphQLValidationPipe } from './shared/pipes/GraphQLValidation.pipe'
-import { RolesGuard } from './guard/roles.guard'
+import { RolesGuard } from './shared/guard/roles.guard'
 
 import { ConfigModule } from './config/config.module'
 import { DataBaseModule } from './database/database.module'

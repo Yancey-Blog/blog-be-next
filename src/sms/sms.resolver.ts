@@ -6,7 +6,7 @@ import { SendSMSRes } from './dtos/sendSMSRes.dto'
 import { ValidateSMSRes } from './dtos/validateSMSRes.dto'
 import { SendSMSInput } from './dtos/sendSMS.input'
 import { ValidateSMSInput } from './dtos/validateSMS.input'
-import { GqlAuthGuard } from '../guard/gqlAuth.guard'
+import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
 
 @Resolver(() => SMSModel)
 export class SMSResolver {

@@ -2,7 +2,7 @@ import { Injectable, ExecutionContext, CanActivate } from '@nestjs/common'
 import { AuthGuard } from '@nestjs/passport'
 import { GqlExecutionContext } from '@nestjs/graphql'
 import { AuthenticationError } from 'apollo-server-express'
-import { ConfigService } from '../config/config.service'
+import { ConfigService } from '../../config/config.service'
 
 @Injectable()
 export class GqlAuthGuard extends AuthGuard('jwt') implements CanActivate {

@@ -6,7 +6,7 @@ import { BatchDeleteModel } from '../database/models/batch-delete.model'
 import { BatchUpdateModel } from '../database/models/batch-update.model'
 import { CreatePlayerInput } from './dtos/create-player.input'
 import { UpdatePlayerInput } from './dtos/update-player.input'
-import { GqlAuthGuard } from '../guard/gqlAuth.guard'
+import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
 
 @Resolver(() => PlayerModel)
 export class PlayerResolver {

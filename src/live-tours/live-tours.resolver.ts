@@ -5,7 +5,7 @@ import { LiveTourModel } from './models/live-tours.model'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'
 import { CreateLiveTourInput } from './dtos/create-live-tour.input'
 import { UpdateLiveTourInput } from './dtos/update-live-tour.input'
-import { GqlAuthGuard } from '../guard/gqlAuth.guard'
+import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
 
 @Resolver(() => LiveTourModel)
 export class LiveToursResolver {

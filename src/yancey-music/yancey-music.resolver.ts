@@ -5,7 +5,7 @@ import { YanceyMusicModel } from './models/yancey-music.model'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'
 import { CreateYanceyMusicInput } from './dtos/create-yancey-music.input'
 import { UpdateYanceyMusicInput } from './dtos/update-yancey-music.input'
-import { GqlAuthGuard } from '../guard/gqlAuth.guard'
+import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
 
 @Resolver(() => YanceyMusicModel)
 export class YanceyMusicResolver {
