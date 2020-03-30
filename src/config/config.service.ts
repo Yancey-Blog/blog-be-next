@@ -96,7 +96,7 @@ export class ConfigService {
       ALI_SMS_TEMPLATE_CODE: Joi.string(),
       JWT_SECRET_KEY: Joi.string(),
       JWT_EXPIRES_TIME: Joi.number(),
-      NEED_SIMULATE_NETWORK_THROTTLE: this.isEnvDevelopment && Joi.boolean(),
+      NEED_SIMULATE_NETWORK_THROTTLE: this.isEnvDevelopment ? Joi.boolean() : Joi.disallow(),
     })
 
     const { error, value: validatedEnvConfig } = envVarsSchema.validate(envConfig)
