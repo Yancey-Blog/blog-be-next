@@ -4,7 +4,6 @@ import { GraphQLExceptionFilter } from './shared/filters/graqhql-exception.filte
 import { GraphQLValidationPipe } from './shared/pipes/GraphQLValidation.pipe'
 import { RolesGuard } from './shared/guard/roles.guard'
 import { DelayInterceptor } from './shared/interceptors/delay.interceptor'
-
 import { ConfigModule } from './config/config.module'
 import { DataBaseModule } from './database/database.module'
 import { GraphqlModule } from './graphql/graphqls.module'
@@ -41,6 +40,7 @@ import { AgendaModule } from './agenda/agenda.module'
     PlayerModule,
     AgendaModule,
   ],
+
   providers: [
     {
       provide: APP_FILTER,
@@ -57,10 +57,10 @@ import { AgendaModule } from './agenda/agenda.module'
       useClass: RolesGuard,
     },
 
-    process.env.NODE_ENV && {
+    {
       provide: APP_INTERCEPTOR,
       useClass: DelayInterceptor,
     },
-  ].filter(Boolean),
+  ],
 })
 export class AppModule {}
