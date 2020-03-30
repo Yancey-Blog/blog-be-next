@@ -57,7 +57,7 @@ import { AgendaModule } from './agenda/agenda.module'
       useClass: RolesGuard,
     },
 
-    process.env.NODE_ENV !== 'production' && {
+    process.env.NODE_ENV === 'development' && {
       provide: APP_INTERCEPTOR,
       useClass: DelayInterceptor,
     },
