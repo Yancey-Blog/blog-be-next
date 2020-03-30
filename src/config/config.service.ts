@@ -78,9 +78,7 @@ export class ConfigService {
 
   private validateEnvFile(envConfig: EnvConfig): EnvConfig {
     const envVarsSchema: ObjectSchema = Joi.object({
-      NODE_ENV: Joi.string()
-        .valid('development', 'production', 'test')
-        .default('development'),
+      NODE_ENV: Joi.string().valid('development', 'production', 'test').default('development'),
       APP_PORT: Joi.number().default(3002),
       DATABASE_HOST: Joi.string(),
       DATABASE_PORT: Joi.number().default(27017),
@@ -98,6 +96,7 @@ export class ConfigService {
       ALI_SMS_TEMPLATE_CODE: Joi.string(),
       JWT_SECRET_KEY: Joi.string(),
       JWT_EXPIRES_TIME: Joi.number(),
+      NEED_SIMULATE_NETWORK_THROTTLE: this.isEnvDevelopment && Joi.boolean(),
     })
 
     const { error, value: validatedEnvConfig } = envVarsSchema.validate(envConfig)
