@@ -9,6 +9,7 @@ import { RecoveryCodeModel } from './models/recovery-code.model'
 import { LoginInput } from './dtos/login.input'
 import { RegisterInput } from './dtos/register.input'
 import { ValidateTOTPInput } from './dtos/validate-totp.input'
+import { CreateTOTPInput } from './dtos/create-totp.input'
 import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
 import { ReqDecorator } from '../shared/decorators/req.decorator'
 
@@ -30,16 +31,13 @@ export class AuthResolver {
 
   @Mutation(() => TOTPModel)
   @UseGuards(GqlAuthGuard)
-  public async createTOTP(
-    @Args({ name: 'userId', type: () => ID }) userId: string,
-    @ReqDecorator() req: Request,
-  ) {
+  public async createTOTP(@Args('input') input: CreateTOTPInput, @ReqDecorator() req: Request) {
     const network = {
       ip: requestIP.getClientIp(req),
       userAgent: req.headers['user-agent'],
     }
 
-    return this.authService.createTOTP(userId)
+    return this.authService.createTOTP(input)
   }
 
   @Mutation(() => UserModel)

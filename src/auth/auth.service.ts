@@ -8,6 +8,7 @@ import { Roles, User } from '../users/interfaces/user.interface'
 import { LoginInput } from './dtos/login.input'
 import { RegisterInput } from './dtos/register.input'
 import { ValidateTOTPInput } from './dtos/validate-totp.input'
+import { CreateTOTPInput } from './dtos/create-totp.input'
 
 @Injectable()
 export class AuthService {
@@ -59,15 +60,20 @@ export class AuthService {
     }
   }
 
-  public async createTOTP(userId: string) {
-    const { base32, otpauth_url } = speakeasy.generateSecret({ name: 'Yancey Blog CMS' })
+  public async createTOTP(input: CreateTOTPInput) {
+    const { userId, email } = input
+    const { base32, otpauth_url } = speakeasy.generateSecret({
+      name: email,
+    })
 
     await this.usersService.updateUser({
       id: userId,
       twoFactorSecret: base32,
     })
 
-    return generateQRCode(otpauth_url)
+    const qrcode = await generateQRCode(`${otpauth_url}&issuer=Yancey%20Inc.`)
+
+    return { qrcode, secretKey: base32 }
   }
 
   public async validateTOTP(input: ValidateTOTPInput) {

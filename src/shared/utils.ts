@@ -9,8 +9,7 @@ export const jsonStringify = <T>(obj: T) => JSON.stringify(obj).replace(/"([^(")
 
 export const generateQRCode = async (url: string) => {
   try {
-    const qrcode = await QRCode.toDataURL(url)
-    return { qrcode }
+    return await QRCode.toDataURL(url)
   } catch (err) {
     throw new ApolloError('Generate QR code failed!')
   }

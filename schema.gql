@@ -90,6 +90,11 @@ input CreatePlayerInput {
   isPublic: Boolean!
 }
 
+input CreateTOTPInput {
+  userId: ID!
+  email: String!
+}
+
 input CreateYanceyMusicInput {
   title: String!
   soundCloudUrl: String!
@@ -118,7 +123,7 @@ input LoginInput {
 
 type Mutation {
   register(input: RegisterInput!): UserModel!
-  createTOTP(userId: ID!): TOTPModel!
+  createTOTP(input: CreateTOTPInput!): TOTPModel!
   validateTOTP(input: ValidateTOTPInput!): UserModel!
   createRecoveryCodes(userId: ID!): RecoveryCodeModel!
   validateRecoveryCode(input: ValidateTOTPInput!): UserModel!
@@ -272,6 +277,7 @@ type SMSModel {
 
 type TOTPModel {
   qrcode: String!
+  secretKey: String!
 }
 
 input UpdateAgendaInput {

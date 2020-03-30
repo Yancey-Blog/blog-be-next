@@ -4,4 +4,7 @@ import { Field, ObjectType } from '@nestjs/graphql'
 export class TOTPModel {
   @Field()
   public readonly qrcode: string
+
+  @Field()
+  public readonly secretKey: string
 }
