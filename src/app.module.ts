@@ -45,17 +45,18 @@ import { AgendaModule } from './agenda/agenda.module'
     {
       provide: APP_FILTER,
       useClass: GraphQLExceptionFilter,
-      // useClass: HttpExceptionFilter
     },
+
     {
       provide: APP_PIPE,
       useClass: GraphQLValidationPipe,
-      // useClass: ValidationPipe
     },
+
     {
       provide: APP_GUARD,
       useClass: RolesGuard,
     },
+
     process.env.NODE_ENV !== 'production' && {
       provide: APP_INTERCEPTOR,
       useClass: DelayInterceptor,
