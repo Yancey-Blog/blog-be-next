@@ -113,7 +113,7 @@ This app follows the [Angular Team's Commit Message Guidelines](https://github.c
 
 ### Uses Env Files
 
-Copies `env/.env.example` to `env` folder and rename them to 'production.env' and 'development.env'. Then fill in your real environment variables. `DATABASE_USER` and `DATABASE_PWD` are optional parmaters in `development.env` and `test.env` file.
+Rename `env/.env.example` to `env` folder and rename them to 'production.env' and 'development.env'. Then fill in your real environment variables. `DATABASE_USER` and `DATABASE_PWD` are optional parmaters in `development.env` and `test.env` file. `NEED_SIMULATE_NETWORK_THROTTLE` is only in development.env
 
 ```ts
 NODE_ENV=<YOUR_NODE_ENV>
@@ -139,6 +139,8 @@ ALI_SMS_TEMPLATE_CODE=<YOUR_ALI_SMS_TEMPLATE_CODE>
 
 JWT_SECRET_KEY=<YOUR_JWT_SECRET_KEY>
 JWT_EXPIRES_TIME=<YOUR_JWT_EXPIRES_TIME>
+
+NEED_SIMULATE_NETWORK_THROTTLE=<BOOLEAN>
 ```
 
 ### E2E Test
