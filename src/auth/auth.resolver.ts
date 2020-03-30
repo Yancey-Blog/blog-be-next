@@ -34,8 +34,11 @@ export class AuthResolver {
     @Args({ name: 'userId', type: () => ID }) userId: string,
     @ReqDecorator() req: Request,
   ) {
-    // console.log(requestIP.getClientIp(req))
-    console.log(req.headers)
+    const network = {
+      ip: requestIP.getClientIp(req),
+      userAgent: req.headers['user-agent'],
+    }
+
     return this.authService.createTOTP(userId)
   }
 
