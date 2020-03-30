@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common'
-import { APP_FILTER, APP_PIPE, APP_GUARD } from '@nestjs/core'
+import { APP_FILTER, APP_PIPE, APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core'
 import { GraphQLExceptionFilter } from './shared/filters/graqhql-exception.filter'
 import { GraphQLValidationPipe } from './shared/pipes/GraphQLValidation.pipe'
 import { RolesGuard } from './shared/guard/roles.guard'
+import { DelayInterceptor } from './shared/interceptors/delay.interceptor'
 
 import { ConfigModule } from './config/config.module'
 import { DataBaseModule } from './database/database.module'
@@ -44,17 +45,21 @@ import { AgendaModule } from './agenda/agenda.module'
     {
       provide: APP_FILTER,
       useClass: GraphQLExceptionFilter,
-      // useClass: HttpExceptionFilter 非 GraphQL 用 HttpExceptionFilter
+      // useClass: HttpExceptionFilter
     },
     {
       provide: APP_PIPE,
       useClass: GraphQLValidationPipe,
-      // useClass: ValidationPipe 非 GraphQL 用 ValidationPipe
+      // useClass: ValidationPipe
     },
     {
       provide: APP_GUARD,
       useClass: RolesGuard,
     },
-  ],
+    process.env.NODE_ENV !== 'production' && {
+      provide: APP_INTERCEPTOR,
+      useClass: DelayInterceptor,
+    },
+  ].filter(Boolean),
 })
 export class AppModule {}
