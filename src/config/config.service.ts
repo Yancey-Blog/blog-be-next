@@ -77,7 +77,7 @@ export class ConfigService {
   }
 
   public needSimulateNetworkThrottle(): boolean {
-    return this.get('NEED_SIMULATE_NETWORK_THROTTLE') === 'true'
+    return this.get('NEED_SIMULATE_NETWORK_THROTTLE')
   }
 
   private validateEnvFile(envConfig: EnvConfig): EnvConfig {
@@ -113,7 +113,7 @@ export class ConfigService {
     return validatedEnvConfig
   }
 
-  private get(key: string) {
+  private get<T>(key: string): T {
     return this.envConfig[key]
   }
 }
