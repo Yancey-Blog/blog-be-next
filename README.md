@@ -113,7 +113,7 @@ This app follows the [Angular Team's Commit Message Guidelines](https://github.c
 
 ### Uses Env Files
 
-Rename `env/.env.example` to `env` folder and rename them to 'production.env' and 'development.env'. Then fill in your real environment variables. `DATABASE_USER` and `DATABASE_PWD` are optional parmaters in `development.env` and `test.env` file. `NEED_SIMULATE_NETWORK_THROTTLE` is only in development.env
+Rename `env/.env.example` to 'production.env' and 'development.env' and save to the `env` file folder. Then replace those environment variables with your own. Both `DATABASE_USER` and `DATABASE_PWD` are optional parameters in `development.env` and `test.env` file. Furthermore, `NEED_SIMULATE_NETWORK_THROTTLE` is only taken efforts in the development environment.
 
 ```ts
 NODE_ENV=<YOUR_NODE_ENV>
