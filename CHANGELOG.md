@@ -2,6 +2,50 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.16.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.15.0...v0.16.0) (2020-03-31)
+
+
+### Features
+
+* add  twoFactorSecret ([8c7e302](https://github.com/Yancey-Blog/blog-be-next/commit/8c7e302e018d8d25a2bb497307db1a1fcdf44995))
+* add createTOTP ([2fd8b45](https://github.com/Yancey-Blog/blog-be-next/commit/2fd8b4573e5883452e045e20b930039e42423fca))
+* add NEED_SIMULATE_NETWORK_THROTTLE for env ([2d24d58](https://github.com/Yancey-Blog/blog-be-next/commit/2d24d588924e71e7c856dbe72c84ad39492d4107))
+* add network ([4ec4c4d](https://github.com/Yancey-Blog/blog-be-next/commit/4ec4c4d3c3bde4ea532869e71e54dec8add02762))
+* add passport-2fa-totp ([9b6cd3c](https://github.com/Yancey-Blog/blog-be-next/commit/9b6cd3c0d7f0acc1c19e23521d8ec2d77f88d775))
+* add RecoveryCodeModel ([94f3f01](https://github.com/Yancey-Blog/blog-be-next/commit/94f3f011814d2bc54a4b7a1cf314691d6c57456b))
+* add ReqDecorator ([4f9f518](https://github.com/Yancey-Blog/blog-be-next/commit/4f9f51808f488e9c59dba8e9811b86434be9484e))
+* add updateUser ([9cc5418](https://github.com/Yancey-Blog/blog-be-next/commit/9cc5418414e279911e1c261706238aa97c72f201))
+* delete useless codes ([fadaf4f](https://github.com/Yancey-Blog/blog-be-next/commit/fadaf4fead5646ad375e299cc1da962a51acbc18))
+* finish  the .env.example ([b6375f3](https://github.com/Yancey-Blog/blog-be-next/commit/b6375f339a834a55aed5bac4f77a254e2da7f330))
+* finish generateRecoveryFile ([a7677a3](https://github.com/Yancey-Blog/blog-be-next/commit/a7677a390479f5b035776149cb1d67a135079344))
+* finish validateRecoveryCode ([587016b](https://github.com/Yancey-Blog/blog-be-next/commit/587016bd5a6810ba215c49b1e9a7b0c4e20b0013))
+* finish validateTOTP ([8887f21](https://github.com/Yancey-Blog/blog-be-next/commit/8887f21d93f1a95f48d383fb14fb3728bf9bc62a))
+* hide twoFactorSecret ([1a062b4](https://github.com/Yancey-Blog/blog-be-next/commit/1a062b4a83ae75717c61a4618c981cf5122af912))
+* package generateQRCode function ([cc50b7e](https://github.com/Yancey-Blog/blog-be-next/commit/cc50b7e92cef47d7112adb66900fb3950ea9ef71))
+* support DelayInterceptor ([5829c16](https://github.com/Yancey-Blog/blog-be-next/commit/5829c164f41f101a74eec8b894eb80cb370f692e))
+* support generateRecoveryCodes ([56d84c0](https://github.com/Yancey-Blog/blog-be-next/commit/56d84c0d778b411025553b3d1e45065a4852325b))
+* update   @Field(() => String) ([f846b6b](https://github.com/Yancey-Blog/blog-be-next/commit/f846b6bc492ea50f43141473dba6532c369bbb5a))
+* update APP_INTERCEPTOR ([ea3dd60](https://github.com/Yancey-Blog/blog-be-next/commit/ea3dd60d5e8a541c461cf9061a5ec7ac391352ed))
+* update app.module.ts ([adc4feb](https://github.com/Yancey-Blog/blog-be-next/commit/adc4feb8c7f7807d564bed967e7c496e2b540674))
+* update AuthModel ([575ecf1](https://github.com/Yancey-Blog/blog-be-next/commit/575ecf12b369a520bf75158019e153c6364f82fd))
+* update BestAlbumsResolver ([23b1977](https://github.com/Yancey-Blog/blog-be-next/commit/23b19777dd18549c07ebd19283d3b826c0975ce5))
+* update ConfigService ([5d89e6d](https://github.com/Yancey-Blog/blog-be-next/commit/5d89e6d49ba8f1da2dba95d5698ea5b923778ab9))
+* update createTOTP ([089148f](https://github.com/Yancey-Blog/blog-be-next/commit/089148f94afd767c18814b1373fe52db2fd87588))
+* update createTOTP ([de838e1](https://github.com/Yancey-Blog/blog-be-next/commit/de838e1f8e5bef9c61ce7b089bb2c08b68c738d4))
+* update docorators ([7798c7f](https://github.com/Yancey-Blog/blog-be-next/commit/7798c7fcc083c83dde8f19ad4925508d49f7ac58))
+* update LiveToursResolver ([edd5d45](https://github.com/Yancey-Blog/blog-be-next/commit/edd5d4514b8fcfd97f301dcaff27b05875c326cd))
+* update models ([5ae5d36](https://github.com/Yancey-Blog/blog-be-next/commit/5ae5d365a7c28180bb4e95c8ddb2f8b3b12a5640))
+* update needSimulateNetworkThrottle ([fe42009](https://github.com/Yancey-Blog/blog-be-next/commit/fe42009339a804ffda02b98bfca15d0fb5fe9702))
+* update PlayerResolver ([179f4ce](https://github.com/Yancey-Blog/blog-be-next/commit/179f4cef9794c1b4769e85775bfca6b25fcfdbd9))
+* update SMSResolver ([9a46f34](https://github.com/Yancey-Blog/blog-be-next/commit/9a46f346076905c55dd4cfd12e90f54eaea86600))
+* update UpdateUserInput ([30c5f1c](https://github.com/Yancey-Blog/blog-be-next/commit/30c5f1c808513c91de63a3fb0fce49c6e8643819))
+* update UserModel ([6847259](https://github.com/Yancey-Blog/blog-be-next/commit/68472595db168c7015906714ac5f5a9eb55a98b5))
+* update validateEnvFile ([292bb56](https://github.com/Yancey-Blog/blog-be-next/commit/292bb56e041c41ff49ab840794b67d8b2d9a686c))
+* update validateTOTP ([f475ded](https://github.com/Yancey-Blog/blog-be-next/commit/f475ded503f271b80b1ee81abfa32daee9b3b379))
+* update validateTOTP ([ddbbb8f](https://github.com/Yancey-Blog/blog-be-next/commit/ddbbb8f437316c87c861854cddcb1df4c1aee327))
+* update validateTOTP ([0150ee7](https://github.com/Yancey-Blog/blog-be-next/commit/0150ee790cbe3c3bf4404934c38982bf3eedb97f))
+* update YanceyMusicResolver ([0949572](https://github.com/Yancey-Blog/blog-be-next/commit/0949572cc4326273ec556e8f564ac9ad1e2fbc5e))
+
 ## [0.15.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.14.0...v0.15.0) (2020-03-26)
 
 
