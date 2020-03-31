@@ -5,7 +5,7 @@ import { OpenSourceModel } from './models/open-sources.model'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'
 import { CreateOpenSourceInput } from './dtos/create-open-source.input'
 import { UpdateOpenSourceInput } from './dtos/update-open-source.input'
-import { GqlAuthGuard } from '../guard/gqlAuth.guard'
+import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
 
 @Resolver(() => OpenSourceModel)
 export class OpenSourcesResolver {

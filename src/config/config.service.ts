@@ -76,28 +76,34 @@ export class ConfigService {
     return this.get('JWT_EXPIRES_TIME')
   }
 
+  public needSimulateNetworkThrottle(): boolean {
+    return this.get('NEED_SIMULATE_NETWORK_THROTTLE')
+  }
+
   private validateEnvFile(envConfig: EnvConfig): EnvConfig {
     const envVarsSchema: ObjectSchema = Joi.object({
       NODE_ENV: Joi.string()
         .valid('development', 'production', 'test')
-        .default('development'),
-      APP_PORT: Joi.number().default(3002),
-      DATABASE_HOST: Joi.string(),
-      DATABASE_PORT: Joi.number().default(27017),
-      DATABASE_USER: this.isEnvProduction ? Joi.string() : Joi.string().optional(),
-      DATABASE_PWD: this.isEnvProduction ? Joi.string() : Joi.string().optional(),
-      DATABASE_COLLECTION: Joi.string(),
-      BANDWAGON_SECRET_KEY: Joi.string(),
-      BANDWAGON_SERVER_ID: Joi.string(),
-      GOOGLE_RECAPTCHA_SECRET_KEY: Joi.string(),
-      GOOGLE_RECAPTCHA_SITE_KEY: Joi.string(),
-      ALI_ACCESS_KEY_ID: Joi.string(),
-      ALI_ACCESS_KEY_SECRET: Joi.string(),
-      ALI_OSS_BUCKET: Joi.string(),
-      ALI_SMS_SIGN_NAME: Joi.string(),
-      ALI_SMS_TEMPLATE_CODE: Joi.string(),
-      JWT_SECRET_KEY: Joi.string(),
-      JWT_EXPIRES_TIME: Joi.number(),
+        .default('development')
+        .required(),
+      APP_PORT: Joi.number().default(3002).required(),
+      DATABASE_HOST: Joi.string().required(),
+      DATABASE_PORT: Joi.number().default(27017).required(),
+      DATABASE_USER: this.isEnvProduction ? Joi.string().required() : Joi.string().optional(),
+      DATABASE_PWD: this.isEnvProduction ? Joi.string().required() : Joi.string().optional(),
+      DATABASE_COLLECTION: Joi.string().required(),
+      BANDWAGON_SECRET_KEY: Joi.string().required(),
+      BANDWAGON_SERVER_ID: Joi.string().required(),
+      GOOGLE_RECAPTCHA_SECRET_KEY: Joi.string().required(),
+      GOOGLE_RECAPTCHA_SITE_KEY: Joi.string().required(),
+      ALI_ACCESS_KEY_ID: Joi.string().required(),
+      ALI_ACCESS_KEY_SECRET: Joi.string().required(),
+      ALI_OSS_BUCKET: Joi.string().required(),
+      ALI_SMS_SIGN_NAME: Joi.string().required(),
+      ALI_SMS_TEMPLATE_CODE: Joi.string().required(),
+      JWT_SECRET_KEY: Joi.string().required(),
+      JWT_EXPIRES_TIME: Joi.number().required(),
+      NEED_SIMULATE_NETWORK_THROTTLE: Joi.boolean().optional(),
     })
 
     const { error, value: validatedEnvConfig } = envVarsSchema.validate(envConfig)
@@ -107,7 +113,7 @@ export class ConfigService {
     return validatedEnvConfig
   }
 
-  private get(key: string) {
+  private get<T>(key: string): T {
     return this.envConfig[key]
   }
 }

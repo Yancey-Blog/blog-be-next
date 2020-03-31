@@ -22,20 +22,6 @@ type AnnouncementModel {
   updatedAt: DateTime!
 }
 
-type AuthModel {
-  _id: ID!
-  authorization: String!
-  username: String!
-  email: String!
-  password: String!
-  role: Float!
-  avaterUrl: String!
-  phoneNumber: String!
-  isTOTP: Boolean!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-}
-
 type BatchDeleteModel {
   ok: Float
   n: Float
@@ -104,6 +90,11 @@ input CreatePlayerInput {
   isPublic: Boolean!
 }
 
+input CreateTOTPInput {
+  userId: ID!
+  email: String!
+}
+
 input CreateYanceyMusicInput {
   title: String!
   soundCloudUrl: String!
@@ -131,7 +122,11 @@ input LoginInput {
 }
 
 type Mutation {
-  register(input: RegisterInput!): AuthModel!
+  register(input: RegisterInput!): UserModel!
+  createTOTP(input: CreateTOTPInput!): TOTPModel!
+  validateTOTP(input: ValidateTOTPInput!): UserModel!
+  createRecoveryCodes(userId: ID!): RecoveryCodeModel!
+  validateRecoveryCode(input: ValidateTOTPInput!): UserModel!
   createAnnouncement(input: CreateAnnouncementInput!): AnnouncementModel!
   updateAnnouncementById(input: UpdateAnnouncementInput!): AnnouncementModel!
   deleteAnnouncementById(id: ID!): AnnouncementModel!
@@ -187,7 +182,7 @@ type PlayerModel {
 }
 
 type Query {
-  login(input: LoginInput!): AuthModel!
+  login(input: LoginInput!): UserModel!
   getAnnouncements: [AnnouncementModel!]!
   getAnnouncementById(id: ID!): AnnouncementModel!
   getAllSMS: [SMSModel!]!
@@ -204,6 +199,10 @@ type Query {
   getPlayers: [PlayerModel!]!
   getPlayerById(id: ID!): PlayerModel!
   getAgenda: [AgendaModel!]!
+}
+
+type RecoveryCodeModel {
+  recoveryCodes: [String!]!
 }
 
 input RegisterInput {
@@ -276,6 +275,11 @@ type SMSModel {
   updatedAt: DateTime!
 }
 
+type TOTPModel {
+  qrcode: String!
+  secretKey: String!
+}
+
 input UpdateAgendaInput {
   id: String!
   title: String
@@ -342,6 +346,22 @@ type UsageStatesModel {
   cpu_usage: String!
 }
 
+type UserModel {
+  _id: ID!
+  authorization: String!
+  username: String!
+  email: String!
+  password: String!
+  role: Float!
+  avaterUrl: String!
+  phoneNumber: String!
+  isTOTP: Boolean!
+  twoFactorSecret: String!
+  recoveryCodes: [String!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
 input ValidateSMSInput {
   phoneNumber: String!
   verificationCode: String!
@@ -349,6 +369,11 @@ input ValidateSMSInput {
 
 type ValidateSMSRes {
   success: Boolean!
+}
+
+input ValidateTOTPInput {
+  userId: String!
+  token: String!
 }
 
 type YanceyMusicModel {
