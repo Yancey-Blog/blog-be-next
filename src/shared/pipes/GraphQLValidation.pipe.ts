@@ -13,7 +13,7 @@ export class GraphQLValidationPipe<T> implements PipeTransform<T> {
     const errors = await validate(object)
     if (errors.length > 0) {
       const message = errors
-        .map(validationError => Object.values(validationError.constraints))
+        .map((validationError) => Object.values(validationError.constraints))
         .flat()
         .join('; ')
       throw new UserInputError(message)

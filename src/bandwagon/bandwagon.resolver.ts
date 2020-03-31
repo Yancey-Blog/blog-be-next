@@ -3,7 +3,7 @@ import { Resolver, Query } from '@nestjs/graphql'
 import { BandwagonService } from './bandwagon.service'
 import { ServiceInfoModel } from './models/service-info.model'
 import { UsageStatesModel } from './models/usage-stats.model'
-import { GqlAuthGuard } from '../guard/gqlAuth.guard'
+import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
 
 @Resolver('Bandwagon')
 export class BandwagonResolver {

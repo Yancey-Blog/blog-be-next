@@ -7,7 +7,7 @@ import { SCHEMA_GQL_FILE_NAME } from '../src/shared/constants'
 import { ConfigModule } from '../src/config/config.module'
 import { ConfigService } from '../src/config/config.service'
 import { AuthModule } from '../src/auth/auth.module'
-import { AuthModel } from '../src/auth/models/auth.model'
+import { UserModel } from '../src/users/models/User.model'
 import { LoginInput } from '../src/auth/dtos/login.input'
 import { RegisterInput } from '../src/auth/dtos/register.input'
 
@@ -82,7 +82,7 @@ describe('AuthController (e2e)', () => {
         query: registerTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: AuthModel = body.data.register
+        const testData: UserModel = body.data.register
         id = testData._id
         expect(testData.username).toBe(registerData.username)
         expect(testData.email).toBe(registerData.email)
@@ -115,7 +115,7 @@ describe('AuthController (e2e)', () => {
         query: loginTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: AuthModel = body.data.login
+        const testData: UserModel = body.data.login
 
         expect(testData._id).toBe(id)
         expect(testData.email).toBe(loginData.email)

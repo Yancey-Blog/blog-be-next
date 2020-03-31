@@ -4,7 +4,7 @@ import { AgendaService } from './agenda.service'
 import { AgendaModel } from './models/agenda.model'
 import { CreateAgendaInput } from './dtos/create-agenda.input'
 import { UpdateAgendaInput } from './dtos/update-agenda.input'
-import { GqlAuthGuard } from '../guard/gqlAuth.guard'
+import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
 
 @Resolver(() => AgendaModel)
 export class AgendaResolver {

@@ -5,7 +5,7 @@ import { AnnouncementModel } from './models/announcements.model'
 import { CreateAnnouncementInput } from './dtos/create-announcement.input'
 import { UpdateAnnouncementInput } from './dtos/update-announcement.input'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'
-import { GqlAuthGuard } from '../guard/gqlAuth.guard'
+import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
 
 @Resolver(() => AnnouncementModel)
 export class AnnouncementsResolver {

@@ -1,7 +1,7 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql'
 
 @ObjectType()
-export class AuthModel {
+export class UserModel {
   @Field(() => ID)
   public readonly _id: string
 
@@ -28,6 +28,12 @@ export class AuthModel {
 
   @Field()
   public readonly isTOTP: boolean
+
+  @Field()
+  public readonly twoFactorSecret: string
+
+  @Field(() => [String])
+  public readonly recoveryCodes: string[]
 
   @Field()
   public readonly createdAt: Date

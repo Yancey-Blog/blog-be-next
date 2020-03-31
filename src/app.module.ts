@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common'
-import { APP_FILTER, APP_PIPE, APP_GUARD } from '@nestjs/core'
-import { GraphQLExceptionFilter } from './filters/graqhql-exception.filter'
-import { GraphQLValidationPipe } from './pipes/GraphQLValidation.pipe'
-import { RolesGuard } from './guard/roles.guard'
-
+import { APP_FILTER, APP_PIPE, APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core'
+import { GraphQLExceptionFilter } from './shared/filters/graqhql-exception.filter'
+import { GraphQLValidationPipe } from './shared/pipes/GraphQLValidation.pipe'
+import { RolesGuard } from './shared/guard/roles.guard'
+import { DelayInterceptor } from './shared/interceptors/delay.interceptor'
 import { ConfigModule } from './config/config.module'
 import { DataBaseModule } from './database/database.module'
 import { GraphqlModule } from './graphql/graphqls.module'
@@ -40,20 +40,26 @@ import { AgendaModule } from './agenda/agenda.module'
     PlayerModule,
     AgendaModule,
   ],
+
   providers: [
     {
       provide: APP_FILTER,
       useClass: GraphQLExceptionFilter,
-      // useClass: HttpExceptionFilter 非 GraphQL 用 HttpExceptionFilter
     },
+
     {
       provide: APP_PIPE,
       useClass: GraphQLValidationPipe,
-      // useClass: ValidationPipe 非 GraphQL 用 ValidationPipe
     },
+
     {
       provide: APP_GUARD,
       useClass: RolesGuard,
+    },
+
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: DelayInterceptor,
     },
   ],
 })
