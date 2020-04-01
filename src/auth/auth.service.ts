@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { ForbiddenError, AuthenticationError } from 'apollo-server-express'
+import jwt from 'jsonwebtoken'
 import { JwtService } from '@nestjs/jwt'
 import speakeasy from 'speakeasy'
 import { generateQRCode, generateRecoveryCodes } from '../shared/utils'
@@ -8,7 +9,7 @@ import { Roles, User } from '../users/interfaces/user.interface'
 import { LoginInput } from './dtos/login.input'
 import { RegisterInput } from './dtos/register.input'
 import { ValidateTOTPInput } from './dtos/validate-totp.input'
-import { CreateTOTPInput } from './dtos/create-totp.input'
+import { Payload } from './interfaces/jwt.interface'
 
 @Injectable()
 export class AuthService {
@@ -22,7 +23,7 @@ export class AuthService {
 
   private generateJWT(email: string, res: User) {
     const { password, twoFactorSecret, recoveryCodes, ...rest } = res.toObject() as User
-    const payload = { email, sub: res._id }
+    const payload = { email, sub: res._id, issuer: 'Yancey Inc.' }
     return { authorization: this.jwtService.sign(payload), ...rest }
   }
 
@@ -60,16 +61,17 @@ export class AuthService {
     }
   }
 
-  public async createTOTP(input: CreateTOTPInput) {
-    const { userId, email } = input
+  public async createTOTP(token: string) {
+    const { email, sub: userId } = jwt.decode(token.slice(7)) as Payload
+
     const { base32, otpauth_url } = speakeasy.generateSecret({
       name: email,
     })
 
-    await this.usersService.updateUser({
-      id: userId,
-      twoFactorSecret: base32,
-    })
+    // await this.usersService.updateUser({
+    //   id: userId,
+    //   twoFactorSecret: base32,
+    // })
 
     const qrcode = await generateQRCode(`${otpauth_url}&issuer=Yancey%20Inc.`)
 
