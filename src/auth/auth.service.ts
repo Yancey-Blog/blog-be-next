@@ -63,7 +63,7 @@ export class AuthService {
   }
 
   public async createTOTP(token: string) {
-    const { email, sub: userId } = decodeJwt(token)
+    const { email } = decodeJwt(token)
     const { base32, otpauth_url } = speakeasy.generateSecret({
       name: email,
     })
