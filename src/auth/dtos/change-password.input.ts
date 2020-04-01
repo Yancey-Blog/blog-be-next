@@ -2,14 +2,14 @@ import { InputType, Field } from '@nestjs/graphql'
 import { IsNotEmpty, IsString } from 'class-validator'
 
 @InputType()
-export class ValidateTOTPInput {
+export class ChangePasswordInput {
   @Field()
   @IsString()
   @IsNotEmpty()
-  public readonly code: string
+  public readonly oldPassword: string
 
   @Field()
   @IsString()
   @IsNotEmpty()
-  public readonly key: string
+  public readonly newPassword: string
 }

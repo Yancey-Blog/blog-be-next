@@ -1,7 +1,6 @@
 import { UseGuards } from '@nestjs/common'
 import { Args, Query, Resolver, Mutation, ID } from '@nestjs/graphql'
 import { Request } from 'express'
-import requestIP from 'request-ip'
 import { AuthService } from './auth.service'
 import { UserModel } from '../users/models/User.model'
 import { TOTPModel } from './models/totp.model'
@@ -9,6 +8,7 @@ import { RecoveryCodeModel } from './models/recovery-code.model'
 import { LoginInput } from './dtos/login.input'
 import { RegisterInput } from './dtos/register.input'
 import { ValidateTOTPInput } from './dtos/validate-totp.input'
+import { ChangePasswordInput } from './dtos/change-password.input'
 import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
 import { ReqDecorator } from '../shared/decorators/req.decorator'
 
@@ -58,5 +58,14 @@ export class AuthResolver {
     @ReqDecorator() req: Request,
   ) {
     return this.authService.validateRecoveryCode(input, req.headers.authorization)
+  }
+
+  @Mutation(() => UserModel)
+  @UseGuards(GqlAuthGuard)
+  public async changePassword(
+    @Args('input') input: ChangePasswordInput,
+    @ReqDecorator() req: Request,
+  ) {
+    return this.authService.changePassword(input, req.headers.authorization)
   }
 }

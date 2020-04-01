@@ -2,6 +2,7 @@ import QRCode from 'qrcode'
 import jwt from 'jsonwebtoken'
 import { ApolloError } from 'apollo-server-express'
 import { randomSeries } from 'yancey-js-util'
+import bcrypt from 'bcrypt'
 import { Payload } from '../auth/interfaces/jwt.interface'
 
 export const generateSMSVerificationCode = () =>
@@ -30,3 +31,5 @@ export const generateRecoveryCodes = () => {
 }
 
 export const decodeJwt = (token: string) => jwt.decode(token.slice(7)) as Payload
+
+export const encryptPassword = (password: string) => bcrypt.hashSync(password, 10)

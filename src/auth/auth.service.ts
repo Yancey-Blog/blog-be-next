@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common'
 import { ForbiddenError, AuthenticationError } from 'apollo-server-express'
-import jwt from 'jsonwebtoken'
 import { JwtService } from '@nestjs/jwt'
 import speakeasy from 'speakeasy'
 import { UsersService } from '../users/users.service'
@@ -8,9 +7,9 @@ import { Roles, User } from '../users/interfaces/user.interface'
 import { LoginInput } from './dtos/login.input'
 import { RegisterInput } from './dtos/register.input'
 import { ValidateTOTPInput } from './dtos/validate-totp.input'
-import { Payload } from './interfaces/jwt.interface'
+import { ChangePasswordInput } from './dtos/change-password.input'
 import { TOTP_ENCODE } from '../shared/constants'
-import { generateQRCode, generateRecoveryCodes, decodeJwt } from '../shared/utils'
+import { generateQRCode, generateRecoveryCodes, decodeJwt, encryptPassword } from '../shared/utils'
 
 @Injectable()
 export class AuthService {
@@ -48,9 +47,8 @@ export class AuthService {
   public async register(registerInput: RegisterInput) {
     const { email, username } = registerInput
     const curEmail = await this.usersService.findOneByEmail(email)
-    const curUser = await this.usersService.findOneByUserName(username)
 
-    if (curUser || curEmail) {
+    if (curEmail) {
       throw new ForbiddenError('Email is already registered!')
     } else {
       // TODO: 通过脚本初始化 root 用户
@@ -119,5 +117,21 @@ export class AuthService {
     }
 
     throw new ForbiddenError('Two factor authentication failed!')
+  }
+
+  public async changePassword(input: ChangePasswordInput, token: string) {
+    const { oldPassword, newPassword } = input
+    const { sub: userId } = decodeJwt(token)
+    const user = await this.usersService.findOneById(userId)
+
+    if (user && user.isValidPassword(oldPassword, user.password)) {
+      const res = await this.usersService.updateUser({
+        id: userId,
+        password: encryptPassword(newPassword),
+      })
+      return res
+    }
+
+    throw new ForbiddenError('Change password error!')
   }
 }

@@ -18,8 +18,5 @@ export class UpdateUserInput {
   public readonly recoveryCodes?: string[]
 
   @Field({ nullable: true })
-  public readonly oldPassword?: string
-
-  @Field({ nullable: true })
-  public readonly newPassword?: string
+  public readonly password?: string
 }

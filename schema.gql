@@ -46,6 +46,11 @@ type BestAlbumModel {
   updatedAt: DateTime!
 }
 
+input ChangePasswordInput {
+  oldPassword: String!
+  newPassword: String!
+}
+
 input CreateAgendaInput {
   title: String!
   startDate: String!
@@ -122,6 +127,7 @@ type Mutation {
   validateTOTP(input: ValidateTOTPInput!): UserModel!
   createRecoveryCodes(userId: ID!): RecoveryCodeModel!
   validateRecoveryCode(input: ValidateTOTPInput!): UserModel!
+  changePassword(input: ChangePasswordInput!): UserModel!
   createAnnouncement(input: CreateAnnouncementInput!): AnnouncementModel!
   updateAnnouncementById(input: UpdateAnnouncementInput!): AnnouncementModel!
   deleteAnnouncementById(id: ID!): AnnouncementModel!
