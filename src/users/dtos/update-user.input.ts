@@ -12,7 +12,7 @@ export class UpdateUserInput {
   public readonly isTOTP?: boolean
 
   @Field({ nullable: true })
-  public readonly twoFactorSecret?: string
+  public readonly totpSecret?: string
 
   @Field({ nullable: true })
   public readonly recoveryCodes?: string[]

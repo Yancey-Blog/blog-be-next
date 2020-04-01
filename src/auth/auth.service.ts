@@ -10,6 +10,7 @@ import { LoginInput } from './dtos/login.input'
 import { RegisterInput } from './dtos/register.input'
 import { ValidateTOTPInput } from './dtos/validate-totp.input'
 import { Payload } from './interfaces/jwt.interface'
+import { TOTP_ENCODE } from '../shared/constants'
 
 @Injectable()
 export class AuthService {
@@ -22,7 +23,7 @@ export class AuthService {
   }
 
   private generateJWT(email: string, res: User) {
-    const { password, twoFactorSecret, recoveryCodes, ...rest } = res.toObject() as User
+    const { password, totpSecret, recoveryCodes, ...rest } = res.toObject() as User
     const payload = { email, sub: res._id, issuer: 'Yancey Inc.' }
     return { authorization: this.jwtService.sign(payload), ...rest }
   }
@@ -68,30 +69,25 @@ export class AuthService {
       name: email,
     })
 
-    // await this.usersService.updateUser({
-    //   id: userId,
-    //   twoFactorSecret: base32,
-    // })
-
     const qrcode = await generateQRCode(`${otpauth_url}&issuer=Yancey%20Inc.`)
 
     return { qrcode, secretKey: base32 }
   }
 
   public async validateTOTP(input: ValidateTOTPInput) {
-    const { userId, token } = input
+    const { userId, key, code } = input
 
     const res = await this.usersService.findOneById(userId)
 
     const verified = speakeasy.totp.verify({
-      secret: res.twoFactorSecret,
-      encoding: 'base32',
-      token,
+      secret: key,
+      encoding: TOTP_ENCODE,
+      token: code,
     })
 
     if (verified) {
       if (!res.isTOTP) {
-        await this.usersService.updateUser({ id: userId, isTOTP: true })
+        await this.usersService.updateUser({ id: userId, isTOTP: true, totpSecret: key })
       }
 
       return this.generateJWT(res.email, res)
@@ -108,9 +104,9 @@ export class AuthService {
   }
 
   public async validateRecoveryCode(input: ValidateTOTPInput) {
-    const { userId, token } = input
+    const { userId, code } = input
     const { recoveryCodes } = await this.usersService.findOneById(userId)
-    const index = recoveryCodes.indexOf(token)
+    const index = recoveryCodes.indexOf(code)
 
     if (index !== -1) {
       recoveryCodes.splice(index, 1)

@@ -42,7 +42,7 @@ export const UserSchema = new mongoose.Schema(
       type: Boolean,
       required: true,
     },
-    twoFactorSecret: {
+    totpSecret: {
       type: String,
       required: false,
     },

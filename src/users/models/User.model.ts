@@ -30,7 +30,7 @@ export class UserModel {
   public readonly isTOTP: boolean
 
   @Field()
-  public readonly twoFactorSecret: string
+  public readonly totpSecret: string
 
   @Field(() => [String])
   public readonly recoveryCodes: string[]

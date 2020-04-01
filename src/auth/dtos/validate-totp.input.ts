@@ -1,5 +1,5 @@
 import { InputType, Field } from '@nestjs/graphql'
-import { IsNotEmpty, IsUUID } from 'class-validator'
+import { IsNotEmpty, IsUUID, IsString } from 'class-validator'
 
 @InputType()
 export class ValidateTOTPInput {
@@ -9,6 +9,12 @@ export class ValidateTOTPInput {
   public readonly userId: string
 
   @Field()
+  @IsString()
   @IsNotEmpty()
-  public readonly token: string
+  public readonly code: string
+
+  @Field()
+  @IsString()
+  @IsNotEmpty()
+  public readonly key: string
 }

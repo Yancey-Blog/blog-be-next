@@ -351,7 +351,7 @@ type UserModel {
   avaterUrl: String!
   phoneNumber: String!
   isTOTP: Boolean!
-  twoFactorSecret: String!
+  totpSecret: String!
   recoveryCodes: [String!]!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -368,7 +368,8 @@ type ValidateSMSRes {
 
 input ValidateTOTPInput {
   userId: String!
-  token: String!
+  code: String!
+  key: String!
 }
 
 type YanceyMusicModel {

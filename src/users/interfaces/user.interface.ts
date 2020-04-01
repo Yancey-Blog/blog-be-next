@@ -21,7 +21,7 @@ export interface User extends Document {
   avaterUrl: string
   phoneNumber: string
   isTOTP: boolean
-  twoFactorSecret: string
+  totpSecret: string
   recoveryCodes: string[]
   createdAt: Date
   updatedAt: Date
