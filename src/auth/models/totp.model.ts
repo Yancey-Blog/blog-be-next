@@ -6,5 +6,5 @@ export class TOTPModel {
   public readonly qrcode: string
 
   @Field()
-  public readonly secretKey: string
+  public readonly key: string
 }

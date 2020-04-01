@@ -272,7 +272,7 @@ type SMSModel {
 
 type TOTPModel {
   qrcode: String!
-  secretKey: String!
+  key: String!
 }
 
 input UpdateAgendaInput {
@@ -367,7 +367,6 @@ type ValidateSMSRes {
 }
 
 input ValidateTOTPInput {
-  userId: String!
   code: String!
   key: String!
 }

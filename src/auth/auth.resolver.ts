@@ -41,8 +41,8 @@ export class AuthResolver {
 
   @Mutation(() => UserModel)
   @UseGuards(GqlAuthGuard)
-  public async validateTOTP(@Args('input') input: ValidateTOTPInput) {
-    return this.authService.validateTOTP(input)
+  public async validateTOTP(@Args('input') input: ValidateTOTPInput, @ReqDecorator() req: Request) {
+    return this.authService.validateTOTP(input, req.headers.authorization)
   }
 
   @Mutation(() => RecoveryCodeModel)
@@ -53,7 +53,10 @@ export class AuthResolver {
 
   @Mutation(() => UserModel)
   @UseGuards(GqlAuthGuard)
-  public async validateRecoveryCode(@Args('input') input: ValidateTOTPInput) {
-    return this.authService.validateRecoveryCode(input)
+  public async validateRecoveryCode(
+    @Args('input') input: ValidateTOTPInput,
+    @ReqDecorator() req: Request,
+  ) {
+    return this.authService.validateRecoveryCode(input, req.headers.authorization)
   }
 }

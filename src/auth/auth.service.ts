@@ -3,7 +3,6 @@ import { ForbiddenError, AuthenticationError } from 'apollo-server-express'
 import jwt from 'jsonwebtoken'
 import { JwtService } from '@nestjs/jwt'
 import speakeasy from 'speakeasy'
-import { generateQRCode, generateRecoveryCodes } from '../shared/utils'
 import { UsersService } from '../users/users.service'
 import { Roles, User } from '../users/interfaces/user.interface'
 import { LoginInput } from './dtos/login.input'
@@ -11,6 +10,7 @@ import { RegisterInput } from './dtos/register.input'
 import { ValidateTOTPInput } from './dtos/validate-totp.input'
 import { Payload } from './interfaces/jwt.interface'
 import { TOTP_ENCODE } from '../shared/constants'
+import { generateQRCode, generateRecoveryCodes, decodeJwt } from '../shared/utils'
 
 @Injectable()
 export class AuthService {
@@ -63,19 +63,18 @@ export class AuthService {
   }
 
   public async createTOTP(token: string) {
-    const { email, sub: userId } = jwt.decode(token.slice(7)) as Payload
-
+    const { email, sub: userId } = decodeJwt(token)
     const { base32, otpauth_url } = speakeasy.generateSecret({
       name: email,
     })
 
     const qrcode = await generateQRCode(`${otpauth_url}&issuer=Yancey%20Inc.`)
-
-    return { qrcode, secretKey: base32 }
+    return { qrcode, key: base32 }
   }
 
-  public async validateTOTP(input: ValidateTOTPInput) {
-    const { userId, key, code } = input
+  public async validateTOTP(input: ValidateTOTPInput, token: string) {
+    const { sub: userId } = decodeJwt(token)
+    const { key, code } = input
 
     const res = await this.usersService.findOneById(userId)
 
@@ -103,11 +102,12 @@ export class AuthService {
     return res
   }
 
-  public async validateRecoveryCode(input: ValidateTOTPInput) {
-    const { userId, code } = input
+  public async validateRecoveryCode(input: ValidateTOTPInput, token: string) {
+    const { sub: userId } = decodeJwt(token)
+    const { code } = input
     const { recoveryCodes } = await this.usersService.findOneById(userId)
-    const index = recoveryCodes.indexOf(code)
 
+    const index = recoveryCodes.indexOf(code)
     if (index !== -1) {
       recoveryCodes.splice(index, 1)
       const restRecoveryCodes = recoveryCodes
