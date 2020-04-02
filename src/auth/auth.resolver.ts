@@ -47,8 +47,8 @@ export class AuthResolver {
 
   @Mutation(() => RecoveryCodeModel)
   @UseGuards(GqlAuthGuard)
-  public async createRecoveryCodes(@Args({ name: 'userId', type: () => ID }) userId: string) {
-    return this.authService.createRecoveryCodes(userId)
+  public async createRecoveryCodes(@ReqDecorator() req: Request) {
+    return this.authService.createRecoveryCodes(req.headers.authorization)
   }
 
   @Mutation(() => UserModel)

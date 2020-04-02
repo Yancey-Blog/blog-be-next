@@ -125,7 +125,7 @@ type Mutation {
   register(input: RegisterInput!): UserModel!
   createTOTP: TOTPModel!
   validateTOTP(input: ValidateTOTPInput!): UserModel!
-  createRecoveryCodes(userId: ID!): RecoveryCodeModel!
+  createRecoveryCodes: RecoveryCodeModel!
   validateRecoveryCode(input: ValidateTOTPInput!): UserModel!
   changePassword(input: ChangePasswordInput!): UserModel!
   createAnnouncement(input: CreateAnnouncementInput!): AnnouncementModel!

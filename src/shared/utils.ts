@@ -19,11 +19,11 @@ export const generateQRCode = async (url: string) => {
 }
 
 export const generateRecoveryCodes = () => {
-  const codes = Array.from({ length: 16 }, () => '')
+  const codes = Array.from({ length: 10 }, () => '')
 
-  for (let i = 0; i < 16; i += 1) {
-    const token = randomSeries(10, 16)
-    const series = `${token.slice(0, 5)}-${token.slice(5)}`
+  for (let i = 0; i < 10; i += 1) {
+    const token = randomSeries(8, 8)
+    const series = `${token.slice(0, 4)} ${token.slice(4)}`
     codes[i] = series
   }
 

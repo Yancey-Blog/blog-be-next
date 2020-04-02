@@ -93,7 +93,9 @@ export class AuthService {
     throw new ForbiddenError('Two factor authentication failed!')
   }
 
-  public async createRecoveryCodes(userId: string) {
+  public async createRecoveryCodes(token: string) {
+    const { sub: userId } = decodeJwt(token)
+
     const codes = generateRecoveryCodes()
     const res = await this.usersService.updateUser({ id: userId, recoveryCodes: codes })
 
@@ -102,6 +104,7 @@ export class AuthService {
 
   public async validateRecoveryCode(input: ValidateTOTPInput, token: string) {
     const { sub: userId } = decodeJwt(token)
+
     const { code } = input
     const { recoveryCodes } = await this.usersService.findOneById(userId)
 
