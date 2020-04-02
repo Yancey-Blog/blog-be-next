@@ -63,7 +63,7 @@ export class AuthService {
   }
 
   public async createTOTP(token: string) {
-    const { email, sub: userId } = decodeJwt(token)
+    const { email } = decodeJwt(token)
     const { base32, otpauth_url } = speakeasy.generateSecret({
       name: email,
     })
@@ -106,6 +106,7 @@ export class AuthService {
 
   public async validateRecoveryCode(input: ValidateTOTPInput, token: string) {
     const { sub: userId } = decodeJwt(token)
+
     const { code } = input
     const { recoveryCodes } = await this.usersService.findOneById(userId)
 
