@@ -153,9 +153,10 @@ export class AuthService {
     const token = req.headers.authorization
     const userAgent = req.headers['user-agent']
     const { sub: userId } = decodeJwt(token)
+    const ip = requestIP.getClientIp(req)
 
     const network = {
-      ip: requestIP.getClientIp(req),
+      ip: ip.includes('::ffff:') ? ip.slice(7) : ip,
       userAgent,
     }
 
