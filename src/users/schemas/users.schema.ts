@@ -51,6 +51,11 @@ export const UserSchema = new mongoose.Schema(
       type: Array,
       required: false,
     },
+    loginStatistics: {
+      type: Array,
+      required: false,
+      default: [],
+    },
   },
   {
     collection: 'user',

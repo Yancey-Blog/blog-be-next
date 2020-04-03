@@ -1,4 +1,5 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql'
+import { IPModel } from '../../auth/models/ip-model'
 
 @ObjectType()
 export class UserModel {
@@ -34,6 +35,9 @@ export class UserModel {
 
   @Field(() => [String])
   public readonly recoveryCodes: string[]
+
+  @Field(() => [IPModel])
+  public readonly loginStatistics: IPModel[]
 
   @Field()
   public readonly createdAt: Date

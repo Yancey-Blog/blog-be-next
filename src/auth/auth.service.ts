@@ -1,24 +1,34 @@
-import { Injectable } from '@nestjs/common'
+import { Injectable, HttpService } from '@nestjs/common'
 import { ForbiddenError, AuthenticationError } from 'apollo-server-express'
 import { JwtService } from '@nestjs/jwt'
+import { Request } from 'express'
+import { UAParser } from 'ua-parser-js'
+import requestIP from 'request-ip'
 import speakeasy from 'speakeasy'
+import { map } from 'rxjs/operators'
+import { IPModel } from './models/ip-model'
+import { ConfigService } from '../config/config.service'
 import { UsersService } from '../users/users.service'
 import { Roles, User } from '../users/interfaces/user.interface'
 import { LoginInput } from './dtos/login.input'
 import { RegisterInput } from './dtos/register.input'
 import { ValidateTOTPInput } from './dtos/validate-totp.input'
 import { ChangePasswordInput } from './dtos/change-password.input'
-import { TOTP_ENCODE } from '../shared/constants'
+import { TOTP_ENCODE, IP_STACK_URL } from '../shared/constants'
 import { generateQRCode, generateRecoveryCodes, decodeJwt, encryptPassword } from '../shared/utils'
 
 @Injectable()
 export class AuthService {
   constructor(
+    private readonly httpService: HttpService,
     private readonly usersService: UsersService,
     private readonly jwtService: JwtService,
+    private readonly configService: ConfigService,
   ) {
     this.usersService = usersService
     this.jwtService = jwtService
+    this.httpService = httpService
+    this.configService = configService
   }
 
   private generateJWT(email: string, res: User) {
@@ -136,5 +146,44 @@ export class AuthService {
     }
 
     throw new ForbiddenError('Change password error!')
+  }
+
+  public async loginStatistics(req: Request) {
+    const IP_STACK_ACCESS_KEY = this.configService.getIpStackAccessKey()
+    const token = req.headers.authorization
+    const userAgent = req.headers['user-agent']
+    const { sub: userId } = decodeJwt(token)
+    const ip = requestIP.getClientIp(req)
+
+    const network = {
+      ip: ip.includes('::ffff:') ? ip.slice(7) : ip,
+      userAgent,
+    }
+
+    const uaParser = new UAParser(userAgent)
+
+    const ipInfo = await this.httpService
+      .get<IPModel>(`${IP_STACK_URL}${network.ip}`, {
+        params: {
+          access_key: IP_STACK_ACCESS_KEY,
+        },
+      })
+      .pipe(map((response) => response.data))
+      .toPromise()
+
+    const loginInfo = {
+      ...ipInfo,
+      browser: uaParser.getBrowser(),
+      os: uaParser.getOS(),
+      loginTime: new Date().toISOString(),
+    }
+
+    const user = await this.usersService.findOneById(userId)
+    await this.usersService.updateUser({
+      id: userId,
+      loginStatistics: [...user.loginStatistics, loginInfo],
+    })
+
+    return loginInfo
   }
 }

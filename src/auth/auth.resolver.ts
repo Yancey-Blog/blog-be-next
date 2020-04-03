@@ -1,9 +1,10 @@
 import { UseGuards } from '@nestjs/common'
-import { Args, Query, Resolver, Mutation, ID } from '@nestjs/graphql'
+import { Args, Query, Resolver, Mutation } from '@nestjs/graphql'
 import { Request } from 'express'
 import { AuthService } from './auth.service'
 import { UserModel } from '../users/models/User.model'
 import { TOTPModel } from './models/totp.model'
+import { IPModel } from './models/ip-model'
 import { RecoveryCodeModel } from './models/recovery-code.model'
 import { LoginInput } from './dtos/login.input'
 import { RegisterInput } from './dtos/register.input'
@@ -31,11 +32,6 @@ export class AuthResolver {
   @Mutation(() => TOTPModel)
   @UseGuards(GqlAuthGuard)
   public async createTOTP(@ReqDecorator() req: Request) {
-    // const network = {
-    //   ip: requestIP.getClientIp(req),
-    //   userAgent: req.headers['user-agent'],
-    // }
-
     return this.authService.createTOTP(req.headers.authorization)
   }
 
@@ -67,5 +63,11 @@ export class AuthResolver {
     @ReqDecorator() req: Request,
   ) {
     return this.authService.changePassword(input, req.headers.authorization)
+  }
+
+  @Mutation(() => IPModel)
+  @UseGuards(GqlAuthGuard)
+  public async loginStatistics(@ReqDecorator() req: Request) {
+    return this.authService.loginStatistics(req)
   }
 }

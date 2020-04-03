@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common'
+import { Module, HttpModule } from '@nestjs/common'
 import { JwtModule } from '@nestjs/jwt'
 import { PassportModule } from '@nestjs/passport'
 import { AuthResolver } from './auth.resolver'
@@ -14,6 +14,12 @@ const PassPortModule = PassportModule.register({
 
 @Module({
   imports: [
+    HttpModule.registerAsync({
+      useFactory: () => ({
+        timeout: 5000,
+        maxRedirects: 5,
+      }),
+    }),
     ConfigModule,
     PassPortModule,
     UsersModule,
