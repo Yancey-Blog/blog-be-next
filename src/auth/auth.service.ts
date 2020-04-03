@@ -153,13 +153,18 @@ export class AuthService {
     const { sub: userId } = decodeJwt(token)
 
     const network = {
-      ip: requestIP.getClientIp(req),
+      //  ip: requestIP.getClientIp(req),
+      ip: '123.118.72.95',
       userAgent,
     }
 
     const ipInfo = this.httpService
-      .get(`${IP_STACK_URL}123.118.72.95?access_key=${IP_STACK_ACCESS_KEY}`)
-      .pipe(map((response) => response))
+      .get(`${IP_STACK_URL}${network.ip}`, {
+        params: {
+          access_key: IP_STACK_ACCESS_KEY,
+        },
+      })
+      .pipe(map((response) => response.data))
 
     return ipInfo
 

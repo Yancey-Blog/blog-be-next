@@ -3,7 +3,7 @@
 import { Field, ObjectType } from '@nestjs/graphql'
 
 @ObjectType()
-export class Laguage {
+export class Language {
   @Field()
   public readonly code: string
 
@@ -22,8 +22,8 @@ export class Location {
   @Field()
   public readonly capital: string
 
-  @Field(() => [Laguage])
-  public readonly laguages: Laguage[]
+  @Field(() => [Language])
+  public readonly languages: Language[]
 
   @Field()
   public readonly country_flag: string

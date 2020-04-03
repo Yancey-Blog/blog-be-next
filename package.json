@@ -64,6 +64,7 @@
     "rxjs": "^6.5.4",
     "serve-favicon": "^2.5.0",
     "speakeasy": "^2.0.0",
+    "ua-parser-js": "^0.7.21",
     "uuid": "^7.0.2",
     "yancey-js-util": "^2.0.1"
   },

@@ -4,6 +4,7 @@ import { Request } from 'express'
 import { AuthService } from './auth.service'
 import { UserModel } from '../users/models/User.model'
 import { TOTPModel } from './models/totp.model'
+import { IPModel } from './models/ip-model'
 import { RecoveryCodeModel } from './models/recovery-code.model'
 import { LoginInput } from './dtos/login.input'
 import { RegisterInput } from './dtos/register.input'
@@ -64,7 +65,7 @@ export class AuthResolver {
     return this.authService.changePassword(input, req.headers.authorization)
   }
 
-  @Mutation(() => UserModel)
+  @Mutation(() => IPModel)
   @UseGuards(GqlAuthGuard)
   public async loginStatistics(@ReqDecorator() req: Request) {
     return this.authService.loginStatistics(req)

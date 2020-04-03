@@ -107,6 +107,27 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
+type IPModel {
+  ip: String!
+  type: String!
+  continent_code: String!
+  continent_name: String!
+  country_code: String!
+  country_name: String!
+  region_code: String!
+  city: String!
+  zip: String!
+  latitude: Float!
+  longitude: Float!
+  location: Location!
+}
+
+type Language {
+  code: String!
+  name: String!
+  native: String!
+}
+
 type LiveTourModel {
   _id: ID!
   title: String!
@@ -114,6 +135,17 @@ type LiveTourModel {
   showTime: DateTime!
   createdAt: DateTime!
   updatedAt: DateTime!
+}
+
+type Location {
+  geoname_id: Float!
+  capital: String!
+  languages: [Language!]!
+  country_flag: String!
+  country_flag_emoji: String!
+  country_flag_emoji_unicode: String!
+  calling_code: String!
+  is_eu: Boolean!
 }
 
 input LoginInput {
@@ -128,7 +160,7 @@ type Mutation {
   createRecoveryCodes: RecoveryCodeModel!
   validateRecoveryCode(input: ValidateTOTPInput!): UserModel!
   changePassword(input: ChangePasswordInput!): UserModel!
-  loginStatistics: UserModel!
+  loginStatistics: IPModel!
   createAnnouncement(input: CreateAnnouncementInput!): AnnouncementModel!
   updateAnnouncementById(input: UpdateAnnouncementInput!): AnnouncementModel!
   deleteAnnouncementById(id: ID!): AnnouncementModel!
