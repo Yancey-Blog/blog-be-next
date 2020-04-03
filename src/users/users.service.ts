@@ -26,10 +26,6 @@ export class UsersService {
     return this.UserModel.findOne({ email })
   }
 
-  public async findOneByUserName(username: string): Promise<User> {
-    return this.UserModel.findOne({ username })
-  }
-
   public async create(createUserInput: CreateUserInput): Promise<User> {
     return this.UserModel.create(createUserInput)
   }

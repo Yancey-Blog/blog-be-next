@@ -1,6 +1,7 @@
 import mongoose, { HookNextFunction } from 'mongoose'
 import { v4 } from 'uuid'
 import bcrypt from 'bcrypt'
+import { encryptPassword } from '../../shared/utils'
 import { Roles, User } from '../interfaces/user.interface'
 
 export const UserSchema = new mongoose.Schema(
@@ -42,7 +43,7 @@ export const UserSchema = new mongoose.Schema(
       type: Boolean,
       required: true,
     },
-    twoFactorSecret: {
+    totpSecret: {
       type: String,
       required: false,
     },
@@ -58,7 +59,7 @@ export const UserSchema = new mongoose.Schema(
 )
 
 UserSchema.pre<User>('save', function (next: HookNextFunction) {
-  this.password = bcrypt.hashSync(this.password, 10)
+  this.password = encryptPassword(this.password)
   next()
 })
 
