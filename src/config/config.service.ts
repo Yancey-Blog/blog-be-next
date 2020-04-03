@@ -68,6 +68,10 @@ export class ConfigService {
     }
   }
 
+  public getIpStackAccessKey(): string {
+    return this.get('IP_STACK_ACCESS_KEY')
+  }
+
   public getJWTSecretKey(): string {
     return this.get('JWT_SECRET_KEY')
   }
@@ -101,6 +105,7 @@ export class ConfigService {
       ALI_OSS_BUCKET: Joi.string().required(),
       ALI_SMS_SIGN_NAME: Joi.string().required(),
       ALI_SMS_TEMPLATE_CODE: Joi.string().required(),
+      IP_STACK_ACCESS_KEY: Joi.string().required(),
       JWT_SECRET_KEY: Joi.string().required(),
       JWT_EXPIRES_TIME: Joi.number().required(),
       NEED_SIMULATE_NETWORK_THROTTLE: Joi.boolean().optional(),
