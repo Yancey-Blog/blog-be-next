@@ -2,7 +2,7 @@
 
 # Blog BE Next
 
-The backend platform for Yancey Official Blog with Node.js, nestjs, Rxjs, MongoDB, GraphQL, Apollo Server, JWT and more...
+The backend platform for Yancey Official Blog with Node.js, nestjs, MongoDB, GraphQL, Apollo Server, JWT and more...
 
 _This library is part of the [BPG (Blog Project Group)](https://github.com/Yancey-Blog)_ ecosystem 📖
 
