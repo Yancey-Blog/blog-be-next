@@ -2,13 +2,14 @@ import { Injectable } from '@nestjs/common'
 import { ForbiddenError, AuthenticationError } from 'apollo-server-express'
 import { JwtService } from '@nestjs/jwt'
 import speakeasy from 'speakeasy'
-import { generateQRCode, generateRecoveryCodes } from '../shared/utils'
 import { UsersService } from '../users/users.service'
 import { Roles, User } from '../users/interfaces/user.interface'
 import { LoginInput } from './dtos/login.input'
 import { RegisterInput } from './dtos/register.input'
 import { ValidateTOTPInput } from './dtos/validate-totp.input'
-import { CreateTOTPInput } from './dtos/create-totp.input'
+import { ChangePasswordInput } from './dtos/change-password.input'
+import { TOTP_ENCODE } from '../shared/constants'
+import { generateQRCode, generateRecoveryCodes, decodeJwt, encryptPassword } from '../shared/utils'
 
 @Injectable()
 export class AuthService {
@@ -21,8 +22,8 @@ export class AuthService {
   }
 
   private generateJWT(email: string, res: User) {
-    const { password, twoFactorSecret, recoveryCodes, ...rest } = res.toObject() as User
-    const payload = { email, sub: res._id }
+    const { password, totpSecret, recoveryCodes, ...rest } = res.toObject() as User
+    const payload = { email, sub: res._id, issuer: 'Yancey Inc.' }
     return { authorization: this.jwtService.sign(payload), ...rest }
   }
 
@@ -46,9 +47,8 @@ export class AuthService {
   public async register(registerInput: RegisterInput) {
     const { email, username } = registerInput
     const curEmail = await this.usersService.findOneByEmail(email)
-    const curUser = await this.usersService.findOneByUserName(username)
 
-    if (curUser || curEmail) {
+    if (curEmail) {
       throw new ForbiddenError('Email is already registered!')
     } else {
       // TODO: 通过脚本初始化 root 用户
@@ -60,36 +60,31 @@ export class AuthService {
     }
   }
 
-  public async createTOTP(input: CreateTOTPInput) {
-    const { userId, email } = input
+  public async createTOTP(token: string) {
+    const { email } = decodeJwt(token)
     const { base32, otpauth_url } = speakeasy.generateSecret({
       name: email,
     })
 
-    await this.usersService.updateUser({
-      id: userId,
-      twoFactorSecret: base32,
-    })
-
     const qrcode = await generateQRCode(`${otpauth_url}&issuer=Yancey%20Inc.`)
-
-    return { qrcode, secretKey: base32 }
+    return { qrcode, key: base32 }
   }
 
-  public async validateTOTP(input: ValidateTOTPInput) {
-    const { userId, token } = input
+  public async validateTOTP(input: ValidateTOTPInput, token: string) {
+    const { sub: userId } = decodeJwt(token)
+    const { key, code } = input
 
     const res = await this.usersService.findOneById(userId)
 
     const verified = speakeasy.totp.verify({
-      secret: res.twoFactorSecret,
-      encoding: 'base32',
-      token,
+      secret: key,
+      encoding: TOTP_ENCODE,
+      token: code,
     })
 
     if (verified) {
       if (!res.isTOTP) {
-        await this.usersService.updateUser({ id: userId, isTOTP: true })
+        await this.usersService.updateUser({ id: userId, isTOTP: true, totpSecret: key })
       }
 
       return this.generateJWT(res.email, res)
@@ -98,18 +93,22 @@ export class AuthService {
     throw new ForbiddenError('Two factor authentication failed!')
   }
 
-  public async createRecoveryCodes(userId: string) {
+  public async createRecoveryCodes(token: string) {
+    const { sub: userId } = decodeJwt(token)
+
     const codes = generateRecoveryCodes()
     const res = await this.usersService.updateUser({ id: userId, recoveryCodes: codes })
 
     return res
   }
 
-  public async validateRecoveryCode(input: ValidateTOTPInput) {
-    const { userId, token } = input
-    const { recoveryCodes } = await this.usersService.findOneById(userId)
-    const index = recoveryCodes.indexOf(token)
+  public async validateRecoveryCode(input: ValidateTOTPInput, token: string) {
+    const { sub: userId } = decodeJwt(token)
 
+    const { code } = input
+    const { recoveryCodes } = await this.usersService.findOneById(userId)
+
+    const index = recoveryCodes.indexOf(code)
     if (index !== -1) {
       recoveryCodes.splice(index, 1)
       const restRecoveryCodes = recoveryCodes
@@ -121,5 +120,21 @@ export class AuthService {
     }
 
     throw new ForbiddenError('Two factor authentication failed!')
+  }
+
+  public async changePassword(input: ChangePasswordInput, token: string) {
+    const { oldPassword, newPassword } = input
+    const { sub: userId } = decodeJwt(token)
+    const user = await this.usersService.findOneById(userId)
+
+    if (user && user.isValidPassword(oldPassword, user.password)) {
+      const res = await this.usersService.updateUser({
+        id: userId,
+        password: encryptPassword(newPassword),
+      })
+      return res
+    }
+
+    throw new ForbiddenError('Change password error!')
   }
 }

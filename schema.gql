@@ -46,6 +46,11 @@ type BestAlbumModel {
   updatedAt: DateTime!
 }
 
+input ChangePasswordInput {
+  oldPassword: String!
+  newPassword: String!
+}
+
 input CreateAgendaInput {
   title: String!
   startDate: String!
@@ -90,11 +95,6 @@ input CreatePlayerInput {
   isPublic: Boolean!
 }
 
-input CreateTOTPInput {
-  userId: ID!
-  email: String!
-}
-
 input CreateYanceyMusicInput {
   title: String!
   soundCloudUrl: String!
@@ -123,10 +123,11 @@ input LoginInput {
 
 type Mutation {
   register(input: RegisterInput!): UserModel!
-  createTOTP(input: CreateTOTPInput!): TOTPModel!
+  createTOTP: TOTPModel!
   validateTOTP(input: ValidateTOTPInput!): UserModel!
-  createRecoveryCodes(userId: ID!): RecoveryCodeModel!
+  createRecoveryCodes: RecoveryCodeModel!
   validateRecoveryCode(input: ValidateTOTPInput!): UserModel!
+  changePassword(input: ChangePasswordInput!): UserModel!
   createAnnouncement(input: CreateAnnouncementInput!): AnnouncementModel!
   updateAnnouncementById(input: UpdateAnnouncementInput!): AnnouncementModel!
   deleteAnnouncementById(id: ID!): AnnouncementModel!
@@ -277,7 +278,7 @@ type SMSModel {
 
 type TOTPModel {
   qrcode: String!
-  secretKey: String!
+  key: String!
 }
 
 input UpdateAgendaInput {
@@ -356,7 +357,7 @@ type UserModel {
   avaterUrl: String!
   phoneNumber: String!
   isTOTP: Boolean!
-  twoFactorSecret: String!
+  totpSecret: String!
   recoveryCodes: [String!]!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -372,8 +373,8 @@ type ValidateSMSRes {
 }
 
 input ValidateTOTPInput {
-  userId: String!
-  token: String!
+  code: String!
+  key: String!
 }
 
 type YanceyMusicModel {
