@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.18.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.17.0...v0.18.0) (2020-04-03)
+
+
+### Features
+
+* add IPModel ([f3ae3d8](https://github.com/Yancey-Blog/blog-be-next/commit/f3ae3d80e99f51a28d5a1155acd5db414df4fce9))
+* add types for ua-parser-js ([d6f77a8](https://github.com/Yancey-Blog/blog-be-next/commit/d6f77a823b8d26519d0c1c7ed38ec9aa8a486e0e))
+* finish IPModel ([2004cf7](https://github.com/Yancey-Blog/blog-be-next/commit/2004cf7e99d566091346208c4442cbe47734880f))
+* finish loginStatistics ([e130c6f](https://github.com/Yancey-Blog/blog-be-next/commit/e130c6fb426f699d639779387f5986ed0fbb985e))
+* finish loginStatistics ([781ddd0](https://github.com/Yancey-Blog/blog-be-next/commit/781ddd0c0d6e2782a4036e722ded5a3cf016e85e))
+* finish loginStatistics ([69e6536](https://github.com/Yancey-Blog/blog-be-next/commit/69e6536a2ba18c0ccf09ad9c3f52cdeef604e3bf))
+* update IP_STACK_ACCESS_KEY ([567c8ac](https://github.com/Yancey-Blog/blog-be-next/commit/567c8ac847e2a1e9fd96556a41390e29b9d144ed))
+
 ## [0.17.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.16.0...v0.17.0) (2020-04-03)
 
 
