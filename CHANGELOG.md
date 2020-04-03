@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.17.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.16.0...v0.17.0) (2020-04-03)
+
+
+### Features
+
+* finish changepassword ([bec654e](https://github.com/Yancey-Blog/blog-be-next/commit/bec654e59029aa7ec5655aee83686352096c1def))
+* support totp and validateTOTP ([5171bf4](https://github.com/Yancey-Blog/blog-be-next/commit/5171bf4410dde3dd10a5cad670ac242d367321af))
+* update createRecoveryCodes ([60fe522](https://github.com/Yancey-Blog/blog-be-next/commit/60fe522998c8910beeb617d5a92e735b36ec45b9))
+* update generateRecoveryCodes ([0ea9e47](https://github.com/Yancey-Blog/blog-be-next/commit/0ea9e47d08dfb612aef6f0fb1db76edabbfa0acc))
+* update jwt ([8d0aecd](https://github.com/Yancey-Blog/blog-be-next/commit/8d0aecd25ba32b4d3f8708084122fcba796de137))
+* update TOTP ([9641d93](https://github.com/Yancey-Blog/blog-be-next/commit/9641d93f3af0879cd5530c10151ebdda905daf78))
+* update TOTP ([57960a9](https://github.com/Yancey-Blog/blog-be-next/commit/57960a900ff514531cd12c370c6cf5c20026c51c))
+* update validateRecoveryCode ([bbb9eea](https://github.com/Yancey-Blog/blog-be-next/commit/bbb9eea10f2c47f754fa59e73b0fd45d258c50fb))
+
 ## [0.16.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.15.0...v0.16.0) (2020-03-31)
 
 
