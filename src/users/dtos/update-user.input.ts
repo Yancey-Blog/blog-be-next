@@ -1,5 +1,6 @@
 import { InputType, Field } from '@nestjs/graphql'
 import { IsNotEmpty, IsUUID } from 'class-validator'
+import { IPModel } from '../../auth/models/ip-model'
 
 @InputType()
 export class UpdateUserInput {
@@ -19,4 +20,7 @@ export class UpdateUserInput {
 
   @Field({ nullable: true })
   public readonly password?: string
+
+  @Field({ nullable: true })
+  public readonly loginStatistics?: IPModel[]
 }

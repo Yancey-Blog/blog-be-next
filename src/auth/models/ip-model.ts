@@ -42,6 +42,27 @@ export class Location {
 }
 
 @ObjectType()
+export class Browser {
+  @Field()
+  public readonly name: string
+
+  @Field()
+  public readonly version: string
+
+  @Field()
+  public readonly major: string
+}
+
+@ObjectType()
+export class OS {
+  @Field()
+  public readonly name: string
+
+  @Field()
+  public readonly version: string
+}
+
+@ObjectType()
 export class IPModel {
   @Field()
   public readonly ip: string
@@ -78,4 +99,13 @@ export class IPModel {
 
   @Field(() => Location)
   public readonly location: Location
+
+  @Field(() => Browser)
+  public readonly browser: Browser
+
+  @Field(() => OS)
+  public readonly os: OS
+
+  @Field()
+  public readonly loginTime: string
 }

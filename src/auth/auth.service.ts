@@ -2,10 +2,11 @@ import { Injectable, HttpService } from '@nestjs/common'
 import { ForbiddenError, AuthenticationError } from 'apollo-server-express'
 import { JwtService } from '@nestjs/jwt'
 import { Request } from 'express'
-import uaParser from 'ua-parser-js'
+import { UAParser } from 'ua-parser-js'
 import requestIP from 'request-ip'
 import speakeasy from 'speakeasy'
 import { map } from 'rxjs/operators'
+import { IPModel, Browser, OS } from './models/ip-model'
 import { ConfigService } from '../config/config.service'
 import { UsersService } from '../users/users.service'
 import { Roles, User } from '../users/interfaces/user.interface'
@@ -154,21 +155,34 @@ export class AuthService {
     const { sub: userId } = decodeJwt(token)
 
     const network = {
-      //  ip: requestIP.getClientIp(req),
-      ip: '123.118.72.95',
+      ip: requestIP.getClientIp(req),
       userAgent,
     }
 
-    const ipInfo = this.httpService
-      .get(`${IP_STACK_URL}${network.ip}`, {
+    const uaParser = new UAParser(userAgent)
+
+    const ipInfo = await this.httpService
+      .get<IPModel>(`${IP_STACK_URL}${network.ip}`, {
         params: {
           access_key: IP_STACK_ACCESS_KEY,
         },
       })
       .pipe(map((response) => response.data))
+      .toPromise()
 
-    return ipInfo
+    const loginInfo = {
+      ...ipInfo,
+      browser: uaParser.getBrowser(),
+      os: uaParser.getOS(),
+      loginTime: new Date().toISOString(),
+    }
 
-    //  const user = await this.usersService.findOneById(userId)
+    const user = await this.usersService.findOneById(userId)
+    await this.usersService.updateUser({
+      id: userId,
+      loginStatistics: [...user.loginStatistics, loginInfo],
+    })
+
+    return loginInfo
   }
 }

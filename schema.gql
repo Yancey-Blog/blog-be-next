@@ -46,6 +46,12 @@ type BestAlbumModel {
   updatedAt: DateTime!
 }
 
+type Browser {
+  name: String!
+  version: String!
+  major: String!
+}
+
 input ChangePasswordInput {
   oldPassword: String!
   newPassword: String!
@@ -120,6 +126,9 @@ type IPModel {
   latitude: Float!
   longitude: Float!
   location: Location!
+  browser: Browser!
+  os: OS!
+  loginTime: String!
 }
 
 type Language {
@@ -201,6 +210,11 @@ type OpenSourceModel {
   posterUrl: String!
   createdAt: DateTime!
   updatedAt: DateTime!
+}
+
+type OS {
+  name: String!
+  version: String!
 }
 
 type PlayerModel {
@@ -392,6 +406,7 @@ type UserModel {
   isTOTP: Boolean!
   totpSecret: String!
   recoveryCodes: [String!]!
+  loginStatistics: [IPModel!]!
   createdAt: DateTime!
   updatedAt: DateTime!
 }

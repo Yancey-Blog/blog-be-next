@@ -1,4 +1,5 @@
 import { Document } from 'mongoose'
+import { IPModel } from '../../auth/models/ip-model'
 
 export enum TwoFactorAuthentications {
   TOTP,
@@ -23,6 +24,7 @@ export interface User extends Document {
   isTOTP: boolean
   totpSecret: string
   recoveryCodes: string[]
+  loginStatistics: IPModel[]
   createdAt: Date
   updatedAt: Date
   isValidPassword(plainPwd: string, encryptedPwd: string): boolean
