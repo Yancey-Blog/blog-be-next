@@ -20,7 +20,7 @@ export class UpdatePostInput {
   @Field({ nullable: true })
   public readonly content?: string
 
-  @Field({ nullable: true })
+  @Field(() => [String], { nullable: true })
   public readonly tags?: string[]
 
   @Field({ nullable: true })

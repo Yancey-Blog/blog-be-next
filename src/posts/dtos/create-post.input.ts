@@ -24,7 +24,7 @@ export class CreatePostInput {
   @IsNotEmpty()
   public readonly content: string
 
-  @Field()
+  @Field(() => [String])
   @IsArray()
   @IsNotEmpty()
   public readonly tags: string[]

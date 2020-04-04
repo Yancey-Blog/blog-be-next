@@ -101,6 +101,16 @@ input CreatePlayerInput {
   isPublic: Boolean!
 }
 
+input CreatePostInput {
+  posterUrl: String!
+  title: String!
+  summary: String!
+  content: String!
+  tags: [String!]!
+  lastModifiedDate: DateTime!
+  isPublic: Boolean
+}
+
 input CreateYanceyMusicInput {
   title: String!
   soundCloudUrl: String!
@@ -200,6 +210,10 @@ type Mutation {
   createAgenda(input: CreateAgendaInput!): AgendaModel!
   updateAgendaById(input: UpdateAgendaInput!): AgendaModel!
   deleteAgendaById(id: ID!): AgendaModel!
+  createPost(input: CreatePostInput!): PostModel!
+  updatePostById(input: UpdatePostInput!): PostModel!
+  deletePostById(id: ID!): PostModel!
+  deletePosts(ids: [ID!]!): BatchDeleteModel!
 }
 
 type OpenSourceModel {
@@ -229,6 +243,21 @@ type PlayerModel {
   updatedAt: DateTime!
 }
 
+type PostModel {
+  _id: ID!
+  posterUrl: String!
+  title: String!
+  summary: String!
+  content: String!
+  tags: [String!]!
+  lastModifiedDate: DateTime!
+  like: Float!
+  pv: Float!
+  isPublic: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
 type Query {
   login(input: LoginInput!): UserModel!
   getAnnouncements: [AnnouncementModel!]!
@@ -247,6 +276,8 @@ type Query {
   getPlayers: [PlayerModel!]!
   getPlayerById(id: ID!): PlayerModel!
   getAgenda: [AgendaModel!]!
+  getPosts: [PostModel!]!
+  getPostById(id: ID!): PostModel!
 }
 
 type RecoveryCodeModel {
@@ -375,6 +406,19 @@ input UpdatePlayerInput {
   lrc: String
   coverUrl: String
   musicFileUrl: String
+  isPublic: Boolean
+}
+
+input UpdatePostInput {
+  id: String
+  posterUrl: String
+  title: String
+  summary: String
+  content: String
+  tags: [String!]
+  like: Float
+  pv: Float
+  lastModifiedDate: DateTime
   isPublic: Boolean
 }
 
