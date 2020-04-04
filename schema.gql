@@ -26,7 +26,7 @@ type BatchDeleteModel {
   ok: Float
   n: Float
   deletedCount: Float
-  ids: ID!
+  ids: [ID!]!
 }
 
 type BatchUpdateModel {
@@ -108,7 +108,6 @@ input CreatePostInput {
   content: String!
   tags: [String!]!
   lastModifiedDate: DateTime!
-  isPublic: Boolean
 }
 
 input CreateYanceyMusicInput {

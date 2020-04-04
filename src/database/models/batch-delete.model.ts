@@ -11,6 +11,6 @@ export class BatchDeleteModel {
   @Field({ nullable: true })
   public readonly deletedCount?: number
 
-  @Field(() => ID)
+  @Field(() => [ID])
   public readonly ids: string[]
 }

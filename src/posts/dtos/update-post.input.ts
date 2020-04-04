@@ -1,5 +1,5 @@
 import { InputType, Field } from '@nestjs/graphql'
-import { IsNotEmpty, IsUUID, IsNumber } from 'class-validator'
+import { IsNotEmpty, IsUUID } from 'class-validator'
 
 @InputType()
 export class UpdatePostInput {
@@ -24,11 +24,9 @@ export class UpdatePostInput {
   public readonly tags?: string[]
 
   @Field({ nullable: true })
-  @IsNumber()
   public readonly like?: number
 
   @Field({ nullable: true })
-  @IsNumber()
   public readonly pv?: number
 
   @Field({ nullable: true })
