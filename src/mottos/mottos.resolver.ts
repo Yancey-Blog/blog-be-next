@@ -1,59 +1,51 @@
-import {
-  Body,
-  Param,
-  Get,
-  Post,
-  Put,
-  Delete,
-  Controller,
-  UseGuards,
-  ValidationPipe,
-} from '@nestjs/common'
-import { AuthGuard } from '@nestjs/passport'
+import { UseGuards } from '@nestjs/common'
+import { Args, Query, Resolver, Mutation, ID } from '@nestjs/graphql'
 import { MottosService } from './mottos.service'
-import { CreateMottoDto } from './dtos/createMotto.dto'
-import { Motto } from './interfaces/motto.interface'
+import { MottoModel } from './models/mottos.model'
+import { CreateMottoInput } from './dtos/create-motto.input'
+import { UpdateMottoInput } from './dtos/update-motto.input'
+import { BatchDeleteModel } from '../database/models/batch-delete.model'
+import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
 
-@Controller('mottos')
+@Resolver(() => MottoModel)
 export class MottosResolver {
   constructor(private readonly mottosService: MottosService) {
     this.mottosService = mottosService
   }
 
-  @Get()
-  public getAllMottos(): Promise<Motto[]> {
+  @Query(() => [MottoModel])
+  public async getMottos(): Promise<MottoModel[]> {
     return this.mottosService.findAll()
   }
 
-  @Get(':id')
-  public getMottoById(@Param('id') id: string): Promise<Motto> {
+  @Query(() => MottoModel)
+  public async getMottoById(@Args({ name: 'id', type: () => ID }) id: string): Promise<MottoModel> {
     return this.mottosService.findOneById(id)
   }
 
-  @UseGuards(AuthGuard())
-  @Post()
-  public createMotto(@Body(new ValidationPipe()) createMottoDto: CreateMottoDto): Promise<Motto> {
-    return this.mottosService.create(createMottoDto)
+  @Mutation(() => MottoModel)
+  @UseGuards(GqlAuthGuard)
+  public async createMotto(@Args('input') input: CreateMottoInput): Promise<MottoModel> {
+    return this.mottosService.create(input)
   }
 
-  @UseGuards(AuthGuard())
-  @Put(':id')
-  public updateMotto(
-    @Param('id') id: string,
-    @Body(new ValidationPipe()) updateMottoDto: CreateMottoDto,
-  ): Promise<Motto> {
-    return this.mottosService.update(id, updateMottoDto)
+  @Mutation(() => MottoModel)
+  @UseGuards(GqlAuthGuard)
+  public async updateMottoById(@Args('input') input: UpdateMottoInput): Promise<MottoModel> {
+    return this.mottosService.update(input)
   }
 
-  @UseGuards(AuthGuard())
-  @Delete(':id')
-  public deleteMottoById(@Param('id') id: string): Promise<Motto> {
+  @Mutation(() => MottoModel)
+  @UseGuards(GqlAuthGuard)
+  public async deleteMottoById(
+    @Args({ name: 'id', type: () => ID }) id: string,
+  ): Promise<MottoModel> {
     return this.mottosService.deleteOneById(id)
   }
 
-  @UseGuards(AuthGuard())
-  @Delete()
-  public deleteMottos(@Body('ids') ids: string[]) {
+  @Mutation(() => BatchDeleteModel)
+  @UseGuards(GqlAuthGuard)
+  public async deleteMottos(@Args({ name: 'ids', type: () => [ID] }) ids: string[]) {
     return this.mottosService.batchDelete(ids)
   }
 }

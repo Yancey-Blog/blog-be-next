@@ -85,6 +85,10 @@ input CreateLiveTourInput {
   showTime: DateTime!
 }
 
+input CreateMottoInput {
+  content: String!
+}
+
 input CreateOpenSourceInput {
   title: String!
   description: String!
@@ -172,6 +176,13 @@ input LoginInput {
   password: String!
 }
 
+type MottoModel {
+  _id: String!
+  content: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
 type Mutation {
   register(input: RegisterInput!): UserModel!
   createTOTP: TOTPModel!
@@ -214,6 +225,10 @@ type Mutation {
   updatePostById(input: UpdatePostInput!): PostItemModel!
   deletePostById(id: ID!): PostItemModel!
   deletePosts(ids: [ID!]!): BatchDeleteModel!
+  createMotto(input: CreateMottoInput!): MottoModel!
+  updateMottoById(input: UpdateMottoInput!): MottoModel!
+  deleteMottoById(id: ID!): MottoModel!
+  deleteMottos(ids: [ID!]!): BatchDeleteModel!
 }
 
 type OpenSourceModel {
@@ -291,6 +306,8 @@ type Query {
   getAgenda: [AgendaModel!]!
   getPosts(input: PaginationInput!): PostModel!
   getPostById(id: ID!): PostItemModel!
+  getMottos: [MottoModel!]!
+  getMottoById(id: ID!): MottoModel!
 }
 
 type RecoveryCodeModel {
@@ -402,6 +419,11 @@ input UpdateLiveTourInput {
   posterUrl: String!
   showTime: DateTime!
   id: String!
+}
+
+input UpdateMottoInput {
+  id: String!
+  content: String!
 }
 
 input UpdateOpenSourceInput {

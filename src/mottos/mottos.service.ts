@@ -1,47 +1,54 @@
+import { Injectable } from '@nestjs/common'
 import { Model } from 'mongoose'
 import { InjectModel } from '@nestjs/mongoose'
-import { Injectable } from '@nestjs/common'
 import { Motto } from './interfaces/motto.interface'
-import { CreateMottoDto } from './dtos/createMotto.dto'
+import { CreateMottoInput } from './dtos/create-motto.input'
+import { UpdateMottoInput } from './dtos/update-motto.input'
 
 @Injectable()
 export class MottosService {
   constructor(
     @InjectModel('Motto')
-    private readonly MottoModel: Model<Motto>,
+    private readonly mottoModel: Model<Motto>,
   ) {
-    this.MottoModel = MottoModel
+    this.mottoModel = mottoModel
   }
 
-  public async findAll(): Promise<Motto[]> {
-    const res = await this.MottoModel.find({}).sort({ updatedAt: -1 })
-    return res
+  public async findAll() {
+    return this.mottoModel.find({}).sort({ updatedAt: -1 })
   }
 
-  public async findOneById(id: string): Promise<Motto> {
-    const res = await this.MottoModel.findById(id)
-    return res
+  public async findOneById(id: string) {
+    return this.mottoModel.findById(id)
   }
 
-  public async create(createMottoDto: CreateMottoDto): Promise<Motto> {
-    const res = await this.MottoModel.create(createMottoDto)
-    return res
+  public async create(dto: CreateMottoInput) {
+    return this.mottoModel.create(dto)
   }
 
-  public async update(id: string, createMottoDto: CreateMottoDto): Promise<Motto> {
-    const res = await this.MottoModel.findByIdAndUpdate(id, createMottoDto)
-    return res
+  public async update(dto: UpdateMottoInput) {
+    const { id, content } = dto
+    return this.mottoModel.findByIdAndUpdate(
+      id,
+      {
+        content,
+      },
+      { new: true },
+    )
   }
 
-  public async deleteOneById(id: string): Promise<Motto> {
-    const res = await this.MottoModel.findByIdAndDelete(id)
-    return res
+  public async deleteOneById(id: string) {
+    return this.mottoModel.findByIdAndDelete(id)
   }
 
   public async batchDelete(ids: string[]) {
-    const res = await this.MottoModel.deleteMany({
+    const res = await this.mottoModel.deleteMany({
       _id: { $in: ids },
     })
-    return res
+
+    return {
+      ...res,
+      ids,
+    }
   }
 }
