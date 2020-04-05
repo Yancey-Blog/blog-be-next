@@ -20,6 +20,7 @@ import { YanceyMusicModule } from './yancey-music/yancey-music.module'
 import { BestAlbumsModule } from './best-albums/best-albums.module'
 import { PlayerModule } from './player/player.module'
 import { AgendaModule } from './agenda/agenda.module'
+import { PostsModule } from './posts/posts.module'
 
 @Module({
   imports: [
@@ -39,6 +40,7 @@ import { AgendaModule } from './agenda/agenda.module'
     BestAlbumsModule,
     PlayerModule,
     AgendaModule,
+    PostsModule,
   ],
 
   providers: [
