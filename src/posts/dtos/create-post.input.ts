@@ -34,6 +34,6 @@ export class CreatePostInput {
   @IsNotEmpty()
   public readonly lastModifiedDate: Date
 
-  // @Field({ nullable: true })
-  // public readonly isPublic?: boolean
+  @Field({ nullable: true })
+  public readonly isPublic?: boolean
 }

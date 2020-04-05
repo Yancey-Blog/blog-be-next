@@ -108,6 +108,7 @@ input CreatePostInput {
   content: String!
   tags: [String!]!
   lastModifiedDate: DateTime!
+  isPublic: Boolean
 }
 
 input CreateYanceyMusicInput {
