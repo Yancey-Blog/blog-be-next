@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.19.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.18.0...v0.19.0) (2020-04-05)
+
+
+### Features
+
+* add isPublic ([9ba64cd](https://github.com/Yancey-Blog/blog-be-next/commit/9ba64cdf39694f497832a67f2a2730eab6f1b4fd))
+* define Post interface ([a92c027](https://github.com/Yancey-Blog/blog-be-next/commit/a92c02754c03ac1e6d8a02712788f6d4cece986c))
+* define PostModel ([ec53d27](https://github.com/Yancey-Blog/blog-be-next/commit/ec53d27cefc43fa031a3e15ad5d28141bfeb84a4))
+* define UpdatePostInput CreatePostInput ([1e9f12e](https://github.com/Yancey-Blog/blog-be-next/commit/1e9f12ecd37ab168cff18f463b18a0512b044405))
+* finish PostSchema ([81ec421](https://github.com/Yancey-Blog/blog-be-next/commit/81ec421806ad8fbe8fa2c7a2a9b23bfa6c460eca))
+* generate post module ([dedbb58](https://github.com/Yancey-Blog/blog-be-next/commit/dedbb581d129c8eaa7e115c0b43a74231ce75674))
+* support Pagination ([80c935a](https://github.com/Yancey-Blog/blog-be-next/commit/80c935a0d17de37e79644d319339195ffb46e172))
+* update BatchDeleteModel ([c1cac45](https://github.com/Yancey-Blog/blog-be-next/commit/c1cac45b4de558f9f23d436b2c8e23f989e58b4f))
+* update pagination ([545240a](https://github.com/Yancey-Blog/blog-be-next/commit/545240ad05e4ffa448883eeecb42e85de1fb8667))
+* update PaginationInput ([f85c646](https://github.com/Yancey-Blog/blog-be-next/commit/f85c64661457751b5d5812038244a48e9167d9c4))
+* update post module ([38c0b32](https://github.com/Yancey-Blog/blog-be-next/commit/38c0b32a03272d123aec90523484fb5fb6d3ddc5))
+
 ## [0.18.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.17.0...v0.18.0) (2020-04-03)
 
 
