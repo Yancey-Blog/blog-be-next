@@ -4,6 +4,7 @@ import { MottosService } from './mottos.service'
 import { MottoModel } from './models/mottos.model'
 import { CreateMottoInput } from './dtos/create-motto.input'
 import { UpdateMottoInput } from './dtos/update-motto.input'
+import { ExchangePositionInput } from './dtos/exchange-position.input'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'
 import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
 
@@ -33,6 +34,12 @@ export class MottosResolver {
   @UseGuards(GqlAuthGuard)
   public async updateMottoById(@Args('input') input: UpdateMottoInput): Promise<MottoModel> {
     return this.mottosService.update(input)
+  }
+
+  @Mutation(() => MottoModel)
+  @UseGuards(GqlAuthGuard)
+  public async exchangePosition(@Args('input') input: ExchangePositionInput): Promise<MottoModel> {
+    return this.mottosService.exchangePosition(input)
   }
 
   @Mutation(() => MottoModel)

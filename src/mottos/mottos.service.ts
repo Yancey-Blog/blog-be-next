@@ -4,6 +4,7 @@ import { InjectModel } from '@nestjs/mongoose'
 import { Motto } from './interfaces/motto.interface'
 import { CreateMottoInput } from './dtos/create-motto.input'
 import { UpdateMottoInput } from './dtos/update-motto.input'
+import { ExchangePositionInput } from './dtos/exchange-position.input'
 
 @Injectable()
 export class MottosService {
@@ -14,6 +15,10 @@ export class MottosService {
     this.mottoModel = mottoModel
   }
 
+  private async getTotalCount(): Promise<number> {
+    return this.mottoModel.countDocuments()
+  }
+
   public async findAll() {
     return this.mottoModel.find({}).sort({ updatedAt: -1 })
   }
@@ -22,16 +27,38 @@ export class MottosService {
     return this.mottoModel.findById(id)
   }
 
-  public async create(dto: CreateMottoInput) {
-    return this.mottoModel.create(dto)
+  public async create(input: CreateMottoInput) {
+    const count = await this.getTotalCount()
+    return this.mottoModel.create({ ...input, position: count + 1 })
   }
 
-  public async update(dto: UpdateMottoInput) {
-    const { id, content } = dto
+  public async update(input: UpdateMottoInput) {
+    const { id, content } = input
+
     return this.mottoModel.findByIdAndUpdate(
       id,
       {
         content,
+      },
+      { new: true },
+    )
+  }
+
+  public async exchangePosition(input: ExchangePositionInput) {
+    const { id, exchangedId, position, exchangedPosition } = input
+
+    await this.mottoModel.findByIdAndUpdate(
+      exchangedId,
+      {
+        position,
+      },
+      { new: true },
+    )
+
+    return this.mottoModel.findByIdAndUpdate(
+      id,
+      {
+        position: exchangedPosition,
       },
       { new: true },
     )

@@ -11,6 +11,10 @@ export const MottoSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    position: {
+      type: Number,
+      require: true,
+    },
   },
   {
     collection: 'motto',

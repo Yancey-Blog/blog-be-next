@@ -127,6 +127,13 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
+input ExchangePositionInput {
+  id: String!
+  exchangedId: String!
+  position: Float!
+  exchangedPosition: Float!
+}
+
 type IPModel {
   ip: String!
   type: String!
@@ -179,6 +186,7 @@ input LoginInput {
 type MottoModel {
   _id: String!
   content: String!
+  position: Float!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -227,6 +235,7 @@ type Mutation {
   deletePosts(ids: [ID!]!): BatchDeleteModel!
   createMotto(input: CreateMottoInput!): MottoModel!
   updateMottoById(input: UpdateMottoInput!): MottoModel!
+  exchangePosition(input: ExchangePositionInput!): MottoModel!
   deleteMottoById(id: ID!): MottoModel!
   deleteMottos(ids: [ID!]!): BatchDeleteModel!
 }

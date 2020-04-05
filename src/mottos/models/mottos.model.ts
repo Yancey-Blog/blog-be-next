@@ -9,6 +9,9 @@ export class MottoModel {
   public content: string
 
   @Field({ nullable: false })
+  public position: number
+
+  @Field({ nullable: false })
   public createdAt: Date
 
   @Field({ nullable: false })
