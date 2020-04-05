@@ -7,9 +7,10 @@ import { SCHEMA_GQL_FILE_NAME } from '../src/shared/constants'
 import { ConfigModule } from '../src/config/config.module'
 import { ConfigService } from '../src/config/config.service'
 import { PostsModule } from '../src/posts/posts.module'
-import { PostModel } from '../src/posts/models/posts.model'
+import { PostModel, PostItemModel } from '../src/posts/models/posts.model'
 import { CreatePostInput } from '../src/posts/dtos/create-post.input'
 import { UpdatePostInput } from '../src/posts/dtos/update-post.input'
+import { PaginationInput } from '../src/posts/dtos/pagination.input'
 import { BatchDeleteModel } from '../src/database/models/batch-delete.model'
 
 describe('PostsController (e2e)', () => {
@@ -78,20 +79,32 @@ describe('PostsController (e2e)', () => {
         query: createOneTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: PostModel = body.data.createPost
+        const testData: PostItemModel = body.data.createPost
         id = testData._id
         expect(testData.content).toBe(createdData.content)
       })
       .expect(200)
   })
 
+  const fetchData: PaginationInput = {
+    page: 1,
+    pageSize: 10,
+  }
+
+  const fetchDataString = JSON.stringify(fetchData).replace(/"([^(")"]+)":/g, '$1:')
+
   // READ_ALL
   it('getPosts', async () => {
     const getAllTypeDefs = `
     query GetPosts {
-      getPosts {
-        _id
-        content
+      getPosts(input: ${fetchDataString}) {
+        total
+        page
+        pageSize
+        items {
+          _id
+          content
+        }
       }
     }`
 
@@ -102,11 +115,10 @@ describe('PostsController (e2e)', () => {
         query: getAllTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: PostModel[] = body.data.getPosts
+        const testData: PostModel = body.data.getPosts
 
-        const firstData = testData[0]
+        const firstData = testData.items[0]
 
-        expect(testData.length).toBeGreaterThan(0)
         expect(firstData._id).toBe(id)
         expect(firstData.content).toBe(createdData.content)
       })
@@ -130,7 +142,7 @@ describe('PostsController (e2e)', () => {
         query: getOneByIdTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: PostModel = body.data.getPostById
+        const testData: PostItemModel = body.data.getPostById
 
         expect(testData._id).toBe(id)
         expect(testData.content).toBe(createdData.content)
@@ -157,7 +169,7 @@ describe('PostsController (e2e)', () => {
         query: updateOneByIdTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: PostModel = body.data.updatePostById
+        const testData: PostItemModel = body.data.updatePostById
         expect(testData.content).toBe(updatedData.content)
       })
       .expect(200)
@@ -180,7 +192,7 @@ describe('PostsController (e2e)', () => {
         query: deleteOneByIdTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: PostModel = body.data.deletePostById
+        const testData: PostItemModel = body.data.deletePostById
 
         expect(testData.content).toBe(updatedData.content)
       })
