@@ -26,7 +26,7 @@ type BatchDeleteModel {
   ok: Float
   n: Float
   deletedCount: Float
-  ids: ID!
+  ids: [ID!]!
 }
 
 type BatchUpdateModel {
@@ -99,6 +99,16 @@ input CreatePlayerInput {
   coverUrl: String!
   musicFileUrl: String!
   isPublic: Boolean!
+}
+
+input CreatePostInput {
+  posterUrl: String!
+  title: String!
+  summary: String!
+  content: String!
+  tags: [String!]!
+  lastModifiedDate: DateTime!
+  isPublic: Boolean
 }
 
 input CreateYanceyMusicInput {
@@ -200,6 +210,10 @@ type Mutation {
   createAgenda(input: CreateAgendaInput!): AgendaModel!
   updateAgendaById(input: UpdateAgendaInput!): AgendaModel!
   deleteAgendaById(id: ID!): AgendaModel!
+  createPost(input: CreatePostInput!): PostItemModel!
+  updatePostById(input: UpdatePostInput!): PostItemModel!
+  deletePostById(id: ID!): PostItemModel!
+  deletePosts(ids: [ID!]!): BatchDeleteModel!
 }
 
 type OpenSourceModel {
@@ -217,6 +231,12 @@ type OS {
   version: String!
 }
 
+input PaginationInput {
+  page: Float!
+  pageSize: Float!
+  title: String
+}
+
 type PlayerModel {
   _id: ID!
   title: String!
@@ -227,6 +247,28 @@ type PlayerModel {
   isPublic: Boolean!
   createdAt: DateTime!
   updatedAt: DateTime!
+}
+
+type PostItemModel {
+  _id: ID!
+  posterUrl: String!
+  title: String!
+  summary: String!
+  content: String!
+  tags: [String!]!
+  lastModifiedDate: DateTime!
+  like: Float!
+  pv: Float!
+  isPublic: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type PostModel {
+  total: Float!
+  page: Float!
+  pageSize: Float!
+  items: [PostItemModel!]!
 }
 
 type Query {
@@ -247,6 +289,8 @@ type Query {
   getPlayers: [PlayerModel!]!
   getPlayerById(id: ID!): PlayerModel!
   getAgenda: [AgendaModel!]!
+  getPosts(input: PaginationInput!): PostModel!
+  getPostById(id: ID!): PostItemModel!
 }
 
 type RecoveryCodeModel {
@@ -375,6 +419,19 @@ input UpdatePlayerInput {
   lrc: String
   coverUrl: String
   musicFileUrl: String
+  isPublic: Boolean
+}
+
+input UpdatePostInput {
+  id: String
+  posterUrl: String
+  title: String
+  summary: String
+  content: String
+  tags: [String!]
+  like: Float
+  pv: Float
+  lastModifiedDate: DateTime
   isPublic: Boolean
 }
 
