@@ -22,11 +22,11 @@ export class PostsService {
   }
 
   public async findAll(input: PaginationInput): Promise<PostModel> {
-    const { page, pageSize } = input
+    const { page, pageSize, title } = input
 
     const total = await this.getTotalCount()
     const items = await this.postModel
-      .find({})
+      .find({ title: { $regex: !title ? '' : title } })
       .sort({ createdAt: -1 })
       .skip((page - 1) * pageSize)
       .limit(pageSize)

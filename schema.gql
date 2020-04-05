@@ -234,6 +234,7 @@ type OS {
 input PaginationInput {
   page: Float!
   pageSize: Float!
+  title: String
 }
 
 type PlayerModel {

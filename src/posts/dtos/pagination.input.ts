@@ -12,4 +12,7 @@ export class PaginationInput {
   @IsNumber()
   @IsNotEmpty()
   public readonly pageSize: number
+
+  @Field({ nullable: true })
+  public readonly title?: string
 }
