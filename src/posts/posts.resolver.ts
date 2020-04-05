@@ -1,41 +1,43 @@
 import { UseGuards } from '@nestjs/common'
 import { Args, Query, Resolver, Mutation, ID } from '@nestjs/graphql'
 import { PostsService } from './posts.service'
-import { PostModel } from './models/posts.model'
+import { PostModel, PostItemModel } from './models/posts.model'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'
 import { CreatePostInput } from './dtos/create-post.input'
 import { UpdatePostInput } from './dtos/update-post.input'
+import { PaginationInput } from './dtos/pagination.input'
 import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
 
-@Resolver(() => PostModel)
+@Resolver()
 export class PostsResolver {
   constructor(private readonly postsService: PostsService) {
     this.postsService = postsService
   }
 
-  @Query(() => [PostModel])
-  public async getPosts() {
-    return this.postsService.findAll()
+  @Query(() => PostModel)
+  @UseGuards(GqlAuthGuard)
+  public async getPosts(@Args('input') input: PaginationInput) {
+    return this.postsService.findAll(input)
   }
 
-  @Query(() => PostModel)
+  @Query(() => PostItemModel)
   public async getPostById(@Args({ name: 'id', type: () => ID }) id: string) {
     return this.postsService.findOneById(id)
   }
 
-  @Mutation(() => PostModel)
+  @Mutation(() => PostItemModel)
   @UseGuards(GqlAuthGuard)
   public async createPost(@Args('input') input: CreatePostInput) {
     return this.postsService.create(input)
   }
 
-  @Mutation(() => PostModel)
+  @Mutation(() => PostItemModel)
   @UseGuards(GqlAuthGuard)
   public async updatePostById(@Args('input') input: UpdatePostInput) {
     return this.postsService.update(input)
   }
 
-  @Mutation(() => PostModel)
+  @Mutation(() => PostItemModel)
   @UseGuards(GqlAuthGuard)
   public async deletePostById(@Args({ name: 'id', type: () => ID }) id: string) {
     return this.postsService.deleteOneById(id)

@@ -209,9 +209,9 @@ type Mutation {
   createAgenda(input: CreateAgendaInput!): AgendaModel!
   updateAgendaById(input: UpdateAgendaInput!): AgendaModel!
   deleteAgendaById(id: ID!): AgendaModel!
-  createPost(input: CreatePostInput!): PostModel!
-  updatePostById(input: UpdatePostInput!): PostModel!
-  deletePostById(id: ID!): PostModel!
+  createPost(input: CreatePostInput!): PostItemModel!
+  updatePostById(input: UpdatePostInput!): PostItemModel!
+  deletePostById(id: ID!): PostItemModel!
   deletePosts(ids: [ID!]!): BatchDeleteModel!
 }
 
@@ -230,6 +230,11 @@ type OS {
   version: String!
 }
 
+input PaginationInput {
+  page: Float!
+  pageSize: Float!
+}
+
 type PlayerModel {
   _id: ID!
   title: String!
@@ -242,7 +247,7 @@ type PlayerModel {
   updatedAt: DateTime!
 }
 
-type PostModel {
+type PostItemModel {
   _id: ID!
   posterUrl: String!
   title: String!
@@ -255,6 +260,13 @@ type PostModel {
   isPublic: Boolean!
   createdAt: DateTime!
   updatedAt: DateTime!
+}
+
+type PostModel {
+  total: Float!
+  page: Float!
+  pageSize: Float!
+  items: [PostItemModel!]!
 }
 
 type Query {
@@ -275,8 +287,8 @@ type Query {
   getPlayers: [PlayerModel!]!
   getPlayerById(id: ID!): PlayerModel!
   getAgenda: [AgendaModel!]!
-  getPosts: [PostModel!]!
-  getPostById(id: ID!): PostModel!
+  getPosts(input: PaginationInput!): PostModel!
+  getPostById(id: ID!): PostItemModel!
 }
 
 type RecoveryCodeModel {

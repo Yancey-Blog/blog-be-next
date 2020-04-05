@@ -1,7 +1,8 @@
+/* eslint-disable max-classes-per-file */
 import { Field, ID, ObjectType } from '@nestjs/graphql'
 
 @ObjectType()
-export class PostModel {
+export class PostItemModel {
   @Field(() => ID)
   public readonly _id: string
 
@@ -37,4 +38,19 @@ export class PostModel {
 
   @Field()
   public readonly updatedAt: Date
+}
+
+@ObjectType()
+export class PostModel {
+  @Field()
+  public readonly total: number
+
+  @Field()
+  public readonly page: number
+
+  @Field()
+  public readonly pageSize: number
+
+  @Field(() => [PostItemModel])
+  public readonly items: PostItemModel[]
 }
