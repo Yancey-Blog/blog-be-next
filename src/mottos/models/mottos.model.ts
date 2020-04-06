@@ -9,7 +9,7 @@ export class MottoModel {
   public content: string
 
   @Field({ nullable: false })
-  public position: number
+  public weight: number
 
   @Field({ nullable: false })
   public createdAt: Date

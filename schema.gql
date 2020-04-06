@@ -130,8 +130,8 @@ scalar DateTime
 input ExchangePositionInput {
   id: String!
   exchangedId: String!
-  position: Float!
-  exchangedPosition: Float!
+  weight: Float!
+  exchangedWeight: Float!
 }
 
 type IPModel {
@@ -186,7 +186,7 @@ input LoginInput {
 type MottoModel {
   _id: String!
   content: String!
-  position: Float!
+  weight: Float!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -235,7 +235,7 @@ type Mutation {
   deletePosts(ids: [ID!]!): BatchDeleteModel!
   createMotto(input: CreateMottoInput!): MottoModel!
   updateMottoById(input: UpdateMottoInput!): MottoModel!
-  exchangePosition(input: ExchangePositionInput!): MottoModel!
+  exchangePosition(input: ExchangePositionInput!): [MottoModel!]!
   deleteMottoById(id: ID!): MottoModel!
   deleteMottos(ids: [ID!]!): BatchDeleteModel!
 }

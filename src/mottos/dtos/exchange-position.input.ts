@@ -16,10 +16,10 @@ export class ExchangePositionInput {
   @Field()
   @IsNumber()
   @IsNotEmpty()
-  public readonly position: number
+  public readonly weight: number
 
   @Field()
   @IsNumber()
   @IsNotEmpty()
-  public readonly exchangedPosition: number
+  public readonly exchangedWeight: number
 }

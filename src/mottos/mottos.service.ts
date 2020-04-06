@@ -20,7 +20,7 @@ export class MottosService {
   }
 
   public async findAll() {
-    return this.mottoModel.find({}).sort({ updatedAt: -1 })
+    return this.mottoModel.find().sort({ weight: -1 })
   }
 
   public async findOneById(id: string) {
@@ -29,7 +29,7 @@ export class MottosService {
 
   public async create(input: CreateMottoInput) {
     const count = await this.getTotalCount()
-    return this.mottoModel.create({ ...input, position: count + 1 })
+    return this.mottoModel.create({ ...input, weight: count + 1 })
   }
 
   public async update(input: UpdateMottoInput) {
@@ -45,23 +45,25 @@ export class MottosService {
   }
 
   public async exchangePosition(input: ExchangePositionInput) {
-    const { id, exchangedId, position, exchangedPosition } = input
+    const { id, exchangedId, weight, exchangedWeight } = input
 
-    await this.mottoModel.findByIdAndUpdate(
+    const exchanged = await this.mottoModel.findByIdAndUpdate(
       exchangedId,
       {
-        position,
+        weight,
       },
       { new: true },
     )
 
-    return this.mottoModel.findByIdAndUpdate(
+    const curr = await this.mottoModel.findByIdAndUpdate(
       id,
       {
-        position: exchangedPosition,
+        weight: exchangedWeight,
       },
       { new: true },
     )
+
+    return [exchanged, curr]
   }
 
   public async deleteOneById(id: string) {

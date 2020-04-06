@@ -11,7 +11,7 @@ export const MottoSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    position: {
+    weight: {
       type: Number,
       require: true,
     },
