@@ -11,6 +11,10 @@ export const AnnouncementSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    weight: {
+      type: Number,
+      require: true,
+    },
   },
   {
     collection: 'announcement',

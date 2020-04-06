@@ -18,6 +18,7 @@ type AgendaModel {
 type AnnouncementModel {
   _id: String!
   content: String!
+  weight: Float!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -201,6 +202,7 @@ type Mutation {
   loginStatistics: IPModel!
   createAnnouncement(input: CreateAnnouncementInput!): AnnouncementModel!
   updateAnnouncementById(input: UpdateAnnouncementInput!): AnnouncementModel!
+  exchangePosition(input: ExchangePositionInput!): [MottoModel!]!
   deleteAnnouncementById(id: ID!): AnnouncementModel!
   deleteAnnouncements(ids: [ID!]!): BatchDeleteModel!
   sendSMS(input: SendSMSInput!): SendSMSRes!
@@ -235,7 +237,6 @@ type Mutation {
   deletePosts(ids: [ID!]!): BatchDeleteModel!
   createMotto(input: CreateMottoInput!): MottoModel!
   updateMottoById(input: UpdateMottoInput!): MottoModel!
-  exchangePosition(input: ExchangePositionInput!): [MottoModel!]!
   deleteMottoById(id: ID!): MottoModel!
   deleteMottos(ids: [ID!]!): BatchDeleteModel!
 }
