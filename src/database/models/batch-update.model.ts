@@ -1,4 +1,4 @@
-import { Field, ObjectType } from '@nestjs/graphql'
+import { Field, ObjectType, ID } from '@nestjs/graphql'
 
 @ObjectType()
 export class BatchUpdateModel {
@@ -10,4 +10,7 @@ export class BatchUpdateModel {
 
   @Field({ nullable: true })
   public readonly nModified?: number
+
+  @Field(() => [ID])
+  public readonly ids: string[]
 }

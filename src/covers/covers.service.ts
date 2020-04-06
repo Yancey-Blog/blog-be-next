@@ -80,7 +80,7 @@ export class CoversService {
         _id: { $in: ids },
       },
       {
-        $set: { isPublic: false },
+        $set: { isPublic: true },
       },
     )
 

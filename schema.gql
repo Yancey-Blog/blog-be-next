@@ -34,6 +34,7 @@ type BatchUpdateModel {
   ok: Float
   n: Float
   nModified: Float
+  ids: [ID!]!
 }
 
 type BestAlbumModel {
@@ -259,7 +260,7 @@ type Mutation {
   updateCoverById(input: UpdateCoverInput!): CoverModel!
   deleteCoverById(id: ID!): CoverModel!
   deleteCovers(ids: [ID!]!): BatchDeleteModel!
-  offlineCovers(ids: [ID!]!): BatchUpdateModel!
+  publicCovers(ids: [ID!]!): BatchUpdateModel!
 }
 
 type OpenSourceModel {

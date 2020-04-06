@@ -59,7 +59,7 @@ export class CoversResolver {
 
   @Mutation(() => BatchUpdateModel)
   @UseGuards(GqlAuthGuard)
-  public async offlineCovers(@Args({ name: 'ids', type: () => [ID] }) ids: string[]) {
+  public async publicCovers(@Args({ name: 'ids', type: () => [ID] }) ids: string[]) {
     return this.coversService.batchUpdate(ids)
   }
 }
