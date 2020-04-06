@@ -15,12 +15,8 @@ export class AnnouncementsService {
     this.announcementModel = announcementModel
   }
 
-  private async getTotalCount(): Promise<number> {
-    return this.announcementModel.countDocuments()
-  }
-
   public async findAll() {
-    return this.announcementModel.find({}).sort({ updatedAt: -1 })
+    return this.announcementModel.find().sort({ weight: -1 })
   }
 
   public async findOneById(id: string) {
@@ -28,8 +24,9 @@ export class AnnouncementsService {
   }
 
   public async create(input: CreateAnnouncementInput) {
-    const count = await this.getTotalCount()
-    return this.announcementModel.create({ ...input, weight: count + 1 })
+    const all = await this.findAll()
+    const weight = all[0] ? all[0].weight : 0
+    return this.announcementModel.create({ ...input, weight: weight + 1 })
   }
 
   public async update(input: UpdateAnnouncementInput) {
