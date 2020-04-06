@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.20.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.19.0...v0.20.0) (2020-04-06)
+
+
+### Features
+
+* add mottos module ([2e0ddea](https://github.com/Yancey-Blog/blog-be-next/commit/2e0ddea2c64245aba382d6bec7d9fd0d811e9322))
+* finish motto ([28acbe5](https://github.com/Yancey-Blog/blog-be-next/commit/28acbe5340ba1e542438a1180881cbd657f36a42))
+* support exchangePosition ([d90d821](https://github.com/Yancey-Blog/blog-be-next/commit/d90d821ca6b9827de72113eb62daa9003aee1026))
+
 ## [0.19.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.18.0...v0.19.0) (2020-04-05)
 
 
