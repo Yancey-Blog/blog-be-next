@@ -479,6 +479,7 @@ type UsageStatesModel {
   network_in_bytes: String!
   network_out_bytes: String!
   disk_read_bytes: String!
+  disk_write_bytes: String!
   cpu_usage: String!
 }
 
