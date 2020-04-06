@@ -11,7 +11,6 @@ import { AuthModule } from './auth/auth.module'
 import { UploadersModule } from './uploaders/uploaders.module'
 import { UsersModule } from './users/users.module'
 import { AnnouncementsModule } from './announcements/announcements.module'
-import { MottosModule } from './mottos/mottos.module'
 import { SMSModule } from './sms/sms.module'
 import { OpenSourcesModule } from './open-sources/open-sources.module'
 import { BandwagonModule } from './bandwagon/bandwagon.module'
@@ -21,6 +20,7 @@ import { BestAlbumsModule } from './best-albums/best-albums.module'
 import { PlayerModule } from './player/player.module'
 import { AgendaModule } from './agenda/agenda.module'
 import { PostsModule } from './posts/posts.module'
+import { MottosModule } from './mottos/mottos.module'
 
 @Module({
   imports: [
@@ -31,7 +31,6 @@ import { PostsModule } from './posts/posts.module'
     UploadersModule,
     UsersModule,
     AnnouncementsModule,
-    MottosModule,
     SMSModule,
     OpenSourcesModule,
     BandwagonModule,
@@ -41,6 +40,7 @@ import { PostsModule } from './posts/posts.module'
     PlayerModule,
     AgendaModule,
     PostsModule,
+    MottosModule,
   ],
 
   providers: [

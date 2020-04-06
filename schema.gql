@@ -85,6 +85,10 @@ input CreateLiveTourInput {
   showTime: DateTime!
 }
 
+input CreateMottoInput {
+  content: String!
+}
+
 input CreateOpenSourceInput {
   title: String!
   description: String!
@@ -122,6 +126,13 @@ input CreateYanceyMusicInput {
 A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
 """
 scalar DateTime
+
+input ExchangePositionInput {
+  id: String!
+  exchangedId: String!
+  weight: Float!
+  exchangedWeight: Float!
+}
 
 type IPModel {
   ip: String!
@@ -172,6 +183,14 @@ input LoginInput {
   password: String!
 }
 
+type MottoModel {
+  _id: String!
+  content: String!
+  weight: Float!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
 type Mutation {
   register(input: RegisterInput!): UserModel!
   createTOTP: TOTPModel!
@@ -214,6 +233,11 @@ type Mutation {
   updatePostById(input: UpdatePostInput!): PostItemModel!
   deletePostById(id: ID!): PostItemModel!
   deletePosts(ids: [ID!]!): BatchDeleteModel!
+  createMotto(input: CreateMottoInput!): MottoModel!
+  updateMottoById(input: UpdateMottoInput!): MottoModel!
+  exchangePosition(input: ExchangePositionInput!): [MottoModel!]!
+  deleteMottoById(id: ID!): MottoModel!
+  deleteMottos(ids: [ID!]!): BatchDeleteModel!
 }
 
 type OpenSourceModel {
@@ -291,6 +315,8 @@ type Query {
   getAgenda: [AgendaModel!]!
   getPosts(input: PaginationInput!): PostModel!
   getPostById(id: ID!): PostItemModel!
+  getMottos: [MottoModel!]!
+  getMottoById(id: ID!): MottoModel!
 }
 
 type RecoveryCodeModel {
@@ -402,6 +428,11 @@ input UpdateLiveTourInput {
   posterUrl: String!
   showTime: DateTime!
   id: String!
+}
+
+input UpdateMottoInput {
+  id: String!
+  content: String!
 }
 
 input UpdateOpenSourceInput {

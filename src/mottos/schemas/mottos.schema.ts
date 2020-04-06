@@ -7,9 +7,13 @@ export const MottoSchema = new mongoose.Schema(
       type: String,
       default: v4,
     },
-    motto: {
+    content: {
       type: String,
       required: true,
+    },
+    weight: {
+      type: Number,
+      require: true,
     },
   },
   {
