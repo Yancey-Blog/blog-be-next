@@ -39,7 +39,7 @@ export class CoversResolver {
 
   @Mutation(() => [CoverModel])
   @UseGuards(GqlAuthGuard)
-  public async exchangePosition(
+  public async exchangePositionCover(
     @Args('input') input: ExchangePositionInput,
   ): Promise<CoverModel[]> {
     return this.coversService.exchangePosition(input)

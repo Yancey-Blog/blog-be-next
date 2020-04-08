@@ -219,7 +219,7 @@ type Mutation {
   loginStatistics: IPModel!
   createAnnouncement(input: CreateAnnouncementInput!): AnnouncementModel!
   updateAnnouncementById(input: UpdateAnnouncementInput!): AnnouncementModel!
-  exchangePosition(input: ExchangePositionInput!): [CoverModel!]!
+  exchangePositionAnnouncement(input: ExchangePositionInput!): [AnnouncementModel!]!
   deleteAnnouncementById(id: ID!): AnnouncementModel!
   deleteAnnouncements(ids: [ID!]!): BatchDeleteModel!
   sendSMS(input: SendSMSInput!): SendSMSRes!
@@ -254,10 +254,12 @@ type Mutation {
   deletePosts(ids: [ID!]!): BatchDeleteModel!
   createMotto(input: CreateMottoInput!): MottoModel!
   updateMottoById(input: UpdateMottoInput!): MottoModel!
+  exchangePositionMotto(input: ExchangePositionInput!): [MottoModel!]!
   deleteMottoById(id: ID!): MottoModel!
   deleteMottos(ids: [ID!]!): BatchDeleteModel!
   createCover(input: CreateCoverInput!): CoverModel!
   updateCoverById(input: UpdateCoverInput!): CoverModel!
+  exchangePositionCover(input: ExchangePositionInput!): [CoverModel!]!
   deleteCoverById(id: ID!): CoverModel!
   deleteCovers(ids: [ID!]!): BatchDeleteModel!
   publicCovers(ids: [ID!]!): BatchUpdateModel!

@@ -44,7 +44,7 @@ export class AnnouncementsResolver {
 
   @Mutation(() => [AnnouncementModel])
   @UseGuards(GqlAuthGuard)
-  public async exchangePosition(
+  public async exchangePositionAnnouncement(
     @Args('input') input: ExchangePositionInput,
   ): Promise<AnnouncementModel[]> {
     return this.announcementsService.exchangePosition(input)
