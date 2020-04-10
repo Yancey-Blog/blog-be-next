@@ -524,6 +524,11 @@ type UserModel {
   email: String!
   password: String!
   role: Float!
+  name: String!
+  location: String!
+  organization: String!
+  website: String!
+  bio: String!
   avaterUrl: String!
   phoneNumber: String!
   isTOTP: Boolean!

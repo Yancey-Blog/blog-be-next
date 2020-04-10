@@ -14,6 +14,11 @@ export const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    username: {
+      default: '',
+      type: String,
+      required: true,
+    },
     password: {
       type: String,
       required: true,
@@ -23,12 +28,32 @@ export const UserSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    avaterUrl: {
+    name: {
       default: '',
       type: String,
       required: false,
     },
-    username: {
+    location: {
+      default: '',
+      type: String,
+      required: false,
+    },
+    organization: {
+      default: '',
+      type: String,
+      required: false,
+    },
+    website: {
+      default: '',
+      type: String,
+      required: false,
+    },
+    bio: {
+      default: '',
+      type: String,
+      required: false,
+    },
+    avaterUrl: {
       default: '',
       type: String,
       required: false,

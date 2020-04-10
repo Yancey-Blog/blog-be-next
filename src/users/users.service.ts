@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
 import { User } from './interfaces/user.interface'
-import { CreateUserInput } from './dtos/create-user.input'
 import { UpdateUserInput } from './dtos/update-user.input'
+import { RegisterInput } from '../auth/dtos/register.input'
 
 @Injectable()
 export class UsersService {
@@ -26,8 +26,8 @@ export class UsersService {
     return this.UserModel.findOne({ email })
   }
 
-  public async create(createUserInput: CreateUserInput): Promise<User> {
-    return this.UserModel.create(createUserInput)
+  public async create(input: RegisterInput): Promise<User> {
+    return this.UserModel.create(input)
   }
 
   public async updateUser(input: UpdateUserInput): Promise<User> {

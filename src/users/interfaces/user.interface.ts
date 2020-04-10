@@ -19,6 +19,11 @@ export interface User extends Document {
   email: string
   password: string
   role: Roles
+  name: string
+  location: string
+  organization: string
+  website: string
+  bio: string
   avaterUrl: string
   phoneNumber: string
   isTOTP: boolean

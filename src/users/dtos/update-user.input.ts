@@ -23,4 +23,22 @@ export class UpdateUserInput {
 
   @Field({ nullable: true })
   public readonly loginStatistics?: IPModel[]
+
+  @Field({ nullable: true })
+  public readonly name?: string
+
+  @Field({ nullable: true })
+  public readonly location?: string
+
+  @Field({ nullable: true })
+  public readonly organization?: string
+
+  @Field({ nullable: true })
+  public readonly website?: string
+
+  @Field({ nullable: true })
+  public readonly bio?: string
+
+  @Field({ nullable: true })
+  public readonly avaterUrl?: string
 }
