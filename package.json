@@ -93,7 +93,7 @@
     "@types/supertest": "^2.0.8",
     "@types/ua-parser-js": "^0.7.33",
     "@types/uuid": "^7.0.2",
-    "@typescript-eslint/eslint-plugin": "^2.26.0",
+    "@typescript-eslint/eslint-plugin": "^2.27.0",
     "@typescript-eslint/parser": "^2.23.0",
     "codecov": "^3.6.5",
     "cz-conventional-changelog": "^3.0.2",
