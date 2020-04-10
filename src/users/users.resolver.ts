@@ -20,4 +20,22 @@ export class UserResolver {
     const { sub: userId } = decodeJwt(req.headers.authorization)
     return this.usersService.updateUser({ ...input, id: userId })
   }
+
+  @Mutation(() => UserModel)
+  @UseGuards(GqlAuthGuard)
+  public async updateUserName(@Args('username') username: String, @ReqDecorator() req: Request) {
+    return this.usersService.updateUserName(username, req)
+  }
+
+  @Mutation(() => UserModel)
+  @UseGuards(GqlAuthGuard)
+  public async updateEmail(@Args('email') email: String, @ReqDecorator() req: Request) {
+    return this.usersService.updateEmail(email, req)
+  }
+
+  @Mutation(() => UserModel)
+  @UseGuards(GqlAuthGuard)
+  public async deleteAccount(@ReqDecorator() req: Request) {
+    return this.usersService.deleteOneById(req)
+  }
 }

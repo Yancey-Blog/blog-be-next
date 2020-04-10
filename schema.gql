@@ -218,6 +218,9 @@ type Mutation {
   changePassword(input: ChangePasswordInput!): UserModel!
   loginStatistics: IPModel!
   updateUser(input: UpdateUserInput!): UserModel!
+  updateUserName(username: String!): UserModel!
+  updateEmail(email: String!): UserModel!
+  deleteAccount: UserModel!
   createAnnouncement(input: CreateAnnouncementInput!): AnnouncementModel!
   updateAnnouncementById(input: UpdateAnnouncementInput!): AnnouncementModel!
   exchangePositionAnnouncement(input: ExchangePositionInput!): [AnnouncementModel!]!
