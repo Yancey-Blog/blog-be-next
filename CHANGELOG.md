@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.21.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.20.0...v0.21.0) (2020-04-10)
+
+
+### Features
+
+* add cover module ([37b3f2d](https://github.com/Yancey-Blog/blog-be-next/commit/37b3f2d992fe1f5879b4233d1cb4efd1fd671572))
+* add disk_write_bytes ([0ec98c3](https://github.com/Yancey-Blog/blog-be-next/commit/0ec98c3d9948192c6abf6bb659d61a1af8e401d0))
+* add update User ([8756431](https://github.com/Yancey-Blog/blog-be-next/commit/8756431d3cd46519028a315e41bb2e850579d3f6))
+* delete useless files ([09a6ff2](https://github.com/Yancey-Blog/blog-be-next/commit/09a6ff22c70fa4564f9e67ed209e953db3ccc7fa))
+* make announcement support exchange ([570a3e8](https://github.com/Yancey-Blog/blog-be-next/commit/570a3e83650fabc8a32c21b06badbd4deea4254e))
+* update batchUpdate ([7e71414](https://github.com/Yancey-Blog/blog-be-next/commit/7e71414ebf72cc11a3afb165984de4a8a65c3dbe))
+* update batchUpdate ([15fd1e3](https://github.com/Yancey-Blog/blog-be-next/commit/15fd1e3a12be6892f9e91d2a1d8434c99d9124c4))
+* update create ([dceff96](https://github.com/Yancey-Blog/blog-be-next/commit/dceff963d9b60cb903fd0c9dbcab71d23091978d))
+* update resolver ([79ce1a7](https://github.com/Yancey-Blog/blog-be-next/commit/79ce1a7b147e30f2fa18d9e2ce54c3d7f07e4604))
+* update userModels ([42095de](https://github.com/Yancey-Blog/blog-be-next/commit/42095de0a39ec4a4d3bbeb7815575e15d94353f8))
+
 ## [0.20.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.19.0...v0.20.0) (2020-04-06)
 
 
