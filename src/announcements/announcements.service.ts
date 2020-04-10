@@ -4,6 +4,7 @@ import { InjectModel } from '@nestjs/mongoose'
 import { Announcement } from './interfaces/announcement.interface'
 import { CreateAnnouncementInput } from './dtos/create-announcement.input'
 import { UpdateAnnouncementInput } from './dtos/update-announcement.input'
+import { ExchangePositionInput } from '../mottos/dtos/exchange-position.input'
 
 @Injectable()
 export class AnnouncementsService {
@@ -15,19 +16,22 @@ export class AnnouncementsService {
   }
 
   public async findAll() {
-    return this.announcementModel.find({}).sort({ updatedAt: -1 })
+    return this.announcementModel.find().sort({ weight: -1 })
   }
 
   public async findOneById(id: string) {
     return this.announcementModel.findById(id)
   }
 
-  public async create(dto: CreateAnnouncementInput) {
-    return this.announcementModel.create(dto)
+  public async create(input: CreateAnnouncementInput) {
+    const all = await this.findAll()
+    const weight = all[0] ? all[0].weight : 0
+    return this.announcementModel.create({ ...input, weight: weight + 1 })
   }
 
-  public async update(dto: UpdateAnnouncementInput) {
-    const { id, content } = dto
+  public async update(input: UpdateAnnouncementInput) {
+    const { id, content } = input
+
     return this.announcementModel.findByIdAndUpdate(
       id,
       {
@@ -35,6 +39,28 @@ export class AnnouncementsService {
       },
       { new: true },
     )
+  }
+
+  public async exchangePosition(input: ExchangePositionInput) {
+    const { id, exchangedId, weight, exchangedWeight } = input
+
+    const exchanged = await this.announcementModel.findByIdAndUpdate(
+      exchangedId,
+      {
+        weight,
+      },
+      { new: true },
+    )
+
+    const curr = await this.announcementModel.findByIdAndUpdate(
+      id,
+      {
+        weight: exchangedWeight,
+      },
+      { new: true },
+    )
+
+    return [exchanged, curr]
   }
 
   public async deleteOneById(id: string) {

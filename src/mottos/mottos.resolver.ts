@@ -38,7 +38,7 @@ export class MottosResolver {
 
   @Mutation(() => [MottoModel])
   @UseGuards(GqlAuthGuard)
-  public async exchangePosition(
+  public async exchangePositionMotto(
     @Args('input') input: ExchangePositionInput,
   ): Promise<MottoModel[]> {
     return this.mottosService.exchangePosition(input)
