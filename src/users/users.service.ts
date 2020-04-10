@@ -30,8 +30,8 @@ export class UsersService {
     return this.UserModel.create(createUserInput)
   }
 
-  public async updateUser(updateUserInput: UpdateUserInput): Promise<User> {
-    const { id, ...rest } = updateUserInput
+  public async updateUser(input: UpdateUserInput): Promise<User> {
+    const { id, ...rest } = input
     return this.UserModel.findByIdAndUpdate(id, rest, { new: true })
   }
 }

@@ -9,6 +9,9 @@ export class AnnouncementModel {
   public content: string
 
   @Field({ nullable: false })
+  public weight: number
+
+  @Field({ nullable: false })
   public createdAt: Date
 
   @Field({ nullable: false })

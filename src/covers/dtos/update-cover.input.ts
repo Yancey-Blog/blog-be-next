@@ -2,7 +2,7 @@ import { InputType, Field } from '@nestjs/graphql'
 import { IsUUID, IsNotEmpty, IsBoolean } from 'class-validator'
 
 @InputType()
-export class UpdatePlayerInput {
+export class UpdateCoverInput {
   @Field()
   @IsUUID()
   @IsNotEmpty()
@@ -12,16 +12,7 @@ export class UpdatePlayerInput {
   public readonly title?: string
 
   @Field({ nullable: true })
-  public readonly artist?: string
-
-  @Field({ nullable: true })
-  public readonly lrc?: string
-
-  @Field({ nullable: true })
   public readonly coverUrl?: string
-
-  @Field({ nullable: true })
-  public readonly musicFileUrl?: string
 
   @Field({ nullable: true })
   @IsBoolean()

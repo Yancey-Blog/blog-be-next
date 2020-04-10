@@ -18,6 +18,7 @@ type AgendaModel {
 type AnnouncementModel {
   _id: String!
   content: String!
+  weight: Float!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -33,6 +34,7 @@ type BatchUpdateModel {
   ok: Float
   n: Float
   nModified: Float
+  ids: [ID!]!
 }
 
 type BestAlbumModel {
@@ -57,6 +59,16 @@ input ChangePasswordInput {
   newPassword: String!
 }
 
+type CoverModel {
+  _id: ID!
+  title: String!
+  coverUrl: String!
+  weight: Float!
+  isPublic: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
 input CreateAgendaInput {
   title: String!
   startDate: String!
@@ -77,6 +89,12 @@ input CreateBestAlbumInput {
   coverUrl: String!
   mvUrl: String!
   releaseDate: DateTime!
+}
+
+input CreateCoverInput {
+  title: String!
+  coverUrl: String!
+  isPublic: Boolean!
 }
 
 input CreateLiveTourInput {
@@ -201,6 +219,7 @@ type Mutation {
   loginStatistics: IPModel!
   createAnnouncement(input: CreateAnnouncementInput!): AnnouncementModel!
   updateAnnouncementById(input: UpdateAnnouncementInput!): AnnouncementModel!
+  exchangePositionAnnouncement(input: ExchangePositionInput!): [AnnouncementModel!]!
   deleteAnnouncementById(id: ID!): AnnouncementModel!
   deleteAnnouncements(ids: [ID!]!): BatchDeleteModel!
   sendSMS(input: SendSMSInput!): SendSMSRes!
@@ -235,9 +254,15 @@ type Mutation {
   deletePosts(ids: [ID!]!): BatchDeleteModel!
   createMotto(input: CreateMottoInput!): MottoModel!
   updateMottoById(input: UpdateMottoInput!): MottoModel!
-  exchangePosition(input: ExchangePositionInput!): [MottoModel!]!
+  exchangePositionMotto(input: ExchangePositionInput!): [MottoModel!]!
   deleteMottoById(id: ID!): MottoModel!
   deleteMottos(ids: [ID!]!): BatchDeleteModel!
+  createCover(input: CreateCoverInput!): CoverModel!
+  updateCoverById(input: UpdateCoverInput!): CoverModel!
+  exchangePositionCover(input: ExchangePositionInput!): [CoverModel!]!
+  deleteCoverById(id: ID!): CoverModel!
+  deleteCovers(ids: [ID!]!): BatchDeleteModel!
+  publicCovers(ids: [ID!]!): BatchUpdateModel!
 }
 
 type OpenSourceModel {
@@ -317,6 +342,8 @@ type Query {
   getPostById(id: ID!): PostItemModel!
   getMottos: [MottoModel!]!
   getMottoById(id: ID!): MottoModel!
+  getCovers: [CoverModel!]!
+  getCoverById(id: ID!): CoverModel!
 }
 
 type RecoveryCodeModel {
@@ -423,6 +450,13 @@ input UpdateBestAlbumInput {
   id: String!
 }
 
+input UpdateCoverInput {
+  id: String!
+  title: String
+  coverUrl: String
+  isPublic: Boolean
+}
+
 input UpdateLiveTourInput {
   title: String!
   posterUrl: String!
@@ -479,6 +513,7 @@ type UsageStatesModel {
   network_in_bytes: String!
   network_out_bytes: String!
   disk_read_bytes: String!
+  disk_write_bytes: String!
   cpu_usage: String!
 }
 

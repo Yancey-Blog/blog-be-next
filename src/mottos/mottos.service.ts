@@ -15,10 +15,6 @@ export class MottosService {
     this.mottoModel = mottoModel
   }
 
-  private async getTotalCount(): Promise<number> {
-    return this.mottoModel.countDocuments()
-  }
-
   public async findAll() {
     return this.mottoModel.find().sort({ weight: -1 })
   }
@@ -28,8 +24,9 @@ export class MottosService {
   }
 
   public async create(input: CreateMottoInput) {
-    const count = await this.getTotalCount()
-    return this.mottoModel.create({ ...input, weight: count + 1 })
+    const all = await this.findAll()
+    const weight = all[0] ? all[0].weight : 0
+    return this.mottoModel.create({ ...input, weight: weight + 1 })
   }
 
   public async update(input: UpdateMottoInput) {
