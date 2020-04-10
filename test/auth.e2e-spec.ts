@@ -7,7 +7,7 @@ import { SCHEMA_GQL_FILE_NAME } from '../src/shared/constants'
 import { ConfigModule } from '../src/config/config.module'
 import { ConfigService } from '../src/config/config.service'
 import { AuthModule } from '../src/auth/auth.module'
-import { UserModel } from '../src/users/models/User.model'
+import { UserModel } from '../src/users/models/user.model'
 import { LoginInput } from '../src/auth/dtos/login.input'
 import { RegisterInput } from '../src/auth/dtos/register.input'
 
