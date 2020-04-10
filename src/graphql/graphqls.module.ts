@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common'
 import { GraphQLModule } from '@nestjs/graphql'
-// import { ValidationError } from 'apollo-server-express'
+import { ValidationError } from 'apollo-server-express'
 import { ConfigService } from '../config/config.service'
 import { SCHEMA_GQL_FILE_NAME } from '../shared/constants'
 @Module({
@@ -13,14 +13,16 @@ import { SCHEMA_GQL_FILE_NAME } from '../shared/constants'
         typePaths: ['./**/*.graphql'],
         autoSchemaFile: SCHEMA_GQL_FILE_NAME,
         context: ({ req }) => ({ req }),
-        // formatError(error: ValidationError) {
-        //   const { message, path } = error
-        //   return {
-        //     message,
-        //     path,
-        //     timestamp: new Date(),
-        //   }
-        // },
+        formatError(error: ValidationError) {
+          const { message, path } = error
+          return configService.isEnvProduction
+            ? {
+                message,
+                path,
+                timestamp: new Date(),
+              }
+            : error
+        },
       }),
 
       inject: [ConfigService],

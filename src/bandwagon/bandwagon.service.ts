@@ -22,13 +22,15 @@ export class BandwagonService {
 
   public getServiceInfo(): Observable<AxiosResponse<ServiceInfo>> {
     return this.httpService
-      .get(BANDWAGON_SERVICE_INFO_URL, { params: this.params })
-      .pipe(map(response => response.data))
+      .get(BANDWAGON_SERVICE_INFO_URL, {
+        params: this.params,
+      })
+      .pipe(map((response) => response.data))
   }
 
   public getUsageStats(): Observable<AxiosResponse<UsageStats>> {
     return this.httpService
       .get(BANDWAGON_USAGE_STATS_URL, { params: this.params })
-      .pipe(map(response => response.data.data))
+      .pipe(map((response) => response.data.data))
   }
 }
