@@ -1,13 +1,17 @@
 import mongoose from 'mongoose'
 import { v4 } from 'uuid'
 
-export const AnnouncementSchema = new mongoose.Schema(
+export const CoverSchema = new mongoose.Schema(
   {
     _id: {
       type: String,
       default: v4,
     },
-    content: {
+    title: {
+      type: String,
+      required: true,
+    },
+    coverUrl: {
       type: String,
       required: true,
     },
@@ -15,9 +19,14 @@ export const AnnouncementSchema = new mongoose.Schema(
       type: Number,
       require: true,
     },
+    isPublic: {
+      type: Boolean,
+      required: true,
+      default: true,
+    },
   },
   {
-    collection: 'announcement',
+    collection: 'cover',
     timestamps: true,
   },
 )

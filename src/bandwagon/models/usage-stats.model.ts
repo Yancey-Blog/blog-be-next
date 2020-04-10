@@ -26,5 +26,10 @@ export class UsageStatesModel {
   @Field()
   @IsString()
   @IsNotEmpty()
+  public readonly disk_write_bytes: string
+
+  @Field()
+  @IsString()
+  @IsNotEmpty()
   public readonly cpu_usage: string
 }

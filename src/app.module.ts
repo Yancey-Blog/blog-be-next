@@ -21,6 +21,7 @@ import { PlayerModule } from './player/player.module'
 import { AgendaModule } from './agenda/agenda.module'
 import { PostsModule } from './posts/posts.module'
 import { MottosModule } from './mottos/mottos.module'
+import { CoversModule } from './covers/covers.module'
 
 @Module({
   imports: [
@@ -41,6 +42,7 @@ import { MottosModule } from './mottos/mottos.module'
     AgendaModule,
     PostsModule,
     MottosModule,
+    CoversModule,
   ],
 
   providers: [
