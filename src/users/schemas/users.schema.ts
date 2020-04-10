@@ -53,7 +53,7 @@ export const UserSchema = new mongoose.Schema(
       type: String,
       required: false,
     },
-    avaterUrl: {
+    avatarUrl: {
       default: '',
       type: String,
       required: false,

@@ -18,6 +18,6 @@ export class UserResolver {
   @UseGuards(GqlAuthGuard)
   public async updateUser(@Args('input') input: UpdateUserInput, @ReqDecorator() req: Request) {
     const { sub: userId } = decodeJwt(req.headers.authorization)
-    return this.usersService.updateUser({ input, id: userId } as UpdateUserInput)
+    return this.usersService.updateUser({ ...input, id: userId })
   }
 }

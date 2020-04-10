@@ -217,6 +217,7 @@ type Mutation {
   validateRecoveryCode(input: ValidateTOTPInput!): UserModel!
   changePassword(input: ChangePasswordInput!): UserModel!
   loginStatistics: IPModel!
+  updateUser(input: UpdateUserInput!): UserModel!
   createAnnouncement(input: CreateAnnouncementInput!): AnnouncementModel!
   updateAnnouncementById(input: UpdateAnnouncementInput!): AnnouncementModel!
   exchangePositionAnnouncement(input: ExchangePositionInput!): [AnnouncementModel!]!
@@ -500,6 +501,21 @@ input UpdatePostInput {
   isPublic: Boolean
 }
 
+input UpdateUserInput {
+  id: String
+  isTOTP: Boolean
+  totpSecret: String
+  recoveryCodes: [String!]
+  password: String
+  loginStatistics: [String!]
+  name: String
+  location: String
+  organization: String
+  website: String
+  bio: String
+  avatarUrl: String
+}
+
 input UpdateYanceyMusicInput {
   title: String!
   soundCloudUrl: String!
@@ -529,7 +545,7 @@ type UserModel {
   organization: String!
   website: String!
   bio: String!
-  avaterUrl: String!
+  avatarUrl: String!
   phoneNumber: String!
   isTOTP: Boolean!
   totpSecret: String!

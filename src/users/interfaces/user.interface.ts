@@ -24,7 +24,7 @@ export interface User extends Document {
   organization: string
   website: string
   bio: string
-  avaterUrl: string
+  avatarUrl: string
   phoneNumber: string
   isTOTP: boolean
   totpSecret: string

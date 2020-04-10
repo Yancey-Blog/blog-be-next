@@ -37,7 +37,7 @@ export class UserModel {
   public readonly bio: string
 
   @Field()
-  public readonly avaterUrl: string
+  public readonly avatarUrl: string
 
   @Field()
   public readonly phoneNumber: string
