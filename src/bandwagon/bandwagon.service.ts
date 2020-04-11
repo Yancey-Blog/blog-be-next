@@ -1,6 +1,8 @@
 import { Injectable, HttpService } from '@nestjs/common'
-import { Observable } from 'rxjs'
-import { map } from 'rxjs/operators'
+import fetch from 'node-fetch'
+import qs from 'query-string'
+// import { Observable } from 'rxjs'
+// import { map } from 'rxjs/operators'
 import { AxiosResponse } from 'axios'
 import { BandwagonParams } from './interfaces/bandwagon-params.interface'
 import { ServiceInfo } from './interfaces/service-info.interface'
@@ -20,17 +22,34 @@ export class BandwagonService {
     this.params = { veid: BANDWAGON_SERVER_ID, api_key: BANDWAGON_SECRET_KEY }
   }
 
-  public getServiceInfo(): Observable<AxiosResponse<ServiceInfo>> {
-    return this.httpService
-      .get(BANDWAGON_SERVICE_INFO_URL, {
-        params: this.params,
-      })
-      .pipe(map((response) => response.data))
+  public async getServiceInfo(): Promise<AxiosResponse<ServiceInfo>> {
+    const res = await fetch(`${BANDWAGON_SERVICE_INFO_URL}?${qs.stringify(this.params)}`)
+    const json = await res.json()
+
+    return json
   }
 
-  public getUsageStats(): Observable<AxiosResponse<UsageStats>> {
-    return this.httpService
-      .get(BANDWAGON_USAGE_STATS_URL, { params: this.params })
-      .pipe(map((response) => response.data.data))
+  public async getUsageStats(): Promise<AxiosResponse<UsageStats>> {
+    const res = await fetch(`${BANDWAGON_USAGE_STATS_URL}?${qs.stringify(this.params)}`)
+    const json = await res.json()
+
+    return json.data
   }
+
+  // Http 模块突然不好使了
+  // 先拿 node-fetch 凑合着
+
+  // public getServiceInfo(): Observable<AxiosResponse<ServiceInfo>> {
+  //   return this.httpService
+  //     .get(BANDWAGON_SERVICE_INFO_URL, {
+  //       params: this.params,
+  //     })
+  //     .pipe(map((response) => response.data))
+  // }
+
+  // public getUsageStats(): Observable<AxiosResponse<UsageStats>> {
+  //   return this.httpService
+  //     .get(BANDWAGON_USAGE_STATS_URL, { params: this.params })
+  //     .pipe(map((response) => response.data.data))
+  // }
 }
