@@ -23,6 +23,7 @@ import { PostsModule } from './posts/posts.module'
 import { MottosModule } from './mottos/mottos.module'
 import { CoversModule } from './covers/covers.module'
 import { GlobalSettingModule } from './global-setting/global-setting.module'
+import { PostStatisticsModule } from './post-statistics/post-statistics.module'
 
 @Module({
   imports: [
@@ -45,6 +46,7 @@ import { GlobalSettingModule } from './global-setting/global-setting.module'
     MottosModule,
     CoversModule,
     GlobalSettingModule,
+    PostStatisticsModule,
   ],
 
   providers: [

@@ -133,6 +133,12 @@ input CreatePostInput {
   isPublic: Boolean
 }
 
+input CreatePostStatisticsInput {
+  postId: String!
+  postName: String!
+  scenes: String!
+}
+
 input CreateYanceyMusicInput {
   title: String!
   soundCloudUrl: String!
@@ -279,6 +285,7 @@ type Mutation {
   deleteCovers(ids: [ID!]!): BatchDeleteModel!
   publicCovers(ids: [ID!]!): BatchUpdateModel!
   updateGlobalSettingById(input: UpdateGlobalSettingInput!): GlobalSettingModel!
+  createPostStatistics(input: CreatePostStatisticsInput!): PostStatisticsModel!
 }
 
 type OpenSourceModel {
@@ -336,6 +343,15 @@ type PostModel {
   items: [PostItemModel!]!
 }
 
+type PostStatisticsModel {
+  _id: String!
+  postId: String!
+  postName: String!
+  scenes: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
 type Query {
   login(input: LoginInput!): UserModel!
   getAnnouncements: [AnnouncementModel!]!
@@ -361,6 +377,7 @@ type Query {
   getCovers: [CoverModel!]!
   getCoverById(id: ID!): CoverModel!
   getGlobalSetting: GlobalSettingModel!
+  getPostStatistics: [PostStatisticsModel!]!
 }
 
 type RecoveryCodeModel {
