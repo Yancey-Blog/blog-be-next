@@ -14,12 +14,6 @@ export class SMSResolver {
     this.smsService = smsService
   }
 
-  @Query(() => [SMSModel])
-  @UseGuards(GqlAuthGuard)
-  public getAllSMS(): Promise<SMSModel[]> {
-    return this.smsService.getAll()
-  }
-
   @Mutation(() => SendSMSRes)
   @UseGuards(GqlAuthGuard)
   public sendSMS(@Args('input') input: SendSMSInput): Promise<SendSMSRes> {

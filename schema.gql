@@ -338,7 +338,6 @@ type Query {
   login(input: LoginInput!): UserModel!
   getAnnouncements: [AnnouncementModel!]!
   getAnnouncementById(id: ID!): AnnouncementModel!
-  getAllSMS: [SMSModel!]!
   getOpenSources: [OpenSourceModel!]!
   getOpenSourceById(id: ID!): OpenSourceModel!
   getBanwagonServiceInfo: ServiceInfoModel!
@@ -425,14 +424,6 @@ type ServiceInfoModel {
   max_abuse_points: Float!
   error: Float!
   veid: Float!
-}
-
-type SMSModel {
-  _id: String!
-  phoneNumber: String!
-  verificationCode: String!
-  createdAt: DateTime!
-  updatedAt: DateTime!
 }
 
 type TOTPModel {
