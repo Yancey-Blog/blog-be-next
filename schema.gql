@@ -152,6 +152,15 @@ input ExchangePositionInput {
   exchangedWeight: Float!
 }
 
+type GlobalSettingModel {
+  _id: ID!
+  releasePostId: ID!
+  cvPostId: ID!
+  isGrayTheme: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
 type IPModel {
   ip: String!
   type: String!
@@ -267,6 +276,7 @@ type Mutation {
   deleteCoverById(id: ID!): CoverModel!
   deleteCovers(ids: [ID!]!): BatchDeleteModel!
   publicCovers(ids: [ID!]!): BatchUpdateModel!
+  updateGlobalSettingById(input: UpdateGlobalSettingInput!): GlobalSettingModel!
 }
 
 type OpenSourceModel {
@@ -348,6 +358,7 @@ type Query {
   getMottoById(id: ID!): MottoModel!
   getCovers: [CoverModel!]!
   getCoverById(id: ID!): CoverModel!
+  getGlobalSetting: GlobalSettingModel!
 }
 
 type RecoveryCodeModel {
@@ -459,6 +470,13 @@ input UpdateCoverInput {
   title: String
   coverUrl: String
   isPublic: Boolean
+}
+
+input UpdateGlobalSettingInput {
+  id: String!
+  releasePostId: String
+  cvPostId: String
+  isGrayTheme: Boolean
 }
 
 input UpdateLiveTourInput {

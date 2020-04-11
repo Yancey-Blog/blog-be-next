@@ -22,6 +22,7 @@ import { AgendaModule } from './agenda/agenda.module'
 import { PostsModule } from './posts/posts.module'
 import { MottosModule } from './mottos/mottos.module'
 import { CoversModule } from './covers/covers.module'
+import { GlobalSettingModule } from './global-setting/global-setting.module'
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { CoversModule } from './covers/covers.module'
     PostsModule,
     MottosModule,
     CoversModule,
+    GlobalSettingModule,
   ],
 
   providers: [
