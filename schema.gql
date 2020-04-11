@@ -265,6 +265,8 @@ type Mutation {
   updatePostById(input: UpdatePostInput!): PostItemModel!
   deletePostById(id: ID!): PostItemModel!
   deletePosts(ids: [ID!]!): BatchDeleteModel!
+  updatePV(id: ID!): PostItemModel!
+  updateLike(id: ID!): PostItemModel!
   createMotto(input: CreateMottoInput!): MottoModel!
   updateMottoById(input: UpdateMottoInput!): MottoModel!
   exchangePositionMotto(input: ExchangePositionInput!): [MottoModel!]!
@@ -353,6 +355,7 @@ type Query {
   getAgenda: [AgendaModel!]!
   getPosts(input: PaginationInput!): PostModel!
   getPostById(id: ID!): PostItemModel!
+  getTopPVPosts(limit: Int!): [PostItemModel!]!
   getMottos: [MottoModel!]!
   getMottoById(id: ID!): MottoModel!
   getCovers: [CoverModel!]!
