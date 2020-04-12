@@ -66,7 +66,7 @@ describe('AuthController (e2e)', () => {
         email
         authorization
         role
-        avaterUrl
+        avatarUrl
         username
         phoneNumber
         isTOTP
@@ -99,7 +99,7 @@ describe('AuthController (e2e)', () => {
         email
         authorization
         role
-        avaterUrl
+        avatarUrl
         username
         phoneNumber
         isTOTP

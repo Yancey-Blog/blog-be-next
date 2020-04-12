@@ -64,7 +64,7 @@ export class AuthService {
       // TODO: 通过脚本初始化 root 用户
       const count = await this.usersService.getUserCount()
       const params = count === 0 ? { ...registerInput, role: Roles.SUPERUSER } : registerInput
-      const res = await this.usersService.create(params)
+      const res = await this.usersService.create({ ...params })
 
       return this.generateJWT(email, res)
     }
@@ -84,8 +84,6 @@ export class AuthService {
     const { sub: userId } = decodeJwt(token)
     const { key, code } = input
 
-    const res = await this.usersService.findOneById(userId)
-
     const verified = speakeasy.totp.verify({
       secret: key,
       encoding: TOTP_ENCODE,
@@ -93,10 +91,7 @@ export class AuthService {
     })
 
     if (verified) {
-      if (!res.isTOTP) {
-        await this.usersService.updateUser({ id: userId, isTOTP: true, totpSecret: key })
-      }
-
+      const res = await this.usersService.updateUser({ id: userId, isTOTP: true, totpSecret: key })
       return this.generateJWT(res.email, res)
     }
 

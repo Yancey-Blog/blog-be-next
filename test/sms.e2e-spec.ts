@@ -174,30 +174,4 @@ describe('SMSController (e2e)', () => {
       })
       .expect(200)
   })
-
-  it('getAllSMS', () => {
-    const typeDefs = `
-    query GetAllSMS {
-      getAllSMS {
-        _id
-        phoneNumber
-        verificationCode
-        createdAt
-        updatedAt
-      }
-    }`
-
-    return request(app.getHttpServer())
-      .post('/graphql')
-      .send({
-        operationName: null,
-        query: typeDefs,
-      })
-      .expect(({ body }) => {
-        const testData: SMSModel[] = body.data.getAllSMS
-
-        expect(testData.length).toBeGreaterThan(0)
-      })
-      .expect(200)
-  })
 })

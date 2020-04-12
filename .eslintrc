@@ -27,6 +27,7 @@
     "space-before-function-paren": "off",
     "func-names": "off",
     "operator-linebreak": "off",
+    "indent": "off",
     "import/no-extraneous-dependencies": "off",
     "import/extensions": "off", // FIXME:
     "class-methods-use-this": "off", // FIXME:

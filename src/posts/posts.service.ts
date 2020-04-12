@@ -66,4 +66,21 @@ export class PostsService {
       ids,
     }
   }
+
+  public async updatePV(id: string): Promise<PostItemModel> {
+    const { pv } = await this.findOneById(id)
+    return this.postModel.findByIdAndUpdate(id, { pv: pv + 1 }, { new: true })
+  }
+
+  public async updateLike(id: string): Promise<PostItemModel> {
+    const { like } = await this.findOneById(id)
+    return this.postModel.findByIdAndUpdate(id, { like: like + 1 }, { new: true })
+  }
+
+  public async getTopPVPosts(limit: number): Promise<PostItemModel[]> {
+    return this.postModel
+      .find({ isPublic: { $ne: false } })
+      .sort({ pv: -1, _id: -1 })
+      .limit(limit)
+  }
 }
