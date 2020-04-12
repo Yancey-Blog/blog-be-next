@@ -21,7 +21,7 @@ export const PostStatisticsSchema = new mongoose.Schema(
     },
   },
   {
-    collection: 'post-statistics',
+    collection: 'post_statistics',
     timestamps: true,
   },
 )

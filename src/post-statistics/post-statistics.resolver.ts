@@ -1,19 +1,20 @@
 import { UseGuards } from '@nestjs/common'
-import { Args, Query, Resolver, Mutation, ID } from '@nestjs/graphql'
+import { Args, Query, Resolver, Mutation } from '@nestjs/graphql'
 import { PostStatisticsService } from './post-statistics.service'
 import { PostStatisticsModel } from './models/post-statistics.model'
+import { PostStatisticsGroupModel } from './models/post-statistics-group.model'
 import { CreatePostStatisticsInput } from './dtos/create-post-statistics.input'
 import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
 
-@Resolver(() => PostStatisticsModel)
+@Resolver()
 export class PostStatisticsResolver {
   constructor(private readonly postStatisticsService: PostStatisticsService) {
     this.postStatisticsService = postStatisticsService
   }
 
-  @Query(() => [PostStatisticsModel])
+  @Query(() => [PostStatisticsGroupModel])
   @UseGuards(GqlAuthGuard)
-  public async getPostStatistics(): Promise<PostStatisticsModel[]> {
+  public async getPostStatistics(): Promise<PostStatisticsGroupModel[]> {
     return this.postStatisticsService.findAll()
   }
 

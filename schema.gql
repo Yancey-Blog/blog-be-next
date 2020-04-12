@@ -343,6 +343,19 @@ type PostModel {
   items: [PostItemModel!]!
 }
 
+type PostStatisticsGroupItemModel {
+  postId: String!
+  postName: String!
+  scenes: String!
+  operatedAt: DateTime!
+}
+
+type PostStatisticsGroupModel {
+  _id: String!
+  count: Float!
+  items: [PostStatisticsGroupItemModel!]!
+}
+
 type PostStatisticsModel {
   _id: String!
   postId: String!
@@ -377,7 +390,7 @@ type Query {
   getCovers: [CoverModel!]!
   getCoverById(id: ID!): CoverModel!
   getGlobalSetting: GlobalSettingModel!
-  getPostStatistics: [PostStatisticsModel!]!
+  getPostStatistics: [PostStatisticsGroupModel!]!
 }
 
 type RecoveryCodeModel {
