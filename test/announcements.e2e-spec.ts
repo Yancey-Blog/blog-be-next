@@ -6,6 +6,7 @@ import request from 'supertest'
 import { SCHEMA_GQL_FILE_NAME } from '../src/shared/constants'
 import { ConfigModule } from '../src/config/config.module'
 import { ConfigService } from '../src/config/config.service'
+import { ExchangePositionInput } from '../src/mottos/dtos/exchange-position.input'
 import { AnnouncementsModule } from '../src/announcements/announcements.module'
 import { AnnouncementModel } from '../src/announcements/models/announcements.model'
 import { CreateAnnouncementInput } from '../src/announcements/dtos/create-announcement.input'
@@ -76,6 +77,35 @@ describe('AnnouncementsController (e2e)', () => {
         const testData: AnnouncementModel = body.data.createAnnouncement
         id = testData._id
         expect(testData.content).toBe(createdData.content)
+      })
+      .expect(200)
+  })
+
+  // EXCHANGE
+  it('exchangePositionAnnouncement', async () => {
+    const exchangeTypeDefs = `
+    mutation ExchangePositionAnnouncement {
+      exchangePositionAnnouncement(input: ${JSON.stringify({
+        id,
+        exchangedId: id,
+        weight: 1,
+        exchangedWeight: 1,
+      }).replace(/"([^(")"]+)":/g, '$1:')}) {
+        _id
+        content
+      }
+    }`
+
+    return request(app.getHttpServer())
+      .post('/graphql')
+      .send({
+        operationName: null,
+        query: exchangeTypeDefs,
+      })
+      .expect(({ body }) => {
+        const testData: AnnouncementModel[] = body.data.exchangePositionAnnouncement
+        const firstData = testData[0]
+        expect(firstData.content).toBe(createdData.content)
       })
       .expect(200)
   })
