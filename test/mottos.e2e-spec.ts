@@ -6,20 +6,19 @@ import request from 'supertest'
 import { SCHEMA_GQL_FILE_NAME } from '../src/shared/constants'
 import { ConfigModule } from '../src/config/config.module'
 import { ConfigService } from '../src/config/config.service'
-import { ExchangePositionInput } from '../src/mottos/dtos/exchange-position.input'
-import { AnnouncementsModule } from '../src/announcements/announcements.module'
-import { AnnouncementModel } from '../src/announcements/models/announcements.model'
-import { CreateAnnouncementInput } from '../src/announcements/dtos/create-announcement.input'
-import { UpdateAnnouncementInput } from '../src/announcements/dtos/update-announcement.input'
+import { MottosModule } from '../src/mottos/mottos.module'
+import { MottoModel } from '../src/mottos/models/mottos.model'
+import { CreateMottoInput } from '../src/mottos/dtos/create-motto.input'
+import { UpdateMottoInput } from '../src/mottos/dtos/update-motto.input'
 import { BatchDeleteModel } from '../src/database/models/batch-delete.model'
 
-describe('AnnouncementsController (e2e)', () => {
+describe('MottosController (e2e)', () => {
   let app: NestApplication
   beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [
         ConfigModule,
-        AnnouncementsModule,
+        MottosModule,
         MongooseModule.forRootAsync({
           useFactory: async (configService: ConfigService) => ({
             uri: configService.getMongoURI(),
@@ -44,13 +43,13 @@ describe('AnnouncementsController (e2e)', () => {
     await app.close()
   })
 
-  const createdData: CreateAnnouncementInput = {
+  const createdData: CreateMottoInput = {
     content: 'blog-be-next',
   }
 
   let id = ''
 
-  const updatedData: UpdateAnnouncementInput = {
+  const updatedData: UpdateMottoInput = {
     id,
     content: 'blog-be-cms',
   }
@@ -58,10 +57,10 @@ describe('AnnouncementsController (e2e)', () => {
   const createDataString = JSON.stringify(createdData).replace(/"([^(")"]+)":/g, '$1:')
 
   // CREATE_ONE
-  it('createAnnouncement', async () => {
+  it('createMotto', async () => {
     const createOneTypeDefs = `
-    mutation CreateAnnouncement {
-      createAnnouncement(input: ${createDataString}) {
+    mutation CreateMotto {
+      createMotto(input: ${createDataString}) {
         _id
         content
       }
@@ -74,7 +73,7 @@ describe('AnnouncementsController (e2e)', () => {
         query: createOneTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: AnnouncementModel = body.data.createAnnouncement
+        const testData: MottoModel = body.data.createMotto
         id = testData._id
         expect(testData.content).toBe(createdData.content)
       })
@@ -82,19 +81,19 @@ describe('AnnouncementsController (e2e)', () => {
   })
 
   // EXCHANGE
-  it('exchangePositionAnnouncement', async () => {
+  it('exchangePositionMotto', async () => {
     const exchangeTypeDefs = `
-    mutation ExchangePositionAnnouncement {
-      exchangePositionAnnouncement(input: ${JSON.stringify({
-        id,
-        exchangedId: id,
-        weight: 1,
-        exchangedWeight: 1,
-      }).replace(/"([^(")"]+)":/g, '$1:')}) {
-        _id
-        content
-      }
-    }`
+      mutation ExchangePositionMotto {
+        exchangePositionMotto(input: ${JSON.stringify({
+          id,
+          exchangedId: id,
+          weight: 1,
+          exchangedWeight: 1,
+        }).replace(/"([^(")"]+)":/g, '$1:')}) {
+          _id
+          content
+        }
+      }`
 
     return request(app.getHttpServer())
       .post('/graphql')
@@ -103,7 +102,7 @@ describe('AnnouncementsController (e2e)', () => {
         query: exchangeTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: AnnouncementModel[] = body.data.exchangePositionAnnouncement
+        const testData: MottoModel[] = body.data.exchangePositionMotto
         const firstData = testData[0]
         expect(firstData.content).toBe(createdData.content)
       })
@@ -111,10 +110,10 @@ describe('AnnouncementsController (e2e)', () => {
   })
 
   // READ_ALL
-  it('getAnnouncements', async () => {
+  it('getMottos', async () => {
     const getAllTypeDefs = `
-    query GetAnnouncements {
-      getAnnouncements {
+    query GetMottos {
+      getMottos {
         _id
         content
       }
@@ -127,7 +126,7 @@ describe('AnnouncementsController (e2e)', () => {
         query: getAllTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: AnnouncementModel[] = body.data.getAnnouncements
+        const testData: MottoModel[] = body.data.getMottos
 
         const firstData = testData[0]
 
@@ -139,10 +138,10 @@ describe('AnnouncementsController (e2e)', () => {
   })
 
   // READ_ONE
-  it('getAnnouncementById', async () => {
+  it('getMottoById', async () => {
     const getOneByIdTypeDefs = `
-    query GetAnnouncementById {
-      getAnnouncementById(id: "${id}") {
+    query GetMottoById {
+      getMottoById(id: "${id}") {
         _id
         content
       }
@@ -155,7 +154,7 @@ describe('AnnouncementsController (e2e)', () => {
         query: getOneByIdTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: AnnouncementModel = body.data.getAnnouncementById
+        const testData: MottoModel = body.data.getMottoById
 
         expect(testData._id).toBe(id)
         expect(testData.content).toBe(createdData.content)
@@ -164,12 +163,12 @@ describe('AnnouncementsController (e2e)', () => {
   })
 
   // UPDATE_ONE
-  it('updateAnnouncementById', async () => {
+  it('updateMottoById', async () => {
     const updateDataString = JSON.stringify({ ...updatedData, id }).replace(/"([^(")"]+)":/g, '$1:')
 
     const updateOneByIdTypeDefs = `
-    mutation UpdateAnnouncementById {
-      updateAnnouncementById(input: ${updateDataString}) {
+    mutation UpdateMottoById {
+      updateMottoById(input: ${updateDataString}) {
         _id
         content
       }
@@ -182,17 +181,17 @@ describe('AnnouncementsController (e2e)', () => {
         query: updateOneByIdTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: AnnouncementModel = body.data.updateAnnouncementById
+        const testData: MottoModel = body.data.updateMottoById
         expect(testData.content).toBe(updatedData.content)
       })
       .expect(200)
   })
 
   // DELETE_ONE
-  it('deleteAnnouncementById', async () => {
+  it('deleteMottoById', async () => {
     const deleteOneByIdTypeDefs = `
-    mutation DeleteAnnouncementById {
-      deleteAnnouncementById(id: "${id}") {
+    mutation DeleteMottoById {
+      deleteMottoById(id: "${id}") {
         _id
         content
       }
@@ -205,7 +204,7 @@ describe('AnnouncementsController (e2e)', () => {
         query: deleteOneByIdTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: AnnouncementModel = body.data.deleteAnnouncementById
+        const testData: MottoModel = body.data.deleteMottoById
 
         expect(testData.content).toBe(updatedData.content)
       })
@@ -213,10 +212,10 @@ describe('AnnouncementsController (e2e)', () => {
   })
 
   // BATCH_DELETE
-  it('deleteAnnouncements', async () => {
+  it('deleteMottos', async () => {
     const batchDeleteTypeDefs = `
-    mutation DeleteAnnouncements {
-      deleteAnnouncements(ids: ["${id}"]) {
+    mutation DeleteMottos {
+      deleteMottos(ids: ["${id}"]) {
         ok
         n
         deletedCount
@@ -230,7 +229,7 @@ describe('AnnouncementsController (e2e)', () => {
         query: batchDeleteTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: BatchDeleteModel = body.data.deleteAnnouncements
+        const testData: BatchDeleteModel = body.data.deleteMottos
         expect(testData.ok).toBe(1)
         expect(testData.n).toBe(0)
         expect(testData.deletedCount).toBe(0)

@@ -175,6 +175,73 @@ describe('PostsController (e2e)', () => {
       .expect(200)
   })
 
+  // UPDATE_PV
+  it('updatePV', async () => {
+    const updatePVTypeDefs = `
+    mutation UpdatePV {
+      updatePV(id: "${id}") {
+        pv
+      }
+    }`
+
+    return request(app.getHttpServer())
+      .post('/graphql')
+      .send({
+        operationName: null,
+        query: updatePVTypeDefs,
+      })
+      .expect(({ body }) => {
+        const testData: PostItemModel = body.data.updatePV
+        expect(testData.pv).toBe(1)
+      })
+      .expect(200)
+  })
+
+  // UPDATE_LIKE
+  it('updateLike', async () => {
+    const updateLikeTypeDefs = `
+    mutation UpdateLike {
+      updateLike(id: "${id}") {
+        like
+      }
+    }`
+
+    return request(app.getHttpServer())
+      .post('/graphql')
+      .send({
+        operationName: null,
+        query: updateLikeTypeDefs,
+      })
+      .expect(({ body }) => {
+        const testData: PostItemModel = body.data.updateLike
+        expect(testData.like).toBe(1)
+      })
+      .expect(200)
+  })
+
+  // GET_TOP_PV_POSTS
+  it('getTopPVPosts', async () => {
+    const getTopPVPostsTypeDefs = `
+      query GetTopPVPosts {
+        getTopPVPosts(limit: 1) {
+          _id
+        }
+      }`
+
+    return request(app.getHttpServer())
+      .post('/graphql')
+      .send({
+        operationName: null,
+        query: getTopPVPostsTypeDefs,
+      })
+      .expect(({ body }) => {
+        const testData: PostItemModel[] = body.data.getTopPVPosts
+        const firstData = testData[0]
+        expect(firstData._id).toBe(id)
+      })
+      .expect(200)
+  })
+
   // DELETE_ONE
   it('deletePostById', async () => {
     const deleteOneByIdTypeDefs = `
