@@ -80,6 +80,35 @@ describe('MottosController (e2e)', () => {
       .expect(200)
   })
 
+  // EXCHANGE
+  it('exchangePositionMotto', async () => {
+    const exchangeTypeDefs = `
+      mutation ExchangePositionMotto {
+        exchangePositionMotto(input: ${JSON.stringify({
+          id,
+          exchangedId: id,
+          weight: 1,
+          exchangedWeight: 1,
+        }).replace(/"([^(")"]+)":/g, '$1:')}) {
+          _id
+          content
+        }
+      }`
+
+    return request(app.getHttpServer())
+      .post('/graphql')
+      .send({
+        operationName: null,
+        query: exchangeTypeDefs,
+      })
+      .expect(({ body }) => {
+        const testData: MottoModel[] = body.data.exchangePositionMotto
+        const firstData = testData[0]
+        expect(firstData.content).toBe(createdData.content)
+      })
+      .expect(200)
+  })
+
   // READ_ALL
   it('getMottos', async () => {
     const getAllTypeDefs = `
