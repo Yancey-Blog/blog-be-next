@@ -83,6 +83,35 @@ describe('CoversController (e2e)', () => {
       .expect(200)
   })
 
+  // EXCHANGE
+  it('exchangePositionCover', async () => {
+    const exchangeTypeDefs = `
+      mutation ExchangePositionCover {
+        exchangePositionCover(input: ${JSON.stringify({
+          id,
+          exchangedId: id,
+          weight: 1,
+          exchangedWeight: 1,
+        }).replace(/"([^(")"]+)":/g, '$1:')}) {
+          _id
+          title
+        }
+      }`
+
+    return request(app.getHttpServer())
+      .post('/graphql')
+      .send({
+        operationName: null,
+        query: exchangeTypeDefs,
+      })
+      .expect(({ body }) => {
+        const testData: CoverModel[] = body.data.exchangePositionCover
+        const firstData = testData[0]
+        expect(firstData.title).toBe(createdData.title)
+      })
+      .expect(200)
+  })
+
   // READ_ALL
   it('getCovers', async () => {
     const getAllTypeDefs = `
