@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.22.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.21.0...v0.22.0) (2020-04-12)
+
+
+### Features
+
+* finish Account ([cc68115](https://github.com/Yancey-Blog/blog-be-next/commit/cc68115cc04fdc8d7aaa6a9649333e236d7ef5ad))
+* finish global-setting module ([7e8c26c](https://github.com/Yancey-Blog/blog-be-next/commit/7e8c26c5e50a3b35511c0355c4a78deaa9eab549))
+* finish PostStatistics module ([1f7e5fb](https://github.com/Yancey-Blog/blog-be-next/commit/1f7e5fb61e67f95e62b5ce5fbfef6cfee1de0750))
+* update BandwagonService ([b0fc5ed](https://github.com/Yancey-Blog/blog-be-next/commit/b0fc5ed84c2569761b1d3b1bbbe6ef5a6246cfcb))
+* update getTopPVPosts ([3c96f8a](https://github.com/Yancey-Blog/blog-be-next/commit/3c96f8a9c9f1195f6df4a4f53606aaac2c69c670))
+* update graphql error display ([bdbb34b](https://github.com/Yancey-Blog/blog-be-next/commit/bdbb34b8c86728c2d263a2e16fb8a8073df33366))
+* update PostStatisticsModel ([a58392c](https://github.com/Yancey-Blog/blog-be-next/commit/a58392c67b65fc219cf39725329828d8702a8c06))
+* update profile ([0f1e7d6](https://github.com/Yancey-Blog/blog-be-next/commit/0f1e7d6c1f8041585e86cc67f0da8a0e97b2795c))
+* update sms ([335ab57](https://github.com/Yancey-Blog/blog-be-next/commit/335ab577b4ca1476b9b80f8444d383f746f43f2d))
+* update userInfo ([fef273b](https://github.com/Yancey-Blog/blog-be-next/commit/fef273b54d8405209e05326c2ea8924fa98076dc))
+* update validateTOTP ([bd5deed](https://github.com/Yancey-Blog/blog-be-next/commit/bd5deed049735dd1a2f590b7c7f828b820a7ea9c))
+
 ## [0.21.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.20.0...v0.21.0) (2020-04-10)
 
 
