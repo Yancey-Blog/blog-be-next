@@ -51,11 +51,6 @@ export class SMSService {
     }
   }
 
-  public async getAll() {
-    const res = await this.SMSModel.find({})
-    return res
-  }
-
   public async sendSMS(input: SendSMSInput) {
     const { phoneNumber } = input
 

@@ -133,6 +133,12 @@ input CreatePostInput {
   isPublic: Boolean
 }
 
+input CreatePostStatisticsInput {
+  postId: String!
+  postName: String!
+  scenes: String!
+}
+
 input CreateYanceyMusicInput {
   title: String!
   soundCloudUrl: String!
@@ -150,6 +156,15 @@ input ExchangePositionInput {
   exchangedId: String!
   weight: Float!
   exchangedWeight: Float!
+}
+
+type GlobalSettingModel {
+  _id: ID!
+  releasePostId: ID!
+  cvPostId: ID!
+  isGrayTheme: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type IPModel {
@@ -217,6 +232,10 @@ type Mutation {
   validateRecoveryCode(input: ValidateTOTPInput!): UserModel!
   changePassword(input: ChangePasswordInput!): UserModel!
   loginStatistics: IPModel!
+  updateUser(input: UpdateUserInput!): UserModel!
+  updateUserName(username: String!): UserModel!
+  updateEmail(email: String!): UserModel!
+  deleteAccount: UserModel!
   createAnnouncement(input: CreateAnnouncementInput!): AnnouncementModel!
   updateAnnouncementById(input: UpdateAnnouncementInput!): AnnouncementModel!
   exchangePositionAnnouncement(input: ExchangePositionInput!): [AnnouncementModel!]!
@@ -252,6 +271,8 @@ type Mutation {
   updatePostById(input: UpdatePostInput!): PostItemModel!
   deletePostById(id: ID!): PostItemModel!
   deletePosts(ids: [ID!]!): BatchDeleteModel!
+  updatePV(id: ID!): PostItemModel!
+  updateLike(id: ID!): PostItemModel!
   createMotto(input: CreateMottoInput!): MottoModel!
   updateMottoById(input: UpdateMottoInput!): MottoModel!
   exchangePositionMotto(input: ExchangePositionInput!): [MottoModel!]!
@@ -263,6 +284,8 @@ type Mutation {
   deleteCoverById(id: ID!): CoverModel!
   deleteCovers(ids: [ID!]!): BatchDeleteModel!
   publicCovers(ids: [ID!]!): BatchUpdateModel!
+  updateGlobalSettingById(input: UpdateGlobalSettingInput!): GlobalSettingModel!
+  createPostStatistics(input: CreatePostStatisticsInput!): PostStatisticsModel!
 }
 
 type OpenSourceModel {
@@ -320,11 +343,32 @@ type PostModel {
   items: [PostItemModel!]!
 }
 
+type PostStatisticsGroupItemModel {
+  postId: String!
+  postName: String!
+  scenes: String!
+  operatedAt: DateTime!
+}
+
+type PostStatisticsGroupModel {
+  _id: String!
+  count: Float!
+  items: [PostStatisticsGroupItemModel!]!
+}
+
+type PostStatisticsModel {
+  _id: String!
+  postId: String!
+  postName: String!
+  scenes: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
 type Query {
   login(input: LoginInput!): UserModel!
   getAnnouncements: [AnnouncementModel!]!
   getAnnouncementById(id: ID!): AnnouncementModel!
-  getAllSMS: [SMSModel!]!
   getOpenSources: [OpenSourceModel!]!
   getOpenSourceById(id: ID!): OpenSourceModel!
   getBanwagonServiceInfo: ServiceInfoModel!
@@ -340,10 +384,13 @@ type Query {
   getAgenda: [AgendaModel!]!
   getPosts(input: PaginationInput!): PostModel!
   getPostById(id: ID!): PostItemModel!
+  getTopPVPosts(limit: Int!): [PostItemModel!]!
   getMottos: [MottoModel!]!
   getMottoById(id: ID!): MottoModel!
   getCovers: [CoverModel!]!
   getCoverById(id: ID!): CoverModel!
+  getGlobalSetting: GlobalSettingModel!
+  getPostStatistics: [PostStatisticsGroupModel!]!
 }
 
 type RecoveryCodeModel {
@@ -412,14 +459,6 @@ type ServiceInfoModel {
   veid: Float!
 }
 
-type SMSModel {
-  _id: String!
-  phoneNumber: String!
-  verificationCode: String!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-}
-
 type TOTPModel {
   qrcode: String!
   key: String!
@@ -455,6 +494,13 @@ input UpdateCoverInput {
   title: String
   coverUrl: String
   isPublic: Boolean
+}
+
+input UpdateGlobalSettingInput {
+  id: String!
+  releasePostId: String
+  cvPostId: String
+  isGrayTheme: Boolean
 }
 
 input UpdateLiveTourInput {
@@ -500,6 +546,21 @@ input UpdatePostInput {
   isPublic: Boolean
 }
 
+input UpdateUserInput {
+  id: String
+  isTOTP: Boolean
+  totpSecret: String
+  recoveryCodes: [String!]
+  password: String
+  loginStatistics: [String!]
+  name: String
+  location: String
+  organization: String
+  website: String
+  bio: String
+  avatarUrl: String
+}
+
 input UpdateYanceyMusicInput {
   title: String!
   soundCloudUrl: String!
@@ -524,7 +585,12 @@ type UserModel {
   email: String!
   password: String!
   role: Float!
-  avaterUrl: String!
+  name: String!
+  location: String!
+  organization: String!
+  website: String!
+  bio: String!
+  avatarUrl: String!
   phoneNumber: String!
   isTOTP: Boolean!
   totpSecret: String!

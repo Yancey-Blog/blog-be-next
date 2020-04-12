@@ -98,8 +98,6 @@ export class ConfigService {
       DATABASE_COLLECTION: Joi.string().required(),
       BANDWAGON_SECRET_KEY: Joi.string().required(),
       BANDWAGON_SERVER_ID: Joi.string().required(),
-      GOOGLE_RECAPTCHA_SECRET_KEY: Joi.string().required(),
-      GOOGLE_RECAPTCHA_SITE_KEY: Joi.string().required(),
       ALI_ACCESS_KEY_ID: Joi.string().required(),
       ALI_ACCESS_KEY_SECRET: Joi.string().required(),
       ALI_OSS_BUCKET: Joi.string().required(),

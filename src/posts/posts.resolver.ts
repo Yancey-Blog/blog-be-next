@@ -1,5 +1,5 @@
 import { UseGuards } from '@nestjs/common'
-import { Args, Query, Resolver, Mutation, ID } from '@nestjs/graphql'
+import { Args, Query, Resolver, Mutation, ID, Int } from '@nestjs/graphql'
 import { PostsService } from './posts.service'
 import { PostModel, PostItemModel } from './models/posts.model'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'
@@ -48,5 +48,20 @@ export class PostsResolver {
   @UseGuards(GqlAuthGuard)
   public async deletePosts(@Args({ name: 'ids', type: () => [ID] }) ids: string[]) {
     return this.postsService.batchDelete(ids)
+  }
+
+  @Mutation(() => PostItemModel)
+  public async updatePV(@Args({ name: 'id', type: () => ID }) id: string) {
+    return this.postsService.updatePV(id)
+  }
+
+  @Mutation(() => PostItemModel)
+  public async updateLike(@Args({ name: 'id', type: () => ID }) id: string) {
+    return this.postsService.updateLike(id)
+  }
+
+  @Query(() => [PostItemModel])
+  public async getTopPVPosts(@Args({ name: 'limit', type: () => Int }) limit: number) {
+    return this.postsService.getTopPVPosts(limit)
   }
 }

@@ -22,7 +22,22 @@ export class UserModel {
   public readonly role: number
 
   @Field()
-  public readonly avaterUrl: string
+  public readonly name: string
+
+  @Field()
+  public readonly location: string
+
+  @Field()
+  public readonly organization: string
+
+  @Field()
+  public readonly website: string
+
+  @Field()
+  public readonly bio: string
+
+  @Field()
+  public readonly avatarUrl: string
 
   @Field()
   public readonly phoneNumber: string
