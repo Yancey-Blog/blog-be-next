@@ -3,6 +3,7 @@ import { Test, TestingModule } from '@nestjs/testing'
 import { MongooseModule } from '@nestjs/mongoose'
 import { GraphQLModule } from '@nestjs/graphql'
 import request from 'supertest'
+import { randomSeries } from 'yancey-js-util'
 import { SCHEMA_GQL_FILE_NAME } from '../src/shared/constants'
 import { ConfigModule } from '../src/config/config.module'
 import { ConfigService } from '../src/config/config.service'
@@ -42,13 +43,13 @@ describe('AuthController (e2e)', () => {
   })
 
   const loginData: LoginInput = {
-    email: 'example@example.com',
+    email: `${randomSeries(10)}@example.com`,
     password: 'abcd1234,',
   }
 
   const registerData: RegisterInput = {
     ...loginData,
-    username: 'example',
+    username: randomSeries(10),
   }
 
   const registerDataString = JSON.stringify(registerData).replace(/"([^(")"]+)":/g, '$1:')
