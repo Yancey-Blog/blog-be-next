@@ -11,6 +11,7 @@ import { CoverModel } from '../src/covers/models/covers.model'
 import { CreateCoverInput } from '../src/covers/dtos/create-cover.input'
 import { UpdateCoverInput } from '../src/covers/dtos/update-cover.input'
 import { BatchDeleteModel } from '../src/database/models/batch-delete.model'
+import { BatchUpdateModel } from '../src/database/models/batch-update.model'
 
 describe('CoversController (e2e)', () => {
   let app: NestApplication
@@ -186,6 +187,31 @@ describe('CoversController (e2e)', () => {
       .expect(({ body }) => {
         const testData: CoverModel = body.data.updateCoverById
         expect(testData.title).toBe(updatedData.title)
+      })
+      .expect(200)
+  })
+
+  // BATCH_UPDATE
+  it('publicCovers', async () => {
+    const publicCoversTypeDefs = `
+    mutation PublicCovers {
+      publicCovers(ids: ["${id}"]) {
+        ok
+        n
+        nModified
+        ids
+      }
+    }`
+
+    return request(app.getHttpServer())
+      .post('/graphql')
+      .send({
+        operationName: null,
+        query: publicCoversTypeDefs,
+      })
+      .expect(({ body }) => {
+        const testData: BatchUpdateModel = body.data.publicCovers
+        expect(testData.ok).toBe(1)
       })
       .expect(200)
   })
