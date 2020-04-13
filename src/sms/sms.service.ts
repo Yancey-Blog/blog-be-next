@@ -4,11 +4,11 @@ import { Injectable } from '@nestjs/common'
 import { ValidationError, ForbiddenError } from 'apollo-server-express'
 import AliSMS from '@alicloud/pop-core'
 import moment from 'moment'
+import { randomSeries } from 'yancey-js-util'
 import { ConfigService } from '../config/config.service'
 import { SMS, AliSMSParams } from './interfaces/sms.interface'
 import { ValidateSMSInput } from './dtos/validateSMS.input'
 import { SendSMSInput } from './dtos/sendSMS.input'
-import { generateSMSVerificationCode } from '../shared/utils'
 import { ALI_SMS_END_POINT, ALI_SMS_API_VERSION, ALI_SMS_REGION } from '../shared/constants'
 
 @Injectable()
@@ -54,7 +54,7 @@ export class SMSService {
   public async sendSMS(input: SendSMSInput) {
     const { phoneNumber } = input
 
-    const verificationCode = generateSMSVerificationCode()
+    const verificationCode = randomSeries(6, 10)
 
     const params = {
       ...this.params,
