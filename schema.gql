@@ -241,8 +241,8 @@ type Mutation {
   exchangePositionAnnouncement(input: ExchangePositionInput!): [AnnouncementModel!]!
   deleteAnnouncementById(id: ID!): AnnouncementModel!
   deleteAnnouncements(ids: [ID!]!): BatchDeleteModel!
-  sendSMS(input: SendSMSInput!): SendSMSRes!
-  validateSMS(input: ValidateSMSInput!): ValidateSMSRes!
+  sendSMS(phoneNumber: String!): SendSMSRes!
+  validateSMS(input: ValidateSMSInput!): UserModel!
   createOpenSource(input: CreateOpenSourceInput!): OpenSourceModel!
   updateOpenSourceById(input: UpdateOpenSourceInput!): OpenSourceModel!
   deleteOpenSourceById(id: ID!): OpenSourceModel!
@@ -403,12 +403,8 @@ input RegisterInput {
   password: String!
 }
 
-input SendSMSInput {
-  phoneNumber: String!
-}
-
 type SendSMSRes {
-  verificationCode: String!
+  success: Boolean!
 }
 
 type ServiceInfoModel {
@@ -552,6 +548,7 @@ input UpdateUserInput {
   totpSecret: String
   recoveryCodes: [String!]
   password: String
+  phoneNumber: String
   loginStatistics: [String!]
   name: String
   location: String
@@ -602,11 +599,7 @@ type UserModel {
 
 input ValidateSMSInput {
   phoneNumber: String!
-  verificationCode: String!
-}
-
-type ValidateSMSRes {
-  success: Boolean!
+  smsCode: String!
 }
 
 input ValidateTOTPInput {

@@ -6,10 +6,11 @@ import AliSMS from '@alicloud/pop-core'
 import moment from 'moment'
 import { randomSeries } from 'yancey-js-util'
 import { ConfigService } from '../config/config.service'
+import { UsersService } from '../users/users.service'
 import { SMS, AliSMSParams } from './interfaces/sms.interface'
 import { ValidateSMSInput } from './dtos/validateSMS.input'
-import { SendSMSInput } from './dtos/sendSMS.input'
 import { ALI_SMS_END_POINT, ALI_SMS_API_VERSION, ALI_SMS_REGION } from '../shared/constants'
+import { decodeJwt } from '../shared/utils'
 
 @Injectable()
 export class SMSService {
@@ -17,16 +18,15 @@ export class SMSService {
 
   private readonly params: AliSMSParams
 
-  private readonly isEnvTest: boolean
-
   constructor(
     @InjectModel('SMS')
     private readonly SMSModel: Model<SMS>,
+    private readonly usersService: UsersService,
     configService: ConfigService,
   ) {
     this.SMSModel = SMSModel
 
-    this.isEnvTest = configService.isEnvTest
+    this.usersService = usersService
 
     const {
       ALI_ACCESS_KEY_ID,
@@ -51,9 +51,7 @@ export class SMSService {
     }
   }
 
-  public async sendSMS(input: SendSMSInput) {
-    const { phoneNumber } = input
-
+  public async sendSMS(phoneNumber: string) {
     const verificationCode = randomSeries(6, 10)
 
     const params = {
@@ -65,24 +63,24 @@ export class SMSService {
     }
 
     try {
-      if (!this.isEnvTest) {
-        await this.sms.request('SendSMS', params, {
-          method: 'POST',
-        })
-      }
+      await this.sms.request('SendSMS', params, {
+        method: 'POST',
+      })
 
       await this.saveSMSVerificationCode(phoneNumber, verificationCode)
 
       return {
-        verificationCode,
+        success: true,
       }
     } catch (e) {
       throw new ForbiddenError(e.data.Message)
     }
   }
 
-  public async validateSMSVerificationCode(input: ValidateSMSInput) {
-    const { phoneNumber, verificationCode: inputVerificationCode } = input
+  public async validateSMSVerificationCode(input: ValidateSMSInput, token: string) {
+    const { sub: userId } = decodeJwt(token)
+
+    const { phoneNumber, smsCode } = input
 
     const res = await this.SMSModel.findOne({ phoneNumber })
 
@@ -90,19 +88,17 @@ export class SMSService {
       const { verificationCode, updatedAt } = res
 
       switch (true) {
-        case verificationCode !== inputVerificationCode:
+        case verificationCode !== smsCode:
           throw new ValidationError('SMS verification code error.')
 
-        case verificationCode === inputVerificationCode && this.checkTimeIsExpired(updatedAt):
+        case verificationCode === smsCode && this.checkTimeIsExpired(updatedAt):
           throw new ValidationError('SMS verification code has been expired.')
 
         default:
-          return {
-            success: true,
-          }
+          return this.usersService.updateUser({ id: userId, phoneNumber })
       }
     } else {
-      throw new ValidationError('No this phone number.')
+      throw new ValidationError('You might enter a wrong phone number.')
     }
   }
 
