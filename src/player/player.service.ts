@@ -7,6 +7,7 @@ import { PlayerModel } from './models/player.model'
 import { Player } from './interfaces/player.interface'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'
 import { BatchUpdateModel } from '../database/models/batch-update.model'
+import { ExchangePositionInput } from '../shared/interfaces/exchange-position.input'
 
 @Injectable()
 export class PlayerService {
@@ -26,7 +27,9 @@ export class PlayerService {
   }
 
   public async create(playerInput: CreatePlayerInput): Promise<PlayerModel> {
-    return this.playerModel.create(playerInput)
+    const all = await this.findAll()
+    const weight = all[0] ? all[0].weight : 0
+    return this.playerModel.create({ ...playerInput, weight: weight + 1 })
   }
 
   public async update(playerInput: UpdatePlayerInput): Promise<PlayerModel> {

@@ -4,7 +4,7 @@ import { AnnouncementsService } from './announcements.service'
 import { AnnouncementModel } from './models/announcements.model'
 import { CreateAnnouncementInput } from './dtos/create-announcement.input'
 import { UpdateAnnouncementInput } from './dtos/update-announcement.input'
-import { ExchangePositionInput } from '../mottos/dtos/exchange-position.input'
+import { ExchangePositionInput } from '../shared/interfaces/exchange-position.input'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'
 import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
 

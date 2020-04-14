@@ -32,6 +32,10 @@ export const PlayerSchema = new mongoose.Schema(
       required: true,
       default: true,
     },
+    weight: {
+      type: Number,
+      require: true,
+    },
   },
   {
     collection: 'player',
