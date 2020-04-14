@@ -37,6 +37,28 @@ export class PlayerService {
     return this.playerModel.findByIdAndUpdate(id, rest, { new: true })
   }
 
+  public async exchangePosition(input: ExchangePositionInput) {
+    const { id, exchangedId, weight, exchangedWeight } = input
+
+    const exchanged = await this.playerModel.findByIdAndUpdate(
+      exchangedId,
+      {
+        weight,
+      },
+      { new: true },
+    )
+
+    const curr = await this.playerModel.findByIdAndUpdate(
+      id,
+      {
+        weight: exchangedWeight,
+      },
+      { new: true },
+    )
+
+    return [exchanged, curr]
+  }
+
   public async deleteOneById(id: string): Promise<PlayerModel> {
     return this.playerModel.findByIdAndDelete(id)
   }

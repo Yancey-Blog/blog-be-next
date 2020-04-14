@@ -261,6 +261,7 @@ type Mutation {
   deleteBestAlbums(ids: [ID!]!): BatchDeleteModel!
   createPlayer(input: CreatePlayerInput!): PlayerModel!
   updatePlayerById(input: UpdatePlayerInput!): PlayerModel!
+  exchangePositionPlayer(input: ExchangePositionInput!): [PlayerModel!]!
   deletePlayerById(id: ID!): PlayerModel!
   deletePlayers(ids: [ID!]!): BatchDeleteModel!
   offlinePlayers(ids: [ID!]!): BatchUpdateModel!
@@ -317,6 +318,7 @@ type PlayerModel {
   coverUrl: String!
   musicFileUrl: String!
   isPublic: Boolean!
+  weight: Float!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
