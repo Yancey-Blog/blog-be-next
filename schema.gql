@@ -391,6 +391,7 @@ type Query {
   getAllTags: TagsModel!
   getMottos: [MottoModel!]!
   getMottoById(id: ID!): MottoModel!
+  covers: [CoverModel!]!
   getCovers: [CoverModel!]!
   getCoverById(id: ID!): CoverModel!
   getGlobalSetting: GlobalSettingModel!

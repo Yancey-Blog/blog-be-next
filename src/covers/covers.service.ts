@@ -18,6 +18,10 @@ export class CoversService {
     this.coverModel = coverModel
   }
 
+  public async findPubilc() {
+    return this.coverModel.find({ isPublic: { $ne: false } }).sort({ weight: -1 })
+  }
+
   public async findAll(): Promise<CoverModel[]> {
     return this.coverModel.find({}).sort({ updatedAt: -1 })
   }

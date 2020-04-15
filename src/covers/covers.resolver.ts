@@ -16,11 +16,18 @@ export class CoversResolver {
   }
 
   @Query(() => [CoverModel])
+  public async covers(): Promise<CoverModel[]> {
+    return this.coversService.findPubilc()
+  }
+
+  @Query(() => [CoverModel])
+  @UseGuards(GqlAuthGuard)
   public async getCovers() {
     return this.coversService.findAll()
   }
 
   @Query(() => CoverModel)
+  @UseGuards(GqlAuthGuard)
   public async getCoverById(@Args({ name: 'id', type: () => ID }) id: string) {
     return this.coversService.findOneById(id)
   }
