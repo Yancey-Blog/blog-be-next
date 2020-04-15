@@ -17,7 +17,7 @@ export class CoversResolver {
 
   @Query(() => [CoverModel])
   public async covers(): Promise<CoverModel[]> {
-    return this.coversService.findPubilc()
+    return this.coversService.findAllPubilc()
   }
 
   @Query(() => [CoverModel])

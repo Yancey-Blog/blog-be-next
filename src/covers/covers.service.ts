@@ -18,7 +18,7 @@ export class CoversService {
     this.coverModel = coverModel
   }
 
-  public async findPubilc() {
+  public async findAllPubilc() {
     return this.coverModel.find({ isPublic: { $ne: false } }).sort({ weight: -1 })
   }
 
