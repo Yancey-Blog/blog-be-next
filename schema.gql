@@ -381,6 +381,7 @@ type Query {
   getYanceyMusicById(id: ID!): YanceyMusicModel!
   getBestAlbums: [BestAlbumModel!]!
   getBestAlbumById(id: ID!): BestAlbumModel!
+  players: [PlayerModel!]!
   getPlayers: [PlayerModel!]!
   getPlayerById(id: ID!): PlayerModel!
   getAgenda: [AgendaModel!]!

@@ -16,11 +16,18 @@ export class PlayerResolver {
   }
 
   @Query(() => [PlayerModel])
+  public async players(): Promise<PlayerModel[]> {
+    return this.playerService.findAllPubilc()
+  }
+
+  @Query(() => [PlayerModel])
+  @UseGuards(GqlAuthGuard)
   public async getPlayers() {
     return this.playerService.findAll()
   }
 
   @Query(() => PlayerModel)
+  @UseGuards(GqlAuthGuard)
   public async getPlayerById(@Args({ name: 'id', type: () => ID }) id: string) {
     return this.playerService.findOneById(id)
   }

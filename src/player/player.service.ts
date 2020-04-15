@@ -18,6 +18,10 @@ export class PlayerService {
     this.playerModel = playerModel
   }
 
+  public async findAllPubilc() {
+    return this.playerModel.find({ isPublic: { $ne: false } }).sort({ updatedAt: -1 })
+  }
+
   public async findAll(): Promise<PlayerModel[]> {
     return this.playerModel.find({}).sort({ updatedAt: -1 })
   }
