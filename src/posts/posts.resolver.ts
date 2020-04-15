@@ -1,7 +1,9 @@
 import { UseGuards } from '@nestjs/common'
 import { Args, Query, Resolver, Mutation, ID, Int } from '@nestjs/graphql'
 import { PostsService } from './posts.service'
-import { PostModel, PostItemModel } from './models/posts.model'
+import { PostModel } from './models/posts.model'
+import { PostItemModel } from './models/post.model'
+import { TagsModel } from './models/tags.model'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'
 import { CreatePostInput } from './dtos/create-post.input'
 import { UpdatePostInput } from './dtos/update-post.input'
@@ -63,5 +65,15 @@ export class PostsResolver {
   @Query(() => [PostItemModel])
   public async getTopPVPosts(@Args({ name: 'limit', type: () => Int }) limit: number) {
     return this.postsService.getTopPVPosts(limit)
+  }
+
+  @Query(() => [PostItemModel])
+  public async getTopLikePosts(@Args({ name: 'limit', type: () => Int }) limit: number) {
+    return this.postsService.getTopLikePosts(limit)
+  }
+
+  @Query(() => TagsModel)
+  public async getAllTags() {
+    return this.postsService.getAllTags()
   }
 }

@@ -4,7 +4,9 @@ import { Model } from 'mongoose'
 import { CreatePostInput } from './dtos/create-post.input'
 import { UpdatePostInput } from './dtos/update-post.input'
 import { PaginationInput } from './dtos/pagination.input'
-import { PostModel, PostItemModel } from './models/posts.model'
+import { PostModel } from './models/posts.model'
+import { PostItemModel } from './models/post.model'
+import { TagsModel } from './models/tags.model'
 import { Post } from './interfaces/posts.interface'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'
 
@@ -82,5 +84,20 @@ export class PostsService {
       .find({ isPublic: { $ne: false } })
       .sort({ pv: -1, _id: -1 })
       .limit(limit)
+  }
+
+  public async getTopLikePosts(limit: number): Promise<PostItemModel[]> {
+    return this.postModel
+      .find({ isPublic: { $ne: false } })
+      .sort({ like: -1, _id: -1 })
+      .limit(limit)
+  }
+
+  public async getAllTags(): Promise<TagsModel> {
+    const posts = await this.postModel.find({}, { isPublic: { $ne: false }, tags: 1 })
+
+    return {
+      tags: [],
+    }
   }
 }

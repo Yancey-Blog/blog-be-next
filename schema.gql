@@ -387,6 +387,8 @@ type Query {
   getPosts(input: PaginationInput!): PostModel!
   getPostById(id: ID!): PostItemModel!
   getTopPVPosts(limit: Int!): [PostItemModel!]!
+  getTopLikePosts(limit: Int!): [PostItemModel!]!
+  getAllTags: TagsModel!
   getMottos: [MottoModel!]!
   getMottoById(id: ID!): MottoModel!
   getCovers: [CoverModel!]!
@@ -455,6 +457,10 @@ type ServiceInfoModel {
   max_abuse_points: Float!
   error: Float!
   veid: Float!
+}
+
+type TagsModel {
+  tags: [String!]!
 }
 
 type TOTPModel {
