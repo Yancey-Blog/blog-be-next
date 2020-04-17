@@ -94,10 +94,12 @@ export class PostsService {
   }
 
   public async getAllTags(): Promise<TagsModel> {
-    const posts = await this.postModel.find({}, { isPublic: { $ne: false }, tags: 1 })
+    const posts = await this.postModel.find({ isPublic: { $ne: false } }, { tags: 1 })
+    const arr = []
+    posts.forEach((post) => arr.push(...post.tags))
 
     return {
-      tags: [],
+      tags: [...new Set(arr)],
     }
   }
 }
