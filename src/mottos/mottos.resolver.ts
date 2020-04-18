@@ -4,7 +4,7 @@ import { MottosService } from './mottos.service'
 import { MottoModel } from './models/mottos.model'
 import { CreateMottoInput } from './dtos/create-motto.input'
 import { UpdateMottoInput } from './dtos/update-motto.input'
-import { ExchangePositionInput } from './dtos/exchange-position.input'
+import { ExchangePositionInput } from '../shared/interfaces/exchange-position.input'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'
 import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
 

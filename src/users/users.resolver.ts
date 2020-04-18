@@ -23,13 +23,19 @@ export class UserResolver {
 
   @Mutation(() => UserModel)
   @UseGuards(GqlAuthGuard)
-  public async updateUserName(@Args('username') username: String, @ReqDecorator() req: Request) {
+  public async updateUserName(
+    @Args({ name: 'username', type: () => String }) username: string,
+    @ReqDecorator() req: Request,
+  ) {
     return this.usersService.updateUserName(username, req)
   }
 
   @Mutation(() => UserModel)
   @UseGuards(GqlAuthGuard)
-  public async updateEmail(@Args('email') email: String, @ReqDecorator() req: Request) {
+  public async updateEmail(
+    @Args({ name: 'email', type: () => String }) email: string,
+    @ReqDecorator() req: Request,
+  ) {
     return this.usersService.updateEmail(email, req)
   }
 

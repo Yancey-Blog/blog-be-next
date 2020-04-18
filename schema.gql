@@ -241,8 +241,8 @@ type Mutation {
   exchangePositionAnnouncement(input: ExchangePositionInput!): [AnnouncementModel!]!
   deleteAnnouncementById(id: ID!): AnnouncementModel!
   deleteAnnouncements(ids: [ID!]!): BatchDeleteModel!
-  sendSMS(input: SendSMSInput!): SendSMSRes!
-  validateSMS(input: ValidateSMSInput!): ValidateSMSRes!
+  sendSMS(phoneNumber: String!): SendSMSRes!
+  validateSMS(input: ValidateSMSInput!): UserModel!
   createOpenSource(input: CreateOpenSourceInput!): OpenSourceModel!
   updateOpenSourceById(input: UpdateOpenSourceInput!): OpenSourceModel!
   deleteOpenSourceById(id: ID!): OpenSourceModel!
@@ -261,6 +261,7 @@ type Mutation {
   deleteBestAlbums(ids: [ID!]!): BatchDeleteModel!
   createPlayer(input: CreatePlayerInput!): PlayerModel!
   updatePlayerById(input: UpdatePlayerInput!): PlayerModel!
+  exchangePositionPlayer(input: ExchangePositionInput!): [PlayerModel!]!
   deletePlayerById(id: ID!): PlayerModel!
   deletePlayers(ids: [ID!]!): BatchDeleteModel!
   offlinePlayers(ids: [ID!]!): BatchUpdateModel!
@@ -317,6 +318,7 @@ type PlayerModel {
   coverUrl: String!
   musicFileUrl: String!
   isPublic: Boolean!
+  weight: Float!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -379,14 +381,18 @@ type Query {
   getYanceyMusicById(id: ID!): YanceyMusicModel!
   getBestAlbums: [BestAlbumModel!]!
   getBestAlbumById(id: ID!): BestAlbumModel!
+  players: [PlayerModel!]!
   getPlayers: [PlayerModel!]!
   getPlayerById(id: ID!): PlayerModel!
   getAgenda: [AgendaModel!]!
   getPosts(input: PaginationInput!): PostModel!
   getPostById(id: ID!): PostItemModel!
   getTopPVPosts(limit: Int!): [PostItemModel!]!
+  getTopLikePosts(limit: Int!): [PostItemModel!]!
+  getAllTags: TagsModel!
   getMottos: [MottoModel!]!
   getMottoById(id: ID!): MottoModel!
+  getAllPublicCovers: [CoverModel!]!
   getCovers: [CoverModel!]!
   getCoverById(id: ID!): CoverModel!
   getGlobalSetting: GlobalSettingModel!
@@ -403,12 +409,8 @@ input RegisterInput {
   password: String!
 }
 
-input SendSMSInput {
-  phoneNumber: String!
-}
-
 type SendSMSRes {
-  verificationCode: String!
+  success: Boolean!
 }
 
 type ServiceInfoModel {
@@ -457,6 +459,10 @@ type ServiceInfoModel {
   max_abuse_points: Float!
   error: Float!
   veid: Float!
+}
+
+type TagsModel {
+  tags: [String!]!
 }
 
 type TOTPModel {
@@ -552,6 +558,7 @@ input UpdateUserInput {
   totpSecret: String
   recoveryCodes: [String!]
   password: String
+  phoneNumber: String
   loginStatistics: [String!]
   name: String
   location: String
@@ -602,11 +609,7 @@ type UserModel {
 
 input ValidateSMSInput {
   phoneNumber: String!
-  verificationCode: String!
-}
-
-type ValidateSMSRes {
-  success: Boolean!
+  smsCode: String!
 }
 
 input ValidateTOTPInput {

@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
 import { CreateCoverInput } from './dtos/create-cover.input'
 import { UpdateCoverInput } from './dtos/update-cover.input'
-import { ExchangePositionInput } from '../mottos/dtos/exchange-position.input'
+import { ExchangePositionInput } from '../shared/interfaces/exchange-position.input'
 import { CoverModel } from './models/covers.model'
 import { Cover } from './interfaces/covers.interface'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'
@@ -16,6 +16,10 @@ export class CoversService {
     private readonly coverModel: Model<Cover>,
   ) {
     this.coverModel = coverModel
+  }
+
+  public async findAllPubilc() {
+    return this.coverModel.find({ isPublic: { $ne: false } }).sort({ weight: -1 })
   }
 
   public async findAll(): Promise<CoverModel[]> {

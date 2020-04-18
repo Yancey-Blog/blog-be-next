@@ -11,6 +11,7 @@ import { CoverModel } from '../src/covers/models/covers.model'
 import { CreateCoverInput } from '../src/covers/dtos/create-cover.input'
 import { UpdateCoverInput } from '../src/covers/dtos/update-cover.input'
 import { BatchDeleteModel } from '../src/database/models/batch-delete.model'
+import { BatchUpdateModel } from '../src/database/models/batch-update.model'
 
 describe('CoversController (e2e)', () => {
   let app: NestApplication
@@ -79,6 +80,35 @@ describe('CoversController (e2e)', () => {
         const testData: CoverModel = body.data.createCover
         id = testData._id
         expect(testData.title).toBe(createdData.title)
+      })
+      .expect(200)
+  })
+
+  // EXCHANGE
+  it('exchangePositionCover', async () => {
+    const exchangeTypeDefs = `
+      mutation ExchangePositionCover {
+        exchangePositionCover(input: ${JSON.stringify({
+          id,
+          exchangedId: id,
+          weight: 1,
+          exchangedWeight: 1,
+        }).replace(/"([^(")"]+)":/g, '$1:')}) {
+          _id
+          title
+        }
+      }`
+
+    return request(app.getHttpServer())
+      .post('/graphql')
+      .send({
+        operationName: null,
+        query: exchangeTypeDefs,
+      })
+      .expect(({ body }) => {
+        const testData: CoverModel[] = body.data.exchangePositionCover
+        const firstData = testData[0]
+        expect(firstData.title).toBe(createdData.title)
       })
       .expect(200)
   })
@@ -157,6 +187,31 @@ describe('CoversController (e2e)', () => {
       .expect(({ body }) => {
         const testData: CoverModel = body.data.updateCoverById
         expect(testData.title).toBe(updatedData.title)
+      })
+      .expect(200)
+  })
+
+  // BATCH_UPDATE
+  it('publicCovers', async () => {
+    const publicCoversTypeDefs = `
+    mutation PublicCovers {
+      publicCovers(ids: ["${id}"]) {
+        ok
+        n
+        nModified
+        ids
+      }
+    }`
+
+    return request(app.getHttpServer())
+      .post('/graphql')
+      .send({
+        operationName: null,
+        query: publicCoversTypeDefs,
+      })
+      .expect(({ body }) => {
+        const testData: BatchUpdateModel = body.data.publicCovers
+        expect(testData.ok).toBe(1)
       })
       .expect(200)
   })

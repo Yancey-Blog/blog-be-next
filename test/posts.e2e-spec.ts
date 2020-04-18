@@ -7,7 +7,8 @@ import { SCHEMA_GQL_FILE_NAME } from '../src/shared/constants'
 import { ConfigModule } from '../src/config/config.module'
 import { ConfigService } from '../src/config/config.service'
 import { PostsModule } from '../src/posts/posts.module'
-import { PostModel, PostItemModel } from '../src/posts/models/posts.model'
+import { PostModel } from '../src/posts/models/posts.model'
+import { PostItemModel } from '../src/posts/models/post.model'
 import { CreatePostInput } from '../src/posts/dtos/create-post.input'
 import { UpdatePostInput } from '../src/posts/dtos/update-post.input'
 import { PaginationInput } from '../src/posts/dtos/pagination.input'
@@ -171,6 +172,73 @@ describe('PostsController (e2e)', () => {
       .expect(({ body }) => {
         const testData: PostItemModel = body.data.updatePostById
         expect(testData.content).toBe(updatedData.content)
+      })
+      .expect(200)
+  })
+
+  // UPDATE_PV
+  it('updatePV', async () => {
+    const updatePVTypeDefs = `
+    mutation UpdatePV {
+      updatePV(id: "${id}") {
+        pv
+      }
+    }`
+
+    return request(app.getHttpServer())
+      .post('/graphql')
+      .send({
+        operationName: null,
+        query: updatePVTypeDefs,
+      })
+      .expect(({ body }) => {
+        const testData: PostItemModel = body.data.updatePV
+        expect(testData.pv).toBe(1)
+      })
+      .expect(200)
+  })
+
+  // UPDATE_LIKE
+  it('updateLike', async () => {
+    const updateLikeTypeDefs = `
+    mutation UpdateLike {
+      updateLike(id: "${id}") {
+        like
+      }
+    }`
+
+    return request(app.getHttpServer())
+      .post('/graphql')
+      .send({
+        operationName: null,
+        query: updateLikeTypeDefs,
+      })
+      .expect(({ body }) => {
+        const testData: PostItemModel = body.data.updateLike
+        expect(testData.like).toBe(1)
+      })
+      .expect(200)
+  })
+
+  // GET_TOP_PV_POSTS
+  it('getTopPVPosts', async () => {
+    const getTopPVPostsTypeDefs = `
+      query GetTopPVPosts {
+        getTopPVPosts(limit: 1) {
+          _id
+        }
+      }`
+
+    return request(app.getHttpServer())
+      .post('/graphql')
+      .send({
+        operationName: null,
+        query: getTopPVPostsTypeDefs,
+      })
+      .expect(({ body }) => {
+        const testData: PostItemModel[] = body.data.getTopPVPosts
+        const firstData = testData[0]
+        expect(firstData._id).toBe(id)
       })
       .expect(200)
   })
