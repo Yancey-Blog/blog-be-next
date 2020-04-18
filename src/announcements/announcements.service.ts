@@ -4,7 +4,7 @@ import { InjectModel } from '@nestjs/mongoose'
 import { Announcement } from './interfaces/announcement.interface'
 import { CreateAnnouncementInput } from './dtos/create-announcement.input'
 import { UpdateAnnouncementInput } from './dtos/update-announcement.input'
-import { ExchangePositionInput } from '../mottos/dtos/exchange-position.input'
+import { ExchangePositionInput } from '../shared/interfaces/exchange-position.input'
 
 @Injectable()
 export class AnnouncementsService {

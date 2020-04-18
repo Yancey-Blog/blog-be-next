@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
 import { Request } from 'express'
+import { ForbiddenError } from 'apollo-server-express'
 import { User } from './interfaces/user.interface'
 import { UpdateUserInput } from './dtos/update-user.input'
 import { RegisterInput } from '../auth/dtos/register.input'
@@ -28,6 +29,10 @@ export class UsersService {
     return this.UserModel.findOne({ email })
   }
 
+  public async findOneByUserName(username: string): Promise<User> {
+    return this.UserModel.findOne({ username })
+  }
+
   public async create(input: RegisterInput): Promise<User> {
     return this.UserModel.create(input)
   }
@@ -37,14 +42,25 @@ export class UsersService {
     return this.UserModel.findByIdAndUpdate(id, rest, { new: true })
   }
 
-  public async updateUserName(username: String, req: Request): Promise<User> {
+  public async updateUserName(username: string, req: Request): Promise<User> {
     const { sub: id } = decodeJwt(req.headers.authorization)
-    return this.UserModel.findByIdAndUpdate(id, { username }, { new: true })
+    const user = await this.findOneByUserName(username)
+
+    if (!user) {
+      return this.UserModel.findByIdAndUpdate(id, { username }, { new: true })
+    }
+
+    throw new ForbiddenError(`The username「${username}」 has been used.`)
   }
 
-  public async updateEmail(email: String, req: Request): Promise<User> {
+  public async updateEmail(email: string, req: Request): Promise<User> {
     const { sub: id } = decodeJwt(req.headers.authorization)
-    return this.UserModel.findByIdAndUpdate(id, { email }, { new: true })
+    const user = await this.findOneByEmail(email)
+
+    if (!user) {
+      return this.UserModel.findByIdAndUpdate(id, { email }, { new: true })
+    }
+    throw new ForbiddenError(`The email「${email}」 has been used.`)
   }
 
   public async deleteOneById(req: Request): Promise<User> {

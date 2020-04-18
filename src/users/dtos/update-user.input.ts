@@ -18,6 +18,9 @@ export class UpdateUserInput {
   @Field({ nullable: true })
   public readonly password?: string
 
+  @Field({ nullable: true })
+  public readonly phoneNumber?: string
+
   @Field(() => [String], { nullable: true })
   public readonly loginStatistics?: IPModel[]
 

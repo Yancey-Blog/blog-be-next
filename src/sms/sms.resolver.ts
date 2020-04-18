@@ -1,12 +1,13 @@
 import { UseGuards } from '@nestjs/common'
-import { Args, Query, Resolver, Mutation } from '@nestjs/graphql'
+import { Request } from 'express'
+import { Args, Resolver, Mutation } from '@nestjs/graphql'
 import { SMSService } from './sms.service'
 import { SMSModel } from './models/sms.model'
 import { SendSMSRes } from './dtos/sendSMSRes.dto'
-import { ValidateSMSRes } from './dtos/validateSMSRes.dto'
-import { SendSMSInput } from './dtos/sendSMS.input'
 import { ValidateSMSInput } from './dtos/validateSMS.input'
 import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
+import { UserModel } from '../users/models/user.model'
+import { ReqDecorator } from '../shared/decorators/req.decorator'
 
 @Resolver(() => SMSModel)
 export class SMSResolver {
@@ -16,13 +17,15 @@ export class SMSResolver {
 
   @Mutation(() => SendSMSRes)
   @UseGuards(GqlAuthGuard)
-  public sendSMS(@Args('input') input: SendSMSInput): Promise<SendSMSRes> {
-    return this.smsService.sendSMS(input)
+  public sendSMS(
+    @Args({ name: 'phoneNumber', type: () => String }) phoneNumber: string,
+  ): Promise<SendSMSRes> {
+    return this.smsService.sendSMS(phoneNumber)
   }
 
-  @Mutation(() => ValidateSMSRes)
+  @Mutation(() => UserModel)
   @UseGuards(GqlAuthGuard)
-  public validateSMS(@Args('input') input: ValidateSMSInput): Promise<ValidateSMSRes> {
-    return this.smsService.validateSMSVerificationCode(input)
+  public validateSMS(@Args('input') input: ValidateSMSInput, @ReqDecorator() req: Request) {
+    return this.smsService.validateSMSVerificationCode(input, req.headers.authorization)
   }
 }

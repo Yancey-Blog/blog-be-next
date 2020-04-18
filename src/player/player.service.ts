@@ -7,6 +7,7 @@ import { PlayerModel } from './models/player.model'
 import { Player } from './interfaces/player.interface'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'
 import { BatchUpdateModel } from '../database/models/batch-update.model'
+import { ExchangePositionInput } from '../shared/interfaces/exchange-position.input'
 
 @Injectable()
 export class PlayerService {
@@ -15,6 +16,10 @@ export class PlayerService {
     private readonly playerModel: Model<Player>,
   ) {
     this.playerModel = playerModel
+  }
+
+  public async findAllPubilc() {
+    return this.playerModel.find({ isPublic: { $ne: false } }).sort({ updatedAt: -1 })
   }
 
   public async findAll(): Promise<PlayerModel[]> {
@@ -26,12 +31,36 @@ export class PlayerService {
   }
 
   public async create(playerInput: CreatePlayerInput): Promise<PlayerModel> {
-    return this.playerModel.create(playerInput)
+    const all = await this.findAll()
+    const weight = all[0] ? all[0].weight : 0
+    return this.playerModel.create({ ...playerInput, weight: weight + 1 })
   }
 
   public async update(playerInput: UpdatePlayerInput): Promise<PlayerModel> {
     const { id, ...rest } = playerInput
     return this.playerModel.findByIdAndUpdate(id, rest, { new: true })
+  }
+
+  public async exchangePosition(input: ExchangePositionInput) {
+    const { id, exchangedId, weight, exchangedWeight } = input
+
+    const exchanged = await this.playerModel.findByIdAndUpdate(
+      exchangedId,
+      {
+        weight,
+      },
+      { new: true },
+    )
+
+    const curr = await this.playerModel.findByIdAndUpdate(
+      id,
+      {
+        weight: exchangedWeight,
+      },
+      { new: true },
+    )
+
+    return [exchanged, curr]
   }
 
   public async deleteOneById(id: string): Promise<PlayerModel> {
