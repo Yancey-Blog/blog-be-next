@@ -1961,10 +1961,10 @@ ajv@6.12.0, ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.5.5:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-ali-oss@^6.4.0:
-  version "6.5.1"
-  resolved "https://registry.npmjs.org/ali-oss/-/ali-oss-6.5.1.tgz#e1461e9e4d4f6a01686cd94e4617350702576f2b"
-  integrity sha512-dnKL35PyotYfS0+Dcll1DKyQy7u+f5mOI2uBQ3Ndp1+j/gzE0y104QsCEyeXbMaNNZm+1WL8NL4KEnOMbzwYfQ==
+ali-oss@^6.6.0:
+  version "6.6.0"
+  resolved "https://registry.yarnpkg.com/ali-oss/-/ali-oss-6.6.0.tgz#ba69bc04282eae3fac15ae2c5adffad5f8964c6d"
+  integrity sha512-AoXY3+D+5DfjaTtQlF3wuyK5So1wus8urr19LqrsB7kNb88QhLYm4hcKQx8Yh+wN6Ta11eLoBksNxiAuZJEUjw==
   dependencies:
     address "^1.0.0"
     agentkeepalive "^3.4.1"
@@ -1979,6 +1979,7 @@ ali-oss@^6.4.0:
     get-ready "^1.0.0"
     humanize-ms "^1.2.0"
     is-type-of "^1.0.0"
+    js-base64 "^2.5.2"
     jstoxml "^0.2.3"
     merge-descriptors "^1.0.1"
     mime "^1.3.4"
@@ -6923,6 +6924,11 @@ jest@^25.2.7:
     "@jest/core" "^25.2.7"
     import-local "^3.0.2"
     jest-cli "^25.2.7"
+
+js-base64@^2.5.2:
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.5.2.tgz#313b6274dda718f714d00b3330bbae6e38e90209"
+  integrity sha512-Vg8czh0Q7sFBSUMWWArX/miJeBWYBPpdU/3M/DKSaekLMqrqVPaedp+5mZhie/r0lgrcaYBfwXatEew6gwgiQQ==
 
 js-git@^0.7.8:
   version "0.7.8"
