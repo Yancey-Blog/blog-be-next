@@ -56,12 +56,14 @@ export class AuthService {
 
   public async register(registerInput: RegisterInput) {
     const { email, username } = registerInput
-    const curEmail = await this.usersService.findOneByEmail(email)
+    const curUserByEmail = await this.usersService.findOneByEmail(email)
+    const curUserByUserName = await this.usersService.findOneByUserName(username)
 
-    if (curEmail) {
-      throw new ForbiddenError('Email is already registered!')
+    if (curUserByEmail) {
+      throw new ForbiddenError('Email has already been used, Please enter another one.')
+    } else if (curUserByUserName) {
+      throw new ForbiddenError('UserName has already been used, Please enter another one.')
     } else {
-      // TODO: 通过脚本初始化 root 用户
       const count = await this.usersService.getUserCount()
       const params = count === 0 ? { ...registerInput, role: Roles.SUPERUSER } : registerInput
       const res = await this.usersService.create({ ...params })

@@ -3,29 +3,27 @@ import { Test, TestingModule } from '@nestjs/testing'
 import { MongooseModule } from '@nestjs/mongoose'
 import { GraphQLModule } from '@nestjs/graphql'
 import request from 'supertest'
-import { randomSeries } from 'yancey-js-util'
 import { SCHEMA_GQL_FILE_NAME } from '../src/shared/constants'
 import { ConfigModule } from '../src/config/config.module'
 import { ConfigService } from '../src/config/config.service'
-import { AuthModule } from '../src/auth/auth.module'
-import { UserModel } from '../src/users/models/user.model'
-import { LoginInput } from '../src/auth/dtos/login.input'
-import { RegisterInput } from '../src/auth/dtos/register.input'
+import { GlobalSettingModule } from '../src/global-setting/global-setting.module'
+import { GlobalSettingModel } from '../src/global-setting/models/global-setting.model'
+import { UpdateGlobalSettingInput } from '../src/global-setting/dtos/update-global-setting.input'
 
-describe('AuthController (e2e)', () => {
+describe('GlobalSettingController (e2e)', () => {
   let app: NestApplication
   beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [
         ConfigModule,
-        AuthModule,
+        GlobalSettingModule,
         MongooseModule.forRootAsync({
           useFactory: async (configService: ConfigService) => ({
             uri: configService.getMongoURI(),
             useFindAndModify: false,
             useUnifiedTopology: true,
             useNewUrlParser: true,
-            useCreateIndex: true,
+            useUpdateIndex: true,
           }),
           inject: [ConfigService],
         }),
@@ -34,6 +32,7 @@ describe('AuthController (e2e)', () => {
         }),
       ],
     }).compile()
+
     app = moduleFixture.createNestApplication()
     await app.init()
   })
@@ -42,35 +41,17 @@ describe('AuthController (e2e)', () => {
     await app.close()
   })
 
-  const loginData: LoginInput = {
-    email: `${randomSeries(10)}@example.com`,
-    password: 'abcd1234,',
-  }
-
-  const registerData: RegisterInput = {
-    ...loginData,
-    username: randomSeries(10),
-  }
-
-  const registerDataString = JSON.stringify(registerData).replace(/"([^(")"]+)":/g, '$1:')
-
-  const loginDataString = JSON.stringify(loginData).replace(/"([^(")"]+)":/g, '$1:')
-
   let id = ''
 
-  // REGISTER
-  it('register', async () => {
-    const registerTypeDefs = `
-    mutation Register {
-      register(input: ${registerDataString}) {
+  // READ_ALL
+  it('getGlobalSetting', async () => {
+    const getAllTypeDefs = `
+    query GetGlobalSetting {
+      getGlobalSetting {
         _id
-        email
-        authorization
-        role
-        avatarUrl
-        username
-        phoneNumber
-        isTOTP
+        releasePostId
+        cvPostId
+        isGrayTheme
         createdAt
         updatedAt
       }
@@ -80,30 +61,36 @@ describe('AuthController (e2e)', () => {
       .post('/graphql')
       .send({
         operationName: null,
-        query: registerTypeDefs,
+        query: getAllTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: UserModel = body.data.register
+        const testData: GlobalSettingModel = body.data.getGlobalSetting
         id = testData._id
-        expect(testData.username).toBe(registerData.username)
-        expect(testData.email).toBe(registerData.email)
+
+        expect(testData._id).toBe(id)
       })
       .expect(200)
   })
 
-  // LOGIN
-  it('login', async () => {
-    const loginTypeDefs = `
-    query Login {
-      login(input: ${loginDataString}) {
+  const updatedData: UpdateGlobalSettingInput = {
+    id,
+    releasePostId: '36f27dc5-9adc-4ded-918f-d1bf9dc1ad4a',
+    cvPostId: '36f27dc5-9adc-4ded-918f-d1bf9dc1ad4b',
+    isGrayTheme: true,
+  }
+
+  // CREATE_ONE
+  it('updateGlobalSettingById', async () => {
+    const updateOneTypeDefs = `
+    mutation UpdateGlobalSettingById {
+      updateGlobalSettingById(input: ${JSON.stringify({ ...updatedData, id }).replace(
+        /"([^(")"]+)":/g,
+        '$1:',
+      )}) {
         _id
-        email
-        authorization
-        role
-        avatarUrl
-        username
-        phoneNumber
-        isTOTP
+        releasePostId
+        cvPostId
+        isGrayTheme
         createdAt
         updatedAt
       }
@@ -113,13 +100,13 @@ describe('AuthController (e2e)', () => {
       .post('/graphql')
       .send({
         operationName: null,
-        query: loginTypeDefs,
+        query: updateOneTypeDefs,
       })
       .expect(({ body }) => {
-        const testData: UserModel = body.data.login
-
-        expect(testData._id).toBe(id)
-        expect(testData.email).toBe(loginData.email)
+        const testData: GlobalSettingModel = body.data.updateGlobalSettingById
+        expect(testData.releasePostId).toBe(updatedData.releasePostId)
+        expect(testData.cvPostId).toBe(updatedData.cvPostId)
+        expect(testData.isGrayTheme).toBeTruthy()
       })
       .expect(200)
   })

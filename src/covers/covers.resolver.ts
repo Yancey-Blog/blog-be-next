@@ -6,7 +6,7 @@ import { BatchDeleteModel } from '../database/models/batch-delete.model'
 import { BatchUpdateModel } from '../database/models/batch-update.model'
 import { CreateCoverInput } from './dtos/create-cover.input'
 import { UpdateCoverInput } from './dtos/update-cover.input'
-import { ExchangePositionInput } from '../mottos/dtos/exchange-position.input'
+import { ExchangePositionInput } from '../shared/interfaces/exchange-position.input'
 import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
 
 @Resolver(() => CoverModel)
@@ -16,11 +16,18 @@ export class CoversResolver {
   }
 
   @Query(() => [CoverModel])
+  public async getAllPublicCovers(): Promise<CoverModel[]> {
+    return this.coversService.findAllPubilc()
+  }
+
+  @Query(() => [CoverModel])
+  @UseGuards(GqlAuthGuard)
   public async getCovers() {
     return this.coversService.findAll()
   }
 
   @Query(() => CoverModel)
+  @UseGuards(GqlAuthGuard)
   public async getCoverById(@Args({ name: 'id', type: () => ID }) id: string) {
     return this.coversService.findOneById(id)
   }

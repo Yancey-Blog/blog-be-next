@@ -7,6 +7,7 @@ export interface Player extends Document {
   readonly coverUrl: string
   readonly musicFileUrl: string
   readonly isPublic: boolean
+  readonly weight: number
   readonly createdAt: Date
   readonly updatedAt: Date
 }

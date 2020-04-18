@@ -1,10 +1,10 @@
 import { Field, ObjectType } from '@nestjs/graphql'
-import { IsNotEmpty, IsNumberString } from 'class-validator'
+import { IsNotEmpty, IsNumberString, IsBoolean } from 'class-validator'
 
 @ObjectType()
 export class SendSMSRes {
   @Field()
-  @IsNumberString()
+  @IsBoolean()
   @IsNotEmpty()
-  public readonly verificationCode: string
+  public readonly success: boolean
 }

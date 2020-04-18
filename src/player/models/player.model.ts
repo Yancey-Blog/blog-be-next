@@ -24,6 +24,9 @@ export class PlayerModel {
   public readonly isPublic: boolean
 
   @Field()
+  public readonly weight: number
+
+  @Field()
   public readonly createdAt: Date
 
   @Field()
