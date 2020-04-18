@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.23.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.22.0...v0.23.0) (2020-04-18)
+
+
+### Features
+
+* add covers ([349d58e](https://github.com/Yancey-Blog/blog-be-next/commit/349d58e3cc84c0d66eeef60453e141b416a2d303))
+* check is repeat of username when register ([cd04fe1](https://github.com/Yancey-Blog/blog-be-next/commit/cd04fe17c472d07b1e75389da670915f6ab1d6e3))
+* finish Cover module ([322b1e8](https://github.com/Yancey-Blog/blog-be-next/commit/322b1e8814f75286759cbeed48d330c00e8968f6))
+* integrate SMS to User module ([741b198](https://github.com/Yancey-Blog/blog-be-next/commit/741b19800dd92d09f3393224bdb6c9b5d7323604))
+* support excange position for Player module ([74e508c](https://github.com/Yancey-Blog/blog-be-next/commit/74e508c3f35efe5ff42f9bfb1307573960665a68))
+* support findAllPubilc ([9c74360](https://github.com/Yancey-Blog/blog-be-next/commit/9c74360b37ea81f0159160c6b9fcd5c4c1dedc99))
+* supports exchange position for Player module ([fcfe69f](https://github.com/Yancey-Blog/blog-be-next/commit/fcfe69fa3c550440e84e4a37b69cf4f669ee8217))
+* update checkTimeIsExpired ([029cbff](https://github.com/Yancey-Blog/blog-be-next/commit/029cbff7e9bd64ce6a81f574529eb82e37101c3a))
+* update covers for FE ([b169f49](https://github.com/Yancey-Blog/blog-be-next/commit/b169f495b38fb05165c3acc060153ab7f0cb1c8f))
+* update getAllTags ([28e31dd](https://github.com/Yancey-Blog/blog-be-next/commit/28e31dd154f518c4928b0a54938a0b4cb6d90e62))
+* update SMS module ([1ca0354](https://github.com/Yancey-Blog/blog-be-next/commit/1ca0354643f0a3281b7ae5df482f5705c0359216))
+* update updateEmail ([d6bf445](https://github.com/Yancey-Blog/blog-be-next/commit/d6bf44550d07629318df8d32524a031d6f5cef24))
+
 ## [0.22.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.21.0...v0.22.0) (2020-04-12)
 
 
