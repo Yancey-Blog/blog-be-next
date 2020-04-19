@@ -17,9 +17,14 @@ export class PostsResolver {
   }
 
   @Query(() => PostModel)
+  public async posts(@Args('input') input: PaginationInput) {
+    return this.postsService.findPublicByPagination(input)
+  }
+
+  @Query(() => PostModel)
   @UseGuards(GqlAuthGuard)
   public async getPosts(@Args('input') input: PaginationInput) {
-    return this.postsService.findAll(input)
+    return this.postsService.findByPagination(input)
   }
 
   @Query(() => PostItemModel)

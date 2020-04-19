@@ -23,7 +23,25 @@ export class PostsService {
     return this.postModel.countDocuments()
   }
 
-  public async findAll(input: PaginationInput): Promise<PostModel> {
+  public async findPublicByPagination(input: PaginationInput): Promise<PostModel> {
+    const { page, pageSize, title } = input
+
+    const total = await this.getTotalCount()
+    const items = await this.postModel
+      .find({ title: { $regex: !title ? '' : title }, isPublic: { $ne: false } })
+      .sort({ createdAt: -1 })
+      .skip((page - 1) * pageSize)
+      .limit(pageSize)
+
+    return {
+      total,
+      page,
+      pageSize,
+      items,
+    }
+  }
+
+  public async findByPagination(input: PaginationInput): Promise<PostModel> {
     const { page, pageSize, title } = input
 
     const total = await this.getTotalCount()

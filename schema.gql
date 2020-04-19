@@ -385,6 +385,7 @@ type Query {
   getPlayers: [PlayerModel!]!
   getPlayerById(id: ID!): PlayerModel!
   getAgenda: [AgendaModel!]!
+  posts(input: PaginationInput!): PostModel!
   getPosts(input: PaginationInput!): PostModel!
   getPostById(id: ID!): PostItemModel!
   getTopPVPosts(limit: Int!): [PostItemModel!]!
