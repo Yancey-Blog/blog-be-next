@@ -76,7 +76,7 @@
     "@nestjs/cli": "^7.1.2",
     "@nestjs/schematics": "^7.0.0",
     "@nestjs/testing": "^7.0.7",
-    "@types/ali-oss": "^6.0.4",
+    "@types/ali-oss": "^6.0.5",
     "@types/bcrypt": "^3.0.0",
     "@types/csurf": "^1.9.36",
     "@types/express-rate-limit": "^5.0.0",
