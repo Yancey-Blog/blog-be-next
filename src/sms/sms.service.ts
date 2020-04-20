@@ -10,7 +10,7 @@ import { UsersService } from '../users/users.service'
 import { SMS, AliSMSParams } from './interfaces/sms.interface'
 import { ValidateSMSInput } from './dtos/validateSMS.input'
 import { ALI_SMS_END_POINT, ALI_SMS_API_VERSION, ALI_SMS_REGION } from '../shared/constants'
-import { decodeJwt } from '../shared/utils'
+import { decodeJWT } from '../shared/utils'
 
 @Injectable()
 export class SMSService {
@@ -78,7 +78,7 @@ export class SMSService {
   }
 
   public async validateSMSVerificationCode(input: ValidateSMSInput, token: string) {
-    const { sub: userId } = decodeJwt(token)
+    const { sub: userId } = decodeJWT(token)
 
     const { phoneNumber, smsCode } = input
 
