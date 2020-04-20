@@ -13,7 +13,7 @@ export class DayModel {
   public readonly pv: number
 
   @Field()
-  public readonly createdAt: string
+  public readonly createdAt: Date
 }
 
 @ObjectType()

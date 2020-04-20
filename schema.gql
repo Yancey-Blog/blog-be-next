@@ -160,7 +160,7 @@ type DayModel {
   id: ID!
   title: String!
   pv: Float!
-  createdAt: String!
+  createdAt: DateTime!
 }
 
 input ExchangePositionInput {
