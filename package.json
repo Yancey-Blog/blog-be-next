@@ -49,7 +49,7 @@
     "dotenv": "^8.2.0",
     "express-rate-limit": "^5.0.0",
     "graphql": "^14.6.0",
-    "graphql-tools": "^4.0.7",
+    "graphql-tools": "^5.0.0",
     "helmet": "^3.21.3",
     "moment": "^2.24.0",
     "mongodb": "^3.5.2",
