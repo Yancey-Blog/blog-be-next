@@ -6,6 +6,7 @@ import { UpdatePostInput } from './dtos/update-post.input'
 import { PaginationInput } from './dtos/pagination.input'
 import { PostModel } from './models/posts.model'
 import { PostItemModel } from './models/post.model'
+import { ArchiveModel } from './models/archive.model'
 import { TagsModel } from './models/tags.model'
 import { Post } from './interfaces/posts.interface'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'
@@ -119,5 +120,50 @@ export class PostsService {
     return {
       tags: [...new Set(arr)],
     }
+  }
+
+  public async archive(): Promise<ArchiveModel[]> {
+    const res = await this.postModel.aggregate([
+      { $match: { isPublic: { $ne: false } } },
+      {
+        $group: {
+          _id: {
+            year: { $year: '$createdAt' },
+            month: { $month: '$createdAt' },
+            id: '$_id',
+            title: '$title',
+            pv: '$pv',
+            createdAt: '$createdAt',
+          },
+        },
+      },
+      {
+        $sort: { _id: -1 },
+      },
+      {
+        $group: {
+          _id: { year: '$_id.year', month: '$_id.month' },
+          days: {
+            $push: {
+              id: '$_id.id',
+              title: '$_id.title',
+              pv: '$_id.pv',
+              createdAt: '$_id.createdAt',
+            },
+          },
+        },
+      },
+      {
+        $sort: { _id: -1 },
+      },
+      {
+        $group: {
+          _id: '$_id.year',
+          months: { $push: { month: '$_id.month', days: '$days' } },
+        },
+      },
+    ])
+
+    return res
   }
 }
