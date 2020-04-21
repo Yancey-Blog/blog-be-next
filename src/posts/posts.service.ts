@@ -25,11 +25,15 @@ export class PostsService {
   }
 
   public async findPublicByPagination(input: PaginationInput): Promise<PostModel> {
-    const { page, pageSize, title } = input
+    const { page, pageSize, title, tag } = input
 
     const total = await this.getTotalCount()
     const items = await this.postModel
-      .find({ title: { $regex: !title ? '' : title }, isPublic: { $ne: false } })
+      .find({
+        title: { $regex: !title ? '' : title },
+        tags: tag,
+        isPublic: { $ne: false },
+      })
       .sort({ createdAt: -1 })
       .skip((page - 1) * pageSize)
       .limit(pageSize)

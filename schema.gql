@@ -325,6 +325,7 @@ input PaginationInput {
   page: Float!
   pageSize: Float!
   title: String
+  tag: String
 }
 
 type PlayerModel {
