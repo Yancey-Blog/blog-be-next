@@ -138,9 +138,6 @@ export class PostsService {
         },
       },
       {
-        $sort: { _id: -1 },
-      },
-      {
         $group: {
           _id: { year: '$_id.year', month: '$_id.month' },
           days: {
@@ -161,6 +158,9 @@ export class PostsService {
           _id: '$_id.year',
           months: { $push: { month: '$_id.month', days: '$days' } },
         },
+      },
+      {
+        $sort: { _id: -1 },
       },
     ])
 
