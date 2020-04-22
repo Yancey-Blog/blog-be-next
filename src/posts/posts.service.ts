@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
+import { ForbiddenError } from 'apollo-server-express'
 import { Model } from 'mongoose'
 import { CreatePostInput } from './dtos/create-post.input'
 import { UpdatePostInput } from './dtos/update-post.input'
@@ -66,7 +67,12 @@ export class PostsService {
   }
 
   public async findOneById(id: string): Promise<PostItemModel> {
-    return this.postModel.findById(id)
+    const res = await this.postModel.findById(id)
+    if (!res || res.isPublic === false) {
+      throw new ForbiddenError('Sorry, we couldn’t find this post.')
+    }
+
+    return res
   }
 
   public async create(postInput: CreatePostInput): Promise<PostItemModel> {

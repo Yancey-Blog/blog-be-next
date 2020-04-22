@@ -29,7 +29,6 @@ export class PostsResolver {
   }
 
   @Query(() => PostItemModel)
-  @UseGuards(GqlAuthGuard)
   public async getPostById(@Args({ name: 'id', type: () => ID }) id: string) {
     return this.postsService.findOneById(id)
   }
