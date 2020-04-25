@@ -7,7 +7,6 @@ import { UpdatePostInput } from './dtos/update-post.input'
 import { PaginationInput } from './dtos/pagination.input'
 import { PostModel } from './models/posts.model'
 import { PostItemModel } from './models/post.model'
-import { PostByIdModel } from './models/post-by-id.model'
 import { ArchiveModel } from './models/archive.model'
 import { TagsModel } from './models/tags.model'
 import { Post } from './interfaces/posts.interface'
@@ -67,7 +66,7 @@ export class PostsService {
     }
   }
 
-  public async findOneById(id: string): Promise<PostByIdModel> {
+  public async findOneById(id: string): Promise<PostItemModel> {
     const curr = await this.postModel.findById(id)
     if (!curr || curr.isPublic === false) {
       throw new ForbiddenError('Sorry, we couldn’t find this post.')
