@@ -74,13 +74,14 @@ export class PostsService {
     }
 
     const prev = await this.postModel
-      .find({ _id: { $gt: id }, isPublic: { $ne: false } })
-      .sort({ _id: 1 })
-      .limit(1)
-    const next = await this.postModel
       .find({ _id: { $lt: id }, isPublic: { $ne: false } })
-      .sort({ _id: 1 })
       .limit(1)
+      .sort({ _id: -1 })
+
+    const next = await this.postModel
+      .find({ _id: { $gt: id }, isPublic: { $ne: false } })
+      .limit(1)
+      .sort({ _id: 1 })
 
     const res = {
       ...curr.toObject(),
