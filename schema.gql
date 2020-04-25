@@ -341,6 +341,23 @@ type PlayerModel {
   updatedAt: DateTime!
 }
 
+type PostByIdModel {
+  _id: ID!
+  posterUrl: String!
+  title: String!
+  summary: String!
+  content: String!
+  tags: [String!]!
+  lastModifiedDate: DateTime!
+  like: Float!
+  pv: Float!
+  isPublic: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  prev: PostItemModel
+  next: PostItemModel
+}
+
 type PostItemModel {
   _id: ID!
   posterUrl: String!
@@ -405,7 +422,7 @@ type Query {
   getAgenda: [AgendaModel!]!
   posts(input: PaginationInput!): PostModel!
   getPosts(input: PaginationInput!): PostModel!
-  getPostById(id: ID!): PostItemModel!
+  getPostById(id: ID!): PostByIdModel!
   getTopPVPosts(limit: Int!): [PostItemModel!]!
   getTopLikePosts(limit: Int!): [PostItemModel!]!
   getAllTags: TagsModel!

@@ -3,6 +3,7 @@ import { Args, Query, Resolver, Mutation, ID, Int } from '@nestjs/graphql'
 import { PostsService } from './posts.service'
 import { PostModel } from './models/posts.model'
 import { PostItemModel } from './models/post.model'
+import { PostByIdModel } from './models/post-by-id.model'
 import { ArchiveModel } from './models/archive.model'
 import { TagsModel } from './models/tags.model'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'
@@ -28,7 +29,7 @@ export class PostsResolver {
     return this.postsService.findByPagination(input)
   }
 
-  @Query(() => PostItemModel)
+  @Query(() => PostByIdModel)
   public async getPostById(@Args({ name: 'id', type: () => ID }) id: string) {
     return this.postsService.findOneById(id)
   }
