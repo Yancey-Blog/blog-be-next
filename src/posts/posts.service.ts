@@ -29,7 +29,7 @@ export class PostsService {
     const { page, pageSize, title, tag } = input
 
     const findParams = {
-      title: { $regex: !title ? '' : title },
+      title: { $regex: !title ? '' : title, $options: 'i' },
       isPublic: { $ne: false },
     }
 
