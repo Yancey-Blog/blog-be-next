@@ -10,16 +10,11 @@ COPY package*.json ./
 
 RUN yarn install
 
-COPY . .
+COPY . ./usr/src/api
 
-RUN yarn build
+RUN npm run build
 
-
-FROM node:12-alpine
-
-WORKDIR /usr/src/api
-
-COPY --from=builder /usr/src/api/ .
+COPY . ./usr/src/api
 
 EXPOSE 3002
 
