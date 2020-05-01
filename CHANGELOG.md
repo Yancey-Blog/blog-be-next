@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.23.0...v1.0.0) (2020-05-01)
+
+
+### Features
+
+* sopport next and prev post for findOneById ([30aea72](https://github.com/Yancey-Blog/blog-be-next/commit/30aea72ec899a8e1f5c923de791e8f98fca10714))
+* support archive for posts ([611568e](https://github.com/Yancey-Blog/blog-be-next/commit/611568e2307ca5ed3f27cf45bd179ae86b161981))
+* support Archive for posts ([11cdff1](https://github.com/Yancey-Blog/blog-be-next/commit/11cdff19ffd6b9d877354b7fa042ebe4411783b9))
+* support findOneById for post ([451feb9](https://github.com/Yancey-Blog/blog-be-next/commit/451feb9a117b1882e5eb525229270febfc29b51f))
+* support search Posts by tag ([2647fdb](https://github.com/Yancey-Blog/blog-be-next/commit/2647fdbe70b224d5d1133dd161801909d96deee2))
+* update archive of posts ([59d54f5](https://github.com/Yancey-Blog/blog-be-next/commit/59d54f57833d5b3fb15895eafdfd3df2e9500107))
+* update decodeJWT ([cff0ea2](https://github.com/Yancey-Blog/blog-be-next/commit/cff0ea2f248e021bb420b78a3bc381cbf067fec2))
+* update findOneById ([4db6277](https://github.com/Yancey-Blog/blog-be-next/commit/4db6277025781b952559ed80863c8e0b1f20934e))
+* update findOneById ([ac8999c](https://github.com/Yancey-Blog/blog-be-next/commit/ac8999c956e9d391a8ce9672f389905f92d2bb5b))
+* update findOneByIdPost params ([18dae83](https://github.com/Yancey-Blog/blog-be-next/commit/18dae83acf704b205fc2ff57de8cd9e038905d93))
+* update findPublicByPagination ([19d715d](https://github.com/Yancey-Blog/blog-be-next/commit/19d715d7f333bb174b2af76713797b94545d447e))
+* update post ([864ec81](https://github.com/Yancey-Blog/blog-be-next/commit/864ec81ebcf1fce69b8535f05f6116df7189f70a))
+* update posts for searching tag ([b404ac4](https://github.com/Yancey-Blog/blog-be-next/commit/b404ac4d2ae5f7a2ae71050affadddf0fa47813f))
+
 ## [0.23.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.22.0...v0.23.0) (2020-04-18)
 
 
