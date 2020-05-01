@@ -6,7 +6,7 @@ import { UserModel } from './models/user.model'
 import { UpdateUserInput } from './dtos/update-user.input'
 import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
 import { ReqDecorator } from '../shared/decorators/req.decorator'
-import { decodeJwt } from '../shared/utils'
+import { decodeJWT } from '../shared/utils'
 
 @Resolver(() => UserModel)
 export class UserResolver {
@@ -17,7 +17,7 @@ export class UserResolver {
   @Mutation(() => UserModel)
   @UseGuards(GqlAuthGuard)
   public async updateUser(@Args('input') input: UpdateUserInput, @ReqDecorator() req: Request) {
-    const { sub: userId } = decodeJwt(req.headers.authorization)
+    const { sub: userId } = decodeJWT(req.headers.authorization)
     return this.usersService.updateUser({ ...input, id: userId })
   }
 
