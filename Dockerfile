@@ -6,7 +6,7 @@ LABEL com.yanceyleo.maintainer="Yancey Inc. <yanceyofficial@gmail.com>" \
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package.json ./
 
 RUN yarn install
 
@@ -19,7 +19,7 @@ FROM node:12-alpine
 
 WORKDIR /app
 
-COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/package.json ./
 
 RUN yarn install --only=production
 
