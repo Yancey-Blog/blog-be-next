@@ -4,15 +4,23 @@ LABEL com.yanceyleo.maintainer="Yancey Inc. <yanceyofficial@gmail.com>" \
   com.yanceyleo.version="1.0.0" \
   com.yanceyleo.release-date="2020-05-02"
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/api
 
-RUN yarn install
+COPY package*.json ./
+
+RUN npm install -d --registry=https://registry.npm.taobao.org
+
+COPY . .
 
 RUN yarn build
 
-COPY . ./
+
+FROM node:12-alpine
+
+WORKDIR /usr/src/api
+
+COPY --from=builder /usr/src/api/ .
 
 EXPOSE 3002
 
 CMD ["yarn", "deploy"]
-
