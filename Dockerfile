@@ -6,16 +6,19 @@ LABEL com.yanceyleo.maintainer="Yancey Inc. <yanceyofficial@gmail.com>" \
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+COPY . ./usr/src/app
 
 RUN yarn install
-
-COPY . ./usr/src/app
 
 RUN yarn build
 
 COPY . ./usr/src/app
 
-EXPOSE 3002
+
+FROM node:12-alpine 
+
+WORKDIR /usr/src/app
+
+COPY --from=builder /usr/src/app /usr/src/app
 
 CMD ["yarn", "deploy"]
