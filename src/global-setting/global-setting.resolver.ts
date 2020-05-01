@@ -12,7 +12,6 @@ export class GlobalSettingResolver {
   }
 
   @Query(() => GlobalSettingModel)
-  @UseGuards(GqlAuthGuard)
   public async getGlobalSetting() {
     return this.globalSettingService.findOne()
   }

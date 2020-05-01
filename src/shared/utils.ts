@@ -27,6 +27,6 @@ export const generateRecoveryCodes = () => {
   return codes
 }
 
-export const decodeJwt = (token: string) => jwt.decode(token.slice(7)) as Payload
+export const decodeJWT = (token: string) => jwt.decode(token.slice(7)) as Payload
 
 export const encryptPassword = (password: string) => bcrypt.hashSync(password, 10)

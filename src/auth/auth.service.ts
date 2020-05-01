@@ -15,7 +15,7 @@ import { RegisterInput } from './dtos/register.input'
 import { ValidateTOTPInput } from './dtos/validate-totp.input'
 import { ChangePasswordInput } from './dtos/change-password.input'
 import { TOTP_ENCODE, IP_STACK_URL } from '../shared/constants'
-import { generateQRCode, generateRecoveryCodes, decodeJwt, encryptPassword } from '../shared/utils'
+import { generateQRCode, generateRecoveryCodes, decodeJWT, encryptPassword } from '../shared/utils'
 
 @Injectable()
 export class AuthService {
@@ -73,7 +73,7 @@ export class AuthService {
   }
 
   public async createTOTP(token: string) {
-    const { email } = decodeJwt(token)
+    const { email } = decodeJWT(token)
     const { base32, otpauth_url } = speakeasy.generateSecret({
       name: email,
     })
@@ -83,7 +83,7 @@ export class AuthService {
   }
 
   public async validateTOTP(input: ValidateTOTPInput, token: string) {
-    const { sub: userId } = decodeJwt(token)
+    const { sub: userId } = decodeJWT(token)
     const { key, code } = input
 
     const verified = speakeasy.totp.verify({
@@ -101,7 +101,7 @@ export class AuthService {
   }
 
   public async createRecoveryCodes(token: string) {
-    const { sub: userId } = decodeJwt(token)
+    const { sub: userId } = decodeJWT(token)
 
     const codes = generateRecoveryCodes()
     const res = await this.usersService.updateUser({ id: userId, recoveryCodes: codes })
@@ -110,7 +110,7 @@ export class AuthService {
   }
 
   public async validateRecoveryCode(input: ValidateTOTPInput, token: string) {
-    const { sub: userId } = decodeJwt(token)
+    const { sub: userId } = decodeJWT(token)
 
     const { code } = input
     const { recoveryCodes } = await this.usersService.findOneById(userId)
@@ -131,7 +131,7 @@ export class AuthService {
 
   public async changePassword(input: ChangePasswordInput, token: string) {
     const { oldPassword, newPassword } = input
-    const { sub: userId } = decodeJwt(token)
+    const { sub: userId } = decodeJWT(token)
     const user = await this.usersService.findOneById(userId)
 
     if (user && user.isValidPassword(oldPassword, user.password)) {
@@ -149,7 +149,7 @@ export class AuthService {
     const IP_STACK_ACCESS_KEY = this.configService.getIpStackAccessKey()
     const token = req.headers.authorization
     const userAgent = req.headers['user-agent']
-    const { sub: userId } = decodeJwt(token)
+    const { sub: userId } = decodeJWT(token)
     const ip = requestIP.getClientIp(req)
 
     const network = {

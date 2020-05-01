@@ -37,4 +37,10 @@ export class PostItemModel {
 
   @Field()
   public readonly updatedAt: Date
+
+  @Field(() => PostItemModel, { nullable: true })
+  public readonly prev: PostItemModel | null
+
+  @Field(() => PostItemModel, { nullable: true })
+  public readonly next: PostItemModel | null
 }

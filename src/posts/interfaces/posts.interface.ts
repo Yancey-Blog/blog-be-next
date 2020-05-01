@@ -12,4 +12,6 @@ export interface Post extends Document {
   readonly isPublic: boolean
   readonly createdAt: Date
   readonly updatedAt: Date
+  readonly prev: Post | null
+  readonly next: Post | null
 }
