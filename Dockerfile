@@ -1,31 +1,20 @@
 FROM node:12-alpine as builder
 
 LABEL com.yanceyleo.maintainer="Yancey Inc. <yanceyofficial@gmail.com>" \
-  com.yanceyleo.version="1.1.0" \
-  com.yanceyleo.release-date="2020-05-01"
+  com.yanceyleo.version="1.0.0" \
+  com.yanceyleo.release-date="2020-05-02"
 
 WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN yarn install
+RUN npm install -d --registry=https://registry.npm.taobao.org
 
-COPY . .
+COPY . ./usr/src/app
 
-RUN yarn build
+RUN npm run build
 
-
-FROM node:12-alpine
-
-WORKDIR /usr/src/app
-
-COPY --from=builder /usr/src/app/package*.json ./
-
-RUN yarn install --only=production
-
-COPY . .
-
-COPY --from=builder /usr/src/app/dist ./dist
+COPY . ./usr/src/app
 
 EXPOSE 3002
 
