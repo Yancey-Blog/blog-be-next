@@ -3,6 +3,7 @@ import { Args, Query, Resolver, Mutation, ID, Int } from '@nestjs/graphql'
 import { PostsService } from './posts.service'
 import { PostModel } from './models/posts.model'
 import { PostItemModel } from './models/post.model'
+import { ArchiveModel } from './models/archive.model'
 import { TagsModel } from './models/tags.model'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'
 import { CreatePostInput } from './dtos/create-post.input'
@@ -17,13 +18,17 @@ export class PostsResolver {
   }
 
   @Query(() => PostModel)
+  public async posts(@Args('input') input: PaginationInput) {
+    return this.postsService.findPublicByPagination(input)
+  }
+
+  @Query(() => PostModel)
   @UseGuards(GqlAuthGuard)
   public async getPosts(@Args('input') input: PaginationInput) {
-    return this.postsService.findAll(input)
+    return this.postsService.findByPagination(input)
   }
 
   @Query(() => PostItemModel)
-  @UseGuards(GqlAuthGuard)
   public async getPostById(@Args({ name: 'id', type: () => ID }) id: string) {
     return this.postsService.findOneById(id)
   }
@@ -75,5 +80,10 @@ export class PostsResolver {
   @Query(() => TagsModel)
   public async getAllTags() {
     return this.postsService.getAllTags()
+  }
+
+  @Query(() => [ArchiveModel])
+  public async archive() {
+    return this.postsService.archive()
   }
 }
