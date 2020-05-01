@@ -15,4 +15,7 @@ export class PaginationInput {
 
   @Field({ nullable: true })
   public readonly title?: string
+
+  @Field({ nullable: true })
+  public readonly tag?: string
 }

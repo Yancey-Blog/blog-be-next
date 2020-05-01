@@ -23,6 +23,11 @@ type AnnouncementModel {
   updatedAt: DateTime!
 }
 
+type ArchiveModel {
+  _id: Float!
+  months: [MonthModel!]!
+}
+
 type BatchDeleteModel {
   ok: Float
   n: Float
@@ -151,6 +156,13 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
+type DayModel {
+  id: ID!
+  title: String!
+  pv: Float!
+  createdAt: DateTime!
+}
+
 input ExchangePositionInput {
   id: String!
   exchangedId: String!
@@ -214,6 +226,11 @@ type Location {
 input LoginInput {
   email: String!
   password: String!
+}
+
+type MonthModel {
+  month: Float!
+  days: [DayModel!]!
 }
 
 type MottoModel {
@@ -308,6 +325,7 @@ input PaginationInput {
   page: Float!
   pageSize: Float!
   title: String
+  tag: String
 }
 
 type PlayerModel {
@@ -336,6 +354,8 @@ type PostItemModel {
   isPublic: Boolean!
   createdAt: DateTime!
   updatedAt: DateTime!
+  prev: PostItemModel
+  next: PostItemModel
 }
 
 type PostModel {
@@ -385,11 +405,13 @@ type Query {
   getPlayers: [PlayerModel!]!
   getPlayerById(id: ID!): PlayerModel!
   getAgenda: [AgendaModel!]!
+  posts(input: PaginationInput!): PostModel!
   getPosts(input: PaginationInput!): PostModel!
   getPostById(id: ID!): PostItemModel!
   getTopPVPosts(limit: Int!): [PostItemModel!]!
   getTopLikePosts(limit: Int!): [PostItemModel!]!
   getAllTags: TagsModel!
+  archive: [ArchiveModel!]!
   getMottos: [MottoModel!]!
   getMottoById(id: ID!): MottoModel!
   getAllPublicCovers: [CoverModel!]!
