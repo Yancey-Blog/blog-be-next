@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:12-alpine as builder
 
 LABEL com.yanceyleo.maintainer="Yancey Inc. <yanceyofficial@gmail.com>" \
   com.yanceyleo.version="1.1.0" \
@@ -6,7 +6,7 @@ LABEL com.yanceyleo.maintainer="Yancey Inc. <yanceyofficial@gmail.com>" \
 
 WORKDIR /usr/src/app
 
-COPY package*.json /usr/src/app
+COPY package*.json ./
 
 RUN yarn install
 
@@ -14,7 +14,18 @@ COPY . .
 
 RUN yarn build
 
-COPY /usr/src/app/dist ./dist
+
+FROM node:12-alpine
+
+WORKDIR /usr/src/app
+
+COPY --from=builder /usr/src/app/package*.json ./
+
+RUN yarn install --only=production
+
+COPY . .
+
+COPY --from=builder /usr/src/app/dist ./dist
 
 EXPOSE 3002
 
