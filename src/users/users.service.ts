@@ -6,7 +6,7 @@ import { ForbiddenError } from 'apollo-server-express'
 import { User } from './interfaces/user.interface'
 import { UpdateUserInput } from './dtos/update-user.input'
 import { RegisterInput } from '../auth/dtos/register.input'
-import { decodeJwt } from '../shared/utils'
+import { decodeJWT } from '../shared/utils'
 
 @Injectable()
 export class UsersService {
@@ -43,7 +43,7 @@ export class UsersService {
   }
 
   public async updateUserName(username: string, req: Request): Promise<User> {
-    const { sub: id } = decodeJwt(req.headers.authorization)
+    const { sub: id } = decodeJWT(req.headers.authorization)
     const user = await this.findOneByUserName(username)
 
     if (!user) {
@@ -54,7 +54,7 @@ export class UsersService {
   }
 
   public async updateEmail(email: string, req: Request): Promise<User> {
-    const { sub: id } = decodeJwt(req.headers.authorization)
+    const { sub: id } = decodeJWT(req.headers.authorization)
     const user = await this.findOneByEmail(email)
 
     if (!user) {
@@ -64,7 +64,7 @@ export class UsersService {
   }
 
   public async deleteOneById(req: Request): Promise<User> {
-    const { sub: id } = decodeJwt(req.headers.authorization)
+    const { sub: id } = decodeJWT(req.headers.authorization)
     return this.UserModel.findByIdAndDelete(id)
   }
 }
