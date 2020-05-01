@@ -8,11 +8,11 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN yarn start
+RUN yarn install
 
 COPY . ./usr/src/app
 
-RUN npm run build
+RUN yarn build
 
 COPY . ./usr/src/app
 
