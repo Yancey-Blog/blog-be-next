@@ -15,10 +15,13 @@ export const configMiddlewares = (app: INestApplication) => {
   app.use(morgan('combined'))
   app.use(helmet())
   app.enableCors({
-    origin: isEnvProduction ? /.*\.yanceyleo\.com/ : false,
-    methods: ['PUT, POST, GET, DELETE, OPTIONS'],
-    allowedHeaders: ['*'],
-    exposedHeaders: ['*'],
+    // origin: isEnvProduction ? /.*\.yanceyleo\.com/ : false,
+    // methods: ['PUT, POST, GET, DELETE, OPTIONS'],
+    // allowedHeaders: ['*'],
+    // exposedHeaders: ['*'],
+    origin: true,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    credentials: true,
   })
   app.use(
     rateLimit({
