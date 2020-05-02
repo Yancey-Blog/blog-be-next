@@ -17,11 +17,11 @@ export const configMiddlewares = (app: INestApplication) => {
   app.enableCors({
     // origin: isEnvProduction ? /.*\.yanceyleo\.com/ : false,
     // methods: ['PUT, POST, GET, DELETE, OPTIONS'],
-    // allowedHeaders: ['*'],
-    // exposedHeaders: ['*'],
-    origin: true,
+    origin: ['https://www.yanceyleo.com', 'https://yanceyleo.com', 'https://cms.yanceyleo.com'],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
+    allowedHeaders: '*',
+    exposedHeaders: '*',
   })
   app.use(
     rateLimit({
