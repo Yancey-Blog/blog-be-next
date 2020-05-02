@@ -15,7 +15,7 @@ export const configMiddlewares = (app: INestApplication) => {
   app.use(morgan('combined'))
   app.use(helmet())
   app.enableCors({
-    origin: isEnvProduction ? /\*.yanceyleo.com/ : false,
+    origin: isEnvProduction ? /.*\.yanceyleo\.com/ : false,
   })
   app.use(
     rateLimit({
