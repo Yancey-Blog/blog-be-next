@@ -16,7 +16,9 @@ export const configMiddlewares = (app: INestApplication) => {
   app.use(helmet())
   app.enableCors({
     origin: isEnvProduction ? /.*\.yanceyleo\.com/ : false,
-    methods: ['POST'],
+    methods: ['PUT, POST, GET, DELETE, OPTIONS'],
+    allowedHeaders: ['*'],
+    exposedHeaders: ['*'],
   })
   app.use(
     rateLimit({
