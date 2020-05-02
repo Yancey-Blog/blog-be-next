@@ -5,6 +5,7 @@ import bodyParser from 'body-parser'
 import morgan from 'morgan'
 import helmet from 'helmet'
 import rateLimit from 'express-rate-limit'
+import { CORS_ORIGINS } from '../constants'
 
 export const configMiddlewares = (app: INestApplication) => {
   const isEnvProduction = process.env.NODE_ENV === 'production'
@@ -14,18 +15,17 @@ export const configMiddlewares = (app: INestApplication) => {
   app.use(bodyParser.urlencoded({ extended: true }))
   app.use(morgan('combined'))
   app.use(helmet())
-  app.enableCors({
-    origin: [
-      'https://www.yanceyleo.com',
-      'https://yanceyleo.com',
-      'https://cms.yanceyleo.com',
-      'http://localhost:3001',
-    ],
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-    credentials: true,
-    preflightContinue: true,
-    optionsSuccessStatus: 204,
-  })
+  app.enableCors(
+    isEnvProduction
+      ? {
+          origin: CORS_ORIGINS,
+          methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+          credentials: true,
+          preflightContinue: true,
+          optionsSuccessStatus: 204,
+        }
+      : {},
+  )
   app.use(
     rateLimit({
       windowMs: 15 * 60 * 1000,

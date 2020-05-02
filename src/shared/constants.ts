@@ -21,3 +21,9 @@ export const ALI_SMS_REGION = 'cn-hangzhou'
 export const SCHEMA_GQL_FILE_NAME = 'schema.gql'
 
 export const TOTP_ENCODE = 'base32'
+
+export const CORS_ORIGINS = [
+  'https://www.yanceyleo.com',
+  'https://yanceyleo.com',
+  'https://cms.yanceyleo.com',
+]
