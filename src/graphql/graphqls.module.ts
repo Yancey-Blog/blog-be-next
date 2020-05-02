@@ -13,10 +13,10 @@ import { SCHEMA_GQL_FILE_NAME } from '../shared/constants'
         typePaths: ['./**/*.graphql'],
         autoSchemaFile: SCHEMA_GQL_FILE_NAME,
         context: ({ req }) => ({ req }),
-        // cors: {
-        //   credentials: true,
-        //   origin: true,
-        // },
+        cors: {
+          credentials: true,
+          origin: true,
+        },
         formatError(error: ValidationError) {
           const { message, path } = error
           return configService.isEnvProduction
