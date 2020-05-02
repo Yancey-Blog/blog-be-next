@@ -15,14 +15,14 @@ export const configMiddlewares = (app: INestApplication) => {
   app.use(morgan('combined'))
   app.use(helmet())
   app.enableCors({
-    // origin: isEnvProduction ? /.*\.yanceyleo\.com/ : false,
-    // methods: ['PUT, POST, GET, DELETE, OPTIONS'],
-    // origin: ['https://www.yanceyleo.com', 'https://yanceyleo.com', 'https://cms.yanceyleo.com'],
-    origin: '*',
+    origin: [
+      'https://www.yanceyleo.com',
+      'https://yanceyleo.com',
+      'https://cms.yanceyleo.com',
+      'http://localhost:3001',
+    ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
-    // allowedHeaders: '*',
-    // exposedHeaders: '*',
     preflightContinue: true,
     optionsSuccessStatus: 204,
   })
