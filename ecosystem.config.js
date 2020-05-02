@@ -5,6 +5,7 @@ module.exports = {
       script: 'dist/main.js',
       watch: true,
       autorestart: true,
+      instances: 'max',
       max_memory_restart: '1G',
       exec_mode: 'cluster',
       env: {
