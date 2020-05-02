@@ -7,18 +7,20 @@ import helmet from 'helmet'
 import rateLimit from 'express-rate-limit'
 
 export const configMiddlewares = (app: INestApplication) => {
+  const isEnvProduction = process.env.NODE_ENV === 'production'
+
   app.use(serveFavicon(path.join(process.cwd(), 'public/favicon.ico')))
   app.use(bodyParser.json())
   app.use(bodyParser.urlencoded({ extended: true }))
   app.use(morgan('combined'))
   app.use(helmet())
   app.enableCors({
-    origin: ['https://cms.yanceyleo.com', 'https://yanceyleo.com', 'https://www.yanceyleo.com'],
+    origin: isEnvProduction ? /\*.yanceyleo.com/ : false,
   })
   app.use(
     rateLimit({
-      windowMs: 15 * 60 * 1000, // 15 minutes
-      max: 100, // limit each IP to 100 requests per windowMs
+      windowMs: 15 * 60 * 1000,
+      max: 100,
     }),
   )
 }
