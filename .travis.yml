@@ -1,27 +1,22 @@
 language: node_js
-
 sudo: true
-
 branchs:
   only:
-    - master
-
+  - master
 services:
-  - mongodb
-
+- mongodb
 node_js:
-  - '12'
-
+- '12'
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 install:
-  - yarn install
-
+- yarn install
 script:
-  - yarn test
-  - yarn build
-
+- yarn test
+- yarn build
 after_success:
-  - yarn codecov
+- yarn codecov
+before_install:
+- openssl aes-256-cbc -K $encrypted_ab1a82dd775b_key -iv $encrypted_ab1a82dd775b_iv
+  -in id_rsa.enc -out ~\/.ssh/id_rsa -d
