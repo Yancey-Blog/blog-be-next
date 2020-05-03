@@ -3,8 +3,8 @@ module.exports = {
     {
       name: 'blog-be',
       script: './dist/main.js',
-      watch: true,
-      ignore_watch: ['logs'],
+      watch: ['./dist/'],
+      ignore_watch: ['node_modules'],
       autorestart: true,
       max_memory_restart: '1G',
       instances: 2,
