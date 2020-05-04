@@ -242,7 +242,6 @@ type MottoModel {
 }
 
 type Mutation {
-  register(input: RegisterInput!): UserModel!
   createTOTP: TOTPModel!
   validateTOTP(input: ValidateTOTPInput!): UserModel!
   createRecoveryCodes: RecoveryCodeModel!
@@ -423,12 +422,6 @@ type Query {
 
 type RecoveryCodeModel {
   recoveryCodes: [String!]!
-}
-
-input RegisterInput {
-  email: String!
-  username: String!
-  password: String!
 }
 
 type SendSMSRes {

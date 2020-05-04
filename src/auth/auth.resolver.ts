@@ -24,10 +24,11 @@ export class AuthResolver {
     return this.authService.login(input)
   }
 
-  @Mutation(() => UserModel)
-  public async register(@Args('input') input: RegisterInput) {
-    return this.authService.register(input)
-  }
+  // 暂时不开放注册
+  // @Mutation(() => UserModel)
+  // public async register(@Args('input') input: RegisterInput) {
+  //   return this.authService.register(input)
+  // }
 
   @Mutation(() => TOTPModel)
   @UseGuards(GqlAuthGuard)
