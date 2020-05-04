@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.0.0...v1.1.0) (2020-05-04)
+
+
+### Features
+
+* add Credible origins for CORS policy ([6e08d37](https://github.com/Yancey-Blog/blog-be-next/commit/6e08d372c5b5a4fcc8533daa997c220737c4c70f))
+* add Credible origins for CORS policy ([ef6b033](https://github.com/Yancey-Blog/blog-be-next/commit/ef6b033cdc350bf1699720d779e7fa70a413ac6f))
+* delete useless file ([b3f7fc5](https://github.com/Yancey-Blog/blog-be-next/commit/b3f7fc5c555055f0d6a33a39d9d40e63fbd6fa8a))
+* delete useless file ([4bff8b3](https://github.com/Yancey-Blog/blog-be-next/commit/4bff8b3b9349e74bdb64011ce9cffc993c576802))
+* do not register now! ([17e3e44](https://github.com/Yancey-Blog/blog-be-next/commit/17e3e443a345150671a54786362ea53d28e6fad2))
+* login database via username and password ([121c4bd](https://github.com/Yancey-Blog/blog-be-next/commit/121c4bdcc0037018539e594336b09729a5da6746))
+* resolve CORS ([5dd0fad](https://github.com/Yancey-Blog/blog-be-next/commit/5dd0fadf7c47f5ca65e6b100d223c9c9d353449e))
+* update CORS ([214efcc](https://github.com/Yancey-Blog/blog-be-next/commit/214efcca5af9b08b078ac8dd7b2098d5e99fb003))
+* update CORS ([ce9add4](https://github.com/Yancey-Blog/blog-be-next/commit/ce9add43f0c57347cf5fcdc54c221e482d2f22c4))
+* update CORS config ([01867a5](https://github.com/Yancey-Blog/blog-be-next/commit/01867a5358cc8cf5d934b775619f5699084096da))
+* update CORS policy ([d0c006a](https://github.com/Yancey-Blog/blog-be-next/commit/d0c006aef3479f10fdcfd82151abf37fdde2b974))
+* update CORS policy ([54ed506](https://github.com/Yancey-Blog/blog-be-next/commit/54ed5063511f1ecf581abf6a152073ad768a99f9))
+* update CORS policy ([72b0322](https://github.com/Yancey-Blog/blog-be-next/commit/72b03229f9ae12521f777621ad4700c4f9049880))
+* update CORS policy ([177510b](https://github.com/Yancey-Blog/blog-be-next/commit/177510b3b169e91095d4b4b66eb3ef4e4619b385))
+* update docker-file ([8da3b81](https://github.com/Yancey-Blog/blog-be-next/commit/8da3b81c8a83937ba19452039d720ad7f2ba4724))
+* update dockerfile ([1b108bc](https://github.com/Yancey-Blog/blog-be-next/commit/1b108bc692b7d1ac96defdd30d16762160e77b03))
+* update Dockerfile ([0b5a458](https://github.com/Yancey-Blog/blog-be-next/commit/0b5a45834eb42721d8c6c952d2ed7ba69207e6d2))
+* update ecosystem.config.js ([47860a0](https://github.com/Yancey-Blog/blog-be-next/commit/47860a0d4c4cb72c7844170dde7aa16b49dd21ed))
+* update findOneById ([0b3deff](https://github.com/Yancey-Blog/blog-be-next/commit/0b3deff679090f40c4e90ead29172b70215eb52f))
+* update GrpahqlQL module ([345766c](https://github.com/Yancey-Blog/blog-be-next/commit/345766c6cf7c7a29913a8cd585ef4591fa2d49c2))
+* update regexp for CORS policy ([44cbabb](https://github.com/Yancey-Blog/blog-be-next/commit/44cbabbe92724e0d6caaddfe050ad9bc693b36f7))
+
 ## [1.0.0](https://github.com/Yancey-Blog/blog-be-next/compare/v0.23.0...v1.0.0) (2020-05-01)
 
 
