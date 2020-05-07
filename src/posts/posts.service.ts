@@ -55,7 +55,7 @@ export class PostsService {
 
     const total = await this.getTotalCount()
     const items = await this.postModel
-      .find({ title: { $regex: !title ? '' : title } })
+      .find({ title: { $regex: !title ? '' : title, $options: 'i' } })
       .sort({ createdAt: -1 })
       .skip((page - 1) * pageSize)
       .limit(pageSize)
