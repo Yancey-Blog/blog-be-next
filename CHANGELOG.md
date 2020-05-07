@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/Yancey-Blog/blog-be-next/compare/v1.1.0...v1.1.1) (2020-05-07)
+
+
+### Bug Fixes
+
+* fix findByPagination's regexp ([509f2d1](https://github.com/Yancey-Blog/blog-be-next/commit/509f2d1375c57d97f68cc9e3480a5bb562102a76))
+
 ## [1.1.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.0.0...v1.1.0) (2020-05-04)
 
 
