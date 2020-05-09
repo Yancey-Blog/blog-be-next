@@ -14,7 +14,10 @@ import { SCHEMA_GQL_FILE_NAME } from '../shared/constants'
         autoSchemaFile: SCHEMA_GQL_FILE_NAME,
         context: ({ req }) => ({ req }),
         formatError(error: ValidationError) {
-          const { message, code } = error
+          const {
+            message,
+            extensions: { code },
+          } = error
           return configService.isEnvProduction
             ? {
                 code,
