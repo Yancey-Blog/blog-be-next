@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.1.1...v1.2.0) (2020-05-09)
+
+
+### Features
+
+* **graphqls.module.ts:** update graphql error response strcture ([010e5ec](https://github.com/Yancey-Blog/blog-be-next/commit/010e5ec278fa907aee6f4c03e1cf36d45c3f0e2d))
+
 ### [1.1.1](https://github.com/Yancey-Blog/blog-be-next/compare/v1.1.0...v1.1.1) (2020-05-07)
 
 
