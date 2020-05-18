@@ -76,7 +76,7 @@ Uses [compodoc](https://github.com/compodoc/compodoc) to generate an awesome doc
 
 ### yarn test
 
-Tests your cases by jest.
+Runs Jest via yarn test.
 
 ### yarn commit
 
