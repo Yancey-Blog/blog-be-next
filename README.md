@@ -68,18 +68,11 @@ This script will delete the old `dist` folder before build.
 ### yarn watch
 
 Runs the app in the development mode.
-Open [http://localhost:3002](http://localhost:3002) to view it in the browser.
+Open [http://localhost:3002](http://localhost:3002) to view it in the browser. The page will reload if you make edits. You will also see any lint errors in the console.
 
-The page will reload if you make edits.
-You will also see any lint errors in the console.
-
-### yarn document:nest
+### yarn document
 
 Uses [compodoc](https://github.com/compodoc/compodoc) to generate an awesome document for this app.
-
-### yarn document:gql
-
-Uses [graphdoc](https://github.com/2fd/graphdoc) to generate an awesome graphql schema document for this app.
 
 ### yarn test
 
@@ -139,6 +132,7 @@ IP_STACK_ACCESS_KEY=<YOUR_IP_STACK_ACCESS_KEY>
 JWT_SECRET_KEY=<YOUR_JWT_SECRET_KEY>
 JWT_EXPIRES_TIME=<YOUR_JWT_EXPIRES_TIME>
 
+# Only works in the development environment
 NEED_SIMULATE_NETWORK_THROTTLE=<BOOLEAN>
 ```
 
