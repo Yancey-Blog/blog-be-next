@@ -161,11 +161,11 @@ The following are **prehistoric changelogs** on building infrastructure for this
 
 ## TODOs
 
-- [ ] full text search for post
+- [ ] Full text search for post
 
-- [ ] vilidation schema optimization
+- [ ] Vilidation schema optimization
 
-- [ ] support forget password
+- [ ] Support forget password
 
 - [ ] Dockerize
 
