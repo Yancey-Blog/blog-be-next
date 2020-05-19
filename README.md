@@ -16,12 +16,10 @@ _This library is part of the [BPG (Blog Project Group)](https://github.com/Yance
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.2.1-blue.svg)](https://conventionalcommits.org)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](https://github.com/Yancey-Blog/blog-be-next/pulls)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-[![Gitter](https://badges.gitter.im/yancey-official/community.svg)](https://gitter.im/yancey-official/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
+[![Gitter](https://badges.gitter.im/yancey-official/community.svg)](https://gitter.im/yancey-official/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/Yancey-Blog/blog-be-next.svg)](http://isitmaintained.com/project/Yancey-Blog/blog-be-next 'Average time to resolve an issue')
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/Yancey-Blog/blog-be-next.svg)](http://isitmaintained.com/project/Yancey-Blog/blog-be-next 'Percentage of issues still open')
-[![devDependencies Status](https://david-dm.org/Yancey-Blog/blog-be-next/dev-status.svg)](https://david-dm.org/Yancey-Blog/blog-be-next?type=dev)
-[![dependencies Status](https://david-dm.org/Yancey-Blog/blog-be-next/status.svg)](https://david-dm.org/Yancey-Blog/blog-be-next)
 
 ⭐️ _Found it cool? Want more updates?_ [**Show your support by giving a ⭐️**](https://github.com/Yancey-Blog/blog-be-next/stargazers)
 
@@ -52,6 +50,7 @@ _This library is part of the [BPG (Blog Project Group)](https://github.com/Yance
   - [Uses Env Files](#uses-env-files)
   - [E2E Test](#e2e-test)
 - [Changelogs](#changelogs)
+- [TODOs](#todos)
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -157,6 +156,18 @@ The following are **prehistoric changelogs** on building infrastructure for this
 - 2019-10-20 Integrates MongoDB and write the first RESTful CRUD.
 
 - 2019-10-12 Initital repo.
+
+[⇧ back to top](#Menu)
+
+## TODOs
+
+- [ ] Full text search for post
+
+- [ ] Vilidation schema optimization
+
+- [ ] Support forget password
+
+- [ ] Dockerize
 
 [⇧ back to top](#Menu)
 
