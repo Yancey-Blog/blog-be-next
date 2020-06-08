@@ -2234,14 +2234,6 @@ apollo-server-env@^2.4.3, apollo-server-env@^2.4.4:
     node-fetch "^2.1.2"
     util.promisify "^1.0.0"
 
-apollo-server-env@^2.4.4:
-  version "2.4.4"
-  resolved "https://registry.yarnpkg.com/apollo-server-env/-/apollo-server-env-2.4.4.tgz#12d2d0896dcb184478cba066c7a683ab18689ca1"
-  integrity sha512-c2oddDS3lwAl6QNCIKCLEzt/dF9M3/tjjYRVdxOVN20TidybI7rAbnT4QOzf4tORnGXtiznEAvr/Kc9ahhKADg==
-  dependencies:
-    node-fetch "^2.1.2"
-    util.promisify "^1.0.0"
-
 apollo-server-errors@^2.4.1:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/apollo-server-errors/-/apollo-server-errors-2.4.1.tgz#16ad49de6c9134bfb2b7dede9842e73bb239dbe2"
@@ -11653,10 +11645,10 @@ yaml@^1.7.2:
   dependencies:
     "@babel/runtime" "^7.8.7"
 
-yancey-js-util@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/yancey-js-util/-/yancey-js-util-2.0.1.tgz#59c3f6656001555c3f56990dfe442224b1d7d19b"
-  integrity sha512-ugAKwxAOqOujEarOHcHapQHOfYbmqN3cJoWTxJ+cBzwFLZ8RuTj4K9KKfAzv2wC1ZoxBi8S72lcufg1ghMai7Q==
+yancey-js-util@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/yancey-js-util/-/yancey-js-util-3.0.0.tgz#0cc39f948c1451b43b9da878b459a231efb50d14"
+  integrity sha512-M+66hnYBnnGsA6Fhs+F7nC/LrQR99Ug5i/9iLcRo8jeX7ml1DihZFG4xnZnEUVF5flsPysA580A9yyrJdJtMzw==
 
 yargs-parser@18.x, yargs-parser@^18.1.1:
   version "18.1.2"
