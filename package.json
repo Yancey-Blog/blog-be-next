@@ -51,7 +51,7 @@
     "graphql-tools": "^5.0.0",
     "helmet": "^3.21.3",
     "moment": "^2.24.0",
-    "mongodb": "^3.5.2",
+    "mongodb": "^3.5.8",
     "mongoose": "^5.9.13",
     "morgan": "^1.9.1",
     "node-fetch": "^2.6.0",
