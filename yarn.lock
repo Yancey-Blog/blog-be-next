@@ -2234,14 +2234,6 @@ apollo-server-env@^2.4.3, apollo-server-env@^2.4.4:
     node-fetch "^2.1.2"
     util.promisify "^1.0.0"
 
-apollo-server-env@^2.4.4:
-  version "2.4.4"
-  resolved "https://registry.yarnpkg.com/apollo-server-env/-/apollo-server-env-2.4.4.tgz#12d2d0896dcb184478cba066c7a683ab18689ca1"
-  integrity sha512-c2oddDS3lwAl6QNCIKCLEzt/dF9M3/tjjYRVdxOVN20TidybI7rAbnT4QOzf4tORnGXtiznEAvr/Kc9ahhKADg==
-  dependencies:
-    node-fetch "^2.1.2"
-    util.promisify "^1.0.0"
-
 apollo-server-errors@^2.4.1:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/apollo-server-errors/-/apollo-server-errors-2.4.1.tgz#16ad49de6c9134bfb2b7dede9842e73bb239dbe2"
@@ -5624,7 +5616,7 @@ graphql-tag@^2.9.2:
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.10.3.tgz#ea1baba5eb8fc6339e4c4cf049dabe522b0edf03"
   integrity sha512-4FOv3ZKfA4WdOKJeHdz6B3F/vxBLSgmBcGeAFPf4n1F64ltJUvOOerNj0rsJxONQGdhUMynQIvd6LzB+1J5oKA==
 
-graphql-tools@5.0.0, graphql-tools@^5.0.0:
+graphql-tools@5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/graphql-tools/-/graphql-tools-5.0.0.tgz#67281c834a0e29f458adba8018f424816fa627e9"
   integrity sha512-5zn3vtn//382b7G3Wzz3d5q/sh+f7tVrnxeuhTMTJ7pWJijNqLxH7VEzv8VwXCq19zAzHYEosFHfXiK7qzvk7w==
