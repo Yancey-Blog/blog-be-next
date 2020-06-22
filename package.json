@@ -41,7 +41,7 @@
     "ali-oss": "^6.7.0",
     "apollo-server-express": "^2.14.2",
     "axios": "^0.19.1",
-    "bcrypt": "^4.0.1",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "class-transformer": "^0.2.3",
     "class-validator": "^0.12.2",
