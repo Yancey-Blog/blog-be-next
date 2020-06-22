@@ -69,7 +69,7 @@
     "yancey-js-util": "^2.0.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.2.0",
+    "@commitlint/cli": "^9.0.1",
     "@commitlint/config-conventional": "^8.3.4",
     "@nestjs/cli": "^7.1.5",
     "@nestjs/schematics": "^7.0.0",
