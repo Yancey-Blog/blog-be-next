@@ -4,7 +4,7 @@
 
 The backend platform for Yancey Official Blog with Node.js, nestjs, MongoDB, GraphQL, Apollo Server, JWT and more...
 
-_This library is part of the [BPG (Blog Project Group)](https://github.com/Yancey-Blog)_ ecosystem 📖
+_This library is part of the [BEG (Blog Environment Group)](https://github.com/Yancey-Blog)_ ecosystem 📖
 
 [![Build Status](https://travis-ci.com/Yancey-Blog/blog-be-next.svg?branch=master)](https://travis-ci.com/Yancey-Blog/blog-be-next)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/899c1498056d402284353047fcde0632)](https://www.codacy.com/manual/YanceyOfficial/blog-be-next?utm_source=github.com&utm_medium=referral&utm_content=Yancey-Blog/blog-be-next&utm_campaign=Badge_Grade)
@@ -85,11 +85,11 @@ An optional way to use `git cz` if you don't want to install `commitizen` global
 
 ## Contributing
 
-The main purpose of this repository is to continue to evolve BPG (Blog Project Group), making it faster and easier to use. Development of Blog BE Next happens in the open on GitHub, and we are grateful to the community for contributing bugfixes and improvements. Read below to learn how you can take part in improving Blog BE Next.
+The main purpose of this repository is to continue to evolve BEG (Blog Environment Group), making it faster and easier to use. Development of Blog BE Next happens in the open on GitHub, and we are grateful to the community for contributing bugfixes and improvements. Read below to learn how you can take part in improving Blog BE Next.
 
 ### [Code of Conduct](./CODE_OF_CONDUCT.md)
 
-[BPG](https://github.com/Yancey-Blog) has adopted a Code of Conduct that we expect project participants to adhere to. Please read [the full text](./CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
+[BEG](https://github.com/Yancey-Blog) has adopted a Code of Conduct that we expect project participants to adhere to. Please read [the full text](./CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
 
 ### [Contributing Guide](./CONTRIBUTING.md)
 
