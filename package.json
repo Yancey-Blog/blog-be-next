@@ -90,7 +90,7 @@
     "@types/request-ip": "^0.0.35",
     "@types/serve-favicon": "^2.5.0",
     "@types/speakeasy": "^2.0.5",
-    "@types/supertest": "^2.0.9",
+    "@types/supertest": "^2.0.10",
     "@types/ua-parser-js": "^0.7.33",
     "@types/uuid": "^8.0.0",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
