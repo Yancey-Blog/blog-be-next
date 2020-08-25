@@ -77,7 +77,7 @@
     "@types/ali-oss": "^6.0.5",
     "@types/bcrypt": "^3.0.0",
     "@types/csurf": "^1.9.36",
-    "@types/express-rate-limit": "^5.0.0",
+    "@types/express-rate-limit": "^5.1.0",
     "@types/hapi__joi": "^16.0.12",
     "@types/helmet": "^0.0.47",
     "@types/jest": "^26.0.10",
