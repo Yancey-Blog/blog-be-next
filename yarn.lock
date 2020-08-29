@@ -1360,7 +1360,7 @@
     tslib "2.0.1"
     uuid "8.3.0"
 
-"@nestjs/graphql@^7.3.4":
+"@nestjs/graphql@^7.6.0":
   version "7.6.0"
   resolved "https://registry.npmjs.org/@nestjs/graphql/-/graphql-7.6.0.tgz#1db5db1e9772a9c75dadae59dfe563fad69816d2"
   integrity sha512-pBxeHdlJES+ZPh98d9eHTk/OJZvAoy6Mxo08mPG2UMXV09D9oJZTPs8ukPY16bAaf5vHYb8HmEaeSXkzdHCB9w==
@@ -6146,7 +6146,7 @@ graphql-tools@^4.0.0:
     iterall "^1.1.3"
     uuid "^3.1.0"
 
-graphql-tools@^6.0.18:
+graphql-tools@^6.1.0:
   version "6.1.0"
   resolved "https://registry.npmjs.org/graphql-tools/-/graphql-tools-6.1.0.tgz#a9a5acc8c3abf5e209dd37a82666cf7a7923c3e9"
   integrity sha512-TsPUFYc6wg4AN8lH/1Zgvw8kq7UJmvHv7NktyHFK2M7iix7yWrNkOSD6l/RpE8X79gVDZ6p99LGfNU6+r++6AA==
