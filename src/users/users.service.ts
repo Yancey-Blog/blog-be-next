@@ -12,34 +12,34 @@ import { decodeJWT } from '../shared/utils'
 export class UsersService {
   constructor(
     @InjectModel('User')
-    private readonly UserModel: Model<User>,
+    private readonly userModel: Model<User>,
   ) {
-    this.UserModel = UserModel
+    this.userModel = userModel
   }
 
   public async getUserCount(): Promise<number> {
-    return this.UserModel.estimatedDocumentCount()
+    return this.userModel.estimatedDocumentCount()
   }
 
   public async findOneById(id: string): Promise<User> {
-    return this.UserModel.findById(id)
+    return this.userModel.findById(id)
   }
 
   public async findOneByEmail(email: string): Promise<User> {
-    return this.UserModel.findOne({ email })
+    return this.userModel.findOne({ email })
   }
 
   public async findOneByUserName(username: string): Promise<User> {
-    return this.UserModel.findOne({ username })
+    return this.userModel.findOne({ username })
   }
 
   public async create(input: RegisterInput): Promise<User> {
-    return this.UserModel.create(input)
+    return this.userModel.create(input)
   }
 
   public async updateUser(input: UpdateUserInput): Promise<User> {
     const { id, ...rest } = input
-    return this.UserModel.findByIdAndUpdate(id, rest, { new: true })
+    return this.userModel.findByIdAndUpdate(id, rest, { new: true })
   }
 
   public async updateUserName(username: string, req: Request): Promise<User> {
@@ -47,7 +47,7 @@ export class UsersService {
     const user = await this.findOneByUserName(username)
 
     if (!user) {
-      return this.UserModel.findByIdAndUpdate(id, { username }, { new: true })
+      return this.userModel.findByIdAndUpdate(id, { username }, { new: true })
     }
 
     throw new ForbiddenError(`The username「${username}」 has been used.`)
@@ -58,13 +58,13 @@ export class UsersService {
     const user = await this.findOneByEmail(email)
 
     if (!user) {
-      return this.UserModel.findByIdAndUpdate(id, { email }, { new: true })
+      return this.userModel.findByIdAndUpdate(id, { email }, { new: true })
     }
     throw new ForbiddenError(`The email「${email}」 has been used.`)
   }
 
   public async deleteOneById(req: Request): Promise<User> {
     const { sub: id } = decodeJWT(req.headers.authorization)
-    return this.UserModel.findByIdAndDelete(id)
+    return this.userModel.findByIdAndDelete(id)
   }
 }
