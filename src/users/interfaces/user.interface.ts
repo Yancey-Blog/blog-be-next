@@ -14,23 +14,22 @@ export enum Roles {
 }
 
 export interface User extends Document {
-  _id: string
-  username: string
-  email: string
   password: string
-  role: Roles
-  name: string
-  location: string
-  organization: string
-  website: string
-  bio: string
-  avatarUrl: string
-  phoneNumber: string
-  isTOTP: boolean
-  totpSecret: string
-  recoveryCodes: string[]
-  loginStatistics: IPModel[]
-  createdAt: Date
-  updatedAt: Date
+  readonly username: string
+  readonly email: string
+  readonly role: Roles
+  readonly name: string
+  readonly location: string
+  readonly organization: string
+  readonly website: string
+  readonly bio: string
+  readonly avatarUrl: string
+  readonly phoneNumber: string
+  readonly isTOTP: boolean
+  readonly totpSecret: string
+  readonly recoveryCodes: string[]
+  readonly loginStatistics: IPModel[]
+  readonly createdAt: Date
+  readonly updatedAt: Date
   isValidPassword(plainPwd: string, encryptedPwd: string): boolean
 }
