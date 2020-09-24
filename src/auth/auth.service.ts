@@ -58,6 +58,7 @@ export class AuthService {
         response: token,
         secret: this.configService.getGoogleRecaptchaKey(),
       }),
+      headers: { 'Content-Type': 'application/json' },
     })
 
     const json = await res.json()
