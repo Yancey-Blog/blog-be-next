@@ -79,7 +79,7 @@
     "@types/csurf": "^1.9.36",
     "@types/express-rate-limit": "^5.1.0",
     "@types/hapi__joi": "^17.1.4",
-    "@types/helmet": "^0.0.47",
+    "@types/helmet": "^0.0.48",
     "@types/jest": "^26.0.10",
     "@types/mongoose": "^5.7.21",
     "@types/morgan": "^1.7.37",
