@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.3.0...v1.4.0) (2020-09-24)
+
+
+### Features
+
+* support google recaptcha ([7ee62a1](https://github.com/Yancey-Blog/blog-be-next/commit/7ee62a185f7fefd66c059c1e3fb674dfe0b77915))
+* support Google Recaptcha ([e918361](https://github.com/Yancey-Blog/blog-be-next/commit/e9183612f975c2db51d5637e607209c49d25fe31))
+* upadate test.env ([65cba91](https://github.com/Yancey-Blog/blog-be-next/commit/65cba9139e8e0e34d7577a90d49db7210e113048))
+
 ## [1.3.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.2.1...v1.3.0) (2020-08-29)
 
 
