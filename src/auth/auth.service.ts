@@ -1,5 +1,7 @@
 import { Injectable, HttpService } from '@nestjs/common'
 import { ForbiddenError, AuthenticationError } from 'apollo-server-express'
+import { Observable } from 'rxjs'
+import { AxiosResponse } from 'axios'
 import { JwtService } from '@nestjs/jwt'
 import { Request } from 'express'
 import { UAParser } from 'ua-parser-js'
@@ -7,6 +9,7 @@ import requestIP from 'request-ip'
 import speakeasy from 'speakeasy'
 import { map } from 'rxjs/operators'
 import { IPModel } from './models/ip-model'
+import { GoogleRecaptchaRes } from './interfaces/recaptcha.interface'
 import { ConfigService } from '../config/config.service'
 import { UsersService } from '../users/users.service'
 import { Roles, User } from '../users/interfaces/user.interface'
@@ -14,7 +17,7 @@ import { LoginInput } from './dtos/login.input'
 import { RegisterInput } from './dtos/register.input'
 import { ValidateTOTPInput } from './dtos/validate-totp.input'
 import { ChangePasswordInput } from './dtos/change-password.input'
-import { TOTP_ENCODE, IP_STACK_URL } from '../shared/constants'
+import { TOTP_ENCODE, IP_STACK_URL, GOOGLE_RECAPTCHA_URL } from '../shared/constants'
 import { generateQRCode, generateRecoveryCodes, decodeJWT, encryptPassword } from '../shared/utils'
 
 @Injectable()
@@ -47,11 +50,30 @@ export class AuthService {
     throw new AuthenticationError('Your username and password do not match. Please try again!')
   }
 
-  public async login(loginInput: LoginInput) {
-    const { email, password } = loginInput
-    const res = await this.validateUser(email, password)
+  public async verifyGoogleRecaptchaToken(token: string): Promise<GoogleRecaptchaRes> {
+    return this.httpService
+      .post(GOOGLE_RECAPTCHA_URL, {
+        response: token,
+        secret: this.configService.getGoogleRecaptchaKey(),
+      })
+      .pipe(map((response) => response.data))
+      .toPromise()
+  }
 
-    return this.generateJWT(email, res)
+  public async login(loginInput: LoginInput) {
+    const { email, password, token } = loginInput
+    const { success, 'error-codes': errorCodes } = await this.verifyGoogleRecaptchaToken(token)
+
+    if (success) {
+      const res = await this.validateUser(email, password)
+      return this.generateJWT(email, res)
+    }
+
+    throw new AuthenticationError(
+      errorCodes
+        ? errorCodes.toString()
+        : 'Google Recaptcha verification failed. Please try again!',
+    )
   }
 
   public async register(registerInput: RegisterInput) {

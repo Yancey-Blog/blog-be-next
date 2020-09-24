@@ -12,4 +12,9 @@ export class LoginInput {
   @IsString()
   @IsNotEmpty()
   public readonly password: string
+
+  @Field()
+  @IsString()
+  @IsNotEmpty()
+  public readonly token: string
 }
