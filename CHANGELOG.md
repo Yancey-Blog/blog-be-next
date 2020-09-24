@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.1](https://github.com/Yancey-Blog/blog-be-next/compare/v1.4.0...v1.4.1) (2020-09-24)
+
+
+### Bug Fixes
+
+* revert ([b8b8d80](https://github.com/Yancey-Blog/blog-be-next/commit/b8b8d800db86e32e40d2e81e0c6eea07faf670c7))
+
 ## [1.4.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.3.0...v1.4.0) (2020-09-24)
 
 
