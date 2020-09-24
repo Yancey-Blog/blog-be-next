@@ -16,7 +16,7 @@ const PassPortModule = PassportModule.register({
   imports: [
     HttpModule.registerAsync({
       useFactory: () => ({
-        timeout: 5000,
+        timeout: 10000,
         maxRedirects: 5,
       }),
     }),

@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.2.1...v1.3.0) (2020-08-29)
+
+
+### Features
+
+* update login ([90a6d35](https://github.com/Yancey-Blog/blog-be-next/commit/90a6d35262f85815afb16b475d2dabb47cef6c6b))
+* update login ([ff4b769](https://github.com/Yancey-Blog/blog-be-next/commit/ff4b76962ab5aeae0489658a0dbcd74894d71097))
+* update schema.gql ([9340949](https://github.com/Yancey-Blog/blog-be-next/commit/9340949c92f13b15b45a449a555add6680a86ae6))
+* update user service ([5b30865](https://github.com/Yancey-Blog/blog-be-next/commit/5b30865ddc5dcf322821ba847dd3679658a2b3fc))
+* use `.gql` suffix for GraphqlModule ([e87e8f3](https://github.com/Yancey-Blog/blog-be-next/commit/e87e8f3e65b6d4d1277f244971b2721b91de959e))
+
 ### [1.2.1](https://github.com/Yancey-Blog/blog-be-next/compare/v1.2.0...v1.2.1) (2020-05-09)
 
 

@@ -2,7 +2,7 @@
 
 # Blog BE Next
 
-The backend platform for Yancey Official Blog with Node.js, nestjs, MongoDB, GraphQL, Apollo Server, JWT and more...
+The backend platform for Yancey Official Blog with Node.js, NestJS, MongoDB, GraphQL, JWT and more...
 
 _This library is part of the [BEG (Blog Environment Group)](https://github.com/Yancey-Blog)_ ecosystem 📖
 
@@ -13,7 +13,7 @@ _This library is part of the [BEG (Blog Environment Group)](https://github.com/Y
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 ![Code Style](https://camo.githubusercontent.com/c83b8df34339bd302b7fd3fbb631f99ba25f87f8/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f636f64655f7374796c652d70726574746965722d6666363962342e737667)
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.2.1-blue.svg)](https://conventionalcommits.org)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.3.0-blue.svg)](https://conventionalcommits.org)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](https://github.com/Yancey-Blog/blog-be-next/pulls)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
@@ -127,6 +127,8 @@ ALI_SMS_SIGN_NAME=<YOUR_ALI_SMS_SIGN_NAME>
 ALI_SMS_TEMPLATE_CODE=<YOUR_ALI_SMS_TEMPLATE_CODE>
 
 IP_STACK_ACCESS_KEY=<YOUR_IP_STACK_ACCESS_KEY>
+
+GOOGLE_RECAPTCHA_KEY=<YOUR_GOOGLE_RECAPTCHA_KEY>
 
 JWT_SECRET_KEY=<YOUR_JWT_SECRET_KEY>
 JWT_EXPIRES_TIME=<YOUR_JWT_EXPIRES_TIME>
