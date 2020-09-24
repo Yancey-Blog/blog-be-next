@@ -50,22 +50,30 @@ export class AuthService {
     throw new AuthenticationError('Your username and password do not match. Please try again!')
   }
 
-  public verifyGoogleRecaptchaToken(token: string): Observable<AxiosResponse<GoogleRecaptchaRes>> {
+  public async verifyGoogleRecaptchaToken(token: string): Promise<GoogleRecaptchaRes> {
     return this.httpService
       .post(GOOGLE_RECAPTCHA_URL, {
         response: token,
         secret: this.configService.getGoogleRecaptchaKey(),
       })
       .pipe(map((response) => response.data))
+      .toPromise()
   }
 
   public async login(loginInput: LoginInput) {
     const { email, password, token } = loginInput
-    // TODO:
-    const googleRecaptchaRes = this.verifyGoogleRecaptchaToken(token)
-    const res = await this.validateUser(email, password)
+    const { success, 'error-codes': errorCodes } = await this.verifyGoogleRecaptchaToken(token)
 
-    return this.generateJWT(email, res)
+    if (success) {
+      const res = await this.validateUser(email, password)
+      return this.generateJWT(email, res)
+    }
+
+    throw new AuthenticationError(
+      errorCodes
+        ? errorCodes.toString()
+        : 'Google Recaptcha verification failed. Please try again!',
+    )
   }
 
   public async register(registerInput: RegisterInput) {
