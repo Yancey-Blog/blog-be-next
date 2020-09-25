@@ -1,13 +1,15 @@
 import { Injectable, HttpService } from '@nestjs/common'
 import { ForbiddenError, AuthenticationError } from 'apollo-server-express'
+import fetch from 'node-fetch'
+import qs from 'query-string'
 import { Observable } from 'rxjs'
+import { map } from 'rxjs/operators'
 import { AxiosResponse } from 'axios'
 import { JwtService } from '@nestjs/jwt'
 import { Request } from 'express'
 import { UAParser } from 'ua-parser-js'
 import requestIP from 'request-ip'
 import speakeasy from 'speakeasy'
-import { map } from 'rxjs/operators'
 import { IPModel } from './models/ip-model'
 import { GoogleRecaptchaRes } from './interfaces/recaptcha.interface'
 import { ConfigService } from '../config/config.service'
@@ -51,13 +53,18 @@ export class AuthService {
   }
 
   public async verifyGoogleRecaptchaToken(token: string): Promise<GoogleRecaptchaRes> {
-    return this.httpService
-      .post(GOOGLE_RECAPTCHA_URL, {
-        response: token,
-        secret: this.configService.getGoogleRecaptchaKey(),
-      })
-      .pipe(map((response) => response.data))
-      .toPromise()
+    const params = {
+      response: token,
+      secret: this.configService.getGoogleRecaptchaKey(),
+    }
+    const res = await fetch(`${GOOGLE_RECAPTCHA_URL}?${qs.stringify(params)}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+    })
+
+    const json = await res.json()
+
+    return json
   }
 
   public async login(loginInput: LoginInput) {

@@ -45,6 +45,7 @@ describe('AuthController (e2e)', () => {
   const loginData: LoginInput = {
     email: `${randomSeries(10)}@example.com`,
     password: 'abcd1234,',
+    token: '',
   }
 
   const registerData: RegisterInput = {
