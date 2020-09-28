@@ -39,7 +39,7 @@
     "@nestjs/passport": "^7.0.0",
     "@nestjs/platform-express": "^7.4.4",
     "ali-oss": "^6.10.0",
-    "apollo-server-express": "^2.14.2",
+    "apollo-server-express": "^2.18.1",
     "axios": "^0.19.1",
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
