@@ -1,6 +1,6 @@
 import { Injectable, HttpService } from '@nestjs/common'
 import fetch from 'node-fetch'
-import qs from 'query-string'
+import qs, { StringifiableRecord } from 'query-string'
 // import { Observable } from 'rxjs'
 // import { map } from 'rxjs/operators'
 import { AxiosResponse } from 'axios'
@@ -12,7 +12,7 @@ import { BANDWAGON_SERVICE_INFO_URL, BANDWAGON_USAGE_STATS_URL } from '../shared
 
 @Injectable()
 export class BandwagonService {
-  private readonly params: BandwagonParams
+  private readonly params: StringifiableRecord
 
   constructor(private readonly httpService: HttpService, configService: ConfigService) {
     this.httpService = httpService
