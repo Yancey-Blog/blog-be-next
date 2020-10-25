@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.5.0...v1.6.0) (2020-10-25)
+
+
+### Features
+
+* compatible the new version of qs-string ([c794235](https://github.com/Yancey-Blog/blog-be-next/commit/c794235f3b4fdad6a310105c5fc90e0ce1025338))
+
 ## [1.5.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.4.1...v1.5.0) (2020-09-25)
 
 
