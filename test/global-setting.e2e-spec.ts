@@ -23,7 +23,6 @@ describe('GlobalSettingController (e2e)', () => {
             useFindAndModify: false,
             useUnifiedTopology: true,
             useNewUrlParser: true,
-            useUpdateIndex: true,
           }),
           inject: [ConfigService],
         }),
