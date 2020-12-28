@@ -13,6 +13,17 @@
     kitx "^1.2.1"
     xml2js "^0.4.17"
 
+"@angular-devkit/core@11.0.1":
+  version "11.0.1"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-11.0.1.tgz#7125b07ac7d66a8fdaaf612a3b757817d23b8107"
+  integrity sha512-ui3g7w/0SpU9oq8uwN9upR8Y1eOXZ+P2p3NyDydBrR7ZEfEkRLS1mhozN/ib8farrwK5N3kIIJxMb5t3187Hng==
+  dependencies:
+    ajv "6.12.6"
+    fast-json-stable-stringify "2.1.0"
+    magic-string "0.25.7"
+    rxjs "6.6.3"
+    source-map "0.7.3"
+
 "@angular-devkit/core@11.0.3":
   version "11.0.3"
   resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-11.0.3.tgz#2acc7c90f1597b87455e0a5f93ebb1cd01b873aa"
@@ -22,17 +33,6 @@
     fast-json-stable-stringify "2.1.0"
     magic-string "0.25.7"
     rxjs "6.6.3"
-    source-map "0.7.3"
-
-"@angular-devkit/core@9.1.12":
-  version "9.1.12"
-  resolved "https://registry.npmjs.org/@angular-devkit/core/-/core-9.1.12.tgz#7cebce51918fe7f3462d8c58c9fbd5a3e2c3b3e7"
-  integrity sha512-D/GnBeSlmdgGn7EhuE32HuPuRAjvUuxi7Q6WywBI8PSsXKAGnrypghBwMATNnOA24//CgbW2533Y9VWHaeXdeA==
-  dependencies:
-    ajv "6.12.3"
-    fast-json-stable-stringify "2.1.0"
-    magic-string "0.25.7"
-    rxjs "6.5.4"
     source-map "0.7.3"
 
 "@angular-devkit/schematics-cli@0.1100.3":
@@ -48,6 +48,15 @@
     minimist "1.2.5"
     symbol-observable "2.0.3"
 
+"@angular-devkit/schematics@11.0.1":
+  version "11.0.1"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-11.0.1.tgz#d0826cde52a2c015b24a7c6f3b4df31665eb67ed"
+  integrity sha512-rAOnAndcybEH398xf5wzmcUPCoCi0dKiOo/+1dkKU5aTxynw1OUnANt5K6A+ZZTGnJmfjtP0ovkZGYun9IUDxQ==
+  dependencies:
+    "@angular-devkit/core" "11.0.1"
+    ora "5.1.0"
+    rxjs "6.6.3"
+
 "@angular-devkit/schematics@11.0.3":
   version "11.0.3"
   resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-11.0.3.tgz#fc7fb9432d9e2678162794afdaf4fd338e731509"
@@ -56,15 +65,6 @@
     "@angular-devkit/core" "11.0.3"
     ora "5.1.0"
     rxjs "6.6.3"
-
-"@angular-devkit/schematics@9.1.12":
-  version "9.1.12"
-  resolved "https://registry.npmjs.org/@angular-devkit/schematics/-/schematics-9.1.12.tgz#bbf457f1b35941fddeeb1ee77336dd04ca60b8ba"
-  integrity sha512-+GYnUzmIy1/QpYitCC8mI7jcrViGHTtOKvvDPEFjU2nggjNEQaMmsHcdIsjrqggEc23ZZyebNAIewT8CMkJyrQ==
-  dependencies:
-    "@angular-devkit/core" "9.1.12"
-    ora "4.0.3"
-    rxjs "6.5.4"
 
 "@apollo/federation@^0.17.0":
   version "0.17.0"
@@ -931,13 +931,13 @@
     multer "1.4.2"
     tslib "2.0.1"
 
-"@nestjs/schematics@^7.0.0", "@nestjs/schematics@^7.1.0":
-  version "7.1.2"
-  resolved "https://registry.npmjs.org/@nestjs/schematics/-/schematics-7.1.2.tgz#678058436f578fc1e933da9db327a223b1ab8a73"
-  integrity sha512-iUszxXz5cFEZFKKFQGyjx0+U5Emj7ix1rhXmHw1v63xhazlgTbT6XPxf247CTP0uyVkcflWkiVi+JawWWix16A==
+"@nestjs/schematics@^7.1.0", "@nestjs/schematics@^7.2.5":
+  version "7.2.5"
+  resolved "https://registry.yarnpkg.com/@nestjs/schematics/-/schematics-7.2.5.tgz#60945ee12136dde78cf01c706413e7676e4bf494"
+  integrity sha512-RwoPNV6ot1sCq+/CDH9fDAE/NX/r6UtzDGn+S/XiEIP4AuRqUphKPyAMxXc8k4dLi3VFRCchAshYQfaOgDc9Qg==
   dependencies:
-    "@angular-devkit/core" "9.1.12"
-    "@angular-devkit/schematics" "9.1.12"
+    "@angular-devkit/core" "11.0.1"
+    "@angular-devkit/schematics" "11.0.1"
     fs-extra "9.0.1"
     pluralize "8.0.0"
 
@@ -2021,16 +2021,6 @@ ajv-keywords@^3.1.0, ajv-keywords@^3.4.1, ajv-keywords@^3.5.2:
   version "3.5.2"
   resolved "https://registry.npmjs.org/ajv-keywords/-/ajv-keywords-3.5.2.tgz#31f29da5ab6e00d1c2d329acf7b5929614d5014d"
   integrity sha512-5p6WTN0DdTGVQk6VjcEju19IgaHudalcfabD7yhDGeA6bcQnmL+CpveLJq/3hvfwd1aof6L386Ougkx6RfyMIQ==
-
-ajv@6.12.3:
-  version "6.12.3"
-  resolved "https://registry.npmjs.org/ajv/-/ajv-6.12.3.tgz#18c5af38a111ddeb4f2697bd78d68abc1cabd706"
-  integrity sha512-4K0cK3L1hsqk9xIb2z9vs/XU+PGJZ9PNpJRDS9YLzmNdX6jmVPfamLvTJr0aDAusnHyCHO6MjzlkAsgtqp9teA==
-  dependencies:
-    fast-deep-equal "^3.1.1"
-    fast-json-stable-stringify "^2.0.0"
-    json-schema-traverse "^0.4.1"
-    uri-js "^4.2.2"
 
 ajv@6.12.6, ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.2, ajv@^6.12.3, ajv@^6.12.5:
   version "6.12.6"
@@ -3317,7 +3307,7 @@ cli-cursor@^3.1.0:
   dependencies:
     restore-cursor "^3.1.0"
 
-cli-spinners@^2.2.0, cli-spinners@^2.4.0:
+cli-spinners@^2.4.0:
   version "2.5.0"
   resolved "https://registry.npmjs.org/cli-spinners/-/cli-spinners-2.5.0.tgz#12763e47251bf951cb75c201dfa58ff1bcb2d047"
   integrity sha512-PC+AmIuK04E6aeSs/pUccSujsTzBhu4HzC2dL+CfJB/Jcc2qTRbEwZQDfIUpt2Xl8BodYBEq8w4fc0kU2I9DjQ==
@@ -7379,13 +7369,6 @@ lodash@4.17.20, lodash@^4.17.12, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.
   resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
 
-log-symbols@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.npmjs.org/log-symbols/-/log-symbols-3.0.0.tgz#f3a08516a5dea893336a7dee14d18a1cfdab77c4"
-  integrity sha512-dSkNGuI7iG3mfvDzUuYZyvk5dD9ocYCYzNU6CYDE6+Xqd+gwme6Z00NS3dUh8mq/73HaEtT7m6W+yUPtU6BZnQ==
-  dependencies:
-    chalk "^2.4.2"
-
 log-symbols@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/log-symbols/-/log-symbols-4.0.0.tgz#69b3cc46d20f448eccdb75ea1fa733d9e821c920"
@@ -8443,20 +8426,6 @@ optionator@^0.8.1, optionator@^0.8.3:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
     word-wrap "~1.2.3"
-
-ora@4.0.3:
-  version "4.0.3"
-  resolved "https://registry.npmjs.org/ora/-/ora-4.0.3.tgz#752a1b7b4be4825546a7a3d59256fa523b6b6d05"
-  integrity sha512-fnDebVFyz309A73cqCipVL1fBZewq4vwgSHfxh43vVy31mbyoQ8sCH3Oeaog/owYOs/lLlGVPCISQonTneg6Pg==
-  dependencies:
-    chalk "^3.0.0"
-    cli-cursor "^3.1.0"
-    cli-spinners "^2.2.0"
-    is-interactive "^1.0.0"
-    log-symbols "^3.0.0"
-    mute-stream "0.0.8"
-    strip-ansi "^6.0.0"
-    wcwidth "^1.0.1"
 
 ora@5.1.0:
   version "5.1.0"
@@ -9661,13 +9630,6 @@ run-queue@^1.0.0, run-queue@^1.0.3:
   integrity sha1-6Eg5bwV9Ij8kOGkkYY4laUFh7Ec=
   dependencies:
     aproba "^1.1.1"
-
-rxjs@6.5.4:
-  version "6.5.4"
-  resolved "https://registry.npmjs.org/rxjs/-/rxjs-6.5.4.tgz#e0777fe0d184cec7872df147f303572d414e211c"
-  integrity sha512-naMQXcgEo3csAEGvw/NydRA0fuS2nDZJiw1YUWFKU7aPPAPGZEsD4Iimit96qwCieH6y614MCLYwdkrWx7z/7Q==
-  dependencies:
-    tslib "^1.9.0"
 
 rxjs@6.6.3, rxjs@^6.4.0, rxjs@^6.6.0, rxjs@^6.6.3:
   version "6.6.3"
