@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.7.0...v1.8.0) (2020-12-29)
+
+
+### Features
+
+* compatible new version of mongoose ([f035239](https://github.com/Yancey-Blog/blog-be-next/commit/f035239593a09148e5f492193d515645c68f123d))
+
 ## [1.7.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.6.0...v1.7.0) (2020-11-22)
 
 ## [1.6.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.5.0...v1.6.0) (2020-10-25)
