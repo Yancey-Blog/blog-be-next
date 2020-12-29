@@ -2060,14 +2060,13 @@ ajv@6.12.6, ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.2, ajv@^6.12.3, ajv@
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-ali-oss@^6.10.0:
-  version "6.11.2"
-  resolved "https://registry.npmjs.org/ali-oss/-/ali-oss-6.11.2.tgz#fed279a9d373f0d1ad278edf614f710f99f73e19"
-  integrity sha512-rNeYm5yogNOABCY9G27RgB6BGJ0BK+nQGicfDXKp1Fq7G/eJMZYwBNXdM420uAIUoMM81uFOtSIRYBRF6IxPwA==
+ali-oss@^6.12.0:
+  version "6.12.0"
+  resolved "https://registry.yarnpkg.com/ali-oss/-/ali-oss-6.12.0.tgz#2bc744cad569aee741e3b3968207761fbb2d21a4"
+  integrity sha512-sNlGo7xExBII/hyO7mIhQm0ZpE7t2+PnRCiX+WHr2efkperlhKyk5dHqGhHCF00rTGMk1DmAmNWV4ygovEGTHA==
   dependencies:
     address "^1.0.0"
     agentkeepalive "^3.4.1"
-    any-promise "^1.3.0"
     bowser "^1.6.0"
     co-defer "^1.0.0"
     copy-to "^2.0.1"

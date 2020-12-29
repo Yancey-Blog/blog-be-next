@@ -38,7 +38,7 @@
     "@nestjs/mongoose": "^7.1.2",
     "@nestjs/passport": "^7.1.5",
     "@nestjs/platform-express": "^7.4.4",
-    "ali-oss": "^6.10.0",
+    "ali-oss": "^6.12.0",
     "apollo-server-express": "^2.18.2",
     "axios": "^0.21.0",
     "bcrypt": "^5.0.0",
