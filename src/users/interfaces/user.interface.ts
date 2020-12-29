@@ -15,6 +15,7 @@ export enum Roles {
 
 export interface User extends Document {
   password: string
+  readonly _id: string
   readonly username: string
   readonly email: string
   readonly role: Roles
