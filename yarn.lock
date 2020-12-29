@@ -938,10 +938,10 @@
   resolved "https://registry.yarnpkg.com/@nestjs/mongoose/-/mongoose-7.1.2.tgz#2f7c294dd2e0c120de43c0ac1f35744a1f7f2783"
   integrity sha512-VjeF0woAWs/J/ecpVqKwpPAEh8oRICJgn60ZHu73XHa9VDw8F1wPCrHdG3SQtPumbjNTTvXEqSyaKSuW/8Qp/A==
 
-"@nestjs/passport@^7.0.0":
-  version "7.1.0"
-  resolved "https://registry.npmjs.org/@nestjs/passport/-/passport-7.1.0.tgz#04cbb6dec4b6fd92b943e131a2ad89da42c2a9f0"
-  integrity sha512-TdXqEwQ9PWWdpZsWp6jnora+zN+jg7h9Om9CAxXDMCqnmB+IJknkY0OyyplxbMjRyep1zvsc3IptuPHIXb27tA==
+"@nestjs/passport@^7.1.5":
+  version "7.1.5"
+  resolved "https://registry.yarnpkg.com/@nestjs/passport/-/passport-7.1.5.tgz#b32fc0492008d73ebae4327fbc0012a738a83664"
+  integrity sha512-Hu9hPxTdBZA0C4GrWTsSflzwsJ99oAk9jqAwpcszdFNqfjMjkPGuCM9QsVZbBP2bE8fxrVrPsNOILS6puY8e/A==
 
 "@nestjs/platform-express@^7.4.4":
   version "7.4.4"
