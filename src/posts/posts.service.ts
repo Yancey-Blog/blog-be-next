@@ -9,14 +9,14 @@ import { PostModel } from './models/posts.model'
 import { PostItemModel } from './models/post.model'
 import { ArchiveModel } from './models/archive.model'
 import { TagsModel } from './models/tags.model'
-import { Post } from './interfaces/posts.interface'
+import { PostDocument } from './interfaces/posts.interface'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'
 
 @Injectable()
 export class PostsService {
   constructor(
     @InjectModel('Post')
-    private readonly postModel: Model<Post>,
+    private readonly postModel: Model<PostDocument>,
   ) {
     this.postModel = postModel
   }

@@ -1,6 +1,7 @@
 import { Document } from 'mongoose'
 
-export interface Post extends Document {
+export interface Post {
+  readonly _id: string
   readonly posterUrl: string
   readonly title: string
   readonly summary: string
@@ -15,3 +16,5 @@ export interface Post extends Document {
   readonly prev: Post | null
   readonly next: Post | null
 }
+
+export type PostDocument = Post & Document
