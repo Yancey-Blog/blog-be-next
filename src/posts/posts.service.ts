@@ -84,7 +84,7 @@ export class PostsService {
       .limit(1)
 
     const res = {
-      ...curr,
+      ...curr.toObject(),
       prev: prev[0] ? prev[0] : null,
       next: next[0] ? next[0] : null,
     }
