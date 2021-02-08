@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.8.1](https://github.com/Yancey-Blog/blog-be-next/compare/v1.8.0...v1.8.1) (2021-02-08)
+
+
+### Features
+
+* update ([6df990a](https://github.com/Yancey-Blog/blog-be-next/commit/6df990a3784e3095e3c99e44e4e46685b1b25582))
+* update ([3301851](https://github.com/Yancey-Blog/blog-be-next/commit/330185164bca1b8121008bb6ac4db495952a2bbf))
+
+
+### Bug Fixes
+
+* use toObject() to tranform Document type ([c87d84c](https://github.com/Yancey-Blog/blog-be-next/commit/c87d84cf854ad5e8cbaf418537480a380cb0ecc8))
+
 ## [1.8.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.7.0...v1.8.0) (2020-12-29)
 
 
