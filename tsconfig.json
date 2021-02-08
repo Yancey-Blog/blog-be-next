@@ -9,7 +9,10 @@
     "baseUrl": "./",
     "esModuleInterop": true,
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "paths": {
+      "apollo-cache-control": ["node_modules/apollo-cache-control"]
+    }
   },
   "exclude": ["node_modules", "dist"]
 }

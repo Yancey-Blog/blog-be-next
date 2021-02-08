@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt'
 import { encryptPassword } from '../../shared/utils'
 import { Roles, User } from '../interfaces/user.interface'
 
-export const UserSchema = new mongoose.Schema(
+export const UserSchema = new mongoose.Schema<User>(
   {
     _id: {
       type: String,

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
-import { Model } from 'mongoose'
+import { Model, Document } from 'mongoose'
 import { CreateYanceyMusicInput } from './dtos/create-yancey-music.input'
 import { UpdateYanceyMusicInput } from './dtos/update-yancey-music.input'
 import { YanceyMusicModel } from './models/yancey-music.model'
