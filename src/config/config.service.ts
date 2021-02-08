@@ -1,5 +1,5 @@
 import dotenv from 'dotenv'
-import Joi, { ObjectSchema } from '@hapi/joi'
+import Joi, { ObjectSchema } from 'joi'
 import fs from 'fs'
 import { AliOSSKey, AliSMSKey, AliKey } from './interfaces/ali-keys.interface'
 import { BandwagonKey } from './interfaces/bandwagon-keys.interface'
