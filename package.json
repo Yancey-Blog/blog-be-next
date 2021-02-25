@@ -50,7 +50,7 @@
     "helmet": "^4.4.1",
     "joi": "^17.4.0",
     "luxon": "^1.26.0",
-    "mongoose": "^5.11.15",
+    "mongoose": "^5.11.17",
     "morgan": "^1.9.1",
     "node-fetch": "^2.6.1",
     "passport": "^0.4.1",
