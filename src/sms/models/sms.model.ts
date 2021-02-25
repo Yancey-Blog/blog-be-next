@@ -12,8 +12,8 @@ export class SMSModel {
   public verificationCode: string
 
   @Field({ nullable: false })
-  public createdAt: Date
+  public createdAt: string
 
   @Field({ nullable: false })
-  public updatedAt: Date
+  public updatedAt: string
 }
