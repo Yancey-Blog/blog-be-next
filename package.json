@@ -45,7 +45,7 @@
     "class-transformer": "^0.3.2",
     "class-validator": "^0.13.1",
     "dotenv": "^8.2.0",
-    "express-rate-limit": "^5.2.3",
+    "express-rate-limit": "^5.2.6",
     "graphql": "^15.5.0",
     "helmet": "^4.4.1",
     "joi": "^17.4.0",
