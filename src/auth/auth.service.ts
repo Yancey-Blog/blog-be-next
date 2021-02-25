@@ -37,7 +37,7 @@ export class AuthService {
   }
 
   private generateJWT(email: string, res: User) {
-    const { password, totpSecret, recoveryCodes, ...rest } = res
+    const { password, totpSecret, recoveryCodes, ...rest } = res.toObject()
     const payload = { email, sub: res._id, issuer: 'Yancey Inc.' }
     return { authorization: this.jwtService.sign(payload), ...rest }
   }
@@ -63,7 +63,6 @@ export class AuthService {
     })
 
     const json = await res.json()
-
     return json
   }
 

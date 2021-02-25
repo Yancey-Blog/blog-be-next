@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose'
 import { Injectable } from '@nestjs/common'
 import { ValidationError, ForbiddenError } from 'apollo-server-express'
 import AliSMS from '@alicloud/pop-core'
-import moment from 'moment'
+import { Interval, DateTime } from 'luxon'
 import { randomSeries } from 'yancey-js-util'
 import { ConfigService } from '../config/config.service'
 import { UsersService } from '../users/users.service'
@@ -91,7 +91,7 @@ export class SMSService {
         case verificationCode !== smsCode:
           throw new ValidationError('SMS verification code error.')
 
-        case verificationCode === smsCode && this.checkTimeIsExpired(updatedAt):
+        case verificationCode === smsCode && this.isExpired(updatedAt):
           throw new ValidationError('SMS verification code has been expired.')
 
         default:
@@ -113,7 +113,9 @@ export class SMSService {
     )
   }
 
-  private checkTimeIsExpired(date: Date) {
-    return !moment(date).isBetween(moment().subtract(10, 'minutes'), moment())
+  private isExpired(date: string) {
+    return !Interval.fromDateTimes(DateTime.now().minus({ minutes: 10 }), DateTime.now()).contains(
+      DateTime.fromISO(date),
+    )
   }
 }
