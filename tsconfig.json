@@ -14,5 +14,6 @@
       "apollo-cache-control": ["node_modules/apollo-cache-control"]
     }
   },
+  "include": ["src"],
   "exclude": ["node_modules", "dist"]
 }
