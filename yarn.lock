@@ -2014,10 +2014,10 @@ ajv@^7.0.2:
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
-ali-oss@^6.13.2:
-  version "6.13.2"
-  resolved "https://registry.npmjs.org/ali-oss/-/ali-oss-6.13.2.tgz#ebd965b935bb8f436c5c5ef0fc03fd228fbf00a7"
-  integrity sha512-85z+2Cd3ydCmdw/l6oFkaMmyswPVXm2r6a8GI+738s7O6YsDHDSogQ04joymUT2gdFNVWHYWTmXWLKEkD19eEQ==
+ali-oss@^6.15.0:
+  version "6.15.0"
+  resolved "https://registry.yarnpkg.com/ali-oss/-/ali-oss-6.15.0.tgz#154a2719f0a1e2e5a30a1a0f580fb99281911fa3"
+  integrity sha512-vMb0+IZJBIGAoAFFFB3zF//Ll7vdVOG5u51kICDr86d01JEJnLWBmvMI3mg7mrUyE7kMTPEkxxA6TLWelBoAzQ==
   dependencies:
     address "^1.0.0"
     agentkeepalive "^3.4.1"
