@@ -6,7 +6,7 @@ The backend platform for Yancey Official Blog with Node.js, NestJS, MongoDB, Gra
 
 _This library is part of the [BEG (Blog Environment Group)](https://github.com/Yancey-Blog)_ ecosystem 📖
 
-[![Build Status](https://travis-ci.com/Yancey-Blog/blog-be-next.svg?branch=master)](https://travis-ci.com/Yancey-Blog/blog-be-next)
+![Build Status](https://github.com/Yancey-Blog/blog-be-next/actions/workflows/github-actions.yml/badge.svg)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/899c1498056d402284353047fcde0632)](https://www.codacy.com/manual/YanceyOfficial/blog-be-next?utm_source=github.com&utm_medium=referral&utm_content=Yancey-Blog/blog-be-next&utm_campaign=Badge_Grade)
 [![codecov](https://codecov.io/gh/Yancey-Blog/blog-be-next/branch/master/graph/badge.svg)](https://codecov.io/gh/Yancey-Blog/blog-be-next)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FYancey-Blog%2Fblog-be-next.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FYancey-Blog%2Fblog-be-next?ref=badge_shield)
@@ -36,22 +36,24 @@ _This library is part of the [BEG (Blog Environment Group)](https://github.com/Y
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Available Scripts](#available-scripts)
-  - [yarn build](#yarn-build)
-  - [yarn watch](#yarn-watch)
-  - [yarn document](#yarn-document)
-  - [yarn test](#yarn-test)
-  - [yarn commit](#yarn-commit)
-- [Contributing](#contributing)
-  - [Code of Conduct](#code-of-conduct)
-  - [Contributing Guide](#contributing-guide)
-  - [Good Issues](#good-issues)
-  - [Uses Commitizen](#uses-commitizen)
-  - [Uses Env Files](#uses-env-files)
-  - [E2E Test](#e2e-test)
-- [Changelogs](#changelogs)
-- [TODOs](#todos)
-- [License](#license)
+- [Blog BE Next](#blog-be-next)
+  - [Menu](#menu)
+  - [Available Scripts](#available-scripts)
+    - [yarn build](#yarn-build)
+    - [yarn watch](#yarn-watch)
+    - [yarn document](#yarn-document)
+    - [yarn test](#yarn-test)
+    - [yarn commit](#yarn-commit)
+  - [Contributing](#contributing)
+    - [Code of Conduct](#code-of-conduct)
+    - [Contributing Guide](#contributing-guide)
+    - [Good Issues](#good-issues)
+    - [Uses Commitizen](#uses-commitizen)
+    - [Uses Env Files](#uses-env-files)
+    - [E2E Test](#e2e-test)
+  - [Changelogs](#changelogs)
+  - [TODOs](#todos)
+  - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
