@@ -1,0 +1,116 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+    time: "20:00"
+  open-pull-requests-limit: 10
+  target-branch: develop
+  ignore:
+  - dependency-name: eslint
+    versions:
+    - 7.23.0
+    - 7.24.0
+  - dependency-name: "@typescript-eslint/eslint-plugin"
+    versions:
+    - 4.15.0
+    - 4.15.1
+    - 4.16.1
+    - 4.17.0
+    - 4.18.0
+    - 4.20.0
+    - 4.21.0
+  - dependency-name: mongoose
+    versions:
+    - 5.11.16
+    - 5.12.2
+    - 5.12.3
+  - dependency-name: "@commitlint/config-conventional"
+    versions:
+    - 12.0.1
+  - dependency-name: ali-oss
+    versions:
+    - 6.15.0
+  - dependency-name: "@typescript-eslint/parser"
+    versions:
+    - 4.15.0
+    - 4.15.1
+    - 4.16.1
+    - 4.17.0
+    - 4.18.0
+  - dependency-name: "@nestjs/common"
+    versions:
+    - 7.6.13
+    - 7.6.14
+  - dependency-name: eslint-plugin-jest
+    versions:
+    - 24.1.5
+    - 24.1.9
+    - 24.3.1
+  - dependency-name: apollo-server-express
+    versions:
+    - 2.21.0
+    - 2.21.1
+  - dependency-name: ts-jest
+    versions:
+    - 26.5.2
+    - 26.5.3
+  - dependency-name: "@nestjs/graphql"
+    versions:
+    - 7.9.10
+  - dependency-name: "@types/luxon"
+    versions:
+    - 1.26.1
+  - dependency-name: typescript
+    versions:
+    - 4.2.2
+  - dependency-name: "@nestjs/schematics"
+    versions:
+    - 7.2.8
+  - dependency-name: husky
+    versions:
+    - 5.0.9
+    - 5.1.1
+  - dependency-name: "@nestjs/testing"
+    versions:
+    - 7.6.12
+    - 7.6.5
+    - 7.6.8
+  - dependency-name: "@nestjs/core"
+    versions:
+    - 7.6.12
+    - 7.6.5
+    - 7.6.8
+  - dependency-name: ts-loader
+    versions:
+    - 8.0.14
+    - 8.0.16
+  - dependency-name: express-rate-limit
+    versions:
+    - 5.2.5
+  - dependency-name: webpack
+    versions:
+    - 5.17.0
+    - 5.19.0
+  - dependency-name: "@types/node"
+    versions:
+    - 14.14.22
+  - dependency-name: axios
+    versions:
+    - 0.21.1
+  - dependency-name: "@types/ua-parser-js"
+    versions:
+    - 0.7.35
+  - dependency-name: "@types/serve-favicon"
+    versions:
+    - 2.5.2
+  - dependency-name: ts-node
+    versions:
+    - 9.1.1
+  - dependency-name: eslint-config-airbnb
+    versions:
+    - 18.2.1
+  - dependency-name: "@types/morgan"
+    versions:
+    - 1.9.2
