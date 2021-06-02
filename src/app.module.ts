@@ -24,6 +24,7 @@ import { MottosModule } from './mottos/mottos.module'
 import { CoversModule } from './covers/covers.module'
 import { GlobalSettingModule } from './global-setting/global-setting.module'
 import { PostStatisticsModule } from './post-statistics/post-statistics.module'
+import { SentryMonitorModule } from './sentry/sentry.module'
 
 @Module({
   imports: [
@@ -47,6 +48,7 @@ import { PostStatisticsModule } from './post-statistics/post-statistics.module'
     CoversModule,
     GlobalSettingModule,
     PostStatisticsModule,
+    SentryMonitorModule,
   ],
 
   providers: [

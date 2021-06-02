@@ -18,9 +18,13 @@ export class ConfigService {
   constructor(filePath: string) {
     const config = dotenv.parse(fs.readFileSync(filePath))
     this.envConfig = this.validateEnvFile(config)
-    this.isEnvProduction = this.get('NODE_ENV') === 'production'
-    this.isEnvDevelopment = this.get('NODE_ENV') === 'development'
-    this.isEnvTest = this.get('NODE_ENV') === 'test'
+    this.isEnvProduction = this.getNodeEnv() === 'production'
+    this.isEnvDevelopment = this.getNodeEnv() === 'development'
+    this.isEnvTest = this.getNodeEnv() === 'test'
+  }
+
+  public getNodeEnv(): string {
+    return this.get('NODE_ENV')
   }
 
   public getMongoURI(): string {
@@ -86,6 +90,10 @@ export class ConfigService {
     return this.get('GOOGLE_RECAPTCHA_KEY')
   }
 
+  public getSentryDSN(): string {
+    return this.get('SENTRY_DSN')
+  }
+
   private validateEnvFile(envConfig: EnvConfig): EnvConfig {
     const envVarsSchema: ObjectSchema = Joi.object({
       NODE_ENV: Joi.string()
@@ -109,6 +117,7 @@ export class ConfigService {
       JWT_SECRET_KEY: Joi.string().required(),
       JWT_EXPIRES_TIME: Joi.number().required(),
       GOOGLE_RECAPTCHA_KEY: Joi.string().required(),
+      SENTRY_DSN: Joi.string().required(),
       NEED_SIMULATE_NETWORK_THROTTLE: Joi.boolean().optional(),
     })
 
