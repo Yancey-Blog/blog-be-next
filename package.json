@@ -120,7 +120,7 @@
     }
   },
   "lint-staged": {
-    "*.{ts,js,scss,css}": [
+    "*.{ts,js}": [
       "prettier --write",
       "yarn lint",
       "git add"
