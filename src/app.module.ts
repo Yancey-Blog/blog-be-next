@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common'
+import { Module, Logger } from '@nestjs/common'
 import { APP_FILTER, APP_PIPE, APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core'
 import { GraphQLExceptionFilter } from './shared/filters/graqhql-exception.filter'
 import { GraphQLValidationPipe } from './shared/pipes/GraphQLValidation.pipe'
@@ -24,7 +24,8 @@ import { MottosModule } from './mottos/mottos.module'
 import { CoversModule } from './covers/covers.module'
 import { GlobalSettingModule } from './global-setting/global-setting.module'
 import { PostStatisticsModule } from './post-statistics/post-statistics.module'
-import { SentryMonitorModule } from './sentry/sentry.module'
+import { MonitorModule } from './shared/monitor/monitor.module'
+import { WinstonLogModule } from './shared/log/log.module'
 
 @Module({
   imports: [
@@ -48,7 +49,8 @@ import { SentryMonitorModule } from './sentry/sentry.module'
     CoversModule,
     GlobalSettingModule,
     PostStatisticsModule,
-    SentryMonitorModule,
+    MonitorModule,
+    WinstonLogModule,
   ],
 
   providers: [
@@ -71,6 +73,8 @@ import { SentryMonitorModule } from './sentry/sentry.module'
       provide: APP_INTERCEPTOR,
       useClass: DelayInterceptor,
     },
+
+    Logger,
   ],
 })
 export class AppModule {}

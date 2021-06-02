@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common'
 import { SentryModule } from '@ntegral/nestjs-sentry'
 import { LogLevel } from '@sentry/types'
-import { ConfigService } from '../config/config.service'
+import { ConfigService } from '../../config/config.service'
 
 @Module({
   imports: [
@@ -17,4 +17,4 @@ import { ConfigService } from '../config/config.service'
     }),
   ],
 })
-export class SentryMonitorModule {}
+export class MonitorModule {}

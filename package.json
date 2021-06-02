@@ -54,6 +54,7 @@
     "luxon": "^1.26.0",
     "mongoose": "^5.12.7",
     "morgan": "^1.9.1",
+    "nest-winston": "^1.5.0",
     "node-fetch": "^2.6.1",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
@@ -66,6 +67,8 @@
     "speakeasy": "^2.0.0",
     "ua-parser-js": "^0.7.24",
     "uuid": "^8.3.2",
+    "winston": "^3.3.3",
+    "winston-daily-rotate-file": "^4.5.5",
     "yancey-js-util": "^3.0.0"
   },
   "devDependencies": {
