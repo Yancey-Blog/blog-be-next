@@ -18,9 +18,13 @@ export class ConfigService {
   constructor(filePath: string) {
     const config = dotenv.parse(fs.readFileSync(filePath))
     this.envConfig = this.validateEnvFile(config)
-    this.isEnvProduction = this.get('NODE_ENV') === 'production'
-    this.isEnvDevelopment = this.get('NODE_ENV') === 'development'
-    this.isEnvTest = this.get('NODE_ENV') === 'test'
+    this.isEnvProduction = this.getNodeEnv() === 'production'
+    this.isEnvDevelopment = this.getNodeEnv() === 'development'
+    this.isEnvTest = this.getNodeEnv() === 'test'
+  }
+
+  public getNodeEnv(): string {
+    return this.get('NODE_ENV')
   }
 
   public getMongoURI(): string {

@@ -109,7 +109,7 @@ This app follows the [Angular Team's Commit Message Guidelines](https://github.c
 
 Rename `env/.env.example` to 'production.env' and 'development.env' and save to the `env` file folder. Then replace those environment variables with your own. Both `DATABASE_USER` and `DATABASE_PWD` are optional parameters in `development.env` and `test.env` file. Furthermore, `NEED_SIMULATE_NETWORK_THROTTLE` is only taken efforts in the development environment.
 
-```dosini
+```bash
 NODE_ENV=<YOUR_NODE_ENV>
 APP_PORT=<YOUR_APP_PORT>
 
