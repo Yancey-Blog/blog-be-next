@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.8.1...v1.9.0) (2021-06-05)
+
+
+### Features
+
+* integrate nestjs-sentry ([009c727](https://github.com/Yancey-Blog/blog-be-next/commit/009c7270de47b188811eaf44383efa995e96ede5))
+* integrate winston logger ([941f1c4](https://github.com/Yancey-Blog/blog-be-next/commit/941f1c47b5cf6b0ff266cfb478e9a95f3293c480))
+* integrate wiston logger ([33e611e](https://github.com/Yancey-Blog/blog-be-next/commit/33e611e9ab29bea3fbb0ae92a7b0669a04bcef37))
+* use luxon instead of moment ([d26946e](https://github.com/Yancey-Blog/blog-be-next/commit/d26946efef9b67729601185d31d0d9fc4757d92c))
+
 ### [1.8.1](https://github.com/Yancey-Blog/blog-be-next/compare/v1.8.0...v1.8.1) (2021-02-08)
 
 
