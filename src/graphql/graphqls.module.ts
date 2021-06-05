@@ -4,6 +4,7 @@ import { ValidationError } from 'apollo-server-express'
 import { ConfigModule } from '../config/config.module'
 import { ConfigService } from '../config/config.service'
 import { SCHEMA_GQL_FILE_NAME } from '../shared/constants'
+
 @Module({
   imports: [
     GraphQLModule.forRootAsync({
