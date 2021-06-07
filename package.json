@@ -93,7 +93,7 @@
     "@types/ua-parser-js": "^0.7.35",
     "@types/uuid": "^8.0.0",
     "@typescript-eslint/eslint-plugin": "^4.26.0",
-    "@typescript-eslint/parser": "^4.19.0",
+    "@typescript-eslint/parser": "^4.26.1",
     "codecov": "^3.8.1",
     "cz-conventional-changelog": "^3.2.0",
     "eslint": "^7.25.0",
