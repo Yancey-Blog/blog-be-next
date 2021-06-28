@@ -50,7 +50,7 @@
     "helmet": "^4.4.1",
     "joi": "^17.4.0",
     "luxon": "^1.26.0",
-    "mongoose": "^5.12.14",
+    "mongoose": "^5.13.0",
     "morgan": "^1.9.1",
     "nest-winston": "^1.5.0",
     "node-fetch": "^2.6.1",
