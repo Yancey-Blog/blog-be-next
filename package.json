@@ -46,7 +46,7 @@
     "class-validator": "^0.13.1",
     "dotenv": "^10.0.0",
     "express-rate-limit": "^5.2.6",
-    "graphql": "^15.5.0",
+    "graphql": "^15.5.1",
     "helmet": "^4.4.1",
     "joi": "^17.4.0",
     "luxon": "^1.26.0",
