@@ -1,4 +1,4 @@
-import dotenv from 'dotenv'
+import dotenv, { DotenvParseOutput } from 'dotenv'
 import Joi, { ObjectSchema } from 'joi'
 import fs from 'fs'
 import { AliOSSKey, AliSMSKey, AliKey } from './interfaces/ali-keys.interface'
@@ -15,8 +15,12 @@ export class ConfigService {
 
   private readonly envConfig: EnvConfig
 
-  constructor(filePath: string) {
-    const config = dotenv.parse(fs.readFileSync(filePath))
+  constructor(filePaths: string[]) {
+    let config: DotenvParseOutput = {}
+    filePaths.forEach((filePath) => {
+      const _config = dotenv.parse(fs.readFileSync(filePath))
+      config = { ...config, ..._config }
+    })
     this.envConfig = this.validateEnvFile(config)
     this.isEnvProduction = this.getNodeEnv() === 'production'
     this.isEnvDevelopment = this.getNodeEnv() === 'development'
