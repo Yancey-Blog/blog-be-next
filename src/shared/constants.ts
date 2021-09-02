@@ -18,6 +18,8 @@ export const ALI_SMS_API_VERSION = '2017-05-25'
 
 export const ALI_SMS_REGION = 'cn-hangzhou'
 
+export const AZURE_STORAGE_CONTAINER_NAME = 'beg'
+
 export const SCHEMA_GQL_FILE_NAME = 'schema.gql'
 
 export const TOTP_ENCODE = 'base32'

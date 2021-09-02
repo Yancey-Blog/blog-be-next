@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@alicloud/pop-core": "^1.7.9",
+    "@azure/storage-blob": "^12.7.0",
     "@nestjs/common": "^7.6.18",
     "@nestjs/config": "^0.6.3",
     "@nestjs/core": "^7.6.17",
