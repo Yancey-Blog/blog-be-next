@@ -48,8 +48,8 @@ _This library is part of the [BEG (Blog Environment Group)](https://github.com/Y
     - [Code of Conduct](#code-of-conduct)
     - [Contributing Guide](#contributing-guide)
     - [Good Issues](#good-issues)
-    - [Commitizen](#uses-commitizen)
-    - [Env Files](#uses-env-files)
+    - [Commitizen](#commitizen)
+    - [Env Files](#env-files)
     - [E2E Testing](#e2e-testing)
   - [Changelogs](#changelogs)
   - [TODOs](#todos)
@@ -73,7 +73,7 @@ Open [http://localhost:3002](http://localhost:3002) to view it in the browser. T
 
 ### yarn document
 
-[compodoc](https://github.com/compodoc/compodoc) to generate an awesome document for this app.
+Via [compodoc](https://github.com/compodoc/compodoc) to generate an awesome document for this app.
 
 ### yarn test
 
