@@ -48,9 +48,9 @@ _This library is part of the [BEG (Blog Environment Group)](https://github.com/Y
     - [Code of Conduct](#code-of-conduct)
     - [Contributing Guide](#contributing-guide)
     - [Good Issues](#good-issues)
-    - [Uses Commitizen](#uses-commitizen)
-    - [Uses Env Files](#uses-env-files)
-    - [E2E Test](#e2e-test)
+    - [Commitizen](#uses-commitizen)
+    - [Env Files](#uses-env-files)
+    - [E2E Testing](#e2e-testing)
   - [Changelogs](#changelogs)
   - [TODOs](#todos)
   - [License](#license)
@@ -73,7 +73,7 @@ Open [http://localhost:3002](http://localhost:3002) to view it in the browser. T
 
 ### yarn document
 
-Uses [compodoc](https://github.com/compodoc/compodoc) to generate an awesome document for this app.
+[compodoc](https://github.com/compodoc/compodoc) to generate an awesome document for this app.
 
 ### yarn test
 
@@ -101,21 +101,27 @@ Read our [contributing guide](./CONTRIBUTING.md) to learn about our development 
 
 Please make sure to read the [Issue Reporting Checklist](./.github/ISSUE_TEMPLATE/bug_report.md) before opening an issue. Issues not conforming to the guidelines may be closed immediately.
 
-### Uses Commitizen
+### Commitizen
 
 This app follows the [Angular Team's Commit Message Guidelines](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit), your commit will be checked by commitlint, please use `git cz` instead of `git commit`. For this reason, you should install `commitizen` globally or use `yarn commit` instead.
 
-### Uses Env Files
+### Env Files
 
-Rename `env/.env.example` to 'production.env' and 'development.env' and save to the `env` file folder. Then replace those environment variables with your own. Both `DATABASE_USER` and `DATABASE_PWD` are optional parameters in `development.env` and `test.env` file. Furthermore, `NEED_SIMULATE_NETWORK_THROTTLE` is only taken efforts in the development environment.
+Creating `production.env`, `development.env` and `test.env` to save specified environment variables. Common parameters cound be filled in `.env`. Both `DATABASE_USER` and `DATABASE_PWD` are optional parameters in `development.env` and `test.env` file. Furthermore, `NEED_SIMULATE_NETWORK_THROTTLE` is only working on the development environment.
 
 ```bash
+# Parameters in different environments should be filled in
+# `production.env`, `development.env` and `test.env`.
 NODE_ENV=<YOUR_NODE_ENV>
-APP_PORT=<YOUR_APP_PORT>
 DATABASE_HOST=<YOUR_DATABASE_HOST>
 DATABASE_PORT=<YOUR_DATABASE_PORT>
+# `DATABASE_USER` and `DATABASE_PWD` are optional parameters in
+# `development.env` and `test.env` file
 DATABASE_USER=<YOUR_DATABASE_USER>
 DATABASE_PWD=<YOUR_DATABASE_PWD>
+
+# Common parameters cound be filled in `.env`.
+APP_PORT=<YOUR_APP_PORT>
 DATABASE_COLLECTION=<YOUR_DATABASE_COLLECTION>
 BANDWAGON_SECRET_KEY=<YOUR_BANDWAGON_SECRET_KEY>
 BANDWAGON_SERVER_ID=<YOUR_BANDWAGON_SERVER_ID>
@@ -129,13 +135,13 @@ GOOGLE_RECAPTCHA_KEY=<YOUR_GOOGLE_RECAPTCHA_KEY>
 AZURE_STORAGE_CONNECTION_STRING=<YOUR_AZURE_STORAGE_CONNECTION_STRING>
 JWT_SECRET_KEY=<YOUR_JWT_SECRET_KEY>
 JWT_EXPIRES_TIME=<YOUR_JWT_EXPIRES_TIME>
-# Only works in the development environment
+# Only works on the development environment.
 NEED_SIMULATE_NETWORK_THROTTLE=<BOOLEAN>
 ```
 
-### E2E Test
+### E2E Testing
 
-We use e2e test for every module and test them at CI stage, you must write related test cases before PR.
+We use e2e testing for every module and test them at CI stage, you must write related test cases before PR.
 
 [⇧ back to top](#Menu)
 
@@ -143,7 +149,7 @@ We use e2e test for every module and test them at CI stage, you must write relat
 
 The following are **prehistoric changelogs** on building infrastructure for this app. Just as a memorial. See the real detailed changes for each release are documented in the [CHANGELOG](./CHANGELOG.md).
 
-- 2019-12-03 Integrates e2e test.
+- 2019-12-03 Integrates e2e testing.
 
 - 2019-11-26 Integrates JWT.
 
@@ -159,11 +165,15 @@ The following are **prehistoric changelogs** on building infrastructure for this
 
 ## TODOs
 
-- [ ] Full text search for post
+- ~~[ ] Full text search for post (We are using Algolia Search)~~
 
-- [ ] Vilidation schema optimization
+- [ ] Fine-grained type verification system optimization
 
-- [ ] Support forget password
+- [ ] Supports forget password
+
+- [ ] Supports role-based permission system
+
+- [ ] Supports two factor authentication (Both of TOTP and SMS)
 
 - [ ] Dockerize
 
