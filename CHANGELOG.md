@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.10.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.9.0...v1.10.0) (2021-09-12)
+
+
+### Features
+
+* delete useless file ([c670cee](https://github.com/Yancey-Blog/blog-be-next/commit/c670cee310807b2d9b854389904e58f1b9173ae0))
+* optimizate env ([c888a00](https://github.com/Yancey-Blog/blog-be-next/commit/c888a00025d76b3c54f679770ba290777b5948e6))
+* try azure storage ([f543389](https://github.com/Yancey-Blog/blog-be-next/commit/f543389aa3b24f2257783c8c58989a9570d43f48))
+* update config.service.ts ([a9b87c7](https://github.com/Yancey-Blog/blog-be-next/commit/a9b87c75f61fd6cc6456b76243424aeab7f7c2f2))
+* update env ([04f4b20](https://github.com/Yancey-Blog/blog-be-next/commit/04f4b205bb0fc22b5f76761d9a3e982b813cbb4f))
+* use azure blob ([ae15e4c](https://github.com/Yancey-Blog/blog-be-next/commit/ae15e4c042f3be0af4d3a1e5b7c6ebd2de9051a5))
+* use dependabot.yml ([e691fbf](https://github.com/Yancey-Blog/blog-be-next/commit/e691fbfa000ba7b1ea01f87cfa56a9d48a51b91d))
+* wip: upload file with graphql and azure ([8843422](https://github.com/Yancey-Blog/blog-be-next/commit/884342205a0088499d4bcc02750b8bcd30a7fa2c))
+
 ## [1.9.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.8.1...v1.9.0) (2021-06-05)
 
 
