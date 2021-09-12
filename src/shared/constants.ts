@@ -8,15 +8,13 @@ export const GOOGLE_RECAPTCHA_URL = 'https://www.google.com/recaptcha/api/siteve
 
 export const IP_STACK_URL = 'http://api.ipstack.com/'
 
-export const ALI_OSS_REGION = 'oss-cn-hongkong'
-
-export const ALI_OSS_END_POINT = 'https://static.yancey.app/'
-
 export const ALI_SMS_END_POINT = 'https://dysmsapi.aliyuncs.com/'
 
 export const ALI_SMS_API_VERSION = '2017-05-25'
 
 export const ALI_SMS_REGION = 'cn-hangzhou'
+
+export const AZURE_STORAGE_URL = 'https://edge.yancey.app'
 
 export const AZURE_STORAGE_CONTAINER_NAME = 'beg'
 

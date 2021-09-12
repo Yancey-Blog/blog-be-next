@@ -84,6 +84,12 @@ type RecoveryCodeModel {
   recoveryCodes: [String!]!
 }
 
+"""The response of Azure uploader."""
+type UploaderModel {
+  url: String!
+  name: String!
+}
+
 type AnnouncementModel {
   _id: String!
   content: String!
@@ -385,7 +391,7 @@ type Mutation {
   updateUserName(username: String!): UserModel!
   updateEmail(email: String!): UserModel!
   deleteAccount: UserModel!
-  uploadFile(file: Upload!): Boolean!
+  uploadFile(file: Upload!): UploaderModel!
   createAnnouncement(input: CreateAnnouncementInput!): AnnouncementModel!
   updateAnnouncementById(input: UpdateAnnouncementInput!): AnnouncementModel!
   exchangePositionAnnouncement(input: ExchangePositionInput!): [AnnouncementModel!]!

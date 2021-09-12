@@ -8,7 +8,6 @@ import { DataBaseModule } from './database/database.module'
 import { GraphqlModule } from './graphql/graphqls.module'
 import { AuthModule } from './auth/auth.module'
 import { UploadersModule } from './uploaders/uploaders.module'
-import { UploadersModule as UploadersGraphQLModule } from './uploaders-graphql/uploaders.module'
 import { UsersModule } from './users/users.module'
 import { AnnouncementsModule } from './announcements/announcements.module'
 import { SMSModule } from './sms/sms.module'
@@ -33,7 +32,6 @@ import { WinstonLogModule } from './shared/log/log.module'
     DataBaseModule,
     AuthModule,
     UploadersModule,
-    UploadersGraphQLModule,
     UsersModule,
     AnnouncementsModule,
     SMSModule,

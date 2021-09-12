@@ -1,7 +1,7 @@
 import dotenv, { DotenvParseOutput } from 'dotenv'
 import Joi, { ObjectSchema } from 'joi'
 import fs from 'fs'
-import { AliOSSKey, AliSMSKey, AliKey } from './interfaces/ali-keys.interface'
+import { AliSMSKey, AliKey } from './interfaces/ali-keys.interface'
 import { BandwagonKey } from './interfaces/bandwagon-keys.interface'
 
 export type EnvConfig = Record<string, any>
@@ -49,13 +49,6 @@ export class ConfigService {
     return {
       ALI_ACCESS_KEY_ID: this.get('ALI_ACCESS_KEY_ID'),
       ALI_ACCESS_KEY_SECRET: this.get('ALI_ACCESS_KEY_SECRET'),
-    }
-  }
-
-  public getAliOSSKeys(): AliOSSKey {
-    return {
-      ...this.getAliKeys(),
-      ALI_OSS_BUCKET: this.get('ALI_OSS_BUCKET'),
     }
   }
 
@@ -114,7 +107,6 @@ export class ConfigService {
       BANDWAGON_SERVER_ID: Joi.string().required(),
       ALI_ACCESS_KEY_ID: Joi.string().required(),
       ALI_ACCESS_KEY_SECRET: Joi.string().required(),
-      ALI_OSS_BUCKET: Joi.string().required(),
       ALI_SMS_SIGN_NAME: Joi.string().required(),
       ALI_SMS_TEMPLATE_CODE: Joi.string().required(),
       IP_STACK_ACCESS_KEY: Joi.string().required(),

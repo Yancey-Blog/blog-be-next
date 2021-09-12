@@ -5,6 +5,7 @@ import bodyParser from 'body-parser'
 import morgan from 'morgan'
 import helmet from 'helmet'
 import rateLimit from 'express-rate-limit'
+import { graphqlUploadExpress } from 'graphql-upload'
 import { CORS_ORIGINS } from '../constants'
 
 export const configMiddlewares = (app: INestApplication) => {
@@ -34,4 +35,5 @@ export const configMiddlewares = (app: INestApplication) => {
       max: 100,
     }),
   )
+  // app.use(graphqlUploadExpress({ maxFileSize: 10000000, maxFiles: 10 }))
 }

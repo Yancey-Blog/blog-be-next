@@ -3,7 +3,6 @@ import { UploadersResolver } from './uploaders.resolver'
 import { UploadersService } from './uploaders.service'
 
 @Module({
-  controllers: [UploadersResolver],
-  providers: [UploadersService],
+  providers: [UploadersService, UploadersResolver],
 })
 export class UploadersModule {}

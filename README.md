@@ -110,24 +110,19 @@ This app follows the [Angular Team's Commit Message Guidelines](https://github.c
 Creating `production.env`, `development.env` and `test.env` to save specified environment variables. Common parameters cound be filled in `.env`. Both `DATABASE_USER` and `DATABASE_PWD` are optional parameters in `development.env` and `test.env` file. Furthermore, `NEED_SIMULATE_NETWORK_THROTTLE` is only working on the development environment.
 
 ```bash
-# Parameters in different environments should be filled in
-# `production.env`, `development.env` and `test.env`.
 NODE_ENV=<YOUR_NODE_ENV>
+APP_PORT=<YOUR_APP_PORT>
 DATABASE_HOST=<YOUR_DATABASE_HOST>
 DATABASE_PORT=<YOUR_DATABASE_PORT>
+DATABASE_COLLECTION=<YOUR_DATABASE_COLLECTION>
 # `DATABASE_USER` and `DATABASE_PWD` are optional parameters in
 # `development.env` and `test.env` file
 DATABASE_USER=<YOUR_DATABASE_USER>
 DATABASE_PWD=<YOUR_DATABASE_PWD>
-
-# Common parameters cound be filled in `.env`.
-APP_PORT=<YOUR_APP_PORT>
-DATABASE_COLLECTION=<YOUR_DATABASE_COLLECTION>
 BANDWAGON_SECRET_KEY=<YOUR_BANDWAGON_SECRET_KEY>
 BANDWAGON_SERVER_ID=<YOUR_BANDWAGON_SERVER_ID>
 ALI_ACCESS_KEY_ID=<YOUR_ALI_ACCESS_KEY_ID>
 ALI_ACCESS_KEY_SECRET=<YOUR_ALI_ACCESS_KEY_SECRET>
-ALI_OSS_BUCKET=<YOUR_ALI_OSS_BUCKET>
 ALI_SMS_SIGN_NAME=<YOUR_ALI_SMS_SIGN_NAME>
 ALI_SMS_TEMPLATE_CODE=<YOUR_ALI_SMS_TEMPLATE_CODE>
 IP_STACK_ACCESS_KEY=<YOUR_IP_STACK_ACCESS_KEY>
