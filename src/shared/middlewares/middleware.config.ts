@@ -17,17 +17,24 @@ export const configMiddlewares = (app: INestApplication) => {
   app.use(
     helmet({ contentSecurityPolicy: process.env.NODE_ENV === 'production' ? undefined : false }),
   )
-  app.enableCors(
-    isEnvProduction
-      ? {
-          origin: CORS_ORIGINS,
-          methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-          credentials: true,
-          preflightContinue: true,
-          optionsSuccessStatus: 204,
-        }
-      : {},
-  )
+  // app.enableCors(
+  //   isEnvProduction
+  //     ? {
+  //         origin: CORS_ORIGINS,
+  //         methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+  //         credentials: true,
+  //         preflightContinue: true,
+  //         optionsSuccessStatus: 204,
+  //       }
+  //     : {},
+  // )
+  app.enableCors({
+    origin: '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    credentials: true,
+    preflightContinue: true,
+    optionsSuccessStatus: 204,
+  })
   app.use(
     rateLimit({
       windowMs: 15 * 60 * 1000,
