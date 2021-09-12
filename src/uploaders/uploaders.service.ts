@@ -1,42 +1,55 @@
 import { Injectable } from '@nestjs/common'
-import OSS from 'ali-oss'
+import { FileUpload } from 'graphql-upload'
+import { ForbiddenError } from 'apollo-server-express'
+import { BlobServiceClient, ContainerClient } from '@azure/storage-blob'
+import { randomSeries, getFileExtension } from 'yancey-js-util'
 import { ConfigService } from '../config/config.service'
-import { ALI_OSS_END_POINT, ALI_OSS_REGION } from '../shared/constants'
-import { IAliOSSRes } from './interfaces/alioss.interface'
-import { IMulterFile } from './interfaces/multer.interface'
+import { AZURE_STORAGE_URL, AZURE_STORAGE_CONTAINER_NAME } from '../shared/constants'
 
 @Injectable()
 export class UploadersService {
-  private readonly oss: OSS
+  private readonly containerClient: ContainerClient
 
   constructor(configService: ConfigService) {
-    const {
-      ALI_ACCESS_KEY_ID,
-      ALI_ACCESS_KEY_SECRET,
-      ALI_OSS_BUCKET,
-    } = configService.getAliOSSKeys()
+    const blobServiceClient = BlobServiceClient.fromConnectionString(
+      configService.getAzureStorageConnectionString(),
+    )
 
-    this.oss = new OSS({
-      accessKeyId: ALI_ACCESS_KEY_ID,
-      accessKeySecret: ALI_ACCESS_KEY_SECRET,
-      bucket: ALI_OSS_BUCKET,
-      region: ALI_OSS_REGION,
-      endpoint: ALI_OSS_END_POINT,
-      secure: true,
-      cname: true,
-      timeout: '100s',
-    })
+    this.containerClient = blobServiceClient.getContainerClient(AZURE_STORAGE_CONTAINER_NAME)
   }
 
-  public async upload(file: IMulterFile) {
-    try {
-      const { name, url } = (await this.oss.put(file.originalname, file.buffer)) as IAliOSSRes
-      return {
-        name,
-        url,
-      }
-    } catch (err) {
-      return err
-    }
+  public async uploadFile(file: FileUpload) {
+    const { createReadStream, filename } = file
+    const rs = createReadStream()
+    const buffers = []
+
+    return new Promise((resolve, reject) => {
+      rs.addListener('data', (data) => {
+        buffers.push(data)
+      })
+
+      rs.addListener('end', async () => {
+        const blobName = `${randomSeries(8)}-${+new Date()}.${getFileExtension(filename)}`
+        const buffer = Buffer.concat(buffers)
+        const blockBlobClient = this.containerClient.getBlockBlobClient(blobName)
+        const { errorCode } = await blockBlobClient.upload(buffer, Buffer.byteLength(buffer))
+
+        const res = {
+          name: filename,
+          url: `${AZURE_STORAGE_URL}/${AZURE_STORAGE_CONTAINER_NAME}/${blobName}`,
+        }
+
+        if (errorCode) {
+          reject(errorCode)
+        } else {
+          // @ts-ignore
+          resolve(res)
+        }
+      })
+
+      rs.addListener('error', (err) => {
+        reject(err)
+      })
+    })
   }
 }

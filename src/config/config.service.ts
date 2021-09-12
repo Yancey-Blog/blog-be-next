@@ -1,7 +1,7 @@
-import dotenv from 'dotenv'
+import dotenv, { DotenvParseOutput } from 'dotenv'
 import Joi, { ObjectSchema } from 'joi'
 import fs from 'fs'
-import { AliOSSKey, AliSMSKey, AliKey } from './interfaces/ali-keys.interface'
+import { AliSMSKey, AliKey } from './interfaces/ali-keys.interface'
 import { BandwagonKey } from './interfaces/bandwagon-keys.interface'
 
 export type EnvConfig = Record<string, any>
@@ -15,8 +15,12 @@ export class ConfigService {
 
   private readonly envConfig: EnvConfig
 
-  constructor(filePath: string) {
-    const config = dotenv.parse(fs.readFileSync(filePath))
+  constructor(filePaths: string[]) {
+    let config: DotenvParseOutput = {}
+    filePaths.forEach((filePath) => {
+      const _config = dotenv.parse(fs.readFileSync(filePath))
+      config = { ...config, ..._config }
+    })
     this.envConfig = this.validateEnvFile(config)
     this.isEnvProduction = this.getNodeEnv() === 'production'
     this.isEnvDevelopment = this.getNodeEnv() === 'development'
@@ -45,13 +49,6 @@ export class ConfigService {
     return {
       ALI_ACCESS_KEY_ID: this.get('ALI_ACCESS_KEY_ID'),
       ALI_ACCESS_KEY_SECRET: this.get('ALI_ACCESS_KEY_SECRET'),
-    }
-  }
-
-  public getAliOSSKeys(): AliOSSKey {
-    return {
-      ...this.getAliKeys(),
-      ALI_OSS_BUCKET: this.get('ALI_OSS_BUCKET'),
     }
   }
 
@@ -90,6 +87,10 @@ export class ConfigService {
     return this.get('GOOGLE_RECAPTCHA_KEY')
   }
 
+  public getAzureStorageConnectionString(): string {
+    return this.get('AZURE_STORAGE_CONNECTION_STRING')
+  }
+
   private validateEnvFile(envConfig: EnvConfig): EnvConfig {
     const envVarsSchema: ObjectSchema = Joi.object({
       NODE_ENV: Joi.string()
@@ -106,13 +107,13 @@ export class ConfigService {
       BANDWAGON_SERVER_ID: Joi.string().required(),
       ALI_ACCESS_KEY_ID: Joi.string().required(),
       ALI_ACCESS_KEY_SECRET: Joi.string().required(),
-      ALI_OSS_BUCKET: Joi.string().required(),
       ALI_SMS_SIGN_NAME: Joi.string().required(),
       ALI_SMS_TEMPLATE_CODE: Joi.string().required(),
       IP_STACK_ACCESS_KEY: Joi.string().required(),
       JWT_SECRET_KEY: Joi.string().required(),
       JWT_EXPIRES_TIME: Joi.number().required(),
       GOOGLE_RECAPTCHA_KEY: Joi.string().required(),
+      AZURE_STORAGE_CONNECTION_STRING: Joi.string().required(),
       NEED_SIMULATE_NETWORK_THROTTLE: Joi.boolean().optional(),
     })
 

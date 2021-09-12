@@ -1,17 +1,24 @@
-import { Post, Controller, UseInterceptors, UploadedFile } from '@nestjs/common'
-import { FileInterceptor } from '@nestjs/platform-express'
+import { UseGuards } from '@nestjs/common'
+import { GraphQLUpload } from 'apollo-server-express'
+import { Args, Resolver, Mutation } from '@nestjs/graphql'
+import { FileUpload } from 'graphql-upload'
 import { UploadersService } from './uploaders.service'
-import { IMulterFile } from './interfaces/multer.interface'
+import { UploaderModel } from './models/uploaders.model'
+import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
 
-@Controller('uploads')
+@Resolver(() => UploaderModel)
 export class UploadersResolver {
   constructor(private readonly uploadersService: UploadersService) {
     this.uploadersService = uploadersService
   }
 
-  @Post()
-  @UseInterceptors(FileInterceptor('file', { limits: { fieldSize: 10 * 1024 * 1024 } }))
-  public uploadFile(@UploadedFile() file: IMulterFile) {
-    return this.uploadersService.upload(file)
+  @Mutation(() => UploaderModel)
+  @UseGuards(GqlAuthGuard)
+  async uploadFile(
+    @Args({ name: 'file', type: () => GraphQLUpload })
+    file: FileUpload,
+  ) {
+    const res = await this.uploadersService.uploadFile(file)
+    return res
   }
 }
