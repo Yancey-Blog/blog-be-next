@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common'
 import { FileUpload } from 'graphql-upload'
-import { ForbiddenError } from 'apollo-server-express'
 import { BlobServiceClient, ContainerClient } from '@azure/storage-blob'
 import { randomSeries, getFileExtension } from 'yancey-js-util'
 import { ConfigService } from '../config/config.service'
