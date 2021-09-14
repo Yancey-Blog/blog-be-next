@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.11.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.10.0...v1.11.0) (2021-09-14)
+
+
+### Features
+
+* update middleware ([98184dc](https://github.com/Yancey-Blog/blog-be-next/commit/98184dceed541b45f43c3a9211c72ab3e94247cc))
+* update scripts of package.json ([a14e8a6](https://github.com/Yancey-Blog/blog-be-next/commit/a14e8a6a3bf9d23ed5258d6076b251de65294953))
+* wip: try no cors ([8b12cf9](https://github.com/Yancey-Blog/blog-be-next/commit/8b12cf91b2f3ff95c6cee9fdd4cbbf3832daac96))
+
 ## [1.10.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.9.0...v1.10.0) (2021-09-12)
 
 
