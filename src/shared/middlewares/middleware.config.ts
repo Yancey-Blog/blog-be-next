@@ -9,8 +9,6 @@ import { CORS_ORIGINS } from '../constants'
 export const configMiddlewares = (app: INestApplication) => {
   const isEnvProduction = process.env.NODE_ENV === 'production'
 
-  console.log(isEnvProduction)
-
   app.use(serveFavicon(path.join(process.cwd(), 'public/favicon.ico')))
   app.use(morgan('combined'))
   app.use(

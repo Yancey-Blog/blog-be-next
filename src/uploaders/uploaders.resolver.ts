@@ -1,7 +1,6 @@
 import { UseGuards } from '@nestjs/common'
-import { GraphQLUpload } from 'apollo-server-express'
 import { Args, Resolver, Mutation } from '@nestjs/graphql'
-import { FileUpload } from 'graphql-upload'
+import { FileUpload, GraphQLUpload } from 'graphql-upload'
 import { UploadersService } from './uploaders.service'
 import { UploaderModel } from './models/uploaders.model'
 import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
