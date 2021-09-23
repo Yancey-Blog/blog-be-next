@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common'
 import { GraphQLModule } from '@nestjs/graphql'
 import { ValidationError } from 'apollo-server-express'
+import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core'
 import { ConfigModule } from '../config/config.module'
 import { ConfigService } from '../config/config.service'
 import { SCHEMA_GQL_FILE_NAME } from '../shared/constants'
@@ -12,7 +13,7 @@ import { SCHEMA_GQL_FILE_NAME } from '../shared/constants'
 
       useFactory: async (configService: ConfigService) => ({
         debug: !configService.isEnvProduction,
-        playground: !configService.isEnvProduction,
+        playground: false,
         installSubscriptionHandlers: true,
         typePaths: ['./**/*.gql'],
         autoSchemaFile: SCHEMA_GQL_FILE_NAME,
@@ -34,6 +35,9 @@ import { SCHEMA_GQL_FILE_NAME } from '../shared/constants'
               }
             : error
         },
+        plugins: [
+          !configService.isEnvProduction && ApolloServerPluginLandingPageLocalDefault(),
+        ].filter(Boolean),
       }),
 
       inject: [ConfigService],
