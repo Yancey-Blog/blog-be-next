@@ -1,4 +1,4 @@
-import { Field, ID, ObjectType } from '@nestjs/graphql'
+import { Field, ID, ObjectType, Int } from '@nestjs/graphql'
 
 @ObjectType()
 export class PostItemModel {
@@ -23,10 +23,10 @@ export class PostItemModel {
   @Field()
   public readonly lastModifiedDate: Date
 
-  @Field()
+  @Field(() => Int)
   public readonly like: number
 
-  @Field()
+  @Field(() => Int)
   public readonly pv: number
 
   @Field()

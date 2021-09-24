@@ -247,8 +247,8 @@ type PostItemModel {
   content: String!
   tags: [String!]!
   lastModifiedDate: DateTime!
-  like: Float!
-  pv: Float!
+  like: Int!
+  pv: Int!
   isPublic: Boolean!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -474,7 +474,9 @@ input UpdateUserInput {
 """The `Upload` scalar type represents a file upload."""
 scalar Upload
 
+"""The input type for creating an announcement."""
 input CreateAnnouncementInput {
+  """Announcement content."""
   content: String!
 }
 
@@ -601,7 +603,7 @@ input CreatePostInput {
   summary: String!
   content: String!
   tags: [String!]!
-  lastModifiedDate: DateTime!
+  lastModifiedDate: String!
   isPublic: Boolean
 }
 

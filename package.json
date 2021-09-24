@@ -18,7 +18,7 @@
     "release:major": "standard-version --release-as major && yarn push",
     "release:minor": "standard-version --release-as minor && yarn push",
     "release:patch": "standard-version --release-as patch && yarn push",
-    "document": "npx compodoc -p tsconfig.json -s --language \"ja-JP\"",
+    "document": "npx compodoc -p tsconfig.json -s",
     "lint": "eslint src --ext .ts,.tsx",
     "test": "jest",
     "test:watch": "jest --watch",
