@@ -23,7 +23,7 @@ export class PostsResolver {
   }
 
   @Query(() => PostModel)
-  // @UseGuards(GqlAuthGuard)
+  @UseGuards(GqlAuthGuard)
   public async getPosts(@Args('input') input: PaginationInput) {
     return this.postsService.findByPagination(input)
   }
@@ -34,19 +34,19 @@ export class PostsResolver {
   }
 
   @Mutation(() => PostItemModel)
-  // @UseGuards(GqlAuthGuard)
+  @UseGuards(GqlAuthGuard)
   public async createPost(@Args('input') input: CreatePostInput) {
     return this.postsService.create(input)
   }
 
   @Mutation(() => PostItemModel)
-  // @UseGuards(GqlAuthGuard)
+  @UseGuards(GqlAuthGuard)
   public async updatePostById(@Args('input') input: UpdatePostInput) {
     return this.postsService.update(input)
   }
 
   @Mutation(() => PostItemModel)
-  // @UseGuards(GqlAuthGuard)
+  @UseGuards(GqlAuthGuard)
   public async deletePostById(@Args({ name: 'id', type: () => ID }) id: string) {
     return this.postsService.deleteOneById(id)
   }

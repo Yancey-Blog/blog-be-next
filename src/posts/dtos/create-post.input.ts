@@ -1,4 +1,4 @@
-import { InputType, Field } from '@nestjs/graphql'
+import { InputType, Field, } from '@nestjs/graphql'
 import {
   IsString,
   IsNotEmpty,
@@ -45,9 +45,9 @@ export class CreatePostInput {
   public readonly tags: string[]
 
   @Field({ nullable: false })
-  @IsString()
+  @IsDate()
   @IsNotEmpty()
-  public readonly lastModifiedDate: string
+  public readonly lastModifiedDate: Date
 
   @Field({ nullable: true })
   public readonly isPublic?: boolean

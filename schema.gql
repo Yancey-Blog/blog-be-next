@@ -603,7 +603,7 @@ input CreatePostInput {
   summary: String!
   content: String!
   tags: [String!]!
-  lastModifiedDate: String!
+  lastModifiedDate: DateTime!
   isPublic: Boolean
 }
 
