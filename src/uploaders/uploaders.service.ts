@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common'
 import { FileUpload } from 'graphql-upload'
 import { BlobServiceClient, ContainerClient } from '@azure/storage-blob'
 import { randomSeries, getFileExtension } from 'yancey-js-util'
+import sharp from 'sharp'
 import { ConfigService } from '../config/config.service'
 import { AZURE_STORAGE_URL, AZURE_STORAGE_CONTAINER_NAME } from '../shared/constants'
 
@@ -15,6 +16,16 @@ export class UploadersService {
     )
 
     this.containerClient = blobServiceClient.getContainerClient(AZURE_STORAGE_CONTAINER_NAME)
+  }
+
+  private async convertImageToWebp(image: Buffer) {
+    const buffer = await sharp(image).webp().toBuffer()
+    return buffer
+  }
+
+  private async convertImageToAVIF(image: Buffer) {
+    const buffer = await sharp(image).avif().toBuffer()
+    return buffer
   }
 
   public async uploadFile(file: FileUpload) {
@@ -33,12 +44,24 @@ export class UploadersService {
         const blockBlobClient = this.containerClient.getBlockBlobClient(blobName)
         const { errorCode } = await blockBlobClient.upload(buffer, Buffer.byteLength(buffer))
 
+        const webp = await this.convertImageToWebp(buffer)
+        const { errorCode: webpErrorCode } = await blockBlobClient.upload(
+          webp,
+          Buffer.byteLength(webp),
+        )
+
+        const avif = await this.convertImageToWebp(buffer)
+        const { errorCode: avifErrorCode } = await blockBlobClient.upload(
+          avif,
+          Buffer.byteLength(avif),
+        )
+
         const res = {
           name: filename,
           url: `${AZURE_STORAGE_URL}/${AZURE_STORAGE_CONTAINER_NAME}/${blobName}`,
         }
 
-        if (errorCode) {
+        if (errorCode || webpErrorCode || avifErrorCode) {
           reject(errorCode)
         } else {
           // @ts-ignore
