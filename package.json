@@ -1,6 +1,6 @@
 {
   "name": "blog-be-next",
-  "version": "1.11.0",
+  "version": "1.12.0",
   "description": "The backend platform for Yancey blog.",
   "repository": "git@github.com:Yancey-Blog/blog-be-next.git",
   "author": "YanceyOfficial <yanceyofficial@gmail.com>",
