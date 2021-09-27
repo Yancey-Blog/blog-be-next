@@ -19,12 +19,12 @@ export class UploadersService {
   }
 
   private async convertImageToWebp(image: Buffer) {
-    const buffer = await sharp(image).webp({ quality: 90 }).toBuffer()
+    const buffer = await sharp(image, { animated: true }).webp({ quality: 80 }).toBuffer()
     return buffer
   }
 
   private async convertImageToAVIF(image: Buffer) {
-    const buffer = await sharp(image).avif({ quality: 80 }).toBuffer()
+    const buffer = await sharp(image, { animated: true }).avif({ quality: 80 }).toBuffer()
     return buffer
   }
 
