@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.13.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.12.0...v1.13.0) (2021-09-30)
+
+
+### Features
+
+* adjusting parameter of sharp ([db2278f](https://github.com/Yancey-Blog/blog-be-next/commit/db2278f8fbbd6a3dc4b3c16719495f143f1fdc1f))
+* delete ali sms module ([2464a9f](https://github.com/Yancey-Blog/blog-be-next/commit/2464a9fd600714117c90f6baf36e13fdc0aa0df2))
+* finish sharp ([705a48e](https://github.com/Yancey-Blog/blog-be-next/commit/705a48e3d6e2dcb8ec490e075ae19a11433d6b0b))
+* **wip:** use sharp to genrate webp and avif ([b569e0e](https://github.com/Yancey-Blog/blog-be-next/commit/b569e0e5a7dfa3525a53d334fda85a698de52cba))
+
 ## [1.12.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.11.0...v1.12.0) (2021-09-27)
 
 ## [1.11.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.10.0...v1.11.0) (2021-09-14)
