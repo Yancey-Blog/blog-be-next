@@ -70,7 +70,6 @@ describe('AuthController (e2e)', () => {
         role
         avatarUrl
         username
-        phoneNumber
         isTOTP
         createdAt
         updatedAt
@@ -103,7 +102,6 @@ describe('AuthController (e2e)', () => {
         role
         avatarUrl
         username
-        phoneNumber
         isTOTP
         createdAt
         updatedAt

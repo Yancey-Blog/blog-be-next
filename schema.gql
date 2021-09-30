@@ -61,7 +61,6 @@ type UserModel {
   website: String!
   bio: String!
   avatarUrl: String!
-  phoneNumber: String!
   isTOTP: Boolean!
   totpSecret: String!
   recoveryCodes: [String!]!
@@ -103,10 +102,6 @@ type BatchDeleteModel {
   n: Float
   deletedCount: Float
   ids: [ID!]!
-}
-
-type SendSMSRes {
-  success: Boolean!
 }
 
 type OpenSourceModel {
@@ -397,8 +392,6 @@ type Mutation {
   exchangePositionAnnouncement(input: ExchangePositionInput!): [AnnouncementModel!]!
   deleteAnnouncementById(id: ID!): AnnouncementModel!
   deleteAnnouncements(ids: [ID!]!): BatchDeleteModel!
-  sendSMS(phoneNumber: String!): SendSMSRes!
-  validateSMS(input: ValidateSMSInput!): UserModel!
   createOpenSource(input: CreateOpenSourceInput!): OpenSourceModel!
   updateOpenSourceById(input: UpdateOpenSourceInput!): OpenSourceModel!
   deleteOpenSourceById(id: ID!): OpenSourceModel!
@@ -461,7 +454,6 @@ input UpdateUserInput {
   totpSecret: String
   recoveryCodes: [String!]
   password: String
-  phoneNumber: String
   loginStatistics: [String!]
   name: String
   location: String
@@ -488,11 +480,6 @@ input ExchangePositionInput {
   exchangedId: String!
   weight: Float!
   exchangedWeight: Float!
-}
-
-input ValidateSMSInput {
-  phoneNumber: String!
-  smsCode: String!
 }
 
 input CreateOpenSourceInput {

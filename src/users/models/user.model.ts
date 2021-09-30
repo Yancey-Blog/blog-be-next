@@ -40,9 +40,6 @@ export class UserModel {
   public readonly avatarUrl: string
 
   @Field()
-  public readonly phoneNumber: string
-
-  @Field()
   public readonly isTOTP: boolean
 
   @Field()

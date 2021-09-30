@@ -25,7 +25,6 @@ export interface User extends Document {
   readonly website: string
   readonly bio: string
   readonly avatarUrl: string
-  readonly phoneNumber: string
   readonly isTOTP: boolean
   readonly totpSecret: string
   readonly recoveryCodes: string[]
