@@ -18,7 +18,8 @@ export class UploadersResolver {
     @Args({ name: 'file', type: () => GraphQLUpload })
     file: FileUpload,
   ) {
-    const res = await this.uploadersService.uploadFile(file)
+    const resolve = (await this.uploadersService.uploadFile(file)) as Function
+    const res = resolve()
     return res
   }
 }
