@@ -21,3 +21,5 @@ export const CORS_ORIGINS = [
   'https://yanceyleo.com',
   'https://cms.yanceyleo.com',
 ]
+
+export const BASE_IMAGE_EXTENSIONS = ['jpeg', 'jpg', 'png', 'gif']
