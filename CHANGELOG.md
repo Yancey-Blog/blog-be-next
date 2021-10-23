@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.14.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.13.0...v1.14.0) (2021-10-23)
+
+
+### Features
+
+* update logger and uploader ([8f211c0](https://github.com/Yancey-Blog/blog-be-next/commit/8f211c0958421dc0f3a04c08e19794aa6d0f48a8))
+
 ## [1.13.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.12.0...v1.13.0) (2021-09-30)
 
 
