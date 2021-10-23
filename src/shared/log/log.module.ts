@@ -23,10 +23,10 @@ const { format } = winston
       ),
       transports: [
         new winston.transports.Console({
-          level: 'info',
+          level: 'error',
         }),
         new DailyRotateFile({
-          filename: 'logs/application-%DATE%.log',
+          filename: 'logs/error-%DATE%.log',
           datePattern: 'YYYY-MM-DD-HH',
           zippedArchive: true,
           maxSize: '20m',

@@ -23,11 +23,6 @@ export class UploadersService {
     return buffer
   }
 
-  private async convertImageToAVIF(image: Buffer) {
-    const buffer = await sharp(image, { animated: true }).avif({ quality: 80 }).toBuffer()
-    return buffer
-  }
-
   private async upload(fileName: string, extension: string, buffer: Buffer) {
     const blockBlobClient = this.containerClient.getBlockBlobClient(`${fileName}.${extension}`)
     const { errorCode } = await blockBlobClient.upload(buffer, Buffer.byteLength(buffer))
@@ -50,13 +45,10 @@ export class UploadersService {
         const extension = getFileExtension(filename)
         const images = ['jpeg', 'jpg', 'png', 'gif']
         let webpFileError = null
-        let avifFileError = null
 
         if (images.includes(extension.toLowerCase())) {
           const webp = await this.convertImageToWebp(buffer)
-          const avif = await this.convertImageToAVIF(buffer)
           webpFileError = await this.upload(hash, 'webp', webp)
-          avifFileError = await this.upload(hash, 'avif', avif)
         }
 
         const originFileError = await this.upload(hash, extension, buffer)
@@ -66,7 +58,7 @@ export class UploadersService {
           url: `${AZURE_STORAGE_URL}/${AZURE_STORAGE_CONTAINER_NAME}/${hash}.${extension}`,
         }
 
-        const error = originFileError || webpFileError || avifFileError
+        const error = originFileError || webpFileError
         if (error) {
           reject(error)
         } else {
