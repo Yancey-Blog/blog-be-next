@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common'
 import { FileUpload } from 'graphql-upload'
 import { BlobServiceClient, ContainerClient } from '@azure/storage-blob'
 import { randomSeries, getFileExtension } from 'yancey-js-util'
-import sharp from 'sharp'
+// import sharp from 'sharp'
 import { ConfigService } from '../config/config.service'
 import { AZURE_STORAGE_URL, AZURE_STORAGE_CONTAINER_NAME } from '../shared/constants'
 
@@ -18,10 +18,10 @@ export class UploadersService {
     this.containerClient = blobServiceClient.getContainerClient(AZURE_STORAGE_CONTAINER_NAME)
   }
 
-  private async convertImageToWebp(image: Buffer) {
-    const buffer = await sharp(image, { animated: true }).webp({ quality: 80 }).toBuffer()
-    return buffer
-  }
+  // private async convertImageToWebp(image: Buffer) {
+  //   const buffer = await sharp(image, { animated: true }).webp({ quality: 80 }).toBuffer()
+  //   return buffer
+  // }
 
   private async upload(fileName: string, extension: string, buffer: Buffer) {
     const blockBlobClient = this.containerClient.getBlockBlobClient(`${fileName}.${extension}`)
