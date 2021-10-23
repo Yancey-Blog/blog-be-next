@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.2](https://github.com/Yancey-Blog/blog-be-next/compare/v1.14.1...v1.14.2) (2021-10-23)
+
+
+### Features
+
+* try do not use sharp ([8028c3f](https://github.com/Yancey-Blog/blog-be-next/commit/8028c3f5ed0dbf2ca8616d0e58d84a8e41e3e58b))
+
 ### [1.14.1](https://github.com/Yancey-Blog/blog-be-next/compare/v1.14.0...v1.14.1) (2021-10-23)
 
 
