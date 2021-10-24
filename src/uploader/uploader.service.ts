@@ -1,6 +1,7 @@
 import { Injectable, BadRequestException } from '@nestjs/common'
 import { BlobServiceClient, ContainerClient } from '@azure/storage-blob'
 import { randomSeries, getFileExtension } from 'yancey-js-util'
+import { Express } from 'express'
 import sharp from 'sharp'
 import {
   AZURE_STORAGE_URL,
@@ -8,7 +9,6 @@ import {
   BASE_IMAGE_EXTENSIONS,
 } from '../shared/constants'
 import { ConfigService } from '../config/config.service'
-import { IMulterFile } from './interfaces/multer.interface'
 
 @Injectable()
 export class UploaderService {
@@ -37,7 +37,7 @@ export class UploaderService {
     }
   }
 
-  public async uploadFile(file: IMulterFile) {
+  public async uploadFile(file: Express.Multer.File) {
     const { originalname, buffer } = file
     const hash = `${randomSeries(8)}-${+new Date()}`
     const extension = getFileExtension(originalname)
