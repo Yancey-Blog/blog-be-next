@@ -56,9 +56,13 @@ export class UploaderService {
       }
 
       const error = originFileError || webpFileError
+
+      if (error) {
+        throw new BadRequestException(error)
+      }
       return res
     } catch (err) {
-      return err
+      throw new BadRequestException(err)
     }
   }
 }
