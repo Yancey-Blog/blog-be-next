@@ -11,7 +11,7 @@ export class UploaderResolver {
   }
 
   @Post('uploads')
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @UseInterceptors(FileInterceptor('file', { limits: { fieldSize: 10 * 1024 * 1024 } }))
   public uploadFile(@UploadedFile() file: Express.Multer.File) {
     return this.uploaderService.uploadFile(file)
