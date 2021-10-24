@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.15.2](https://github.com/Yancey-Blog/blog-be-next/compare/v1.15.1...v1.15.2) (2021-10-24)
+
+
+### Bug Fixes
+
+* open all cors ([e9d7753](https://github.com/Yancey-Blog/blog-be-next/commit/e9d77532fc2ea039a55661103e00815fb79f1c7b))
+* use cors ([8a56f63](https://github.com/Yancey-Blog/blog-be-next/commit/8a56f63a6793dcca6b53e85d28614227ae962a59))
+
 ### [1.15.1](https://github.com/Yancey-Blog/blog-be-next/compare/v1.15.0...v1.15.1) (2021-10-24)
 
 
