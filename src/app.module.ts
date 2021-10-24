@@ -49,10 +49,10 @@ import { WinstonLogModule } from './shared/log/log.module'
   ],
 
   providers: [
-    {
-      provide: APP_PIPE,
-      useClass: GraphQLValidationPipe,
-    },
+    // {
+    //   provide: APP_PIPE,
+    //   useClass: GraphQLValidationPipe,
+    // },
 
     {
       provide: APP_GUARD,
