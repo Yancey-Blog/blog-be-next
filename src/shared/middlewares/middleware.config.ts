@@ -12,8 +12,7 @@ export const configMiddlewares = (app: INestApplication) => {
   app.use(
     helmet({ contentSecurityPolicy: process.env.NODE_ENV === 'production' ? undefined : false }),
   )
-  app.enableCors({})
-  // app.enableCors(configCORS())
+  app.enableCors(configCORS())
   app.use(
     rateLimit({
       windowMs: 15 * 60 * 1000,
