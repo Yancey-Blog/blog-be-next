@@ -16,7 +16,7 @@ export const SCHEMA_GQL_FILE_NAME = 'schema.gql'
 
 export const TOTP_ENCODE = 'base32'
 
-export const CORS_ORIGINS_PRODUCTION = [/\.yanceyleo\.com$/, /\.yancey\.app$/]
+export const CORS_ORIGINS_PRODUCTION = [/\.?yanceyleo\.com$/, /\.?yancey\.app$/]
 
 export const CORS_ORIGINS_UN_PRODUCTION = ['http://localhost:3000', 'http://localhost:3001']
 
