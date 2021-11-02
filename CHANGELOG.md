@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.15.3](https://github.com/Yancey-Blog/blog-be-next/compare/v1.15.2...v1.15.3) (2021-11-02)
+
+
+### Bug Fixes
+
+* **cors:** supports empty third-level domain name ([26b9471](https://github.com/Yancey-Blog/blog-be-next/commit/26b947132bbb686da18c07b81c0f58be2efdec32))
+
 ### [1.15.2](https://github.com/Yancey-Blog/blog-be-next/compare/v1.15.1...v1.15.2) (2021-10-24)
 
 
