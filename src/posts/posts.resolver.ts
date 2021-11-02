@@ -9,7 +9,7 @@ import { BatchDeleteModel } from '../database/models/batch-delete.model'
 import { CreatePostInput } from './dtos/create-post.input'
 import { UpdatePostInput } from './dtos/update-post.input'
 import { PaginationInput } from './dtos/pagination.input'
-import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
+import { JwtAuthGuard } from '../shared/guard/GraphQLAuth.guard'
 
 @Resolver()
 export class PostsResolver {
@@ -23,7 +23,7 @@ export class PostsResolver {
   }
 
   @Query(() => PostModel)
-  @UseGuards(GqlAuthGuard)
+  @UseGuards(JwtAuthGuard)
   public async getPosts(@Args('input') input: PaginationInput) {
     return this.postsService.findByPagination(input)
   }
@@ -34,25 +34,25 @@ export class PostsResolver {
   }
 
   @Mutation(() => PostItemModel)
-  @UseGuards(GqlAuthGuard)
+  @UseGuards(JwtAuthGuard)
   public async createPost(@Args('input') input: CreatePostInput) {
     return this.postsService.create(input)
   }
 
   @Mutation(() => PostItemModel)
-  @UseGuards(GqlAuthGuard)
+  @UseGuards(JwtAuthGuard)
   public async updatePostById(@Args('input') input: UpdatePostInput) {
     return this.postsService.update(input)
   }
 
   @Mutation(() => PostItemModel)
-  @UseGuards(GqlAuthGuard)
+  @UseGuards(JwtAuthGuard)
   public async deletePostById(@Args({ name: 'id', type: () => ID }) id: string) {
     return this.postsService.deleteOneById(id)
   }
 
   @Mutation(() => BatchDeleteModel)
-  @UseGuards(GqlAuthGuard)
+  @UseGuards(JwtAuthGuard)
   public async deletePosts(@Args({ name: 'ids', type: () => [ID] }) ids: string[]) {
     return this.postsService.batchDelete(ids)
   }

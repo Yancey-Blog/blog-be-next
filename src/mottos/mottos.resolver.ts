@@ -6,7 +6,7 @@ import { CreateMottoInput } from './dtos/create-motto.input'
 import { UpdateMottoInput } from './dtos/update-motto.input'
 import { ExchangePositionInput } from '../shared/interfaces/exchange-position.input'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'
-import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
+import { JwtAuthGuard } from '../shared/guard/GraphQLAuth.guard'
 
 @Resolver(() => MottoModel)
 export class MottosResolver {
@@ -25,19 +25,19 @@ export class MottosResolver {
   }
 
   @Mutation(() => MottoModel)
-  @UseGuards(GqlAuthGuard)
+  @UseGuards(JwtAuthGuard)
   public async createMotto(@Args('input') input: CreateMottoInput): Promise<MottoModel> {
     return this.mottosService.create(input)
   }
 
   @Mutation(() => MottoModel)
-  @UseGuards(GqlAuthGuard)
+  @UseGuards(JwtAuthGuard)
   public async updateMottoById(@Args('input') input: UpdateMottoInput): Promise<MottoModel> {
     return this.mottosService.update(input)
   }
 
   @Mutation(() => [MottoModel])
-  @UseGuards(GqlAuthGuard)
+  @UseGuards(JwtAuthGuard)
   public async exchangePositionMotto(
     @Args('input') input: ExchangePositionInput,
   ): Promise<MottoModel[]> {
@@ -45,7 +45,7 @@ export class MottosResolver {
   }
 
   @Mutation(() => MottoModel)
-  @UseGuards(GqlAuthGuard)
+  @UseGuards(JwtAuthGuard)
   public async deleteMottoById(
     @Args({ name: 'id', type: () => ID }) id: string,
   ): Promise<MottoModel> {
@@ -53,7 +53,7 @@ export class MottosResolver {
   }
 
   @Mutation(() => BatchDeleteModel)
-  @UseGuards(GqlAuthGuard)
+  @UseGuards(JwtAuthGuard)
   public async deleteMottos(@Args({ name: 'ids', type: () => [ID] }) ids: string[]) {
     return this.mottosService.batchDelete(ids)
   }

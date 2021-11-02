@@ -5,7 +5,7 @@ import { AuthenticationError } from 'apollo-server-express'
 import { ConfigService } from '../../config/config.service'
 
 @Injectable()
-export class GqlAuthGuard extends AuthGuard('jwt') implements CanActivate {
+export class JwtAuthGuard extends AuthGuard('jwt') implements CanActivate {
   private isEnvTest: boolean
 
   constructor(configService: ConfigService) {
