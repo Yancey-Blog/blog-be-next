@@ -47,7 +47,7 @@
     "express-rate-limit": "^5.2.6",
     "graphql": "^15.5.1",
     "helmet": "^4.4.1",
-    "joi": "^17.4.0",
+    "joi": "^17.4.2",
     "luxon": "^1.26.0",
     "mongoose": "^5.13.5",
     "morgan": "^1.9.1",
