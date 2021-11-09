@@ -1,7 +1,6 @@
 import dotenv, { DotenvParseOutput } from 'dotenv'
 import Joi, { ObjectSchema } from 'joi'
 import fs from 'fs'
-import { AliSMSKey, AliKey } from './interfaces/ali-keys.interface'
 import { BandwagonKey } from './interfaces/bandwagon-keys.interface'
 
 export type EnvConfig = Record<string, any>
@@ -43,21 +42,6 @@ export class ConfigService {
     const connection = `${host}:${port}/${collection}`
 
     return this.isEnvProduction ? `${prefix}${auth}${connection}` : `${prefix}${connection}`
-  }
-
-  public getAliKeys(): AliKey {
-    return {
-      ALI_ACCESS_KEY_ID: this.get('ALI_ACCESS_KEY_ID'),
-      ALI_ACCESS_KEY_SECRET: this.get('ALI_ACCESS_KEY_SECRET'),
-    }
-  }
-
-  public getAliSMSKeys(): AliSMSKey {
-    return {
-      ...this.getAliKeys(),
-      ALI_SMS_SIGN_NAME: this.get('ALI_SMS_SIGN_NAME'),
-      ALI_SMS_TEMPLATE_CODE: this.get('ALI_SMS_TEMPLATE_CODE'),
-    }
   }
 
   public getBandwagonKeys(): BandwagonKey {
@@ -105,10 +89,6 @@ export class ConfigService {
       DATABASE_COLLECTION: Joi.string().required(),
       BANDWAGON_SECRET_KEY: Joi.string().required(),
       BANDWAGON_SERVER_ID: Joi.string().required(),
-      ALI_ACCESS_KEY_ID: Joi.string().required(),
-      ALI_ACCESS_KEY_SECRET: Joi.string().required(),
-      ALI_SMS_SIGN_NAME: Joi.string().required(),
-      ALI_SMS_TEMPLATE_CODE: Joi.string().required(),
       IP_STACK_ACCESS_KEY: Joi.string().required(),
       JWT_SECRET_KEY: Joi.string().required(),
       JWT_EXPIRES_TIME: Joi.number().required(),

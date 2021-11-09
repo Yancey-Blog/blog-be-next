@@ -15,16 +15,13 @@ const { format } = winston
           format: 'HH:mm:ss YY/MM/DD',
         }),
         format.label({
-          label: 'winston logger',
+          label: 'winston logger ',
         }),
-
         format.splat(),
-        format.printf((info) => `${info.timestamp} ${info.level}: [${info.label}]${info.message}`),
+        format.printf((info) => `${info.timestamp} ${info.level}: [${info.label}] ${info.message}`),
       ),
       transports: [
-        new winston.transports.Console({
-          level: 'info',
-        }),
+        new winston.transports.Console(),
         new DailyRotateFile({
           filename: 'logs/application-%DATE%.log',
           datePattern: 'YYYY-MM-DD-HH',

@@ -61,7 +61,6 @@ type UserModel {
   website: String!
   bio: String!
   avatarUrl: String!
-  phoneNumber: String!
   isTOTP: Boolean!
   totpSecret: String!
   recoveryCodes: [String!]!
@@ -84,12 +83,6 @@ type RecoveryCodeModel {
   recoveryCodes: [String!]!
 }
 
-"""The response of Azure uploader."""
-type UploaderModel {
-  url: String!
-  name: String!
-}
-
 type AnnouncementModel {
   _id: String!
   content: String!
@@ -103,10 +96,6 @@ type BatchDeleteModel {
   n: Float
   deletedCount: Float
   ids: [ID!]!
-}
-
-type SendSMSRes {
-  success: Boolean!
 }
 
 type OpenSourceModel {
@@ -391,14 +380,11 @@ type Mutation {
   updateUserName(username: String!): UserModel!
   updateEmail(email: String!): UserModel!
   deleteAccount: UserModel!
-  uploadFile(file: Upload!): UploaderModel!
   createAnnouncement(input: CreateAnnouncementInput!): AnnouncementModel!
   updateAnnouncementById(input: UpdateAnnouncementInput!): AnnouncementModel!
   exchangePositionAnnouncement(input: ExchangePositionInput!): [AnnouncementModel!]!
   deleteAnnouncementById(id: ID!): AnnouncementModel!
   deleteAnnouncements(ids: [ID!]!): BatchDeleteModel!
-  sendSMS(phoneNumber: String!): SendSMSRes!
-  validateSMS(input: ValidateSMSInput!): UserModel!
   createOpenSource(input: CreateOpenSourceInput!): OpenSourceModel!
   updateOpenSourceById(input: UpdateOpenSourceInput!): OpenSourceModel!
   deleteOpenSourceById(id: ID!): OpenSourceModel!
@@ -461,7 +447,6 @@ input UpdateUserInput {
   totpSecret: String
   recoveryCodes: [String!]
   password: String
-  phoneNumber: String
   loginStatistics: [String!]
   name: String
   location: String
@@ -471,10 +456,6 @@ input UpdateUserInput {
   avatarUrl: String
 }
 
-"""The `Upload` scalar type represents a file upload."""
-scalar Upload
-
-"""The input type for creating an announcement."""
 input CreateAnnouncementInput {
   """Announcement content."""
   content: String!
@@ -490,11 +471,6 @@ input ExchangePositionInput {
   exchangedId: String!
   weight: Float!
   exchangedWeight: Float!
-}
-
-input ValidateSMSInput {
-  phoneNumber: String!
-  smsCode: String!
 }
 
 input CreateOpenSourceInput {

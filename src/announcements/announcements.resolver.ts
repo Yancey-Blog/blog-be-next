@@ -6,7 +6,7 @@ import { CreateAnnouncementInput } from './dtos/create-announcement.input'
 import { UpdateAnnouncementInput } from './dtos/update-announcement.input'
 import { ExchangePositionInput } from '../shared/interfaces/exchange-position.input'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'
-import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
+import { JwtAuthGuard } from '../shared/guard/GraphQLAuth.guard'
 
 @Resolver(() => AnnouncementModel)
 export class AnnouncementsResolver {
@@ -27,7 +27,7 @@ export class AnnouncementsResolver {
   }
 
   @Mutation(() => AnnouncementModel)
-  @UseGuards(GqlAuthGuard)
+  @UseGuards(JwtAuthGuard)
   public async createAnnouncement(
     @Args('input') input: CreateAnnouncementInput,
   ): Promise<AnnouncementModel> {
@@ -35,7 +35,7 @@ export class AnnouncementsResolver {
   }
 
   @Mutation(() => AnnouncementModel)
-  @UseGuards(GqlAuthGuard)
+  @UseGuards(JwtAuthGuard)
   public async updateAnnouncementById(
     @Args('input') input: UpdateAnnouncementInput,
   ): Promise<AnnouncementModel> {
@@ -43,7 +43,7 @@ export class AnnouncementsResolver {
   }
 
   @Mutation(() => [AnnouncementModel])
-  @UseGuards(GqlAuthGuard)
+  @UseGuards(JwtAuthGuard)
   public async exchangePositionAnnouncement(
     @Args('input') input: ExchangePositionInput,
   ): Promise<AnnouncementModel[]> {
@@ -51,7 +51,7 @@ export class AnnouncementsResolver {
   }
 
   @Mutation(() => AnnouncementModel)
-  @UseGuards(GqlAuthGuard)
+  @UseGuards(JwtAuthGuard)
   public async deleteAnnouncementById(
     @Args({ name: 'id', type: () => ID }) id: string,
   ): Promise<AnnouncementModel> {
@@ -59,7 +59,7 @@ export class AnnouncementsResolver {
   }
 
   @Mutation(() => BatchDeleteModel)
-  @UseGuards(GqlAuthGuard)
+  @UseGuards(JwtAuthGuard)
   public async deleteAnnouncements(@Args({ name: 'ids', type: () => [ID] }) ids: string[]) {
     return this.announcementsService.batchDelete(ids)
   }

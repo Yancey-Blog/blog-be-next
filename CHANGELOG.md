@@ -2,6 +2,85 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.15.4](https://github.com/Yancey-Blog/blog-be-next/compare/v1.15.3...v1.15.4) (2021-11-08)
+
+
+### Features
+
+* update ([20b63bb](https://github.com/Yancey-Blog/blog-be-next/commit/20b63bb82f8a8431c279e8f7122eac9e9d193b9a))
+
+
+### Bug Fixes
+
+* close cors temporarily ([b68eba6](https://github.com/Yancey-Blog/blog-be-next/commit/b68eba6f195efa9b09601279a172a4ad15a89253))
+
+### [1.15.3](https://github.com/Yancey-Blog/blog-be-next/compare/v1.15.2...v1.15.3) (2021-11-02)
+
+
+### Bug Fixes
+
+* **cors:** supports empty third-level domain name ([26b9471](https://github.com/Yancey-Blog/blog-be-next/commit/26b947132bbb686da18c07b81c0f58be2efdec32))
+
+### [1.15.2](https://github.com/Yancey-Blog/blog-be-next/compare/v1.15.1...v1.15.2) (2021-10-24)
+
+
+### Bug Fixes
+
+* open all cors ([e9d7753](https://github.com/Yancey-Blog/blog-be-next/commit/e9d77532fc2ea039a55661103e00815fb79f1c7b))
+* use cors ([8a56f63](https://github.com/Yancey-Blog/blog-be-next/commit/8a56f63a6793dcca6b53e85d28614227ae962a59))
+
+### [1.15.1](https://github.com/Yancey-Blog/blog-be-next/compare/v1.15.0...v1.15.1) (2021-10-24)
+
+
+### Bug Fixes
+
+* add auth for upload ([8c31dc0](https://github.com/Yancey-Blog/blog-be-next/commit/8c31dc033e06632186a1d7ae06bbe9ee6536aed4))
+* delete auth ([6d05615](https://github.com/Yancey-Blog/blog-be-next/commit/6d05615c24e7e4d4518a6484c1230ac73fe6eb0d))
+* fix cors ([0ed2b81](https://github.com/Yancey-Blog/blog-be-next/commit/0ed2b81082608f5ea8acc57190161c873c3fb74c))
+* try bady-parse ([b5e757b](https://github.com/Yancey-Blog/blog-be-next/commit/b5e757b873d512d550598f98929ee7f2b8c7e75f))
+* try delete GraphQLValidationPipe ([b330e30](https://github.com/Yancey-Blog/blog-be-next/commit/b330e30ec38b8e6f9512fde8c7e66b0c4d9e25d0))
+* try restful upload api ([a0ef117](https://github.com/Yancey-Blog/blog-be-next/commit/a0ef117a708b6ba0bcee1ac5496da3ff41f963f3))
+
+## [1.15.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.14.2...v1.15.0) (2021-10-23)
+
+
+### Features
+
+* back to http upload ([63affb1](https://github.com/Yancey-Blog/blog-be-next/commit/63affb15c19d48710e2a866af94d953299ddd434))
+
+### [1.14.2](https://github.com/Yancey-Blog/blog-be-next/compare/v1.14.1...v1.14.2) (2021-10-23)
+
+
+### Features
+
+* try do not use sharp ([8028c3f](https://github.com/Yancey-Blog/blog-be-next/commit/8028c3f5ed0dbf2ca8616d0e58d84a8e41e3e58b))
+
+### [1.14.1](https://github.com/Yancey-Blog/blog-be-next/compare/v1.14.0...v1.14.1) (2021-10-23)
+
+
+### Bug Fixes
+
+* try delete sharp ([3ad6f01](https://github.com/Yancey-Blog/blog-be-next/commit/3ad6f01d3a53483cfc792feb4a218dd765fb9376))
+
+## [1.14.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.13.0...v1.14.0) (2021-10-23)
+
+
+### Features
+
+* update logger and uploader ([8f211c0](https://github.com/Yancey-Blog/blog-be-next/commit/8f211c0958421dc0f3a04c08e19794aa6d0f48a8))
+
+## [1.13.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.12.0...v1.13.0) (2021-09-30)
+
+
+### Features
+
+* adjusting parameter of sharp ([db2278f](https://github.com/Yancey-Blog/blog-be-next/commit/db2278f8fbbd6a3dc4b3c16719495f143f1fdc1f))
+* delete ali sms module ([2464a9f](https://github.com/Yancey-Blog/blog-be-next/commit/2464a9fd600714117c90f6baf36e13fdc0aa0df2))
+* finish sharp ([705a48e](https://github.com/Yancey-Blog/blog-be-next/commit/705a48e3d6e2dcb8ec490e075ae19a11433d6b0b))
+* **wip:** use sharp to genrate webp and avif ([b569e0e](https://github.com/Yancey-Blog/blog-be-next/commit/b569e0e5a7dfa3525a53d334fda85a698de52cba))
+
+## [1.12.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.11.0...v1.12.0) (2021-09-27)
+
 ## [1.11.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.10.0...v1.11.0) (2021-09-14)
 
 

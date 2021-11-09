@@ -5,7 +5,7 @@ import { OpenSourceModel } from './models/open-sources.model'
 import { BatchDeleteModel } from '../database/models/batch-delete.model'
 import { CreateOpenSourceInput } from './dtos/create-open-source.input'
 import { UpdateOpenSourceInput } from './dtos/update-open-source.input'
-import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
+import { JwtAuthGuard } from '../shared/guard/GraphQLAuth.guard'
 
 @Resolver(() => OpenSourceModel)
 export class OpenSourcesResolver {
@@ -24,25 +24,25 @@ export class OpenSourcesResolver {
   }
 
   @Mutation(() => OpenSourceModel)
-  @UseGuards(GqlAuthGuard)
+  @UseGuards(JwtAuthGuard)
   public async createOpenSource(@Args('input') input: CreateOpenSourceInput) {
     return this.openSourcesService.create(input)
   }
 
   @Mutation(() => OpenSourceModel)
-  @UseGuards(GqlAuthGuard)
+  @UseGuards(JwtAuthGuard)
   public async updateOpenSourceById(@Args('input') input: UpdateOpenSourceInput) {
     return this.openSourcesService.update(input)
   }
 
   @Mutation(() => OpenSourceModel)
-  @UseGuards(GqlAuthGuard)
+  @UseGuards(JwtAuthGuard)
   public async deleteOpenSourceById(@Args({ name: 'id', type: () => ID }) id: string) {
     return this.openSourcesService.deleteOneById(id)
   }
 
   @Mutation(() => BatchDeleteModel)
-  @UseGuards(GqlAuthGuard)
+  @UseGuards(JwtAuthGuard)
   public async deleteOpenSources(@Args({ name: 'ids', type: () => [ID] }) ids: string[]) {
     return this.openSourcesService.batchDelete(ids)
   }

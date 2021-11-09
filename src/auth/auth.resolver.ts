@@ -10,7 +10,7 @@ import { LoginInput } from './dtos/login.input'
 import { RegisterInput } from './dtos/register.input'
 import { ValidateTOTPInput } from './dtos/validate-totp.input'
 import { ChangePasswordInput } from './dtos/change-password.input'
-import { GqlAuthGuard } from '../shared/guard/gqlAuth.guard'
+import { JwtAuthGuard } from '../shared/guard/GraphQLAuth.guard'
 import { ReqDecorator } from '../shared/decorators/req.decorator'
 
 @Resolver(() => UserModel)
@@ -31,25 +31,25 @@ export class AuthResolver {
   // }
 
   @Mutation(() => TOTPModel)
-  @UseGuards(GqlAuthGuard)
+  @UseGuards(JwtAuthGuard)
   public async createTOTP(@ReqDecorator() req: Request) {
     return this.authService.createTOTP(req.headers.authorization)
   }
 
   @Mutation(() => UserModel)
-  @UseGuards(GqlAuthGuard)
+  @UseGuards(JwtAuthGuard)
   public async validateTOTP(@Args('input') input: ValidateTOTPInput, @ReqDecorator() req: Request) {
     return this.authService.validateTOTP(input, req.headers.authorization)
   }
 
   @Mutation(() => RecoveryCodeModel)
-  @UseGuards(GqlAuthGuard)
+  @UseGuards(JwtAuthGuard)
   public async createRecoveryCodes(@ReqDecorator() req: Request) {
     return this.authService.createRecoveryCodes(req.headers.authorization)
   }
 
   @Mutation(() => UserModel)
-  @UseGuards(GqlAuthGuard)
+  @UseGuards(JwtAuthGuard)
   public async validateRecoveryCode(
     @Args('input') input: ValidateTOTPInput,
     @ReqDecorator() req: Request,
@@ -58,7 +58,7 @@ export class AuthResolver {
   }
 
   @Mutation(() => UserModel)
-  @UseGuards(GqlAuthGuard)
+  @UseGuards(JwtAuthGuard)
   public async changePassword(
     @Args('input') input: ChangePasswordInput,
     @ReqDecorator() req: Request,
@@ -67,7 +67,7 @@ export class AuthResolver {
   }
 
   @Mutation(() => IPModel)
-  @UseGuards(GqlAuthGuard)
+  @UseGuards(JwtAuthGuard)
   public async loginStatistics(@ReqDecorator() req: Request) {
     return this.authService.loginStatistics(req)
   }

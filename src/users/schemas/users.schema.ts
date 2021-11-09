@@ -59,11 +59,6 @@ export const UserSchema = new mongoose.Schema<User>(
       type: String,
       required: false,
     },
-    phoneNumber: {
-      default: '',
-      type: String,
-      required: false,
-    },
     isTOTP: {
       default: false,
       type: Boolean,
