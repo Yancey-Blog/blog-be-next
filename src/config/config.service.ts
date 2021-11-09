@@ -71,10 +71,6 @@ export class ConfigService {
     return this.get('GOOGLE_RECAPTCHA_KEY')
   }
 
-  public getAzureStorageConnectionString(): string {
-    return this.get('AZURE_STORAGE_CONNECTION_STRING')
-  }
-
   private validateEnvFile(envConfig: EnvConfig): EnvConfig {
     const envVarsSchema: ObjectSchema = Joi.object({
       NODE_ENV: Joi.string()
@@ -93,7 +89,6 @@ export class ConfigService {
       JWT_SECRET_KEY: Joi.string().required(),
       JWT_EXPIRES_TIME: Joi.number().required(),
       GOOGLE_RECAPTCHA_KEY: Joi.string().required(),
-      AZURE_STORAGE_CONNECTION_STRING: Joi.string().required(),
       NEED_SIMULATE_NETWORK_THROTTLE: Joi.boolean().optional(),
     })
 

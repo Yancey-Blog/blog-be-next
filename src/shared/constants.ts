@@ -8,10 +8,6 @@ export const GOOGLE_RECAPTCHA_URL = 'https://www.google.com/recaptcha/api/siteve
 
 export const IP_STACK_URL = 'http://api.ipstack.com/'
 
-export const AZURE_STORAGE_URL = 'https://edge.yancey.app'
-
-export const AZURE_STORAGE_CONTAINER_NAME = 'beg'
-
 export const SCHEMA_GQL_FILE_NAME = 'schema.gql'
 
 export const TOTP_ENCODE = 'base32'
