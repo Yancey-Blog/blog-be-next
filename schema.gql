@@ -456,6 +456,7 @@ input UpdateUserInput {
   avatarUrl: String
 }
 
+"""The input type for creating an announcement."""
 input CreateAnnouncementInput {
   """Announcement content."""
   content: String!
