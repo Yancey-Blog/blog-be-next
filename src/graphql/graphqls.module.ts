@@ -15,6 +15,7 @@ import { configCORS } from '../shared/utils'
         debug: !configService.isEnvProduction,
         playground: !configService.isEnvProduction,
         installSubscriptionHandlers: true,
+        useGlobalPrefix: true,
         typePaths: ['./**/*.gql'],
         autoSchemaFile: SCHEMA_GQL_FILE_NAME,
         context: ({ req }) => ({ req }),

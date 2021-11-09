@@ -6,6 +6,7 @@ import { AppModule } from './app.module'
 
 const bootstrap = async () => {
   const app = await NestFactory.create<NestExpressApplication>(AppModule)
+  app.setGlobalPrefix('beg')
 
   configMiddlewares(app)
   configLog(app)
