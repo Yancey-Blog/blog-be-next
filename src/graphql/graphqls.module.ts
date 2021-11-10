@@ -32,7 +32,7 @@ import { configCORS } from '../shared/utils'
               }
             : error
         },
-        cors: configCORS(),
+        cors: configCORS(configService.isEnvProduction),
       }),
 
       inject: [ConfigService],
