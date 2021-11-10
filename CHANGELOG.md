@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.17.1...v2.0.0) (2021-11-10)
+
+
+### Features
+
+* finish mograte to nest8 ([9282773](https://github.com/Yancey-Blog/blog-be-next/commit/92827739e810cfd1b597d34f7937a162db89ecb0))
+* migrate to nest8 ([b749544](https://github.com/Yancey-Blog/blog-be-next/commit/b74954405e4aa0e42257a97cf401fb2ed172c2f1))
+* resolve conflict ([fa1f3ca](https://github.com/Yancey-Blog/blog-be-next/commit/fa1f3caf1c92d113decaddf1df09534aeb3c42a2))
+* update ([44fa9dd](https://github.com/Yancey-Blog/blog-be-next/commit/44fa9ddc9868565251b539fa89c295b5a249f92c))
+* use Apollo Studio ([06049a7](https://github.com/Yancey-Blog/blog-be-next/commit/06049a7899add1c2c6841cd405c2ae78cbebfc31))
+* wip: migrate nestjs to v8 ([3cf5c6c](https://github.com/Yancey-Blog/blog-be-next/commit/3cf5c6cb7fd3379733a2be8e24fbe5360979151d))
+* **wip:** use new graphql playground ([2726b2e](https://github.com/Yancey-Blog/blog-be-next/commit/2726b2e7eee7f95f99957038f317ad2967ce52cc))
+
 ### [1.17.1](https://github.com/Yancey-Blog/blog-be-next/compare/v1.17.0...v1.17.1) (2021-11-10)
 
 
