@@ -1,5 +1,5 @@
-on: push
-name: Slack notification for pushing code.
+on: [push, pull_request]
+name: Redirect to commit diff page. 
 jobs:
   slackNotification:
     name: Slack Notification when Pushing
@@ -11,4 +11,8 @@ jobs:
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOKS }}
           SLACK_CHANNEL: github-actions
-          SLACK_TITLE: 'You have a push~ :rocket:'
+          SLACK_TITLE: 'A ${{ github.event_name }} for ${{ github.repository }} :rocket:'
+          SLACK_FOOTER: 'Powered by Yancey Inc. and its affiliates.'
+          SLACK_LINK_NAMES: true
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_MESSAGE: '${{ github.actor }} is ${{ github.event_name }} the ${{ github.ref }} to ${{ github.repository }}.' 
