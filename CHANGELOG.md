@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.2](https://github.com/Yancey-Blog/blog-be-next/compare/v2.0.1...v2.0.2) (2021-11-10)
+
+
+### Bug Fixes
+
+* recovery cors ([f75370b](https://github.com/Yancey-Blog/blog-be-next/commit/f75370b5f4282c5f324636512ec1ae7b3d360177))
+
 ### [2.0.1](https://github.com/Yancey-Blog/blog-be-next/compare/v2.0.0...v2.0.1) (2021-11-10)
 
 
