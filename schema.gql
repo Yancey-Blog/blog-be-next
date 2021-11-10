@@ -236,8 +236,8 @@ type PostItemModel {
   content: String!
   tags: [String!]!
   lastModifiedDate: DateTime!
-  like: Float!
-  pv: Float!
+  like: Int!
+  pv: Int!
   isPublic: Boolean!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -456,7 +456,9 @@ input UpdateUserInput {
   avatarUrl: String
 }
 
+"""The input type for creating an announcement."""
 input CreateAnnouncementInput {
+  """Announcement content."""
   content: String!
 }
 

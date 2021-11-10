@@ -1,7 +1,8 @@
-import mongoose, { HookNextFunction } from 'mongoose'
+import mongoose from 'mongoose'
 import { v4 } from 'uuid'
 import bcrypt from 'bcrypt'
 import { encryptPassword } from '../../shared/utils'
+import { IPModel } from '../../auth/models/ip-model'
 import { Roles, User } from '../interfaces/user.interface'
 
 export const UserSchema = new mongoose.Schema<User>(
@@ -68,13 +69,12 @@ export const UserSchema = new mongoose.Schema<User>(
       required: false,
     },
     recoveryCodes: {
-      type: Array,
+      type: [String],
       required: false,
     },
     loginStatistics: {
-      type: Array,
+      type: [],
       required: false,
-      default: [],
     },
   },
   {
@@ -83,7 +83,7 @@ export const UserSchema = new mongoose.Schema<User>(
   },
 )
 
-UserSchema.pre<User>('save', function (next: HookNextFunction) {
+UserSchema.pre<User>('save', function (next) {
   this.password = encryptPassword(this.password)
   next()
 })

@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common'
 import { GraphQLModule } from '@nestjs/graphql'
 import { ValidationError } from 'apollo-server-express'
+import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core'
 import { ConfigModule } from '../config/config.module'
 import { ConfigService } from '../config/config.service'
 import { SCHEMA_GQL_FILE_NAME } from '../shared/constants'
@@ -10,10 +11,10 @@ import { configCORS } from '../shared/utils'
   imports: [
     GraphQLModule.forRootAsync({
       imports: [ConfigModule],
-
       useFactory: async (configService: ConfigService) => ({
         debug: !configService.isEnvProduction,
-        playground: !configService.isEnvProduction,
+        playground: false,
+        introspection: !configService.isEnvProduction,
         installSubscriptionHandlers: true,
         useGlobalPrefix: true,
         typePaths: ['./**/*.gql'],
@@ -32,6 +33,9 @@ import { configCORS } from '../shared/utils'
               }
             : error
         },
+        plugins: [
+          !configService.isEnvProduction && ApolloServerPluginLandingPageLocalDefault(),
+        ].filter(Boolean),
         cors: configCORS(configService.isEnvProduction),
       }),
 

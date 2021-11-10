@@ -1,10 +1,8 @@
-import { Injectable, HttpService } from '@nestjs/common'
+import { Injectable } from '@nestjs/common'
 import { ForbiddenError, AuthenticationError } from 'apollo-server-express'
-import fetch from 'node-fetch'
-import qs from 'query-string'
-import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
-import { AxiosResponse } from 'axios'
+import { HttpService } from '@nestjs/axios'
+import { Observable } from 'rxjs'
 import { JwtService } from '@nestjs/jwt'
 import { Request } from 'express'
 import { UAParser } from 'ua-parser-js'
@@ -57,13 +55,11 @@ export class AuthService {
       response: token,
       secret: this.configService.getGoogleRecaptchaKey(),
     }
-    const res = await fetch(`${GOOGLE_RECAPTCHA_URL}?${qs.stringify(params)}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-    })
 
-    const json = await res.json()
-    return json
+    return this.httpService
+      .get(GOOGLE_RECAPTCHA_URL, { params })
+      .pipe(map((response) => response.data))
+      .toPromise()
   }
 
   public async login(loginInput: LoginInput) {

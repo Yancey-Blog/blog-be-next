@@ -1,35 +1,50 @@
-import { InputType, Field } from '@nestjs/graphql'
-import { IsString, IsNotEmpty, IsUrl, IsDate, IsArray } from 'class-validator'
+import { InputType, Field, } from '@nestjs/graphql'
+import {
+  IsString,
+  IsNotEmpty,
+  IsUrl,
+  IsDate,
+  IsArray,
+  ArrayNotEmpty,
+  ArrayUnique,
+  MaxLength,
+  MinLength,
+} from 'class-validator'
 
 @InputType()
 export class CreatePostInput {
-  @Field()
+  @Field({ nullable: false })
   @IsString()
-  @IsUrl()
+  @IsUrl({ protocols: ['https'], require_protocol: true })
   @IsNotEmpty()
   public readonly posterUrl: string
 
-  @Field()
+  @Field({ nullable: false })
   @IsString()
+  @MinLength(1)
+  @MaxLength(20)
   @IsNotEmpty()
   public readonly title: string
 
-  @Field()
+  @Field({ nullable: false })
   @IsString()
   @IsNotEmpty()
   public readonly summary: string
 
-  @Field()
+  @Field({ nullable: false })
   @IsString()
   @IsNotEmpty()
   public readonly content: string
 
-  @Field(() => [String])
+  @Field(() => [String], { nullable: false })
   @IsArray()
+  @IsString({ each: true })
+  @ArrayNotEmpty()
+  @ArrayUnique()
   @IsNotEmpty()
   public readonly tags: string[]
 
-  @Field()
+  @Field({ nullable: false })
   @IsDate()
   @IsNotEmpty()
   public readonly lastModifiedDate: Date
