@@ -1,0 +1,14 @@
+on: push
+name: Slack notification for pushing code.
+jobs:
+  slackNotification:
+    name: Slack Notification when Pushing
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Slack Notification when Pushing
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOKS }}
+          SLACK_CHANNEL: github-actions
+          SLACK_TITLE: 'You have a push~ :rocket:'

@@ -26,7 +26,7 @@ const {
         ms(),
         prettyPrint(),
         label({
-          label: '[UPLOADER SERVICE] ',
+          label: '[BEG SERVICE] ',
         }),
         splat(),
       ),
