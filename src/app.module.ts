@@ -7,7 +7,6 @@ import { ConfigModule } from './config/config.module'
 import { DataBaseModule } from './database/database.module'
 import { GraphqlModule } from './graphql/graphqls.module'
 import { AuthModule } from './auth/auth.module'
-import { UploaderModule } from './uploader/uploader.module'
 import { UsersModule } from './users/users.module'
 import { AnnouncementsModule } from './announcements/announcements.module'
 import { OpenSourcesModule } from './open-sources/open-sources.module'
@@ -45,7 +44,6 @@ import { WinstonLogModule } from './shared/log/log.module'
     GlobalSettingModule,
     PostStatisticsModule,
     WinstonLogModule,
-    UploaderModule,
   ],
 
   providers: [

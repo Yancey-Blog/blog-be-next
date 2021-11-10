@@ -32,15 +32,11 @@ export const decodeJWT = (token: string) => jwt.decode(token.slice(7)) as Payloa
 
 export const encryptPassword = (password: string) => bcrypt.hashSync(password, 10)
 
-export const configCORS = () => {
-  const isEnvProduction = process.env.NODE_ENV === 'production'
-
-  return {
-    origin: isEnvProduction ? CORS_ORIGINS_PRODUCTION : CORS_ORIGINS_UN_PRODUCTION,
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-    credentials: true,
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
-    allowedHeaders: '*',
-  }
-}
+export const configCORS = (isEnvProduction: boolean) => ({
+  origin: isEnvProduction ? CORS_ORIGINS_PRODUCTION : CORS_ORIGINS_UN_PRODUCTION,
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+  credentials: true,
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  allowedHeaders: '*',
+})

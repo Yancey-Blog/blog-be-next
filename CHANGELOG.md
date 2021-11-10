@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.17.1](https://github.com/Yancey-Blog/blog-be-next/compare/v1.17.0...v1.17.1) (2021-11-10)
+
+
+### Bug Fixes
+
+* fix cors node_env ([2536825](https://github.com/Yancey-Blog/blog-be-next/commit/2536825ec607129bcb321eadf7601e1eed950ece))
+
+## [1.17.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.16.0...v1.17.0) (2021-11-09)
+
+
+### Features
+
+* add globalFix ([90eed1a](https://github.com/Yancey-Blog/blog-be-next/commit/90eed1addeb6e4c032b36396417547963d61a17a))
+
+## [1.16.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.15.4...v1.16.0) (2021-11-09)
+
+
+### Features
+
+* remove uploader service ([96af669](https://github.com/Yancey-Blog/blog-be-next/commit/96af6694d63c027421688a13347b495577288eea))
+
 ### [1.15.4](https://github.com/Yancey-Blog/blog-be-next/compare/v1.15.3...v1.15.4) (2021-11-08)
 
 

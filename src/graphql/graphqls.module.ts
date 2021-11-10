@@ -16,6 +16,7 @@ import { configCORS } from '../shared/utils'
         playground: false,
         introspection: !configService.isEnvProduction,
         installSubscriptionHandlers: true,
+        useGlobalPrefix: true,
         typePaths: ['./**/*.gql'],
         autoSchemaFile: SCHEMA_GQL_FILE_NAME,
         context: ({ req }) => ({ req }),
@@ -35,7 +36,7 @@ import { configCORS } from '../shared/utils'
         plugins: [
           !configService.isEnvProduction && ApolloServerPluginLandingPageLocalDefault(),
         ].filter(Boolean),
-        cors: configCORS(),
+        cors: configCORS(configService.isEnvProduction),
       }),
 
       inject: [ConfigService],
