@@ -7,7 +7,6 @@ import { AppModule } from './app.module'
 const bootstrap = async () => {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, { logger: false })
   app.setGlobalPrefix('beg')
-  app.enableCors({})
   configMiddlewares(app)
   configLogger(app)
   await app.listen(process.env.port || 3002)

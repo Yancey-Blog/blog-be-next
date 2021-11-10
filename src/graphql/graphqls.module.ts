@@ -5,6 +5,7 @@ import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core'
 import { ConfigModule } from '../config/config.module'
 import { ConfigService } from '../config/config.service'
 import { SCHEMA_GQL_FILE_NAME } from '../shared/constants'
+import { configCORS } from '../shared/utils'
 
 @Module({
   imports: [
@@ -35,6 +36,7 @@ import { SCHEMA_GQL_FILE_NAME } from '../shared/constants'
         plugins: [
           !configService.isEnvProduction && ApolloServerPluginLandingPageLocalDefault(),
         ].filter(Boolean),
+        cors: configCORS(configService.isEnvProduction),
       }),
 
       inject: [ConfigService],
