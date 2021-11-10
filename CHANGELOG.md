@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.17.1](https://github.com/Yancey-Blog/blog-be-next/compare/v1.17.0...v1.17.1) (2021-11-10)
+
+
+### Bug Fixes
+
+* fix cors node_env ([2536825](https://github.com/Yancey-Blog/blog-be-next/commit/2536825ec607129bcb321eadf7601e1eed950ece))
+
 ## [1.17.0](https://github.com/Yancey-Blog/blog-be-next/compare/v1.16.0...v1.17.0) (2021-11-09)
 
 
