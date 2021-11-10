@@ -1,4 +1,4 @@
-import { Module, Logger } from '@nestjs/common'
+import { Module } from '@nestjs/common'
 import { APP_PIPE, APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core'
 import { GraphQLValidationPipe } from './shared/pipes/GraphQLValidation.pipe'
 import { RolesGuard } from './shared/guard/roles.guard'
@@ -21,13 +21,14 @@ import { MottosModule } from './mottos/mottos.module'
 import { CoversModule } from './covers/covers.module'
 import { GlobalSettingModule } from './global-setting/global-setting.module'
 import { PostStatisticsModule } from './post-statistics/post-statistics.module'
-import { WinstonLogModule } from './shared/log/log.module'
+import { LoggerModule } from './shared/logger/logger.module'
 
 @Module({
   imports: [
     ConfigModule,
     GraphqlModule,
     DataBaseModule,
+    LoggerModule,
     AuthModule,
     UsersModule,
     AnnouncementsModule,
@@ -43,7 +44,6 @@ import { WinstonLogModule } from './shared/log/log.module'
     CoversModule,
     GlobalSettingModule,
     PostStatisticsModule,
-    WinstonLogModule,
   ],
 
   providers: [
@@ -61,8 +61,6 @@ import { WinstonLogModule } from './shared/log/log.module'
       provide: APP_INTERCEPTOR,
       useClass: DelayInterceptor,
     },
-
-    Logger,
   ],
 })
 export class AppModule {}
