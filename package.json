@@ -81,7 +81,7 @@
     "@types/node": "^16.9.2",
     "@types/passport-jwt": "^3.0.6",
     "@types/qrcode": "^1.4.1",
-    "@types/ramda": "^0.27.44",
+    "@types/ramda": "^0.27.50",
     "@types/request-ip": "^0.0.37",
     "@types/serve-favicon": "^2.5.3",
     "@types/speakeasy": "^2.0.6",
